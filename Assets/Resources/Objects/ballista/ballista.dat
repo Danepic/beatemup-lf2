@@ -1,0 +1,35 @@
+<bmp_begin>
+   type: ATTACK
+   name: Ballista
+   file: Objects/ballista/sprites
+   start_hp: 400
+   start_mp: 0
+<bmp_end>
+
+<frame> 0 idle
+   pic: 100  state: 2000  wait: 60  next: 1  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 1 idle
+   pic: 101  state: 2000  wait: 2  next: 2  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 2 idle
+   pic: 105  state: 2000  wait: 35  next: 3  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0  y: 0,543  z: 0 action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 3
+   opoint_end:
+<frame_end>
+<frame> 3 idle
+   pic: 106  state: 2000  wait: 10  next: 0  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>

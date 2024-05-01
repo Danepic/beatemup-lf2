@@ -1,0 +1,52 @@
+<bmp_begin>
+   type: ATTACK
+   name: NS_Naruto_Fūma_Shuriken
+   file: Attacks/Weapons/ns-naruto-fuma-shuriken/sprites
+   start_hp: 350
+   start_mp: 0
+<bmp_end>
+
+<pool>
+   quantity: 1  poolQuantity: 5
+<pool_end>
+
+<frame> 0 invoke
+   pic: 200  state: 2000  wait: 2  next: 2  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 2 invoke_impulse
+   pic: 101  state: 2001  wait: 1  next: 3  dvx: 425  dvy: 175  dvz: 0  
+   bdy:
+      kind: 0  x: -0,003  y: 0,165  z: 0  w: 0,89  h: 0,36  zwidth: 0,22
+   bdy_end:
+<frame_end>
+<frame> 3 invoke
+   pic: 102  state: 2001  wait: 1  next: 4  hitGround: 300
+   bdy:
+      kind: 0  x: -0,003  y: 0,165  z: 0  w: 0,89  h: 0,36  zwidth: 0,22
+   bdy_end:
+<frame_end>
+<frame> 4 invoke
+   pic: 101  state: 2001  wait: 1  next: 3  hitGround: 300
+   bdy:
+      kind: 0  x: -0,003  y: 0,165  z: 0  w: 0,89  h: 0,36  zwidth: 0,22
+   bdy_end:
+<frame_end>
+
+<frame> 300 remove
+   pic: -9999  state: 2099  wait: 1  next: 301  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,065  y: 0,51  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 3
+   opoint_end:
+<frame_end>
+<frame> 301 remove
+   pic: -9999  state: 2099  wait: 1  delete: true  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>

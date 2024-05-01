@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: cec81e82e9b07ec4c8a3b4f478778fb1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fuma_Shuriken_Sprite_1_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 79
+        width: 46
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bee3e4036e5c00409ea8364a2ab597a
+      internalID: 1299106449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuma_Shuriken_Sprite_1_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 76
+        width: 90
+        height: 36
+      alignment: 9
+      pivot: {x: 0.49344966, y: 0.06944445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50901e6f143d4b34c9d5953b42247062
+      internalID: -290468536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuma_Shuriken_Sprite_1_2
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 76
+        width: 89
+        height: 36
+      alignment: 9
+      pivot: {x: 0.49668798, y: 0.06944445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5959ec0db8bc080478f98fb0b8b141c9
+      internalID: -1363653030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuma_Shuriken_Sprite_1_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 4
+        width: 67
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5043994, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f03eb1f467e93e4a80ce8d030ec2ea3
+      internalID: -443095807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuma_Shuriken_Sprite_1_4
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 3
+        width: 66
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4955338, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c9b55e134c732438ae3798cd0762bc
+      internalID: -1117269352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuma_Shuriken_Sprite_1_5
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 9
+        width: 52
+        height: 37
+      alignment: 9
+      pivot: {x: 0.49433136, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f94461e78aa6a4b81cc3b2aed001fe
+      internalID: -47878999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuma_Shuriken_Sprite_1_6
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 3
+        width: 67
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5087986, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382d58e30f31f794b8905673955b6bcc
+      internalID: -1117089735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 712857ec32c2dea4c894f518a2d425e3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Fuma_Shuriken_Sprite_1_0: 1299106449
+      Fuma_Shuriken_Sprite_1_1: -290468536
+      Fuma_Shuriken_Sprite_1_2: -1363653030
+      Fuma_Shuriken_Sprite_1_3: -443095807
+      Fuma_Shuriken_Sprite_1_4: -1117269352
+      Fuma_Shuriken_Sprite_1_5: -47878999
+      Fuma_Shuriken_Sprite_1_6: -1117089735
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
