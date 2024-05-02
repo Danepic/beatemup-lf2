@@ -8,5 +8,6 @@ public class EffectProcess : ObjProcess
     void Update()
     {
         this.Timers();
+        this.SpawnOpoint();
     }
 }

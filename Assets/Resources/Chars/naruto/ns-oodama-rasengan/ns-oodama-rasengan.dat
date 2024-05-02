@@ -323,43 +323,43 @@
 
 
 <frame> 800 falling
-   pic: 604 state: 15  wait: 4  next: 801  dvx: 0  dvy: 0  dvz: 0
+   pic: 604 state: 12  wait: 4  next: 801  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 801 falling
-   pic: 605 state: 15  wait: 4  next: 802  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 605 state: 12  wait: 4  next: 802  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 802 falling
-   pic: 606 state: 15  wait: 4  next: 803  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 606 state: 12  wait: 4  next: 803  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 803 falling
-   pic: 607 state: 15  wait: 4  next: 804  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 607 state: 12  wait: 4  next: 804  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 804 falling
-   pic: 608 state: 15  wait: 4  next: 805  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 608 state: 12  wait: 4  next: 805  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 805 falling
-   pic: 609 state: 15  wait: 4  next: 806  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 609 state: 12  wait: 4  next: 806  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 806 falling
-   pic: 610 state: 15  wait: 4  next: 806  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 610 state: 12  wait: 4  next: 806  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:

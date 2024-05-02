@@ -47,6 +47,13 @@ public class CharProcess : HurtHitObjProcess
             case StateFrameEnum.JUMPING:
                 ApplyPhysicJumping();
                 break;
+            case StateFrameEnum.FALLING:
+                if (dataHelper.execHitSpawnOneTimeInFrame)
+                {
+                    dataHelper.execHitSpawnOneTimeInFrame = false;
+                    matchController.SpawnOpoint(dataHelper.contactPoint, dataHelper.externItr.effect);
+                }
+                break;
             default:
                 ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz);
                 break;

@@ -7,5 +7,6 @@ namespace Enums {
         PLATFORM,
         STAGE,
         NPC,
+        ETC,
     }
 }

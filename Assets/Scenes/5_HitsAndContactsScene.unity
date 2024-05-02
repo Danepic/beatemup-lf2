@@ -604,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156f67c05809bf44ab94c4befee5de4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBlood: {fileID: 5278650287573263675, guid: 2241801ba662bad4d8fb827e1421d904, type: 3}
 --- !u!4 &970216419
 Transform:
   m_ObjectHideFlags: 0

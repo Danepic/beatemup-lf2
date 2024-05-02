@@ -9,6 +9,9 @@ public class HurtHitObjProcess : ObjProcess
     public Transform hurtbox;
     public Transform hitbox;
 
+    public Rigidbody rigidbody;
+    protected MatchController matchController;
+
     public float zSizeDefault = 0.22f;
     public float maxDistanceToCheckCollision = 0.1f;
     private LayerMask whatIsGround;
@@ -19,6 +22,7 @@ public class HurtHitObjProcess : ObjProcess
         base.Start();
         whatIsGround = LayerMask.GetMask("Ground");
         whatIsItr = LayerMask.GetMask("Itr");
+        matchController = GameObject.Find("MatchController").GetComponent<MatchController>();
     }
 
     void OnDisable()
@@ -88,6 +92,8 @@ public class HurtHitObjProcess : ObjProcess
             dataHelper.externTeam = scriptObject.dataHelper.team;
             dataHelper.externId = collider.gameObject.GetInstanceID();
             dataHelper.externOwnerId = scriptObject.dataHelper.ownerId;
+            dataHelper.execHitSpawnOneTimeInFrame = true;
+            dataHelper.contactPoint = collider.ClosestPoint(transform.position);
         }
     }
 
@@ -141,7 +147,6 @@ public class HurtHitObjProcess : ObjProcess
         }
         else
         {
-            dataHelper.externItr = null;
             dataHelper.externAction = false;
         }
     }

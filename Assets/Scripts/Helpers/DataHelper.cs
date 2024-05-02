@@ -14,6 +14,7 @@ namespace Helpers
 
         public bool execOpointOneTimeInFrame;
         public bool execImpulseForceOneTimeInFrame;
+        public bool execHitSpawnOneTimeInFrame;
 
         public int previousId;
 
@@ -35,8 +36,9 @@ namespace Helpers
         public TeamEnum externTeam;
         public int? externId;
         public int? externOwnerId;
+        public Vector3 contactPoint;
 
-        public bool attacked;
+        public bool attacking;
         public bool wasAttacked;
 
         public bool onGround;

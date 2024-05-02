@@ -25,8 +25,6 @@ public abstract class ObjProcess : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    public Rigidbody rigidbody;
-
     public FrameEntity currentFrame;
 
     public float waitFrame;

@@ -36,7 +36,7 @@
       kind: 0  default: true
    bdy_end:
    itr:
-      kind: 0  default: true  dvx: 0  dvy: 0  dvz: 0  action: 800  rest: 1  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1
+      kind: 0  default: true  dvx: 10  dvy: 5  dvz: 0  action: 800  rest: 1  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1
    itr_end:
 <frame_end>
 
