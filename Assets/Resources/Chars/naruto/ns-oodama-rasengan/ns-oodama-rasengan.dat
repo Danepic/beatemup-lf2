@@ -1,13 +1,22 @@
 <bmp_begin>
    type: CHARACTER
    name: Naruto_Uzumaki_(Oodama_Rasengan)
-   file: Chars/naruto/ns-oodama-rasengan/sprites
    start_hp: 1025
    start_mp: 500
 <bmp_end>
 
+<palletes_begin>
+   file: Chars/naruto/ns-oodama-rasengan/sprites 
+   file: Chars/naruto/ns-oodama-rasengan/sprites_1 
+<palletes_end>
+
 <stats>
-   aggressive: 6  technique: 6  intelligent: 8  speed: 7  resistance: 8  stamina: 10
+   aggressive: 6  
+   technique: 6  
+   intelligent: 8  
+   speed: 7  
+   resistance: 8  
+   stamina: 10
 <stats_end>
 
 <frame> 0 standing
@@ -134,20 +143,400 @@
 <frame_end>
 
 
+<frame> 40 simple_dash
+   pic: 119 state: 15  wait: 2  next: 41  dvx: 250  dvy: 0  dvz: 0  hitJump: 250  hitDefense: 70  hitAttack: 330
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 41 simple_dash
+   pic: 120 state: 30  wait: 0,5  next: 42  dvy: 0  dvz: 0  hitJump: 250  hitDefense: 70  hitAttack: 330
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 42 simple_dash
+   pic: 121 state: 30  wait: 4  next: 43  dvy: 0  dvz: 0  hitJump: 250  hitDefense: 70  hitAttack: 330  holdForwardAfter: 54
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 43 simple_dash
+   pic: 121 state: 30  wait: 1  next: 60  dvy: 0  dvz: 0  hitJump: 250  hitDefense: 70  hitAttack: 330  holdForwardAfter: 55
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 45 running
+   pic: 119 state: 2  wait: 1,5  next: 46  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 46 running
+   pic: 120 state: 2  wait: 0,5  next: 47  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 47 running
+   pic: 121 state: 2  wait: 1,5  next: 48  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 48 running
+   pic: 122 state: 2  wait: 0,5  next: 49  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 49 running
+   pic: 123 state: 2  wait: 1,5  next: 50  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 50 running
+   pic: 124 state: 2  wait: 0,5  next: 51  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 51 running
+   pic: 125 state: 2  wait: 1,5  next: 52  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 52 running
+   pic: 126 state: 2  wait: 0,5  next: 53  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 53 running
+   pic: 127 state: 2  wait: 1,5  next: 54  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 54 running
+   pic: 128 state: 2  wait: 0,5  next: 55  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 55 running
+   pic: 129 state: 2  wait: 1,5  next: 56  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 56 running
+   pic: 130 state: 2  wait: 0,5  next: 45  dvx: 3  dvy: 0  dvz: -2,5  hitJump: 250  hitDefense: 70  hitAttack: 330  hitAir: 298
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 60 stop_running
+   pic: 133 state: 32  wait: 1  next: 61  hitAttack: 330
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 61 stop_running
+   pic: 133 state: 24  wait: 4  next: 62  dvx: 200  dvy: 0  dvz: 0  hitAttack: 330
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 62 stop_running
+   pic: 133 state: 32  wait: 1  next: 0  hitAttack: 330
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 70 running_dash
+   pic: 130 state: 32  wait: 2  next: 71
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 71 running_dash
+   pic: 131 state: 5  wait: 0,5  next: 72  dvx: 450  dvy: 0  dvz: 200
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 72 running_dash
+   pic: 132 state: 5  wait: 8  next: 73  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 73 running_dash
+   pic: 241 state: 5  wait: 0,5  next: 60  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 90 side_dash
+   pic: 702 state: 105  wait: 1  next: 91  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 91 side_dash
+   pic: 703 state: 105  wait: 1  next: 92  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 92 side_dash
+   pic: 704 state: 105  wait: 5  next: 93  dvx: 0  dvy: 0  dvz: 500
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 93 side_dash
+   pic: 702 state: 105  wait: 0,5  next: 290  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 110 dash_forward
+   pic: 222 state: 5  wait: 0,5  next: 111  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 111 dash_forward
+   pic: 221 state: 5  wait: 0,5  next: 112  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 112 dash_forward
+   pic: 220 state: 5  wait: 0,5  next: 113  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 113 dash_forward
+   pic: 219 state: 5  wait: 0,5  next: 114  dvx: 300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 114 dash_forward
+   pic: 218 state: 5  wait: 0,5  next: 115
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 115 dash_forward
+   pic: 217 state: 5  wait: 0,5  next: 116  dvx: 300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 116 dash_forward
+   pic: 216 state: 5  wait: 0,5  next: 117
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 117 dash_forward
+   pic: 215 state: 5  wait: 0,5  next: 118  dvx: 300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 118 dash_forward
+   pic: 214 state: 5  wait: 0,5  next: 119
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 119 dash_forward
+   pic: 213 state: 5  wait: 0,5  next: 120  dvx: 300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 120 dash_forward
+   pic: 212 state: 5  wait: 0,5  next: 121
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 121 dash_forward
+   pic: 211 state: 5  wait: 0,5  next: 122  dvx: 300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 122 dash_forward
+   pic: 210 state: 5  wait: 0,5  next: 123
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 123 dash_forward
+   pic: 209 state: 5  wait: 0,5  next: 124  dvx: 300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 124 dash_forward
+   pic: 208 state: 5  wait: 0,5  next: 125  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 125 dash_forward
+   pic: 221 state: 5  wait: 0,5  next: 126  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 126 dash_forward
+   pic: 134 state: 32  wait: 6  next: 0  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 130 dash_backward
+   pic: 208 state: 5  wait: 0,5  next: 131  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 131 dash_backward
+   pic: 209 state: 5  wait: 0,5  next: 132  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 132 dash_backward
+   pic: 210 state: 5  wait: 0,5  next: 133  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 133 dash_backward
+   pic: 211 state: 5  wait: 0,5  next: 134  dvx: -300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 134 dash_backward
+   pic: 212 state: 5  wait: 0,5  next: 135
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 135 dash_backward
+   pic: 213 state: 5  wait: 0,5  next: 136  dvx: -300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 136 dash_backward
+   pic: 214 state: 5  wait: 0,5  next: 137
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 137 dash_backward
+   pic: 215 state: 5  wait: 0,5  next: 138  dvx: -300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 138 dash_backward
+   pic: 216 state: 5  wait: 0,5  next: 139
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 139 dash_backward
+   pic: 217 state: 5  wait: 0,5  next: 140  dvx: -300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 140 dash_backward
+   pic: 218 state: 5  wait: 0,5  next: 141
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 141 dash_backward
+   pic: 219 state: 5  wait: 0,5  next: 142  dvx: -300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 142 dash_backward
+   pic: 220 state: 5  wait: 0,5  next: 143
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 143 dash_backward
+   pic: 221 state: 5  wait: 0,5  next: 144  dvx: -300  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 144 dash_backward
+   pic: 222 state: 5  wait: 0,5  next: 145  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 145 dash_backward
+   pic: 134 state: 5  wait: 0,5  next: 146  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 146 dash_backward
+   pic: 134 state: 32  wait: 6  next: 0  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
 <frame> 150 start_defense
-   pic: 139 state: 15  wait: 1  next: 151  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310
+   pic: 139 state: 15  wait: 1  next: 151  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 151 defense
-   pic: 140 state: 7  wait: 5  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155
+   pic: 140 state: 7  wait: 5  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 152 stop_defense
-   pic: 139 state: 15  wait: 1  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310
+   pic: 139 state: 15  wait: 1  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -155,7 +544,7 @@
 
 
 <frame> 155 defense_hold
-   pic: 140 state: 7  wait: 1  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155
+   pic: 140 state: 7  wait: 1  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -163,13 +552,122 @@
 
 
 <frame> 160 hit_defense
-   pic: 140 state: 15  wait: 1  next: 161  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155
+   pic: 140 state: 107  wait: 1  next: 161  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 161 hit_defense
-   pic: 140 state: 7  wait: 2,5  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155
+   pic: 140 state: 7  wait: 2,5  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 170 charge_start
+   pic: 223 state: 15  wait: 1  next: 171  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 171 charge_start
+   pic: 224 state: 15  wait: 1  next: 172  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 172 charge_start
+   pic: 226 state: 15  wait: 1  next: 173  dvx: 0  dvy: 0  dvz: 0 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 173 charge_start
+   pic: 225 state: 15  wait: 1  next: 175  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+<frame> 175 charge
+   pic: 227 state: 15  wait: 0,5  next: 185  dvx: 0  dvy: 0  dvz: 0  hitAttack: 181  hitPower: 181  hitDefense: 181  hitJump: 181  mp: 15
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,187  y: 0,389  z: -0,102  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 2  facingFront: true  quantity: 1  poolQuantity: 2
+   opoint_end:
+<frame_end>
+<frame> 185 charge
+   pic: 227 state: 15  wait: 0,5  next: 186  dvx: 0  dvy: 0  dvz: 0  hitAttack: 181  hitPower: 181  hitDefense: 181  hitJump: 181
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,013  y: 0,014  z: 0  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 3  facingFront: true  quantity: 1  poolQuantity: 2
+   opoint_end:
+<frame_end>
+<frame> 186 charge
+   pic: 227 state: 15  wait: 0,5  next: 176  dvx: 0  dvy: 0  dvz: 0  hitAttack: 181  hitPower: 181  hitDefense: 181  hitJump: 181  mp: 15
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: -0,049  y: 0,109  z: -0,102  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 4  facingFront: true  quantity: 1  poolQuantity: 2
+   opoint_end:
+<frame_end>
+<frame> 176 charge
+   pic: 227 state: 15  wait: 3  next: 177  dvx: 0  dvy: 0  dvz: 0  hitAttack: 181  hitPower: 181  hitDefense: 181  hitJump: 181
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 177 charge
+   pic: 228 state: 15  wait: 2  next: 178  dvx: 0  dvy: 0  dvz: 0  hitAttack: 181  hitPower: 181  hitDefense: 181  hitJump: 181
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 178 charge
+   pic: 229 state: 15  wait: 2  next: 179  dvx: 0  dvy: 0  dvz: 0  hitAttack: 181  hitPower: 181  hitDefense: 181  hitJump: 181
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 179 charge
+   pic: 230 state: 15  wait: 2  next: 180  dvx: 0  dvy: 0  dvz: 0  hitAttack: 181  hitPower: 181  hitDefense: 181  hitJump: 181
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 180 charge
+   pic: 231 state: 15  wait: 2  next: 175  dvx: 0  dvy: 0  dvz: 0  hitAttack: 181  hitPower: 181  hitDefense: 181  hitJump: 181
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+<frame> 181 charge_stop
+   pic: 225 state: 15  wait: 1  next: 182  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 182 charge_stop
+   pic: 226 state: 15  wait: 1  next: 183  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 183 charge_stop
+   pic: 224 state: 15  wait: 1  next: 184  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 184 charge_stop
+   pic: 223 state: 15  wait: 1  next: 0  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -195,7 +693,13 @@
    bdy_end:
 <frame_end>
 <frame> 213 jump
-   pic: 136 state: 4  wait: 9  next: 220  dvx: 30  dvy: 300  dvz: 3  hitDefense: 300
+   pic: 136 state: 4  wait: 1  next: 214  dvx: 80  dvy: 300  dvz: 80  hitJump: 230
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 214 jump
+   pic: 136 state: 104  wait: 8  next: 220  hitDefense: 300  hitJump: 230  hitGround: 290
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -203,7 +707,7 @@
 
 
 <frame> 219 jump_walking
-   pic: 134 state: 4  wait: 4  next: 211  dvx: 0  dvy: 0  dvz: 0  hitDefense: 110
+   pic: 134 state: 15  wait: 4  next: 211  dvx: 0  dvy: 0  dvz: 0  hitDefense: 110
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -211,13 +715,105 @@
 
 
 <frame> 220 jump_falling
-   pic: 137 state: 104  wait: 0,5  next: 221  dvx: 0  dvy: 0  dvz: 0  hitDefense: 110  hitGround: 290
+   pic: 137 state: 104  wait: 0,5  next: 221  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitJump: 230 
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 221 jump_falling
-   pic: 138 state: 104  wait: 1  next: 221  dvx: 0  dvy: 0  dvz: 0  hitDefense: 110  hitGround: 290
+   pic: 138 state: 104  wait: 1  next: 221  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitJump: 230 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 230 double_jump
+   pic: 134 state: 15  wait: 1  next: 231  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 231 double_jump
+   pic: 135 state: 15  wait: 0,5  next: 232  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 232 double_jump
+   pic: 136 state: 704  wait: 1  next: 233  dvx: 80  dvy: 225  dvz: 80
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 233 double_jump
+   pic: 136 state: 504  wait: 8  next: 240  hitDefense: 300  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 240 double_jump_falling
+   pic: 137 state: 304  wait: 0,5  next: 241  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 241 double_jump_falling
+   pic: 138 state: 304  wait: 1  next: 241  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 250 dash_jump
+   pic: 134 state: 15  wait: 2  next: 251  dvx: 0  dvy: 0  dvz: 0  hitDefense: 130
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 251 dash_jump
+   pic: 135 state: 15  wait: 0,5  next: 252  dvx: 0  dvy: 0  dvz: 0  hitDefense: 130
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 252 dash_jump
+   pic: 136 state: 604  wait: 1  next: 253  dvx: 175  dvy: 290  dvz: 80  hitJump: 230 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 253 dash_jump
+   pic: 136 state: 404  wait: 8  next: 220  hitDefense: 300  hitGround: 290  hitJump: 230 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 270 jump_dash
+   pic: 119 state: 205  wait: 2  next: 271  dvx: 200  dvy: 50  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 271 jump_dash
+   pic: 120 state: 205  wait: 0,5  next: 272  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 272 jump_dash
+   pic: 121 state: 205  wait: 4  next: 273  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 273 jump_dash
+   pic: 121 state: 205  wait: 1  next: 240  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -225,20 +821,20 @@
 
 
 <frame> 290 crouch
-   pic: 134 state: 15  wait: 4  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAir: 308
+   pic: 134 state: 32  wait: 4  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAir: 308
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 
 
-<frame> 298 jump_falling_no_action_when_x_move
-   pic: 137 state: 104  wait: 3  next: 299  dvx: 100
+<frame> 298 jump_falling_when_x_move
+   pic: 137 state: 104  wait: 0,5  next: 299  dvx: 100  hitDefense: 300  hitGround: 290  hitJump: 230 
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
-<frame> 299 jump_falling_no_action_when_x_move
+<frame> 299 jump_falling_when_x_move
    pic: 138 state: 104  wait: 1  next: 299  hitGround: 290
    bdy:
       kind: 0  default: true
@@ -246,8 +842,50 @@
 <frame_end>
 
 
+<frame> 300 start_jump_defense
+   pic: 141 state: 15  wait: 1  next: 301  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 301 jump_defense
+   pic: 142 state: 207  wait: 5  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 302 stop_jump_defense
+   pic: 141 state: 15  wait: 1  next: 308  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 303 jump_defense_hold
+   pic: 142 state: 207  wait: 1  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 305 hit_jump_defense
+   pic: 142 state: 307  wait: 1  next: 306  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 306 hit_jump_defense
+   pic: 142 state: 207  wait: 2,5  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
 <frame> 308 jump_falling_no_action
-   pic: 137 state: 104  wait: 3  next: 309  dvx: 0  dvy: 0  dvz: 0
+   pic: 137 state: 104  wait: 0,5  next: 309  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -322,44 +960,80 @@
 <frame_end>
 
 
+<frame> 700 injured_manager
+   pic: 111 state: 11  wait: 0,5  next: 702  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 702 injured_1
+   pic: 600 state: 16  wait: 0,5  next: 703  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 703 injured_1
+   pic: 601 state: 16  wait: 20  next: 0  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 710 injured_2
+   pic: 602 state: 16  wait: 0,5  next: 711  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 711 injured_2
+   pic: 603 state: 16  wait: 20  next: 0  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
 <frame> 800 falling
-   pic: 604 state: 12  wait: 4  next: 801  dvx: 0  dvy: 0  dvz: 0
+   pic: 604 state: 112  wait: 4  next: 801
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 801 falling
-   pic: 605 state: 12  wait: 4  next: 802  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 605 state: 12  wait: 4  next: 802  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 802 falling
-   pic: 606 state: 12  wait: 4  next: 803  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 606 state: 12  wait: 4  next: 803  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 803 falling
-   pic: 607 state: 12  wait: 4  next: 804  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 607 state: 12  wait: 4  next: 804  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 804 falling
-   pic: 608 state: 12  wait: 4  next: 805  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 608 state: 12  wait: 4  next: 805  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 805 falling
-   pic: 609 state: 12  wait: 4  next: 806  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 609 state: 12  wait: 4  next: 806  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 806 falling
-   pic: 610 state: 12  wait: 4  next: 806  dvx: 0  dvy: 0  dvz: 0  hitGround: 910
+   pic: 610 state: 12  wait: 4  next: 806  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -367,31 +1041,31 @@
 
 
 <frame> 910 lying
-   pic: 628 state: 15  wait: 2  next: 911  dvx: 0  dvy: 0  dvz: 0
+   pic: 628 state: 14  wait: 2  next: 911  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 911 lying
-   pic: 629 state: 15  wait: 2  next: 912  dvx: 0  dvy: 0  dvz: 0
+   pic: 629 state: 14  wait: 2  next: 912  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 912 lying
-   pic: 630 state: 15  wait: 2  next: 913  dvx: 0  dvy: 0  dvz: 0
+   pic: 630 state: 14  wait: 2  next: 913  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 913 lying
-   pic: 631 state: 15  wait: 2  next: 914  dvx: 0  dvy: 0  dvz: 0
+   pic: 631 state: 14  wait: 2  next: 914  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 914 lying
-   pic: 632 state: 15  wait: 40  next: 920  dvx: 0  dvy: 0  dvz: 0
+   pic: 632 state: 14  wait: 40  next: 920  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -399,31 +1073,31 @@
 
 
 <frame> 920 lying_up
-   pic: 633 state: 15  wait: 2  next: 921  dvx: 0  dvy: 0  dvz: 0
+   pic: 633 state: 14  wait: 2  next: 921  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 921 lying_up
-   pic: 634 state: 15  wait: 2  next: 922  dvx: 0  dvy: 0  dvz: 0
+   pic: 634 state: 14  wait: 2  next: 922  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 922 lying_up
-   pic: 700 state: 15  wait: 2  next: 923  dvx: 0  dvy: 0  dvz: 0
+   pic: 700 state: 14  wait: 2  next: 923  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 923 lying_up
-   pic: 701 state: 15  wait: 1  next: 924  dvx: 0  dvy: 0  dvz: 0
+   pic: 701 state: 14  wait: 1  next: 924  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 924 lying_up
-   pic: 702 state: 15  wait: 1  next: 290  dvx: 0  dvy: 0  dvz: 0
+   pic: 702 state: 14  wait: 1  next: 290  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:

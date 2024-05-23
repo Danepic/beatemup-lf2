@@ -15,17 +15,14 @@ namespace Helpers
         public bool execOpointOneTimeInFrame;
         public bool execImpulseForceOneTimeInFrame;
         public bool execHitSpawnOneTimeInFrame;
+        public bool execHealthManaPointsOneTimeInFrame;
 
-        public int previousId;
+        public int previousId; //TODO
 
-        public float repeatAnimationAt;
-        public bool repeatAnimationStart;
-        public bool repeatAnimationReady;
-
-        public int currentHp;
-        public int currentMp;
+        public float repeatAnimationAt; //TODO
+        public bool repeatAnimationStart; //TODO
+        public bool repeatAnimationReady; //TODO
         public bool facingRight = true;
-        public bool? facingUp;
 
         // Extern Interaction
         public int? summonAction;
@@ -37,28 +34,29 @@ namespace Helpers
         public int? externId;
         public int? externOwnerId;
         public Vector3 contactPoint;
+        public float damageRestTU;
 
-        public bool attacking;
-        public bool wasAttacked;
+        public bool attacking; //TODO
+        public bool wasAttacked; //TODO
+        public bool damageInSingleTarget;
+        public int? targetId;
 
         public bool onGround;
 
         public bool runningRightEnable;
-        public bool countRightEnable;
 
         public bool runningLeftEnable;
-        public bool countLeftEnable;
+
+        public bool jumpDashRightEnable;
+
+        public bool jumpDashLeftEnable;
 
         // Side Dash
-        public float sideDashUpCount;
-        public bool sideDashUpEnable;
-        public bool countSideDashUpEnable;
+        public bool sideDashUpEnable; //TODO
 
-        public float sideDashDownCount;
-        public bool sideDashDownEnable;
-        public bool countSideDashDownEnable;
+        public bool sideDashDownEnable; //TODO
 
-        public bool enableNextIfHit;
+        public bool enableNextIfHit; //TODO
 
         //Hit
         public bool hitJump;
@@ -71,28 +69,32 @@ namespace Helpers
         public bool hitUp;
         public bool hitDown;
         public bool hitLeft;
+        public bool releaseHitLeft;
+        public bool startedHitLeft;
         public bool hitRight;
+        public bool releaseHitRight;
+        public bool startedHitRight;
 
         //Hit State
         public bool inMovement;
 
         //Hold
-        public bool holdForwardAfter;
-        public bool holdDefenseAfter;
-        public bool holdPowerAfter;
+        public bool holdForwardAfter; //TODO
+        public bool holdDefenseAfter; //TODO
+        public bool holdPowerAfter; //TODO
 
         //Team
         public TeamEnum team;
         public int? ownerId;
         public Queue<ObjProcess> originPool;
         public int selfId;
-        // public ObjectPointController ownerOpointController;
-        // public ObjectPointCache objectPointCache;
 
         //Injured
-        public int injuredCount;
-        public static int INJURED_COUNT_LIMIT = 5;
-        public bool injuredCountOneTimePerState;
+        public int injuredCount; //TODO
+        public static int INJURED_COUNT_LIMIT = 5; //TODO
+        public bool injuredCountOneTimePerState; //TODO
+        public bool isDeath; //TODO
+        public bool isDefending;
 
         public override string ToString()
         {

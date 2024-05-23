@@ -17,6 +17,7 @@ namespace Enums
         FREEZE = 12,
         CONFUSE = 13,
         SILENCE = 14,
+        DEFENSE = 15,
         NO_EFFECT = 99
     }
 }

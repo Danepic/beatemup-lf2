@@ -17,7 +17,7 @@ namespace Utils
         public static readonly string[] SPLIT_PATTERN_FOR_FRAME = { " ", "  ", "   ", "    " };
         public static readonly string[] SPLIT_PATTERN_FOR_VALUE_FRAME = { ": ", ":  ", ":   ", ":    " };
 
-        public static ObjHelper Exec(TextAsset datFile, List<GameObject> opointsToPool)
+        public static ObjHelper Exec(TextAsset datFile, int palleteIndex)
         {
             var textFile = datFile.text;
             var bmpSplit = textFile.Split(BMP_TAG_BEGIN)[1].Split(BMP_TAG_END);
@@ -27,10 +27,10 @@ namespace Utils
             return new ObjHelper()
             {
                 type = GetType(bmpContent),
-                sprites = GetSprites(bmpContent),
+                sprites = GetSprites(textFileWithoutBmp, palleteIndex),
                 header = GetHeader(bmpContent),
-                frames = FrameLoadUtil.Exec(textFileWithoutBmp)
-                // stats = GetStatsFromDataFile.Apply(dataFileAccess)
+                frames = FrameLoadUtil.Exec(textFileWithoutBmp),
+                stats = GetStats(textFileWithoutBmp)
             };
         }
 
@@ -56,29 +56,73 @@ namespace Utils
             return line.Replace(keyLine + ":", "").Split(" ")[1];
         }
 
-        private static SerializedDictionary<int, Sprite> GetSprites(string bmpContent)
+        private static SerializedDictionary<int, Sprite> GetSprites(string textFileWithoutBmp, int palleteIndex)
         {
             var result = new SerializedDictionary<int, Sprite>();
+            var palleteCount = 0;
 
-            foreach (string line in bmpContent.Split("\n"))
+            foreach (string line in textFileWithoutBmp.Split("\n"))
             {
                 string trimLine = line.Trim();
                 if (trimLine.StartsWith("file"))
                 {
-                    string spritePath = trimLine.Split(": ")[1];
-                    Sprite[] sprites = Resources.LoadAll<Sprite>(spritePath);
-                    foreach (Sprite sprite in sprites)
+                    if (palleteCount == palleteIndex)
                     {
-                        string[] nameValues = sprite.name.Split("_");
+                        palleteCount++;
+                        string spritePath = trimLine.Split(": ")[1];
+                        Sprite[] sprites = Resources.LoadAll<Sprite>(spritePath);
+                        foreach (Sprite sprite in sprites)
+                        {
+                            string[] nameValues = sprite.name.Split("_");
 
-                        int spriteNumber = int.Parse(nameValues[nameValues.Length - 1]);
-                        int keyValue = int.Parse(nameValues[nameValues.Length - 2]) * 100;
+                            int spriteNumber = int.Parse(nameValues[nameValues.Length - 1]);
+                            int keyValue = int.Parse(nameValues[nameValues.Length - 2]) * 100;
 
-                        result.Add(keyValue + spriteNumber, sprite);
+                            result.Add(keyValue + spriteNumber, sprite);
+                        }
+                    }
+                    else
+                    {
+                        palleteCount++;
                     }
                 }
             }
 
+            return result;
+        }
+
+        private static StatsHelper GetStats(string bmpContent)
+        {
+            var result = new StatsHelper();
+
+            foreach (string line in bmpContent.Split("\n"))
+            {
+                string trimLine = line.Trim();
+                if (trimLine.StartsWith("aggressive"))
+                {
+                    result.aggressive = int.Parse(trimLine.Split(": ")[1]);
+                }
+                if (trimLine.StartsWith("technique"))
+                {
+                    result.technique = int.Parse(trimLine.Split(": ")[1]);
+                }
+                if (trimLine.StartsWith("intelligent"))
+                {
+                    result.intelligent = int.Parse(trimLine.Split(": ")[1]);
+                }
+                if (trimLine.StartsWith("speed"))
+                {
+                    result.speed = int.Parse(trimLine.Split(": ")[1]);
+                }
+                if (trimLine.StartsWith("resistance"))
+                {
+                    result.resistance = int.Parse(trimLine.Split(": ")[1]);
+                }
+                if (trimLine.StartsWith("stamina"))
+                {
+                    result.stamina = int.Parse(trimLine.Split(": ")[1]);
+                }
+            }
             return result;
         }
 
@@ -130,7 +174,7 @@ namespace Utils
                 {
                     var gameObjectToPoolInstantiate = GameObject.Instantiate<GameObject>(gameObjectToPool);
                     OpointEntity opointData = frame.Value.opoint;
-                    
+
                     ObjProcess opointObjProcess = gameObjectToPoolInstantiate.GetComponent<ObjProcess>();
                     opointObjProcess.dataHelper.originLocalPosition = new Vector3(opointData.x, opointData.y, opointData.z);
                     opointObjProcess.dataHelper.ownerId = ownerId;

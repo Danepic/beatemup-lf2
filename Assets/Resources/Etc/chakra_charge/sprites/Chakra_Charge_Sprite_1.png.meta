@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: 65d635d2309b75642af24decc62d739d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 277
+        width: 118
+        height: 99
+      alignment: 9
+      pivot: {x: 0.55579627, y: 0.4818624}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b71f173a70427947ade2122d410b580
+      internalID: -839402491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_1
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 272
+        width: 113
+        height: 101
+      alignment: 9
+      pivot: {x: 0.56885886, y: 0.48222154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4662cc3c70034444083f1b928c0765c0
+      internalID: 98847939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_2
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 271
+        width: 109
+        height: 101
+      alignment: 9
+      pivot: {x: 0.5823683, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18599e3d4d1bdfc4b963e8e8db1f6879
+      internalID: 519959867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_3
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 266
+        width: 106
+        height: 97
+      alignment: 9
+      pivot: {x: 0.59599274, y: 0.5308526}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d301f67893c0df14fa66a2d144deac57
+      internalID: 739986567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_4
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 146
+        width: 105
+        height: 90
+      alignment: 9
+      pivot: {x: 0.60830754, y: 0.5399029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c307563d459ab94bab4054b1b0bff19
+      internalID: 1455939143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 143
+        width: 129
+        height: 95
+      alignment: 9
+      pivot: {x: 0.532479, y: 0.50630045}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d86092e2353c4f45a1ea7fa5a6193fd
+      internalID: -977601229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_7
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 137
+        width: 122
+        height: 97
+      alignment: 9
+      pivot: {x: 0.52943647, y: 0.5308526}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd7084e9d4de514fbf477c7ee5e39de
+      internalID: 159021944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_9
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 141
+        width: 124
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5530964, y: 0.5000002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c3605e1f49c854eaf3c249eac164a9
+      internalID: 1041256896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_11
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 40
+        width: 90
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5266019, y: 0.50000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f086d61c95a2743a77f72a0ef2208c
+      internalID: 1309385039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chakra_Charge_Sprite_1_13
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 36
+        width: 99
+        height: 76
+      alignment: 9
+      pivot: {x: 0.55441284, y: 0.4999999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc25852e89b36e4982e9bf143bf10ba
+      internalID: 1329544567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f2289c39a0a105949b758407b04319fd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Chakra_Charge_Sprite_1_0: -839402491
+      Chakra_Charge_Sprite_1_1: 98847939
+      Chakra_Charge_Sprite_1_10: -329331798
+      Chakra_Charge_Sprite_1_11: 1309385039
+      Chakra_Charge_Sprite_1_12: 825458927
+      Chakra_Charge_Sprite_1_13: 1329544567
+      Chakra_Charge_Sprite_1_2: 519959867
+      Chakra_Charge_Sprite_1_3: 739986567
+      Chakra_Charge_Sprite_1_4: 1455939143
+      Chakra_Charge_Sprite_1_5: -977601229
+      Chakra_Charge_Sprite_1_6: -1489461332
+      Chakra_Charge_Sprite_1_7: 159021944
+      Chakra_Charge_Sprite_1_8: 1570336911
+      Chakra_Charge_Sprite_1_9: 1041256896
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

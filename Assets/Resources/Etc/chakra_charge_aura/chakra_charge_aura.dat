@@ -1,0 +1,51 @@
+<bmp_begin>
+   type: ETC
+   name: Chakra_Charge_Aura
+   start_hp: 1
+   start_mp: 0
+<bmp_end>
+
+
+<palletes_begin>
+   file: Etc/chakra_charge_aura/sprites
+<palletes_end>
+
+<frame> 0 invoke
+   pic: 117  state: 1000  wait: 0,5  next: 1  dvx: 0  dvy: 0
+<frame_end>
+<frame> 1 invoke
+   pic: 116  state: 1000  wait: 0,5  next: 2  dvx: 0  dvy: 0
+<frame_end>
+<frame> 2 invoke
+   pic: 114  state: 1000  wait: 1  next: 3  dvx: 0  dvy: 0
+<frame_end>
+<frame> 3 invoke
+   pic: 113  state: 1000  wait: 1  next: 4  dvx: 0  dvy: 0
+<frame_end>
+<frame> 4 invoke
+   pic: 112  state: 1000  wait: 1  next: 5  dvx: 0  dvy: 0
+<frame_end>
+<frame> 5 invoke
+   pic: 110  state: 1000  wait: 1  next: 6  dvx: 0  dvy: 0
+<frame_end>
+<frame> 6 invoke
+   pic: 107  state: 1000  wait: 1  next: 7  dvx: 0  dvy: 0
+<frame_end>
+<frame> 7 invoke
+   pic: 106  state: 1000  wait: 1  next: 8  dvx: 0  dvy: 0
+<frame_end>
+<frame> 8 invoke
+   pic: 103  state: 1000  wait: 1  next: 9  dvx: 0  dvy: 0
+<frame_end>
+<frame> 9 invoke
+   pic: 102  state: 1000  wait: 1  next: 10  dvx: 0  dvy: 0
+<frame_end>
+<frame> 10 invoke
+   pic: 101  state: 1000  wait: 0,5  next: 11  dvx: 0  dvy: 0
+<frame_end>
+<frame> 11 invoke
+   pic: 100  state: 1000  wait: 0,5  next: 12  dvx: 0  dvy: 0
+<frame_end>
+<frame> 12 invoke
+   pic: -9999  state: 1000  wait: 0,5  delete: true  dvx: 0  dvy: 0
+<frame_end>

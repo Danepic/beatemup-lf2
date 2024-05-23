@@ -95,6 +95,10 @@ namespace Utils
                         {
                             currentFrameToMap.properties.hitAttack = int.Parse(picLineValues[currentPicLine + 1]);
                         }
+                        if (trimValue.StartsWith("hitPower"))
+                        {
+                            currentFrameToMap.properties.hitPower = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
                         if (trimValue.StartsWith("holdDefenseAfter"))
                         {
                             currentFrameToMap.properties.holdDefenseAfter = int.Parse(picLineValues[currentPicLine + 1]);
@@ -106,6 +110,18 @@ namespace Utils
                         if (trimValue.StartsWith("hitAir"))
                         {
                             currentFrameToMap.properties.hitAir = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("holdForwardAfter"))
+                        {
+                            currentFrameToMap.properties.holdForwardAfter = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("mp"))
+                        {
+                            currentFrameToMap.properties.mp = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("hp"))
+                        {
+                            currentFrameToMap.properties.hp = int.Parse(picLineValues[currentPicLine + 1]);
                         }
                     }
 

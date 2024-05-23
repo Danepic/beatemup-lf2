@@ -31,6 +31,8 @@ namespace Domains
         public int? hitGround;
         public int? hitAir;
         public bool delete = false;
+        public int? mp;
+        public int? hp;
 
         public override string ToString()
         {

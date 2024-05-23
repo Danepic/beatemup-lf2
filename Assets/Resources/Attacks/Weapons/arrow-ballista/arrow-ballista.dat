@@ -1,10 +1,14 @@
 <bmp_begin>
    type: ATTACK
    name: Arrow_Ballista
-   file: Attacks/Weapons/arrow-ballista/sprites
    start_hp: 350
    start_mp: 0
 <bmp_end>
+
+
+<palletes_begin>
+   file: Attacks/Weapons/arrow-ballista/sprites
+<palletes_end>
 
 <frame> 0 invoke
    pic: 100  state: 2000  wait: 0,5  next: 1  dvx: 0  dvy: 0  dvz: 0  
@@ -23,12 +27,18 @@
    bdy:
       kind: 0  default: true
    bdy_end:
+   itr:
+      kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
+   itr_end:
 <frame_end>
 <frame> 3 invoke
    pic: 102  state: 2001  wait: 5  next: 4  hitGround: 300
    bdy:
       kind: 0  default: true
    bdy_end:
+   itr:
+      kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
+   itr_end:
 <frame_end>
 <frame> 4 invoke
    pic: 104  state: 2001  wait: 5  next: 4  hitGround: 300
@@ -36,7 +46,7 @@
       kind: 0  default: true
    bdy_end:
    itr:
-      kind: 0  default: true  dvx: 10  dvy: 5  dvz: 0  action: 800  rest: 1  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1
+      kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
    itr_end:
 <frame_end>
 

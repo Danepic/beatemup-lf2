@@ -1,10 +1,14 @@
 <bmp_begin>
    type: EFFECT
    name: Smoke_1
-   file: Effects/Smoke/smoke_1/sprites
    start_hp: 1
    start_mp: 0
 <bmp_end>
+
+
+<palletes_begin>
+   file: Effects/Smoke/smoke_1/sprites
+<palletes_end>
 
 <frame> 0 invoke
    pic: 100  state: 1000  wait: 0,5  next: 1  dvx: 0  dvy: 0

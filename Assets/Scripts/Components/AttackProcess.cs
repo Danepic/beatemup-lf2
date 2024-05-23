@@ -13,6 +13,7 @@ public class AttackProcess : HurtHitObjProcess
         this.ApplyBdy();
         this.ApplyItr();
         this.SpawnOpoint();
+        this.ManageHealthManaPoints();
     }
 
     void FixedUpdate()
@@ -26,13 +27,13 @@ public class AttackProcess : HurtHitObjProcess
                 MovePosition();
                 break;
             case StateFrameEnum.ATTACK_FLYING:
-                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz);
+                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.Acceleration);
                 break;
             case StateFrameEnum.ATTACK_REMOVE:
                 this.rigidbody.constraints = RigidbodyConstraints.FreezePosition;
                 break;
             default:
-                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz);
+                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.Acceleration);
                 break;
         }
     }

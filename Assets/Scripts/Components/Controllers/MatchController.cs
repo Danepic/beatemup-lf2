@@ -11,24 +11,33 @@ public class MatchController : MonoBehaviour
 
     private Queue<ObjProcess> hitBloodQueue;
 
+    public GameObject defenseHit;
+
+    private Queue<ObjProcess> defenseHitQueue;
+
     // Start is called before the first frame update
     void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 45;
+
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Character"), LayerMask.NameToLayer("Attack"));
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Object"), LayerMask.NameToLayer("Attack"));
 
-        hitBloodQueue = new Queue<ObjProcess>();
-        this.PopulatePoolOfHitEffects(hitBlood, hitBloodQueue);
+        hitBloodQueue = this.PopulatePoolOfHitEffects(hitBlood, 50);
+        defenseHitQueue = this.PopulatePoolOfHitEffects(defenseHit, 25);
     }
 
-    private void PopulatePoolOfHitEffects(GameObject hit, Queue<ObjProcess> hitQueue)
+    private Queue<ObjProcess> PopulatePoolOfHitEffects(GameObject hit, int quantity)
     {
-        for (int i = 0; i < 50; i++)
+        var queue = new Queue<ObjProcess>();
+        for (int i = 0; i < quantity; i++)
         {
             GameObject hitClone = GameObject.Instantiate<GameObject>(hit);
             ObjProcess hitCloneObjProcess = hitClone.GetComponent<ObjProcess>();
-            hitQueue.Enqueue(hitCloneObjProcess);
+            queue.Enqueue(hitCloneObjProcess);
         }
+        return queue;
     }
 
     public void SpawnOpoint(Vector3 opointPosition, ItrEffectEnum effect)
@@ -53,6 +62,9 @@ public class MatchController : MonoBehaviour
             case ItrEffectEnum.CONFUSE:
             case ItrEffectEnum.SILENCE:
             case ItrEffectEnum.NO_EFFECT:
+            case ItrEffectEnum.DEFENSE:
+                SpawnHit(defenseHitQueue, opointPosition);
+                break;
             default:
                 break;
         }

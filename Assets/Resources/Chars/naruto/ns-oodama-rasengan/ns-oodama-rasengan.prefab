@@ -151,29 +151,51 @@ MonoBehaviour:
   dataHelper:
     execOpointOneTimeInFrame: 0
     execImpulseForceOneTimeInFrame: 0
+    execHitSpawnOneTimeInFrame: 0
+    execHealthManaPointsOneTimeInFrame: 0
     previousId: 0
     repeatAnimationAt: 0
     repeatAnimationStart: 0
     repeatAnimationReady: 0
-    currentHp: 0
-    currentMp: 0
     facingRight: 1
     originLocalPosition: {x: 0, y: 0, z: 0}
     externAction: 0
-    enemyFacingRight: 0
-    attacked: 0
+    externItr:
+      kind: 0
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+      h: 0
+      zwidth: 0
+      dvx: 0
+      dvy: 0
+      dvz: 0
+      rest: 0
+      applyInSingleEnemy: 0
+      action: 0
+      defensable: 0
+      injury: 0
+      nextIfHit: 0
+      level: 0
+      sound: {fileID: 0}
+      effect: 0
+      duration: 0
+      defaultItr: 0
+    externFacingRight: 0
+    externTeam: 0
+    contactPoint: {x: 0, y: 0, z: 0}
+    damageRestTU: 0
+    attacking: 0
     wasAttacked: 0
+    damageInSingleTarget: 0
     onGround: 0
     runningRightEnable: 0
-    countRightEnable: 0
     runningLeftEnable: 0
-    countLeftEnable: 0
-    sideDashUpCount: 0
+    jumpDashRightEnable: 0
+    jumpDashLeftEnable: 0
     sideDashUpEnable: 0
-    countSideDashUpEnable: 0
-    sideDashDownCount: 0
     sideDashDownEnable: 0
-    countSideDashDownEnable: 0
     enableNextIfHit: 0
     hitJump: 0
     hitDefense: 0
@@ -185,7 +207,11 @@ MonoBehaviour:
     hitUp: 0
     hitDown: 0
     hitLeft: 0
+    releaseHitLeft: 0
+    startedHitLeft: 0
     hitRight: 0
+    releaseHitRight: 0
+    startedHitRight: 0
     inMovement: 0
     holdForwardAfter: 0
     holdDefenseAfter: 0
@@ -194,9 +220,10 @@ MonoBehaviour:
     selfId: 0
     injuredCount: 0
     injuredCountOneTimePerState: 0
+    isDeath: 0
+    isDefending: 0
   inv: {fileID: 21300000, guid: 1df7f024e70a0234aa12400135176423, type: 3}
   spriteRenderer: {fileID: 4265623275203152521}
-  rigidbody: {fileID: 8469122276463807212}
   currentFrame:
     id: 0
     name: 
@@ -248,13 +275,29 @@ MonoBehaviour:
   opointsToPool:
   - {fileID: 2378435324653350484, guid: d7788f6a4feb1874481159afdb8f15ea, type: 3}
   - {fileID: 5229716763680566374, guid: 5b78d6da0788a4144b7f47bff8048987, type: 3}
+  - {fileID: 4819904946835450572, guid: 6407037fdaf5cf64385d56f60173be3f, type: 3}
+  - {fileID: 4036031784723653327, guid: 06e1528f448f7634d881206e83449f3e, type: 3}
+  - {fileID: 2608285525085181330, guid: fc64d3ec3efe75641acf2bfa97eeffae, type: 3}
+  palleteIndex: 0
   selfBoxCollider: {fileID: 5690335195970600730}
   hurtbox: {fileID: 5495495831435762636}
   hitbox: {fileID: 8767689588069146016}
+  rigidbody: {fileID: 8469122276463807212}
   zSizeDefault: 0.22
   maxDistanceToCheckCollision: 0.03
+  restDamageWaitTime: 0
+  currentHp: 0
+  totalHp: 0
+  currentMp: 0
+  totalMp: 0
   lock_x_direction: 0
   lock_z_direction: 0
+  simpleDashToRightWaitTime: 0
+  simpleDashToLeftWaitTime: 0
+  walkingSideDirection: 0
+  walkingUpDownDirection: 0
+  sideDashToUpWaitTime: 0
+  sideDashToDownWaitTime: 0
 --- !u!54 &8469122276463807212
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -315,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 89c393d0bf1fb9e41ae651c1f857c0c0, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: fb578a08b59547942ae1e144a5e309b9, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -377,7 +420,19 @@ MonoBehaviour:
     m_ActionId: e121e75a-7188-4ba3-beca-fd5d5160a90e
     m_ActionName: Battle/Defense
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 130615486766093280}
+        m_TargetAssemblyTypeName: ObjProcess, Assembly-CSharp
+        m_MethodName: HitPower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3a55ec1a-2805-4497-a493-f84fdc3d4379
     m_ActionName: Battle/Power
   - m_PersistentCalls:

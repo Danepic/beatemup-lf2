@@ -408,6 +408,7 @@ MonoBehaviour:
   dataHelper:
     execOpointOneTimeInFrame: 0
     execImpulseForceOneTimeInFrame: 0
+    execHitSpawnOneTimeInFrame: 0
     previousId: 0
     repeatAnimationAt: 0
     repeatAnimationStart: 0
@@ -441,8 +442,11 @@ MonoBehaviour:
       defaultItr: 0
     externFacingRight: 0
     externTeam: 0
-    attacked: 0
+    contactPoint: {x: 0, y: 0, z: 0}
+    damageRestTU: 0
+    attacking: 0
     wasAttacked: 0
+    damageInSingleTarget: 0
     onGround: 0
     runningRightEnable: 0
     countRightEnable: 0
@@ -476,7 +480,6 @@ MonoBehaviour:
     injuredCountOneTimePerState: 0
   inv: {fileID: 21300000, guid: 1df7f024e70a0234aa12400135176423, type: 3}
   spriteRenderer: {fileID: 8473887412344613157}
-  rigidbody: {fileID: 7376402397181657975}
   currentFrame:
     id: 0
     name: 
@@ -526,9 +529,11 @@ MonoBehaviour:
       quantity: 0
   waitFrame: 0
   opointsToPool:
-  - {fileID: 0}
+  - {fileID: 5308623654586515175, guid: 58d4f1278c07ddf4ab9cbb7ae2ae07b9, type: 3}
   selfBoxCollider: {fileID: 4873303416099051443}
   hurtbox: {fileID: 313549532130947931}
   hitbox: {fileID: 2051879887639808887}
+  rigidbody: {fileID: 7376402397181657975}
   zSizeDefault: 0.03
   maxDistanceToCheckCollision: 0.1
+  restDamageWaitTime: 0

@@ -114,12 +114,12 @@ MonoBehaviour:
   dataHelper:
     execOpointOneTimeInFrame: 0
     execImpulseForceOneTimeInFrame: 0
+    execHitSpawnOneTimeInFrame: 0
+    execHealthManaPointsOneTimeInFrame: 0
     previousId: 0
     repeatAnimationAt: 0
     repeatAnimationStart: 0
     repeatAnimationReady: 0
-    currentHp: 0
-    currentMp: 0
     facingRight: 1
     originLocalPosition: {x: 0, y: 0, z: 0}
     externAction: 0
@@ -147,19 +147,18 @@ MonoBehaviour:
       defaultItr: 0
     externFacingRight: 0
     externTeam: 0
-    attacked: 0
+    contactPoint: {x: 0, y: 0, z: 0}
+    damageRestTU: 0
+    attacking: 0
     wasAttacked: 0
+    damageInSingleTarget: 0
     onGround: 0
     runningRightEnable: 0
-    countRightEnable: 0
     runningLeftEnable: 0
-    countLeftEnable: 0
-    sideDashUpCount: 0
+    jumpDashRightEnable: 0
+    jumpDashLeftEnable: 0
     sideDashUpEnable: 0
-    countSideDashUpEnable: 0
-    sideDashDownCount: 0
     sideDashDownEnable: 0
-    countSideDashDownEnable: 0
     enableNextIfHit: 0
     hitJump: 0
     hitDefense: 0
@@ -171,7 +170,11 @@ MonoBehaviour:
     hitUp: 0
     hitDown: 0
     hitLeft: 0
+    releaseHitLeft: 0
+    startedHitLeft: 0
     hitRight: 0
+    releaseHitRight: 0
+    startedHitRight: 0
     inMovement: 0
     holdForwardAfter: 0
     holdDefenseAfter: 0
@@ -180,6 +183,8 @@ MonoBehaviour:
     selfId: 0
     injuredCount: 0
     injuredCountOneTimePerState: 0
+    isDeath: 0
+    isDefending: 0
   inv: {fileID: 21300000, guid: 1df7f024e70a0234aa12400135176423, type: 3}
   spriteRenderer: {fileID: 3679056402252919209}
   currentFrame:
@@ -230,5 +235,4 @@ MonoBehaviour:
       poolQuantity: 0
       quantity: 0
   waitFrame: 0
-  opointsToPool:
-  - {fileID: 5473103281371688333, guid: 1bda751a462ed164b80685903919bbd0, type: 3}
+  opointsToPool: []

@@ -103,7 +103,7 @@
                     "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -114,7 +114,7 @@
                     "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -125,7 +125,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Defense",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -133,10 +133,10 @@
                 {
                     "name": "",
                     "id": "742445b1-2359-4b47-83d4-d72bafbad149",
-                    "path": "",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Power",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -144,10 +144,10 @@
                 {
                     "name": "",
                     "id": "1ccd808d-2861-4fc7-962d-5871a06df6eb",
-                    "path": "",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "SuperPower",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -155,10 +155,10 @@
                 {
                     "name": "",
                     "id": "644c722e-b248-4a5f-a0da-af0deac32068",
-                    "path": "",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Taunt",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -169,7 +169,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -180,7 +180,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -191,7 +191,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -202,7 +202,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PrimaryScheme",
                     "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -210,5 +210,17 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "PrimaryScheme",
+            "bindingGroup": "PrimaryScheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

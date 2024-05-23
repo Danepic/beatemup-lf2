@@ -34,12 +34,16 @@ public abstract class ObjProcess : MonoBehaviour
 
     protected float DV_VALUE_TO_STOP = 550;
 
+    protected float runningSpeed = 0f;
+
     public List<GameObject> opointsToPool;
+
+    public int palleteIndex = 0;
 
     void Awake()
     {
         dataHelper.selfId = gameObject.GetInstanceID();
-        objHelper = DatFileLoadUtil.Exec(datFile, opointsToPool);
+        objHelper = DatFileLoadUtil.Exec(datFile, palleteIndex);
         objHelper.opoints = DatFileLoadUtil.EnrichOpoints(objHelper.frames, opointsToPool, gameObject.GetInstanceID(), dataHelper.team);
     }
 
@@ -54,6 +58,7 @@ public abstract class ObjProcess : MonoBehaviour
             this.ChangeFrame(dataHelper.summonAction);
         }
         waitFrame = 0f;
+        runningSpeed = objHelper.stats.speed / 10;
         this.Facing();
     }
 
@@ -82,10 +87,18 @@ public abstract class ObjProcess : MonoBehaviour
 
     protected void ChangeFrame(int? nextFrame)
     {
-        dataHelper.execOpointOneTimeInFrame = true;
-        dataHelper.execImpulseForceOneTimeInFrame = true;
+        bool noInput = false;
+        this.ChangeFrame(nextFrame, ref noInput);
+    }
+
+    protected void ChangeFrame(int? nextFrame, ref bool hitButton)
+    {
         if (nextFrame.HasValue)
         {
+            hitButton = false;
+            dataHelper.execOpointOneTimeInFrame = true;
+            dataHelper.execImpulseForceOneTimeInFrame = true;
+            dataHelper.execHealthManaPointsOneTimeInFrame = true;
             currentFrame = objHelper.frames[nextFrame.Value];
             spriteRenderer.sprite = objHelper.sprites.GetValueOrDefault(currentFrame.properties.pic, inv);
             waitFrame = 0f;
@@ -179,6 +192,27 @@ public abstract class ObjProcess : MonoBehaviour
         }
     }
 
+    public void HitPower(InputAction.CallbackContext context)
+    {
+        HitPower(context.performed, context.started, context.canceled);
+    }
+
+    public void HitPower(bool performed, bool started, bool canceled)
+    {
+        if (performed)
+        {
+            dataHelper.hitPower = true;
+        }
+        else if (started)
+        {
+            dataHelper.hitPower = true;
+        }
+        else if (canceled)
+        {
+            dataHelper.hitPower = false;
+        }
+    }
+
     public void HitDefense(InputAction.CallbackContext context)
     {
         HitDefense(context.performed, context.started, context.canceled);
@@ -221,12 +255,6 @@ public abstract class ObjProcess : MonoBehaviour
         else if (canceled)
         {
             dataHelper.hitUp = false;
-            if (!dataHelper.countSideDashUpEnable)
-            {
-                dataHelper.countSideDashUpEnable = true;
-                dataHelper.countSideDashDownEnable = false;
-                dataHelper.facingUp = true;
-            }
         }
     }
 
@@ -248,12 +276,6 @@ public abstract class ObjProcess : MonoBehaviour
         else if (canceled)
         {
             dataHelper.hitDown = false;
-            if (!dataHelper.countSideDashDownEnable)
-            {
-                dataHelper.countSideDashDownEnable = true;
-                dataHelper.countSideDashUpEnable = false;
-                dataHelper.facingUp = false;
-            }
         }
     }
 
@@ -267,22 +289,21 @@ public abstract class ObjProcess : MonoBehaviour
         if (performed)
         {
             dataHelper.hitLeft = true;
+            dataHelper.holdForwardAfter = true;
+            dataHelper.releaseHitLeft = false;
         }
         else if (started)
         {
             dataHelper.hitLeft = true;
-            dataHelper.holdForwardAfter = true;
+            dataHelper.releaseHitLeft = false;
+            dataHelper.startedHitLeft = true;
         }
         else if (canceled)
         {
             dataHelper.hitLeft = false;
             dataHelper.holdForwardAfter = false;
-            if (!dataHelper.countLeftEnable && !dataHelper.facingRight)
-            {
-                dataHelper.countLeftEnable = true;
-                dataHelper.countRightEnable = false;
-                return;
-            }
+            dataHelper.releaseHitLeft = true;
+            dataHelper.startedHitLeft = false;
         }
     }
 
@@ -293,24 +314,25 @@ public abstract class ObjProcess : MonoBehaviour
 
     public void HitRight(bool performed, bool started, bool canceled)
     {
+        Debug.Log(performed + "|" + started + "|" + canceled);
         if (performed)
         {
             dataHelper.hitRight = true;
+            dataHelper.holdForwardAfter = true;
+            dataHelper.releaseHitRight = false;
         }
         else if (started)
         {
             dataHelper.hitRight = true;
-            dataHelper.holdForwardAfter = true;
+            dataHelper.startedHitRight = true;
+            dataHelper.releaseHitRight = false;
         }
         else if (canceled)
         {
             dataHelper.hitRight = false;
             dataHelper.holdForwardAfter = false;
-            if (!dataHelper.countRightEnable && dataHelper.facingRight)
-            {
-                dataHelper.countRightEnable = true;
-                dataHelper.countLeftEnable = false;
-            }
+            dataHelper.releaseHitRight = true;
+            dataHelper.startedHitRight = false;
         }
     }
 }
