@@ -23,7 +23,7 @@ namespace Domains
         public int action;
         public bool defensable;
         public int injury;
-        public int nextIfHit;
+        public int? nextIfHit;
         public int level;
 
         public AudioClip sound;

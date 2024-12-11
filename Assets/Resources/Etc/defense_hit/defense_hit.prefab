@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7723870380208125043}
   - component: {fileID: 2094209322778743662}
-  - component: {fileID: 9173369943226219562}
+  - component: {fileID: 8889253325049202773}
   m_Layer: 0
   m_Name: defense_hit
   m_TagString: Untagged
@@ -50,6 +50,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -85,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9173369943226219562
+--- !u!114 &8889253325049202773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,145 +97,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1311122430843874657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5173eb2178cf7a640b88d6ffa341e138, type: 3}
+  m_Script: {fileID: 11500000, guid: 38ca0fed783984a44983d1ec81d39f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  datFile: {fileID: 2811297602134710623, guid: cb8456265e09fd544bc50faff313c118, type: 3}
-  objHelper:
-    type: 0
-    header:
-      name: 
-      startHp: 0
-      startMp: 0
-    stats:
-      aggressive: 0
-      technique: 0
-      intelligent: 0
-      speed: 0
-      resistance: 0
-      stamina: 0
-  dataHelper:
-    execOpointOneTimeInFrame: 0
-    execImpulseForceOneTimeInFrame: 0
-    execHitSpawnOneTimeInFrame: 0
-    execHealthManaPointsOneTimeInFrame: 0
-    previousId: 0
-    repeatAnimationAt: 0
-    repeatAnimationStart: 0
-    repeatAnimationReady: 0
-    facingRight: 1
-    originLocalPosition: {x: 0, y: 0, z: 0}
-    externAction: 0
-    externItr:
-      kind: 0
-      x: 0
-      y: 0
-      z: 0
-      w: 0
-      h: 0
-      zwidth: 0
-      dvx: 0
-      dvy: 0
-      dvz: 0
-      rest: 0
-      applyInSingleEnemy: 0
-      action: 0
-      defensable: 0
-      injury: 0
-      nextIfHit: 0
-      level: 0
-      sound: {fileID: 0}
-      effect: 0
-      duration: 0
-      defaultItr: 0
-    externFacingRight: 0
-    externTeam: 0
-    contactPoint: {x: 0, y: 0, z: 0}
-    damageRestTU: 0
-    attacking: 0
-    wasAttacked: 0
-    damageInSingleTarget: 0
-    onGround: 0
-    runningRightEnable: 0
-    runningLeftEnable: 0
-    jumpDashRightEnable: 0
-    jumpDashLeftEnable: 0
-    sideDashUpEnable: 0
-    sideDashDownEnable: 0
-    enableNextIfHit: 0
-    hitJump: 0
-    hitDefense: 0
-    holdDefense: 0
-    hitAttack: 0
-    hitTaunt: 0
-    hitPower: 0
-    hitSuperPower: 0
-    hitUp: 0
-    hitDown: 0
-    hitLeft: 0
-    releaseHitLeft: 0
-    startedHitLeft: 0
-    hitRight: 0
-    releaseHitRight: 0
-    startedHitRight: 0
-    inMovement: 0
-    holdForwardAfter: 0
-    holdDefenseAfter: 0
-    holdPowerAfter: 0
-    team: 0
-    selfId: 0
-    injuredCount: 0
-    injuredCountOneTimePerState: 0
-    isDeath: 0
-    isDefending: 0
-  inv: {fileID: 21300000, guid: 1df7f024e70a0234aa12400135176423, type: 3}
+  id: 0
   spriteRenderer: {fileID: 2094209322778743662}
-  currentFrame:
-    id: 0
-    name: 
-    properties:
-      pic: 0
-      state: 0
-      wait: 0
-      delete: 0
-    bdy:
-      defaultBdy: 0
-      kind: 0
-      x: 0
-      y: 0
-      z: 0
-      h: 0
-      w: 0
-      zwidth: 0
-    itr:
-      kind: 0
-      x: 0
-      y: 0
-      z: 0
-      w: 0
-      h: 0
-      zwidth: 0
-      dvx: 0
-      dvy: 0
-      dvz: 0
-      rest: 0
-      applyInSingleEnemy: 0
-      action: 0
-      defensable: 0
-      injury: 0
-      nextIfHit: 0
-      level: 0
-      sound: {fileID: 0}
-      effect: 0
-      duration: 0
-      defaultItr: 0
-    opoint:
-      x: 0
-      y: 0
-      z: 0
-      oid: 0
-      facingFront: 1
-      poolQuantity: 0
-      quantity: 0
-  waitFrame: 0
-  opointsToPool: []
+  team: 0
+  facingRight: 1
+  pic: 0
+  palettes:
+  - Etc/defense_hit/sprites
+  paletteIndex: 0
+  zSizeDefault: 0.22
+  sprites:
+    _serializedList: []
+  inv: {fileID: 21300000, guid: 1df7f024e70a0234aa12400135176423, type: 3}
+  hitNormalFrame: 0
+  hitBloodFrame: 0
+  defenseHitFrame: 0

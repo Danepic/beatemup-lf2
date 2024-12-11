@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: a98aade9fb095da47ae388d7e891bef9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 20
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Impact_Up_Sprite_1_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 27
+        width: 101
+        height: 39
+      alignment: 9
+      pivot: {x: 0.48490864, y: 0.53908324}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e387ae86037f1644c9678e6fa09b5c1e
+      internalID: -1292928624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Up_Sprite_1_1
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 23
+        width: 85
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5179323, y: 0.63760495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda48f84b105455438d79767a560fc8b
+      internalID: 164276085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Up_Sprite_1_2
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 12
+        width: 119
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5341566, y: 0.6947637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb4b273a50041e47a1b8c9cca9b429d
+      internalID: 1562226714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Up_Sprite_1_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 15
+        width: 123
+        height: 69
+      alignment: 9
+      pivot: {x: 0.51489234, y: 0.67697996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eebc50b202c235419352fc2903dd6f2
+      internalID: -234495876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Up_Sprite_1_4
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 17
+        width: 120
+        height: 69
+      alignment: 9
+      pivot: {x: 0.50508827, y: 0.641584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1201ec8192242e3458a50a0e70f3a035
+      internalID: -726353798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Up_Sprite_1_5
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 9
+        width: 119
+        height: 74
+      alignment: 9
+      pivot: {x: 0.50000054, y: 0.40098697}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0028fe67f6deed4cba0306c58455a1c
+      internalID: -1007001519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Up_Sprite_1_6
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 7
+        width: 108
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5192532, y: 0.4511864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043fd232e8f6979479cf54d0269d743e
+      internalID: -75791985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b7857364d7d0b6c45a7ff31bef57f874
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Impact_Up_Sprite_1_0: -1292928624
+      Impact_Up_Sprite_1_1: 164276085
+      Impact_Up_Sprite_1_2: 1562226714
+      Impact_Up_Sprite_1_3: -234495876
+      Impact_Up_Sprite_1_4: -726353798
+      Impact_Up_Sprite_1_5: -1007001519
+      Impact_Up_Sprite_1_6: -75791985
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

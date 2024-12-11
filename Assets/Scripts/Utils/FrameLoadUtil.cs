@@ -57,7 +57,7 @@ namespace Utils
                         }
                         if (trimValue.StartsWith("wait"))
                         {
-                            currentFrameToMap.properties.wait = float.Parse(picLineValues[currentPicLine + 1]);
+                            currentFrameToMap.properties.wait = float.Parse(picLineValues[currentPicLine + 1])  / 30;
                         }
                         if (trimValue.StartsWith("next"))
                         {
@@ -107,6 +107,14 @@ namespace Utils
                         {
                             currentFrameToMap.properties.hitGround = int.Parse(picLineValues[currentPicLine + 1]);
                         }
+                        if (trimValue.StartsWith("hitCeil"))
+                        {
+                            currentFrameToMap.properties.hitCeil = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("hitWall"))
+                        {
+                            currentFrameToMap.properties.hitWall = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
                         if (trimValue.StartsWith("hitAir"))
                         {
                             currentFrameToMap.properties.hitAir = int.Parse(picLineValues[currentPicLine + 1]);
@@ -122,6 +130,30 @@ namespace Utils
                         if (trimValue.StartsWith("hp"))
                         {
                             currentFrameToMap.properties.hp = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("hitUp"))
+                        {
+                            currentFrameToMap.properties.hitUp = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("hitDown"))
+                        {
+                            currentFrameToMap.properties.hitDown = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("hitFront"))
+                        {
+                            currentFrameToMap.properties.hitFront = int.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("scalex"))
+                        {
+                            currentFrameToMap.properties.scalex = float.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("scaley"))
+                        {
+                            currentFrameToMap.properties.scaley = float.Parse(picLineValues[currentPicLine + 1]);
+                        }
+                        if (trimValue.StartsWith("fadeout"))
+                        {
+                            currentFrameToMap.properties.fadeout = float.Parse(picLineValues[currentPicLine + 1]);
                         }
                     }
 

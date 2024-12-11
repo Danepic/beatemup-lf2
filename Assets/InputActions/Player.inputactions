@@ -9,7 +9,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "8e417446-b7a8-4fca-a1e9-d900c06dc739",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -18,7 +18,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "a5bca928-b885-40cf-bbf5-0d4965a7fda1",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -27,7 +27,7 @@
                     "name": "Defense",
                     "type": "Button",
                     "id": "e121e75a-7188-4ba3-beca-fd5d5160a90e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -36,7 +36,7 @@
                     "name": "Power",
                     "type": "Button",
                     "id": "3a55ec1a-2805-4497-a493-f84fdc3d4379",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -45,7 +45,7 @@
                     "name": "SuperPower",
                     "type": "Button",
                     "id": "54b82cf7-e75a-46ac-bfd2-95ee6e2102c7",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -54,7 +54,7 @@
                     "name": "Taunt",
                     "type": "Button",
                     "id": "76022af4-1d82-4359-9d3e-5c3f344de8c3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -63,7 +63,7 @@
                     "name": "Up",
                     "type": "Button",
                     "id": "b7edf559-4d9d-43e9-9de4-7f8a9721d778",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -72,7 +72,7 @@
                     "name": "Left",
                     "type": "Button",
                     "id": "0c888cbb-feaa-4442-9350-9d2f103f4899",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -81,7 +81,7 @@
                     "name": "Down",
                     "type": "Button",
                     "id": "abcd6bf3-a5b0-4afe-bf8d-83855ae995aa",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -90,7 +90,7 @@
                     "name": "Right",
                     "type": "Button",
                     "id": "c5a82ab6-5caf-423c-ba1e-e62d8e4772ce",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -103,7 +103,18 @@
                     "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f015dd4-60b0-44a9-a882-9e8004848f81",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -114,7 +125,18 @@
                     "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ff7652b-5b63-4709-a067-8a384eed8311",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -125,7 +147,18 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Defense",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a87ce0be-59e2-4916-957e-3c24c9153e40",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Defense",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -136,7 +169,18 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Power",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af8b2343-1ca7-45f1-bba4-211b3b07d603",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Power",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -147,7 +191,18 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "SuperPower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c9e73a3-8582-428a-ba5e-6d8ef8e79059",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "SuperPower",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -158,7 +213,18 @@
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Taunt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f7ffebdd-b37f-4029-a122-fb090bb79ad7",
+                    "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Taunt",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -169,7 +235,18 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad55fa23-6349-4aad-936b-d9af9e48d1a5",
+                    "path": "<Keyboard>/numpad8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -180,7 +257,18 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0cd01ef-d4a3-414d-a1ee-93c07a47eb3b",
+                    "path": "<Keyboard>/numpad4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -191,7 +279,18 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84d1fc46-ae7b-4690-9983-57737977cc65",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -202,7 +301,18 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PrimaryScheme",
+                    "groups": "P1",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9346e20-ddc9-481e-be26-adf3e210e38c",
+                    "path": "<Keyboard>/numpad6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";P2",
                     "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -212,8 +322,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "PrimaryScheme",
-            "bindingGroup": "PrimaryScheme",
+            "name": "P1",
+            "bindingGroup": "P1",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
@@ -221,6 +331,11 @@
                     "isOR": false
                 }
             ]
+        },
+        {
+            "name": "P2",
+            "bindingGroup": "P2",
+            "devices": []
         }
     ]
 }

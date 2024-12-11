@@ -1,0 +1,184 @@
+<bmp_begin>
+   type: ATTACK
+   name: NS_Naruto_Clone_Attack
+   start_hp: 150
+   start_mp: 0
+<bmp_end>
+
+
+<palletes_begin>
+   file: Attacks/Clones/ns-naruto-clone-attack/sprites
+   file: Attacks/Clones/ns-naruto-clone-attack/sprites_1
+<palletes_end>
+
+<frame> 0 uppercut_invoke
+   pic: -9999  state: 2000  wait: 2  next: 2  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0  y: 0  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 2 uppercut
+   pic: 400  state: 2001  wait: 0,5  next: 3  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 3 uppercut
+   pic: 401  state: 2001  wait: 1  next: 4
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 4 uppercut
+   pic: 402  state: 2001  wait: 0,5  next: 5
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 5 uppercut
+   pic: 403  state: 2001  wait: 1  next: 6
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 6 uppercut
+   pic: 404  state: 2001  wait: 0,5  next: 7  dvx: 50  dvy: 300 dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 7 uppercut
+   pic: 405  state: 2001  wait: 15  next: 300  hitGround: 300
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,0654  y: 0,5173  z: 0  w: 0,1757669  h: 0,5957753  zwidth: 0,22  dvx: -10  dvy: 325  dvz: 0  action: 840  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+
+
+<frame> 20 downercut_invoke
+   pic: -9999  state: 2000  wait: 2  next: 23  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0  y: 0  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 23 downercut
+   pic: 136  state: 2001  wait: 1  next: 24  dvx: 200  dvy: 150  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 24 downercut
+   pic: 406  state: 2001  wait: 0,5  next: 25
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 25 downercut
+   pic: 407  state: 2001  wait: 0,5  next: 26
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 26 downercut
+   pic: 408  state: 2001  wait: 0,5  next: 27
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 27 downercut
+   pic: 409  state: 2001  wait: 1  next: 28
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,1273  y: 0,3239  z: 0  w: 0,2994343  h: 0,6465725  zwidth: 0,22  dvx: 50  dvy: 0  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+<frame> 28 downercut
+   pic: 410  state: 2001  wait: 15  next: 300  hitGround: 300
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,1273  y: 0,3239  z: 0  w: 0,2994343  h: 0,6465725  zwidth: 0,22  dvx: 50  dvy: 0  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+
+
+<frame> 40 front_attack_invoke
+   pic: -9999  state: 2000  wait: 2  next: 41  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0  y: 0  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 41 front_attack
+   pic: 136  state: 2001  wait: 2  next: 42  dvx: 200  dvy: 150  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 42 front_attack
+   pic: 411  state: 2001  wait: 1  next: 43
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 43 front_attack
+   pic: 412  state: 2001  wait: 1  next: 44
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,1292  y: 0,2191  z: 0  w: 0,3942767  h: 0,3500794  zwidth: 0,22  dvx: 300  dvy: 150  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+<frame> 44 front_attack
+   pic: 413  state: 2001  wait: 10  next: 45
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,1292  y: 0,2191  z: 0  w: 0,3942767  h: 0,3500794  zwidth: 0,22  dvx: 300  dvy: 150  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+<frame> 45 front_attack
+   pic: 414  state: 2001  wait: 1  next: 46
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 46 front_attack
+   pic: 415  state: 2001  wait: 5  next: 300  hitGround: 300
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 300 remove
+   pic: -9999  state: 2099  wait: 1  next: 301  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0  y: 0  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 301 remove
+   pic: -9999  state: 2099  wait: 1  delete: true  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>

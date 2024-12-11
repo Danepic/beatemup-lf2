@@ -24,15 +24,17 @@ public class CharProcess : HurtHitObjProcess
 
     public float sideDashToDownWaitTime = 0;
 
+    public Color parryColor = new Color(0, 213, 255);
+
     // Update is called once per frame
     void Update()
     {
         this.CheckPlatforms();
         this.CheckInteraction();
+        this.CheckIfNextHitEnable();
         this.Timers();
         this.ApplyBdy();
         this.ApplyItr();
-        this.ExternInteraction();
         this.StateHandle();
         this.ActionHandle();
         this.SpawnOpoint();
@@ -70,19 +72,34 @@ public class CharProcess : HurtHitObjProcess
                 ApplyPhysicDoubleJumping();
                 break;
             case StateFrameEnum.HIT_DEFEND:
-                ApplyDefaultPhysic(dataHelper.externItr.dvx / 2, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.externFacingRight, ForceMode.Acceleration);
+                ApplyDefaultPhysic(dataHelper.externItr.dvx / 2, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.externFacingRight, ForceMode.VelocityChange);
                 break;
             case StateFrameEnum.INJURED:
-                ApplyDefaultPhysic(dataHelper.externItr.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.externFacingRight, ForceMode.Acceleration);
+                ApplyDefaultPhysic(dataHelper.externItr.dvx, dataHelper.externItr.dvy, dataHelper.externItr.dvz, dataHelper.externFacingRight, ForceMode.VelocityChange);
+                break;
+            case StateFrameEnum.JUMP_ATTACK:
+                rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.VelocityChange);
+                break;
+            case StateFrameEnum.INJURED_SKY:
+                rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+                ApplyDefaultPhysic(dataHelper.externItr.dvx, 0, dataHelper.externItr.dvz, dataHelper.externFacingRight, ForceMode.VelocityChange);
+                break;
+            case StateFrameEnum.FALLING:
+                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.VelocityChange);
                 break;
             case StateFrameEnum.FALLING_EXTERN_FORCE:
-                ApplyDefaultPhysic(dataHelper.externItr.dvx, dataHelper.externItr.dvy, dataHelper.externItr.dvz, dataHelper.externFacingRight, ForceMode.Acceleration);
+                ApplyDefaultPhysic(dataHelper.externItr.dvx, dataHelper.externItr.dvy, dataHelper.externItr.dvz, dataHelper.externFacingRight, ForceMode.VelocityChange);
                 break;
             case StateFrameEnum.STOP_DV:
-                rigidbody.velocity = Vector3.zero;
+                rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+                rigidbody.linearVelocity = Vector3.zero;
+                break;
+            case StateFrameEnum.JUMP_RECOVER:
+                ApplyDefaultPhysic(dataHelper.externItr.dvx / 2, 0f, dataHelper.externItr.dvz / 2, dataHelper.externFacingRight, ForceMode.VelocityChange);
                 break;
             default:
-                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.Acceleration);
+                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.VelocityChange);
                 break;
         }
     }
@@ -92,13 +109,19 @@ public class CharProcess : HurtHitObjProcess
         switch (currentFrame.properties.state)
         {
             case StateFrameEnum.STANDING:
-            case StateFrameEnum.STOP_DV:
                 dataHelper.isDefending = false;
                 dataHelper.wasAttacked = false;
                 ManageStanding();
                 CanWalking();
                 CanSimpleDash();
                 CanSideDash();
+                lock_x_direction = 0;
+                lock_z_direction = 0;
+                spriteRenderer.color = originalColor;
+                break;
+            case StateFrameEnum.STOP_DV:
+                dataHelper.isDefending = false;
+                dataHelper.wasAttacked = false;
                 lock_x_direction = 0;
                 lock_z_direction = 0;
                 break;
@@ -142,41 +165,89 @@ public class CharProcess : HurtHitObjProcess
                 break;
             case StateFrameEnum.JUMP_HIT_DEFEND:
             case StateFrameEnum.HIT_DEFEND:
+                spriteRenderer.color = originalColor;
                 dataHelper.isDefending = true;
                 CanHoldDefenseAfter();
                 if (dataHelper.execHitSpawnOneTimeInFrame)
                 {
                     dataHelper.execHitSpawnOneTimeInFrame = false;
-                    matchController.SpawnOpoint(dataHelper.contactPoint, ItrEffectEnum.DEFENSE);
+                    SpawnHitOpoint(dataHelper.contactPoint, ItrEffectEnum.DEFENSE);
                 }
                 break;
             case StateFrameEnum.HOLD_DEFENSE_AFTER:
+                spriteRenderer.color = originalColor;
                 CanHoldDefenseAfter();
                 break;
             case StateFrameEnum.HOLD_FORWARD_AFTER:
+                spriteRenderer.color = originalColor;
                 CanHoldForwardAfter();
                 break;
             case StateFrameEnum.FALLING_EXTERN_FORCE:
+                spriteRenderer.color = originalColor;
                 if (dataHelper.execHitSpawnOneTimeInFrame)
                 {
                     dataHelper.execHitSpawnOneTimeInFrame = false;
-                    matchController.SpawnOpoint(dataHelper.contactPoint, dataHelper.externItr.effect);
+                    SpawnHitOpoint(dataHelper.contactPoint, dataHelper.externItr.effect);
                 }
                 break;
             case StateFrameEnum.INJURED_MANAGER:
-                ChangeFrame(UnityEngine.Random.value > 0.5f ? StateHelper.INJURED_1 : StateHelper.INJURED_2);
-                break;
-            case StateFrameEnum.INJURED:
-                ApplyDefaultPhysic(dataHelper.externItr.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.externFacingRight, ForceMode.Acceleration);
+                spriteRenderer.color = originalColor;
+                var optionInjured = UnityEngine.Random.value;
+                ChangeFrame(optionInjured > 0.5f ? StateHelper.INJURED_1 : StateHelper.INJURED_2);
                 if (dataHelper.execHitSpawnOneTimeInFrame)
                 {
                     dataHelper.execHitSpawnOneTimeInFrame = false;
-                    matchController.SpawnOpoint(dataHelper.contactPoint, dataHelper.externItr.effect);
+                    SpawnHitOpoint(dataHelper.contactPoint, dataHelper.externItr.effect);
+                }
+                break;
+            case StateFrameEnum.INJURED_SKY_MANAGER:
+                spriteRenderer.color = originalColor;
+                var optionInjuredSky = UnityEngine.Random.value;
+                ChangeFrame(optionInjuredSky > 0.5f ? StateHelper.INJURED_SKY_1 : StateHelper.INJURED_SKY_2);
+                if (dataHelper.execHitSpawnOneTimeInFrame)
+                {
+                    dataHelper.execHitSpawnOneTimeInFrame = false;
+                    SpawnHitOpoint(dataHelper.contactPoint, dataHelper.externItr.effect);
                 }
                 break;
             case StateFrameEnum.LYING:
+                spriteRenderer.color = originalColor;
                 dataHelper.isDefending = false;
                 dataHelper.wasAttacked = false;
+                dataHelper.hitAttack = false;
+                dataHelper.hitDefense = false;
+                dataHelper.hitJump = false;
+                dataHelper.hitPower = false;
+                break;
+            case StateFrameEnum.COMBO_FINISH:
+                if (dataHelper.hitUp)
+                {
+                    dataHelper.hitUp = false;
+                    ChangeFrame(StateHelper.UPPERCUT);
+                }
+                else if (dataHelper.hitDown)
+
+                {
+                    dataHelper.hitDown = false;
+                    ChangeFrame(StateHelper.DOWNERCUT);
+                }
+                else if (dataHelper.hitRight && !dataHelper.hitLeft && dataHelper.facingRight)
+                {
+                    dataHelper.hitRight = false;
+                    ChangeFrame(StateHelper.FRONT_ATTACK);
+                }
+                else if (!dataHelper.hitRight && dataHelper.hitLeft && !dataHelper.facingRight)
+                {
+                    dataHelper.hitLeft = false;
+                    ChangeFrame(StateHelper.FRONT_ATTACK);
+                }
+                break;
+            case StateFrameEnum.CRITICAL_DEFENSE:
+                spriteRenderer.color = parryColor;
+                if (canParry) {
+                    base.currentHp += lastDamage > 0 ? lastDamage : 0;
+                    base.canParry = false;
+                }
                 break;
         }
     }
@@ -482,7 +553,7 @@ public class CharProcess : HurtHitObjProcess
         {
             this.velocity.z = currentFrame.properties.dvz.Value;
         }
-        this.ImpulseForce(ForceMode.Acceleration);
+        this.ImpulseForce(ForceMode.VelocityChange);
     }
 
     private void ApplyPhysicDash()
@@ -499,7 +570,7 @@ public class CharProcess : HurtHitObjProcess
         {
             this.velocity.z = 0;
         }
-        ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, this.velocity.z, dataHelper.facingRight, ForceMode.Acceleration);
+        ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, this.velocity.z, dataHelper.facingRight, ForceMode.VelocityChange);
     }
 
     private void ApplyPhysicJumping()
@@ -518,7 +589,7 @@ public class CharProcess : HurtHitObjProcess
                 dvz = -currentFrame.properties.dvz.Value;
             }
         }
-        ApplyDefaultPhysic(dvx, currentFrame.properties.dvy, dvz, dataHelper.facingRight, ForceMode.Acceleration);
+        ApplyDefaultPhysic(dvx, currentFrame.properties.dvy, dvz, dataHelper.facingRight, ForceMode.VelocityChange);
     }
 
     private void ApplyPhysicDashJumping()
@@ -536,7 +607,7 @@ public class CharProcess : HurtHitObjProcess
                 dvz = -currentFrame.properties.dvz.Value;
             }
         }
-        ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, dvz, dataHelper.facingRight, ForceMode.Acceleration);
+        ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, dvz, dataHelper.facingRight, ForceMode.VelocityChange);
     }
 
     private void ApplyPhysicDoubleJumping()
@@ -581,7 +652,7 @@ public class CharProcess : HurtHitObjProcess
             this.velocity.y = currentFrame.properties.dvy.Value;
         }
 
-        this.ImpulseForce(ForceMode.Acceleration);
+        this.ImpulseForce(ForceMode.VelocityChange);
     }
 
     private void ApplyPhysicRunning()

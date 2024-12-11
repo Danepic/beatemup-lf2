@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Domains
@@ -9,10 +10,12 @@ namespace Domains
         public float y;
         public float z;
         public int? action;
+        public string startFrame;
         public int oid;
         public bool facingFront = true;
         public int poolQuantity;
         public int quantity;
+        public bool useSamePalette;
 
         public override string ToString()
         {

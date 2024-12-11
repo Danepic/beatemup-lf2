@@ -10,7 +10,7 @@
    file: Attacks/Weapons/ns-naruto-fuma-shuriken/sprites
 <palletes_end>
 
-<frame> 0 invoke
+<frame> 0 invoke_front_force
    pic: 200  state: 2000  wait: 2  next: 2  dvx: 0  dvy: 0  dvz: 0  
    bdy:
       kind: 0  default: true
@@ -19,27 +19,60 @@
 <frame> 2 invoke_impulse
    pic: 101  state: 2001  wait: 1  next: 3  dvx: 425  dvy: 175  dvz: 0  
    bdy:
-      kind: 0  x: -0,003  y: 0,165  z: 0  w: 0,89  h: 0,36  zwidth: 0,22
+      kind: 0  x: 0,0266  y: 0,1758  z: 0  w: 0,6639989  h: 0,2523443  zwidth: 0,22
    bdy_end:
 <frame_end>
-<frame> 3 invoke
+<frame> 3 invoke_front_force
    pic: 102  state: 2001  wait: 1  next: 4  hitGround: 300
    bdy:
-      kind: 0  x: -0,003  y: 0,165  z: 0  w: 0,89  h: 0,36  zwidth: 0,22
+      kind: 0  x: 0,0266  y: 0,1758  z: 0  w: 0,6639989  h: 0,2523443  zwidth: 0,22
    bdy_end:
    itr:
       kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 1  rest: 15
    itr_end:
 <frame_end>
-<frame> 4 invoke
+<frame> 4 invoke_front_force
    pic: 101  state: 2001  wait: 1  next: 3  hitGround: 300
    bdy:
-      kind: 0  x: -0,003  y: 0,165  z: 0  w: 0,89  h: 0,36  zwidth: 0,22
+      kind: 0  x: 0,0266  y: 0,1758  z: 0  w: 0,6639989  h: 0,2523443  zwidth: 0,22
    bdy_end:
    itr:
       kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 1  rest: 15
    itr_end:
 <frame_end>
+
+
+<frame> 20 invoke_down_front_force
+   pic: 200  state: 2000  wait: 2  next: 22  dvx: 0  dvy: 0  dvz: 0  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 22 invoke_impulse
+   pic: 101  state: 2001  wait: 1  next: 23  dvx: 425  dvy: -25  dvz: 0  
+   bdy:
+      kind: 0  x: 0,0266  y: 0,1758  z: 0  w: 0,6639989  h: 0,2523443  zwidth: 0,22
+   bdy_end:
+<frame_end>
+<frame> 23 invoke_down_front_force
+   pic: 102  state: 2001  wait: 1  next: 24  hitGround: 300
+   bdy:
+      kind: 0  x: 0,0266  y: 0,1758  z: 0  w: 0,6639989  h: 0,2523443  zwidth: 0,22
+   bdy_end:
+   itr:
+      kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 1  rest: 15
+   itr_end:
+<frame_end>
+<frame> 24 invoke_down_front_force
+   pic: 101  state: 2001  wait: 1  next: 23  hitGround: 300
+   bdy:
+      kind: 0  x: 0,0266  y: 0,1758  z: 0  w: 0,6639989  h: 0,2523443  zwidth: 0,22
+   bdy_end:
+   itr:
+      kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 1  rest: 15
+   itr_end:
+<frame_end>
+
 
 <frame> 300 remove
    pic: -9999  state: 2099  wait: 1  next: 301  dvx: 0  dvy: 0  dvz: 0  
@@ -47,7 +80,7 @@
       kind: 0  default: true
    bdy_end:
    opoint:
-      x: 0,065  y: 0,51  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 3
+      x: 0,065  y: 0,51  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 1
    opoint_end:
 <frame_end>
 <frame> 301 remove

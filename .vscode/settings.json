@@ -59,9 +59,15 @@
     "dotnet.defaultSolution": "beatemup-lf2.sln",
     "cSpell.words": [
         "defensable",
+        "Downercut",
         "hitbox",
         "hurtbox",
+        "KAWARIMI",
+        "opoint",
         "opoints",
-        "rigidbody"
+        "rigidbody",
+        "scalex",
+        "scaley",
+        "zwidth"
     ]
 }

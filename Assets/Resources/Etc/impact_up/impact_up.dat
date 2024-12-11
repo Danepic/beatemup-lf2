@@ -1,0 +1,37 @@
+<bmp_begin>
+   type: ETC
+   name: Impact_Up
+   start_hp: 1
+   start_mp: 0
+<bmp_end>
+
+
+<palletes_begin>
+   file: Etc/impact_up/sprites
+<palletes_end>
+
+
+<frame> 0 invoke
+   pic: 100  state: 1000  wait: 1  next: 1  dvx: 0  dvy: 0
+<frame_end>
+<frame> 1 invoke
+   pic: 101  state: 1000  wait: 1  next: 2  dvx: 0  dvy: 0
+<frame_end>
+<frame> 2 invoke
+   pic: 102  state: 1000  wait: 1  next: 3  dvx: 0  dvy: 0
+<frame_end>
+<frame> 3 invoke
+   pic: 103  state: 1000  wait: 1  next: 4  dvx: 0  dvy: 0
+<frame_end>
+<frame> 4 invoke
+   pic: 104  state: 1000  wait: 1  next: 5  dvx: 0  dvy: 0
+<frame_end>
+<frame> 5 invoke
+   pic: 105  state: 1000  wait: 0,5  next: 6  dvx: 0  dvy: 0
+<frame_end>
+<frame> 6 invoke
+   pic: 106  state: 1000  wait: 0,5  next: 7  dvx: 0  dvy: 0
+<frame_end>
+<frame> 7 invoke
+   pic: -9999  state: 1000  wait: 0,25  delete: true  dvx: 0  dvy: 0
+<frame_end>

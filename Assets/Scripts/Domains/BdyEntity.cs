@@ -1,9 +1,12 @@
+using System;
 using Enums;
 using UnityEngine;
 
-namespace Domains {
+namespace Domains
+{
     [System.Serializable]
-    public class BdyEntity {
+    public class BdyEntity
+    {
         public bool defaultBdy = false;
         public BdyKindEnum kind;
         public float x;

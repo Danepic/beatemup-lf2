@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: dbce3f245ef11274abe6a22d95deef44
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Impact_Down_Sprite_1_0
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 22
+        width: 83
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5, y: 0.09242424}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561b7687fd8599840a0ef00f95c192ca
+      internalID: 53018455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Down_Sprite_1_4
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 22
+        width: 67
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.17545454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5922d4a02676bf04091e32a85fb55539
+      internalID: 1953118830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Down_Sprite_1_15
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 22
+        width: 91
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5693333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08a556234926e6458862d9b2cac042a
+      internalID: 1808656003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Down_Sprite_1_1
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 11
+        width: 111
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.094042554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4af93fee1d23240ab947fe80568443
+      internalID: -68204396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Down_Sprite_1_2
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 12
+        width: 119
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.043863636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 584728f3b302ed84fafa3a3bd4bc0735
+      internalID: 1230180404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Down_Sprite_1_3
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 14
+        width: 95
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b57f24db8ec21b41a09599d837e371b
+      internalID: -1487818517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Impact_Down_Sprite_1_5
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 7
+        width: 115
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a5101008f241c46b244d734305266a
+      internalID: -1836051158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: bc34ed57ab47b7442baf1cf3f2f0d651
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Impact_Down_Sprite_1_0: 53018455
+      Impact_Down_Sprite_1_1: -68204396
+      Impact_Down_Sprite_1_10: -484567055
+      Impact_Down_Sprite_1_11: -401557753
+      Impact_Down_Sprite_1_12: -1086376169
+      Impact_Down_Sprite_1_13: -2007546187
+      Impact_Down_Sprite_1_14: 674299683
+      Impact_Down_Sprite_1_15: 1808656003
+      Impact_Down_Sprite_1_16: -1057039824
+      Impact_Down_Sprite_1_17: 1469405968
+      Impact_Down_Sprite_1_18: 1256445693
+      Impact_Down_Sprite_1_19: -1277695164
+      Impact_Down_Sprite_1_2: 1230180404
+      Impact_Down_Sprite_1_20: -1308239492
+      Impact_Down_Sprite_1_21: -2031336128
+      Impact_Down_Sprite_1_22: 1115244815
+      Impact_Down_Sprite_1_23: 1776298825
+      Impact_Down_Sprite_1_24: 162319757
+      Impact_Down_Sprite_1_25: -373007799
+      Impact_Down_Sprite_1_26: 1872396052
+      Impact_Down_Sprite_1_27: -375558324
+      Impact_Down_Sprite_1_28: 1395553657
+      Impact_Down_Sprite_1_3: -1487818517
+      Impact_Down_Sprite_1_4: 1953118830
+      Impact_Down_Sprite_1_5: -1836051158
+      Impact_Down_Sprite_1_6: 827588851
+      Impact_Down_Sprite_1_7: 1092092483
+      Impact_Down_Sprite_1_8: 2054998909
+      Impact_Down_Sprite_1_9: 1363926866
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

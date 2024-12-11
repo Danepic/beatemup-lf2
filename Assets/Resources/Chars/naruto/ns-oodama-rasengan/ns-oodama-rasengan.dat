@@ -524,19 +524,19 @@
 
 
 <frame> 150 start_defense
-   pic: 139 state: 15  wait: 1  next: 151  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170
+   pic: 139 state: 15  wait: 1  next: 151  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170  hitJump: 130
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 151 defense
-   pic: 140 state: 7  wait: 5  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170
+   pic: 140 state: 7  wait: 5  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170  hitJump: 130
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 152 stop_defense
-   pic: 139 state: 15  wait: 1  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170
+   pic: 139 state: 15  wait: 1  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170  hitJump: 130
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -544,7 +544,7 @@
 
 
 <frame> 155 defense_hold
-   pic: 140 state: 7  wait: 1  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170
+   pic: 140 state: 7  wait: 1  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170  hitJump: 130
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -552,13 +552,13 @@
 
 
 <frame> 160 hit_defense
-   pic: 140 state: 107  wait: 1  next: 161  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170
+   pic: 140 state: 107  wait: 1  next: 161  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  hitPower: 170  hitJump: 130
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 161 hit_defense
-   pic: 140 state: 7  wait: 2,5  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170
+   pic: 140 state: 7  wait: 2,5  next: 152  dvx: 0  dvy: 0  dvz: 0  hitAttack: 310  holdDefenseAfter: 155  hitPower: 170  hitJump: 130
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -699,7 +699,7 @@
    bdy_end:
 <frame_end>
 <frame> 214 jump
-   pic: 136 state: 104  wait: 8  next: 220  hitDefense: 300  hitJump: 230  hitGround: 290
+   pic: 136 state: 104  wait: 8  next: 220  hitDefense: 300  hitJump: 230  hitGround: 290  hitAttack: 550
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -715,13 +715,13 @@
 
 
 <frame> 220 jump_falling
-   pic: 137 state: 104  wait: 0,5  next: 221  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitJump: 230 
+   pic: 137 state: 104  wait: 0,5  next: 221  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitJump: 230  hitAttack: 550
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 221 jump_falling
-   pic: 138 state: 104  wait: 1  next: 221  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitJump: 230 
+   pic: 138 state: 104  wait: 1  next: 221  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitJump: 230  hitAttack: 550
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -747,7 +747,7 @@
    bdy_end:
 <frame_end>
 <frame> 233 double_jump
-   pic: 136 state: 504  wait: 8  next: 240  hitDefense: 300  hitGround: 290
+   pic: 136 state: 504  wait: 8  next: 240  hitDefense: 300  hitGround: 290  hitAttack: 550
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -755,13 +755,13 @@
 
 
 <frame> 240 double_jump_falling
-   pic: 137 state: 304  wait: 0,5  next: 241  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290
+   pic: 137 state: 304  wait: 0,5  next: 241  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitAttack: 550
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 241 double_jump_falling
-   pic: 138 state: 304  wait: 1  next: 241  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290
+   pic: 138 state: 304  wait: 1  next: 241  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitAttack: 550
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -787,7 +787,7 @@
    bdy_end:
 <frame_end>
 <frame> 253 dash_jump
-   pic: 136 state: 404  wait: 8  next: 220  hitDefense: 300  hitGround: 290  hitJump: 230 
+   pic: 136 state: 404  wait: 8  next: 220  hitDefense: 300  hitGround: 290  hitJump: 230  hitAttack: 550
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -795,25 +795,25 @@
 
 
 <frame> 270 jump_dash
-   pic: 119 state: 205  wait: 2  next: 271  dvx: 200  dvy: 50  dvz: 0
+   pic: 119 state: 205  wait: 2  next: 271  dvx: 200  dvy: 50  dvz: 0  hitAttack: 590
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 271 jump_dash
-   pic: 120 state: 205  wait: 0,5  next: 272  dvy: 0  dvz: 0  
+   pic: 120 state: 205  wait: 0,5  next: 272  dvy: 0  dvz: 0  hitAttack: 590
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 272 jump_dash
-   pic: 121 state: 205  wait: 4  next: 273  dvy: 0  dvz: 0  
+   pic: 121 state: 205  wait: 4  next: 273  dvy: 0  dvz: 0  hitAttack: 590
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 273 jump_dash
-   pic: 121 state: 205  wait: 1  next: 240  dvy: 0  dvz: 0
+   pic: 121 state: 205  wait: 1  next: 240  dvy: 0  dvz: 0  hitAttack: 590
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -843,19 +843,19 @@
 
 
 <frame> 300 start_jump_defense
-   pic: 141 state: 15  wait: 1  next: 301  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   pic: 141 state: 15  wait: 1  next: 301  dvx: 0  dvy: 0  dvz: 0  hitGround: 290  hitAttack: 570
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 301 jump_defense
-   pic: 142 state: 207  wait: 5  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290
+   pic: 142 state: 207  wait: 5  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290  hitAttack: 570
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 302 stop_jump_defense
-   pic: 141 state: 15  wait: 1  next: 308  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   pic: 141 state: 15  wait: 1  next: 308  dvx: 0  dvy: 0  dvz: 0  hitGround: 290  hitAttack: 570
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -863,7 +863,7 @@
 
 
 <frame> 303 jump_defense_hold
-   pic: 142 state: 207  wait: 1  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290
+   pic: 142 state: 207  wait: 1  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290  hitAttack: 570
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -871,13 +871,13 @@
 
 
 <frame> 305 hit_jump_defense
-   pic: 142 state: 307  wait: 1  next: 306  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   pic: 142 state: 307  wait: 1  next: 306  dvx: 0  dvy: 0  dvz: 0  hitGround: 290  hitAttack: 570
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 306 hit_jump_defense
-   pic: 142 state: 207  wait: 2,5  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290
+   pic: 142 state: 207  wait: 2,5  next: 302  dvx: 0  dvy: 0  dvz: 0  holdDefenseAfter: 303  hitGround: 290  hitAttack: 570
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -885,13 +885,13 @@
 
 
 <frame> 308 jump_falling_no_action
-   pic: 137 state: 104  wait: 0,5  next: 309  dvx: 0  dvy: 0  dvz: 0
+   pic: 137 state: 104  wait: 0,5  next: 309
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 309 jump_falling_no_action
-   pic: 138 state: 104  wait: 1  next: 309  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   pic: 138 state: 104  wait: 1  next: 309  hitGround: 290
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -904,7 +904,7 @@
       kind: 0  default: true
    bdy_end:
    opoint:
-      x: 0,065  y: 0,51  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 3
+      x: 0,065  y: 0,51  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 1
    opoint_end:
 <frame_end>
 <frame> 311 throwing_weapon
@@ -925,7 +925,7 @@
       kind: 0  default: true
    bdy_end:
    opoint:
-      x: 0,13  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 1  facingFront: true  quantity: 1  poolQuantity: 3
+      x: 0,13  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 1  facingFront: true  quantity: 1  poolQuantity: 1
    opoint_end:
 <frame_end>
 <frame> 314 throwing_weapon
@@ -960,8 +960,813 @@
 <frame_end>
 
 
+<frame> 330 running_attack
+   pic: 241 state: 15  wait: 1  next: 331  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 331 running_attack
+   pic: 242 state: 15  wait: 0,5  next: 332  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 332 running_attack
+   pic: 243 state: 15  wait: 1  next: 333  dvx: 350  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 333 running_attack
+   pic: 244 state: 15  wait: 0,5  next: 334 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 334 running_attack
+   pic: 245 state: 15  wait: 1  next: 335  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 335 running_attack
+   pic: 246 state: 15  wait: 0,5  next: 336  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 336 running_attack
+   pic: 247 state: 15  wait: 5  next: 337  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,2098  y: 0,2994  z: 0  w: 0,4802928  h: 0,3247183  zwidth: 0,22  dvx: 250  dvy: 200  dvz: 0  action: 860  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 7
+   itr_end:
+<frame_end>
+<frame> 337 running_attack
+   pic: 300 state: 15  wait: 1  next: 338  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 338 running_attack
+   pic: 301 state: 15  wait: 0,5  next: 339  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 339 running_attack
+   pic: 302 state: 15  wait: 1  next: 340  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 340 running_attack
+   pic: 303 state: 15  wait: 0,5  next: 341  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 341 running_attack
+   pic: 304 state: 15  wait: 1  next: 0  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 350 attack_1
+   pic: 305 state: 15  wait: 5  next: 351  dvx: 0  dvy: 0  dvz: 0  hitJump: 450
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 351 attack_1
+   pic: 306 state: 15  wait: 0,5  next: 352  dvx: 0  dvy: 0  dvz: 0  hitJump: 450
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 352 attack_1
+   pic: 307 state: 15  wait: 0,5  next: 353  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,206  y: 0,404  z: 0  w: 0,4802869  h: 0,1739243  zwidth: 0,22  dvx: 50  dvy: 0  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 1  injury: 50  effect: 0  rest: 4  nextIfHit: 360
+   itr_end:
+<frame_end>
+<frame> 353 attack_1
+   pic: 308 state: 15  wait: 0,5  next: 354  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 354 attack_1
+   pic: 309 state: 15  wait: 6  next: 0  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+<frame> 360 attack_1_next
+   pic: 308 state: 15  wait: 3  next: 361  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 361 attack_1_next
+   pic: 309 state: 15  wait: 8  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAttack: 370
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 370 attack_2
+   pic: 310 state: 15  wait: 2  next: 371  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 371 attack_2
+   pic: 311 state: 15  wait: 0,5  next: 372  dvx: 250  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 372 attack_2
+   pic: 312 state: 15  wait: 1  next: 373 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,1486  y: 0,6317  z: 0  w: 0,4363394  h: 0,511544  zwidth: 0,22  dvx: 300  dvy: 0  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 1  injury: 50  effect: 1  rest: 8
+   itr_end:
+<frame_end>
+<frame> 373 attack_2
+   pic: 313 state: 15  wait: 0,5  next: 374  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 374 attack_2
+   pic: 314 state: 15  wait: 0,5  next: 375  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 375 attack_2
+   pic: 315 state: 15  wait: 0,5  next: 376  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 376 attack_2
+   pic: 316 state: 15  wait: 0,5  next: 377  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 377 attack_2
+   pic: 317 state: 15  wait: 0,75  next: 378  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 378 attack_2
+   pic: 318 state: 15  wait: 2  next: 379
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 379 attack_2
+   pic: 318 state: 15  wait: 4  next: 0  hitAttack: 390
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 390 attack_3
+   pic: 319 state: 15  wait: 2  next: 391  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 391 attack_3
+   pic: 320 state: 15  wait: 0,5  next: 392  dvx: 250  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 392 attack_3
+   pic: 321 state: 15  wait: 0,5  next: 393  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 393 attack_3
+   pic: 322 state: 15  wait: 0,5  next: 394  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 394 attack_3
+   pic: 323 state: 15  wait: 0,5  next: 395  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 395 attack_3
+   pic: 324 state: 15  wait: 0,5  next: 396  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 396 attack_3
+   pic: 325 state: 15  wait: 0,5  next: 397 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 397 attack_3
+   pic: 326 state: 15  wait: 0,5  next: 398  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 398 attack_3
+   pic: 327 state: 15  wait: 6  next: 399 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,1912  y: 0,4595  z: 0  w: 0,427315  h: 0,2270108  zwidth: 0,22  dvx: 150  dvy: 0  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 1  injury: 50  effect: 0  rest: 7
+   itr_end:
+<frame_end>
+<frame> 399 attack_3
+   pic: 328 state: 15  wait: 0,5  next: 400  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 400 attack_3
+   pic: 329 state: 15  wait: 2,5  next: 401  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 401 attack_3
+   pic: 304 state: 15  wait: 4  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAttack: 410
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 410 attack_4
+   pic: 330 state: 15  wait: 3  next: 411  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 411 attack_4
+   pic: 331 state: 15  wait: 0,5  next: 412  dvx: 150  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 412 attack_4
+   pic: 332 state: 15  wait: 1  next: 413  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,2152  y: 0,3705  z: 0  w: 0,4753025  h: 0,1846461  zwidth: 0,22  dvx: 175  dvy: 0  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 1  injury: 50  effect: 0  rest: 5
+   itr_end:
+<frame_end>
+<frame> 413 attack_4
+   pic: 333 state: 15  wait: 1  next: 414 
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 414 attack_4
+   pic: 334 state: 15  wait: 1  next: 415  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 415 attack_4
+   pic: 335 state: 15  wait: 0,5  next: 416  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 416 attack_4
+   pic: 336 state: 15  wait: 2  next: 417  
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 417 attack_4
+   pic: 336 state: 15  wait: 4  next: 0  hitAttack: 429
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 429 combo_finish
+   pic: 336 state: 33  wait: 8  next: 0  hitUp: 450  hitDown: 470  hitFront: 430
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 430 front_attack
+   pic: 223 state: 15  wait: 0,5  next: 431  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 431 front_attack
+   pic: 224 state: 15  wait: 0,5  next: 432  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 432 front_attack
+   pic: 225 state: 15  wait: 0,5  next: 433  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 433 front_attack
+   pic: 226 state: 15  wait: 0,5  next: 434  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: -0,450  y: 0  z: 0,094  action: 40  dvx: 0  dvy: 0  dvz: 0  oid: 5  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 434 front_attack
+   pic: 227 state: 15  wait: 15  next: 0  dvx: 0  dvy: 0  dvz: 0  hitJump: 650
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 450 uppercut
+   pic: 223 state: 15  wait: 0,5  next: 451  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 451 uppercut
+   pic: 224 state: 15  wait: 0,5  next: 452  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 452 uppercut
+   pic: 225 state: 15  wait: 0,5  next: 453  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 453 uppercut
+   pic: 226 state: 15  wait: 0,5  next: 454  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,450  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 5  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 454 uppercut
+   pic: 227 state: 15  wait: 2  next: 455  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 455 uppercut
+   pic: 227 state: 15  wait: 13  next: 0  dvx: 0  dvy: 0  dvz: 0  hitJump: 650
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,11  y: 0,25  z: -0,08  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 13  facingFront: true  quantity: 1  poolQuantity: 3
+   opoint_end:
+<frame_end>
+
+
+<frame> 470 downercut
+   pic: 223 state: 15  wait: 0,5  next: 471  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 471 downercut
+   pic: 224 state: 15  wait: 0,5  next: 472  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 472 downercut
+   pic: 225 state: 15  wait: 0,5  next: 473  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 473 downercut
+   pic: 226 state: 15  wait: 0,5  next: 474  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: -0,450  y: 0  z: 0,094  action: 20  dvx: 0  dvy: 0  dvz: 0  oid: 5  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 474 downercut
+   pic: 227 state: 15  wait: 15  next: 0  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 550 jump_super_attack
+   pic: 507 state: 15  wait: 0,5  next: 551  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 551 jump_super_attack
+   pic: 508 state: 15  wait: 1  next: 552  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 552 jump_super_attack
+   pic: 509 state: 15  wait: 0,5  next: 553  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 553 jump_super_attack
+   pic: 510 state: 15  wait: 1  next: 554  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 554 jump_super_attack
+   pic: 511 state: 15  wait: 0,5  next: 555  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  x: 0,1047  y: 0,1856  z: 0  w: 0,4125906  h: 0,371265  zwidth: 0,22  
+   bdy_end:
+   itr:
+      kind: 0  x: 0,244  y: 0,2647  z: 0  w: 0,34172  h: 0,7125095  zwidth: 0,22  dvx: 50  dvy: -50  dvz: 0  action: 820  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+<frame> 555 jump_super_attack
+   pic: 512 state: 15  wait: 1  next: 556  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  x: 0,1047  y: 0,1856  z: 0  w: 0,4125906  h: 0,371265  zwidth: 0,22  
+   bdy_end:
+   itr:
+      kind: 0  x: 0,244  y: 0,2647  z: 0  w: 0,34172  h: 0,7125095  zwidth: 0,22  dvx: 50  dvy: -50  dvz: 0  action: 820  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+<frame> 556 jump_super_attack
+   pic: 513 state: 15  wait: 0,5  next: 557  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  x: 0,1047  y: 0,1856  z: 0  w: 0,4125906  h: 0,371265  zwidth: 0,22  
+   bdy_end:
+   itr:
+      kind: 0  x: 0,244  y: 0,2647  z: 0  w: 0,34172  h: 0,7125095  zwidth: 0,22  dvx: 50  dvy: -50  dvz: 0  action: 820  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+<frame> 557 jump_super_attack
+   pic: 514 state: 15  wait: 1  next: 557  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  x: 0,1047  y: 0,1856  z: 0  w: 0,4125906  h: 0,371265  zwidth: 0,22  
+   bdy_end:
+   itr:
+      kind: 0  x: 0,244  y: 0,2647  z: 0  w: 0,34172  h: 0,7125095  zwidth: 0,22  dvx: 50  dvy: -50  dvz: 0  action: 820  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+
+
+<frame> 570 jump_throwing_attack
+   pic: 517 state: 15  wait: 2  next: 571  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,065  y: 0,51  z: 0,04  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 0  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 571 jump_throwing_attack
+   pic: 518 state: 15  wait: 0,5  next: 572  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 572 jump_throwing_attack
+   pic: 519 state: 15  wait: 1  next: 573  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 573 jump_throwing_attack
+   pic: 520 state: 15  wait: 0,5  next: 574  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,13  y: 0  z: 0,094  action: 20  dvx: 0  dvy: 0  dvz: 0  oid: 1  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 574 jump_throwing_attack
+   pic: 521 state: 15  wait: 1  next: 575  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 575 jump_throwing_attack
+   pic: 522 state: 15  wait: 0,5  next: 576  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 576 jump_throwing_attack
+   pic: 523 state: 15  wait: 1  next: 576  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 590 jump_attack_1
+   pic: 416 state: 103  wait: 1  next: 591  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 591 jump_attack_1
+   pic: 417 state: 103  wait: 0,5  next: 592  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 592 jump_attack_1
+   pic: 418 state: 103  wait: 1  next: 593  dvx: 100  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,3132  y: 0,2915  z: 0  w: 0,2544849  h: 0,2441489  zwidth: 0,22  dvx: 80  dvy: 0  dvz: 0  action: 720  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 4
+   itr_end:
+<frame_end>
+<frame> 593 jump_attack_1
+   pic: 419 state: 103  wait: 0,5  next: 594  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 594 jump_attack_1
+   pic: 420 state: 15  wait: 2  next: 595  dvx: 1  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 595 jump_attack_1
+   pic: 420 state: 15  wait: 1  next: 595  dvx: 0  dvy: 0  dvz: 0  hitGround: 290  hitAttack: 610
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 610 jump_attack_2
+   pic: 500 state: 103  wait: 1  next: 611  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 611 jump_attack_2
+   pic: 501 state: 103  wait: 0,5  next: 612  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 612 jump_attack_2
+   pic: 502 state: 103  wait: 0,5  next: 613  dvx: 100  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,2823  y: 0,1451  z: 0  w: 0,3108601  h: 0,3488045  zwidth: 0,22  dvx: 80  dvy: 0  dvz: 0  action: 720  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 4
+   itr_end:
+<frame_end>
+<frame> 613 jump_attack_2
+   pic: 503 state: 103  wait: 0,5  next: 614  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 614 jump_attack_2
+   pic: 504 state: 103  wait: 1  next: 615  dvx: 1  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 615 jump_attack_2
+   pic: 505 state: 103  wait: 0,5  next: 616  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 616 jump_attack_2
+   pic: 506 state: 15  wait: 2  next: 617  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 617 jump_attack_2
+   pic: 506 state: 15  wait: 1  next: 617  dvx: 0  dvy: 0  dvz: 0  hitGround: 290  hitAttack: 630
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 630 jump_attack_3
+   pic: 507 state: 103  wait: 1  next: 631  dvx: 0  dvy: 200  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 631 jump_attack_3
+   pic: 508 state: 103  wait: 0,5  next: 632  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 632 jump_attack_3
+   pic: 509 state: 103  wait: 1  next: 633  dvx: 100  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 633 jump_attack_3
+   pic: 510 state: 103  wait: 1  next: 634  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 634 jump_attack_3
+   pic: 511 state: 103  wait: 0,5  next: 635  dvx: 1  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 635 jump_attack_3
+   pic: 512 state: 103  wait: 0,5  next: 636  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   itr:
+      kind: 0  x: 0,4138  y: 0,2659  z: 0  w: 0,3108572  h: 0,6118544  zwidth: 0,22  dvx: 100  dvy: -400  dvz: 0  action: 820  applyInSingleEnemy: false  defensable: true  level: 1  injury: 150  effect: 0  rest: 15
+   itr_end:
+<frame_end>
+<frame> 636 jump_attack_3
+   pic: 513 state: 103  wait: 0,5  next: 637  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 637 jump_attack_3
+   pic: 514 state: 103  wait: 8  next: 638  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 638 jump_attack_3
+   pic: 515 state: 103  wait: 0,5  next: 639  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 639 jump_attack_3
+   pic: 516 state: 15  wait: 2  next: 640  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 640 jump_attack_3
+   pic: 516 state: 15  wait: 1  next: 640  dvx: 0  dvy: 0  dvz: 0  hitGround: 290
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 650 jump_combo
+   pic: 134 state: 15  wait: 4  next: 651  dvx: 0  dvy: 0  dvz: 0  hitDefense: 130
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 651 jump_combo
+   pic: 134 state: 204  wait: 0,5  next: 652  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 652 jump_combo
+   pic: 135 state: 15  wait: 0,5  next: 653  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 653 jump_combo
+   pic: 136 state: 4  wait: 1  next: 654  dvx: 80  dvy: 300  dvz: 80  hitJump: 670
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 654 jump_combo
+   pic: 136 state: 104  wait: 8  next: 660  hitDefense: 300  hitJump: 670  hitGround: 290  hitAttack: 590
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 660 jump_combo_falling
+   pic: 137 state: 104  wait: 0,5  next: 661  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitJump: 670  hitAttack: 590
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 661 jump_combo_falling
+   pic: 138 state: 104  wait: 1  next: 661  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitJump: 670  hitAttack: 590
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 670 double_jump_combo
+   pic: 134 state: 15  wait: 1  next: 671  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 671 double_jump_combo
+   pic: 135 state: 15  wait: 0,5  next: 672  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 672 double_jump_combo
+   pic: 136 state: 704  wait: 1  next: 673  dvx: 80  dvy: 225  dvz: 80
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 673 double_jump_combo
+   pic: 136 state: 504  wait: 8  next: 680  hitDefense: 300  hitGround: 290  hitAttack: 590
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 680 double_jump_falling
+   pic: 137 state: 304  wait: 0,5  next: 681  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitAttack: 590
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 681 double_jump_falling
+   pic: 138 state: 304  wait: 1  next: 681  dvx: 0  dvy: 0  dvz: 0  hitDefense: 300  hitGround: 290  hitAttack: 590
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
 <frame> 700 injured_manager
-   pic: 111 state: 11  wait: 0,5  next: 702  dvx: 0  dvy: 0  dvz: 0
+   pic: 111 state: 11  wait: 2  next: 702  dvx: 0  dvy: 0  dvz: 0
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -969,13 +1774,13 @@
 
 
 <frame> 702 injured_1
-   pic: 600 state: 16  wait: 0,5  next: 703  dvx: 0  dvy: 0  dvz: 0
+   pic: 600 state: 16  wait: 1  next: 703  dvx: 0  dvy: 0  dvz: 0  hitDefense: 880
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 703 injured_1
-   pic: 601 state: 16  wait: 20  next: 0  dvx: 0  dvy: 0  dvz: 0
+   pic: 601 state: 16  wait: 18  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAir: 801
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -983,57 +1788,337 @@
 
 
 <frame> 710 injured_2
-   pic: 602 state: 16  wait: 0,5  next: 711  dvx: 0  dvy: 0  dvz: 0
+   pic: 602 state: 16  wait: 1  next: 711  dvx: 0  dvy: 0  dvz: 0  hitDefense: 880
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 711 injured_2
-   pic: 603 state: 16  wait: 20  next: 0  dvx: 0  dvy: 0  dvz: 0
+   pic: 603 state: 16  wait: 18  next: 0  dvx: 0  dvy: 0  dvz: 0  hitAir: 801
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 
 
-<frame> 800 falling
-   pic: 604 state: 112  wait: 4  next: 801
+<frame> 720 injured_sky_manager
+   pic: 111 state: 111  wait: 2  next: 722  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 722 injured_sky_1
+   pic: 600 state: 116  wait: 1  next: 723  dvx: 0  dvy: 0  dvz: 0  hitDefense: 885
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 723 injured_sky_1
+   pic: 601 state: 116  wait: 3  next: 724  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 724 injured_sky_1
+   pic: 601 state: 32  wait: 10  next: 801  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 730 injured_sky_2
+   pic: 602 state: 116  wait: 1  next: 731  dvx: 0  dvy: 0  dvz: 0  hitDefense: 885
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 731 injured_sky_2
+   pic: 603 state: 116  wait: 3  next: 732  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 732 injured_sky_2
+   pic: 603 state: 32  wait: 10  next: 801  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 800 falling_hit
+   pic: 604 state: 112  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 801
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 801 falling
-   pic: 605 state: 12  wait: 4  next: 802  hitGround: 910
+   pic: 605 state: 12  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 802  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 802 falling
-   pic: 606 state: 12  wait: 4  next: 803  hitGround: 910
+   pic: 606 state: 12  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 803  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 803 falling
-   pic: 607 state: 12  wait: 4  next: 804  hitGround: 910
+   pic: 607 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 804  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 804 falling
-   pic: 608 state: 12  wait: 4  next: 805  hitGround: 910
+   pic: 608 state: 12  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 805  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 805 falling
-   pic: 609 state: 12  wait: 4  next: 806  hitGround: 910
+   pic: 609 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 806  hitGround: 910
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 806 falling
-   pic: 610 state: 12  wait: 4  next: 806  hitGround: 910
+   pic: 610 state: 12  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 806  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 820 falling_down
+   pic: 625 state: 112  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 821  hitGround: 825
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 821 falling_down
+   pic: 626 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 822  hitGround: 825
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 822 falling_down
+   pic: 617 state: 12  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 822  hitGround: 825
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+<frame> 825 falling_down_impact
+   pic: 627 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 826
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,13  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 6  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 826 falling_down_impact
+   pic: 628 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 827
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 827 falling_down_impact
+   pic: 629 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 828
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 828 falling_down_impact
+   pic: 630 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 829
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 829 falling_down_impact
+   pic: 631 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 840 falling_up
+   pic: 603 state: 112  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 841  hitCeil: 850  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 841 falling_up
+   pic: 611 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 842  hitCeil: 850  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 842 falling_up
+   pic: 611 state: 12  wait: 10  dvx: 0  dvy: 0  dvz: 0  next: 843  hitCeil: 850  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 843 falling_up
+   pic: 611 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 844  hitCeil: 850  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 844 falling_up
+   pic: 612 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 845  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 845 falling_up
+   pic: 613 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 846  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 846 falling_up
+   pic: 614 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 847  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 847 falling_up
+   pic: 615 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 848  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 848 falling_up
+   pic: 616 state: 12  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 848  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+<frame> 850 falling_up_impact
+   pic: 212 state: 15  wait: 2  dvx: 0  dvy: -320  dvz: 0  next: 851
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,13  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 10  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 851 falling_up_impact
+   pic: 630 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 852  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 852 falling_up_impact
+   pic: 628 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 853  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 853 falling_up_impact
+   pic: 615 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 854  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 854 falling_up_impact
+   pic: 617 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 854  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 860 falling_forward_hit
+   pic: 603 state: 112  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 861
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 861 falling_forward
+   pic: 618 state: 12  wait: 0,5  dvx: 0  dvy: 0  dvz: 0  next: 862  hitGround: 910  hitWall: 870
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 862 falling_forward
+   pic: 619 state: 12  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 863  hitGround: 910  hitWall: 870
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 863 falling_forward
+   pic: 620 state: 12  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 863  hitGround: 910  hitWall: 870
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+<frame> 870 falling_forward_impact
+   pic: 627 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 871
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: -0,17  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 11  facingFront: true  quantity: 1  poolQuantity: 1
+   opoint_end:
+<frame_end>
+<frame> 871 falling_forward_impact
+   pic: 628 state: 15  wait: 2  dvx: 100  dvy: 50  dvz: 0  next: 872
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 872 falling_forward_impact
+   pic: 629 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 873
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 873 falling_forward_impact
+   pic: 630 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 874
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 874 falling_forward_impact
+   pic: 631 state: 15  wait: 2  dvx: 0  dvy: 0  dvz: 0  next: 874  hitGround: 910
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 880 critical_defense
+   pic: 139 state: 35  wait: 1  next: 881  dvx: 0  dvy: 0  dvz: 0  hitAttack: 350
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 881 critical_defense
+   pic: 140 state: 35  wait: 1  next: 151  dvx: 0  dvy: 0  dvz: 0  hitAttack: 350
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 885 jump_critical_defense
+   pic: 141 state: 35  wait: 1  next: 886  dvx: 0  dvy: 0  dvz: 0  hitAttack: 590
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+<frame> 886 jump_critical_defense
+   pic: 142 state: 35  wait: 1  next: 301  dvx: 0  dvy: 0  dvz: 0  hitAttack: 590
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -1041,7 +2126,7 @@
 
 
 <frame> 910 lying
-   pic: 628 state: 14  wait: 2  next: 911  dvx: 0  dvy: 0  dvz: 0
+   pic: 628 state: 14  wait: 2  next: 911  dvx: 0  dvy: 0  dvz: 0  hitJump: 930
    bdy:
       kind: 0  default: true
    bdy_end:
@@ -1101,4 +2186,50 @@
    bdy:
       kind: 0  default: true
    bdy_end:
+<frame_end>
+
+
+<frame> 930 jump_recover
+   pic: 134 state: 34  wait: 1  next: 931  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,11  y: 0,25  z: -0,08  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 12  facingFront: true  quantity: 1  poolQuantity: 3
+   opoint_end:
+<frame_end>
+<frame> 931 jump_recover
+   pic: 134 state: 34  wait: 2  next: 290  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+<frame_end>
+
+
+<frame> 9000 hit_normal_active
+   pic: 9999 state: 15  wait: 1  next: 3000  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,13  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 7  facingFront: true  quantity: 1  poolQuantity: 5
+   opoint_end:
+<frame_end>
+<frame> 9001 hit_blood_active
+   pic: 9999 state: 15  wait: 1  next: 3000  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,13  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 8  facingFront: true  quantity: 1  poolQuantity: 5
+   opoint_end:
+<frame_end>
+<frame> 9002 defense_hit_active
+   pic: 9999 state: 15  wait: 1  next: 3000  dvx: 0  dvy: 0  dvz: 0
+   bdy:
+      kind: 0  default: true
+   bdy_end:
+   opoint:
+      x: 0,13  y: 0  z: 0,094  action: 0  dvx: 0  dvy: 0  dvz: 0  oid: 9  facingFront: true  quantity: 1  poolQuantity: 5
+   opoint_end:
 <frame_end>

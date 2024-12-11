@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Timers;
 using AYellowpaper.SerializedCollections;
 using Domains;
+using Enums;
 using Helpers;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,6 +28,8 @@ public abstract class ObjProcess : MonoBehaviour
 
     public FrameEntity currentFrame;
 
+    public Rigidbody rigidbody;
+
     public float waitFrame;
     protected Vector3 velocity = Vector3.zero;
 
@@ -38,12 +41,18 @@ public abstract class ObjProcess : MonoBehaviour
 
     public List<GameObject> opointsToPool;
 
-    public int palleteIndex = 0;
+    public int paletteIndex = 0;
+
+    public int hitNormalFrame;
+    public int hitBloodFrame;
+    public int defenseHitFrame;
+    public Vector3 originalLocalScale;
+    public Color originalColor;
 
     void Awake()
     {
         dataHelper.selfId = gameObject.GetInstanceID();
-        objHelper = DatFileLoadUtil.Exec(datFile, palleteIndex);
+        objHelper = DatFileLoadUtil.Exec(datFile, paletteIndex);
         objHelper.opoints = DatFileLoadUtil.EnrichOpoints(objHelper.frames, opointsToPool, gameObject.GetInstanceID(), dataHelper.team);
     }
 
@@ -60,6 +69,8 @@ public abstract class ObjProcess : MonoBehaviour
         waitFrame = 0f;
         runningSpeed = objHelper.stats.speed / 10;
         this.Facing();
+        originalLocalScale = transform.localScale;
+        originalColor = spriteRenderer.color;
     }
 
     protected void Facing()
@@ -79,7 +90,7 @@ public abstract class ObjProcess : MonoBehaviour
     protected void Timers()
     {
         waitFrame += Time.deltaTime % 60;
-        if (waitFrame >= currentFrame.properties.wait / 30)
+        if (waitFrame >= currentFrame.properties.wait)
         {
             this.ChangeFrame(currentFrame.properties.next);
         }
@@ -95,6 +106,11 @@ public abstract class ObjProcess : MonoBehaviour
     {
         if (nextFrame.HasValue)
         {
+            if (this.rigidbody)
+            {
+                rigidbody.constraints = RigidbodyConstraints.None;
+                rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+            }
             hitButton = false;
             dataHelper.execOpointOneTimeInFrame = true;
             dataHelper.execImpulseForceOneTimeInFrame = true;
@@ -121,7 +137,27 @@ public abstract class ObjProcess : MonoBehaviour
             ObjProcess opoint = objHelper.opoints[currentFrame.id].Dequeue();
             opoint.dataHelper.summonAction = currentFrame.opoint.action;
             opoint.dataHelper.facingRight = dataHelper.facingRight && currentFrame.opoint.facingFront;
-            opoint.transform.position = transform.position + opoint.dataHelper.originLocalPosition;
+
+            if (currentFrame.opoint.useSamePalette)
+            {
+                opoint.paletteIndex = paletteIndex;
+            }
+
+            var xPos = 0f;
+            var yPos = transform.position.y + opoint.dataHelper.originLocalPosition.y;
+            var zPos = transform.position.z + opoint.dataHelper.originLocalPosition.z;
+            
+            if (dataHelper.facingRight)
+            {
+                xPos = transform.position.x + opoint.dataHelper.originLocalPosition.x;
+            }
+            else
+            {
+                xPos = transform.position.x - opoint.dataHelper.originLocalPosition.x;
+            }
+
+            opoint.transform.position = new Vector3(xPos, yPos, zPos);
+
             opoint.gameObject.SetActive(true);
             for (int i = 0; i < opoint.gameObject.transform.childCount; i++)
             {
@@ -133,14 +169,61 @@ public abstract class ObjProcess : MonoBehaviour
         }
     }
 
+    public void SpawnHitOpoint(Vector3 opointPosition, ItrEffectEnum effect)
+    {
+        switch (effect)
+        {
+            case ItrEffectEnum.NORMAL:
+                SpawnHit(objHelper.opoints[hitNormalFrame].Dequeue(), opointPosition);
+                break;
+            case ItrEffectEnum.BLOOD:
+                SpawnHit(objHelper.opoints[hitBloodFrame].Dequeue(), opointPosition);
+                break;
+            case ItrEffectEnum.DEFENSE:
+                SpawnHit(objHelper.opoints[defenseHitFrame].Dequeue(), opointPosition);
+                break;
+            case ItrEffectEnum.SLOW:
+            case ItrEffectEnum.STUN:
+            case ItrEffectEnum.IGNITE:
+            case ItrEffectEnum.POISON:
+            case ItrEffectEnum.ROOT:
+            case ItrEffectEnum.CHARM:
+            case ItrEffectEnum.FEAR:
+            case ItrEffectEnum.TAUNT:
+            case ItrEffectEnum.BLIND:
+            case ItrEffectEnum.PARALYSIS:
+            case ItrEffectEnum.FREEZE:
+            case ItrEffectEnum.CONFUSE:
+            case ItrEffectEnum.SILENCE:
+            case ItrEffectEnum.NO_EFFECT:
+            default:
+                break;
+        }
+    }
+
+    private void SpawnHit(ObjProcess gameObj, Vector3 opointPosition)
+    {
+        gameObj.transform.position = opointPosition + new Vector3(0, 0f, -0.09f);
+        gameObj.gameObject.SetActive(true);
+        for (int i = 0; i < gameObj.transform.childCount; i++)
+        {
+            gameObj.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        gameObj.Start();
+    }
+
     protected void Delete()
     {
+        
+        transform.localScale = originalLocalScale;
+        spriteRenderer.color = originalColor;
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(true);
         }
         if (dataHelper.ownerId == null)
         {
+            dataHelper.originPool.Enqueue(this);
             gameObject.SetActive(false);
         }
         else
@@ -314,7 +397,6 @@ public abstract class ObjProcess : MonoBehaviour
 
     public void HitRight(bool performed, bool started, bool canceled)
     {
-        Debug.Log(performed + "|" + started + "|" + canceled);
         if (performed)
         {
             dataHelper.hitRight = true;

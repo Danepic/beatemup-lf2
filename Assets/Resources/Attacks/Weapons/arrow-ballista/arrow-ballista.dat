@@ -10,6 +10,7 @@
    file: Attacks/Weapons/arrow-ballista/sprites
 <palletes_end>
 
+
 <frame> 0 invoke
    pic: 100  state: 2000  wait: 0,5  next: 1  dvx: 0  dvy: 0  dvz: 0  
    bdy:
@@ -17,36 +18,36 @@
    bdy_end:
 <frame_end>
 <frame> 1 invoke_impulse
-   pic: 100  state: 2001  wait: 1  next: 2  dvx: 450  dvy: 125  dvz: 0  
+   pic: 100  state: 2001  wait: 1  next: 2  dvx: 400  dvy: 250  dvz: 0  
    bdy:
       kind: 0  default: true
    bdy_end:
 <frame_end>
 <frame> 2 invoke
-   pic: 100  state: 2001  wait: 5  next: 3  hitGround: 300
+   pic: 100  state: 2000  wait: 5  next: 3  hitGround: 300
    bdy:
       kind: 0  default: true
    bdy_end:
    itr:
-      kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
+      kind: 0  default: true  dvx: 150  dvy: 0  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
    itr_end:
 <frame_end>
 <frame> 3 invoke
-   pic: 102  state: 2001  wait: 5  next: 4  hitGround: 300
+   pic: 102  state: 2000  wait: 5  next: 4  hitGround: 300
    bdy:
       kind: 0  default: true
    bdy_end:
    itr:
-      kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
+      kind: 0  default: true  dvx: 150  dvy: 0  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
    itr_end:
 <frame_end>
 <frame> 4 invoke
-   pic: 104  state: 2001  wait: 5  next: 4  hitGround: 300
+   pic: 104  state: 2000  wait: 5  next: 4  hitGround: 300
    bdy:
       kind: 0  default: true
    bdy_end:
    itr:
-      kind: 0  default: true  dvx: 150  dvy: 100  dvz: 0  action: 800  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
+      kind: 0  default: true  dvx: 150  dvy: 0  dvz: 0  action: 700  applyInSingleEnemy: false  defensable: true  level: 2  injury: 150  effect: 1  rest: 15
    itr_end:
 <frame_end>
 

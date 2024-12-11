@@ -11,12 +11,11 @@ public class HurtHitObjProcess : ObjProcess
     public Transform hurtbox;
     public Transform hitbox;
 
-    public Rigidbody rigidbody;
-    protected MatchController matchController;
-
     public float zSizeDefault = 0.22f;
     public float maxDistanceToCheckCollision = 0.1f;
     private LayerMask whatIsGround;
+    private LayerMask whatIsCeil;
+    private LayerMask whatIsWall;
     private LayerMask whatIsItr;
 
     public float restDamageWaitTime;
@@ -25,18 +24,22 @@ public class HurtHitObjProcess : ObjProcess
     public int totalHp;
     public int currentMp;
     public int totalMp;
+    public bool canParry;
+    public int lastDamage;
 
     public new void Start()
     {
         base.Start();
         whatIsGround = LayerMask.GetMask("Ground");
+        whatIsCeil = LayerMask.GetMask("Ceil");
+        whatIsWall = LayerMask.GetMask("Wall");
         whatIsItr = LayerMask.GetMask("Itr");
-        matchController = GameObject.Find("MatchController").GetComponent<MatchController>();
         totalHp = ResolveHealthPoint();
         totalMp = ResolveManaPoint();
         currentHp = objHelper.header.startHp;
         currentMp = objHelper.header.startMp;
         dataHelper.isDeath = false;
+        canParry = false;
     }
 
     void OnDisable()
@@ -119,6 +122,7 @@ public class HurtHitObjProcess : ObjProcess
 
     protected void Timers()
     {
+        // Debug.Log(">>" + restDamageWaitTime + "|" + dataHelper.damageRestTU / 30 + "|" + dataHelper.damageRestTU + "|" + gameObject.name);
         if (dataHelper.damageRestTU > 0)
         {
             restDamageWaitTime += Time.deltaTime % 60;
@@ -148,14 +152,12 @@ public class HurtHitObjProcess : ObjProcess
 
             var scriptObject = collider.transform.parent.GetComponent<HurtHitObjProcess>();
 
-            if (scriptObject.currentFrame.itr == null) {
+            if (scriptObject.currentFrame.itr == null)
+            {
                 return;
             }
 
-            Debug.Log(collider.transform.parent.name + " acertou " + gameObject.name);
-            scriptObject.dataHelper.attacking = true;
-            Debug.Log(scriptObject.currentFrame.itr);
-            scriptObject.dataHelper.damageInSingleTarget = scriptObject.currentFrame.itr.applyInSingleEnemy;
+            Debug.Log(collider.transform.parent.name + " acertou " + gameObject.name + "|" + scriptObject.currentFrame.itr.kind);
 
             if (scriptObject.dataHelper.targetId == null && scriptObject.dataHelper.damageInSingleTarget)
             {
@@ -172,42 +174,70 @@ public class HurtHitObjProcess : ObjProcess
             dataHelper.externTeam = scriptObject.dataHelper.team;
             dataHelper.externId = scriptObject.dataHelper.ownerId != null ? scriptObject.dataHelper.ownerId : scriptObject.dataHelper.selfId;
             dataHelper.externOwnerId = scriptObject.dataHelper.ownerId;
-            dataHelper.execHitSpawnOneTimeInFrame = true;
-            dataHelper.wasAttacked = true;
-            dataHelper.damageRestTU = scriptObject.currentFrame.itr.rest;
-            dataHelper.contactPoint = collider.ClosestPoint(transform.position);
+
+            var contactPointX = scriptObject.dataHelper.facingRight ? scriptObject.currentFrame.itr.x : -scriptObject.currentFrame.itr.x;
+            dataHelper.contactPoint = scriptObject.transform.position + new Vector3(contactPointX, scriptObject.currentFrame.itr.y, scriptObject.currentFrame.itr.z);
+
+            // Debug.Log(scriptObject.currentFrame.id + "|" + dataHelper.damageRestTU + "|" + restDamageWaitTime);
+
+            if (this.ExternInteraction(scriptObject))
+            {
+                scriptObject.dataHelper.attacking = true;
+                scriptObject.dataHelper.damageInSingleTarget = scriptObject.currentFrame.itr.applyInSingleEnemy;
+                scriptObject.dataHelper.enableNextIfHit = true;
+                scriptObject.dataHelper.nextIfHit = scriptObject.currentFrame.itr.nextIfHit;
+                dataHelper.wasAttacked = true;
+                dataHelper.execHitSpawnOneTimeInFrame = true;
+                dataHelper.damageRestTU = scriptObject.currentFrame.itr.rest;
+            }
         }
     }
 
-    protected void ExternInteraction()
+    protected void CheckIfNextHitEnable()
     {
+        if (dataHelper.enableNextIfHit)
+        {
+            this.ChangeFrame(dataHelper.nextIfHit);
+            dataHelper.enableNextIfHit = false;
+            dataHelper.nextIfHit = null;
+        }
+
+    }
+
+    protected bool ExternInteraction(HurtHitObjProcess scriptObject)
+    {
+        bool hit = false;
         if (dataHelper.externAction)
         {
             switch (dataHelper.externItr.kind)
             {
                 case ItrKindEnum.ENEMY:
-                    Debug.Log("ENEMY" + ":" + dataHelper.externTeam + "|" + dataHelper.team);
-
-                    currentHp -= dataHelper.externItr.injury;
-                    if (currentHp <= 0)
+                    if (dataHelper.externTeam != dataHelper.team)
                     {
-                        dataHelper.isDeath = true;
-                    }
-
-                    if (dataHelper.externItr.defensable && dataHelper.isDefending)
-                    {
-                        if (dataHelper.onGround)
+                        currentHp -= dataHelper.externItr.injury;
+                        lastDamage = dataHelper.externItr.injury;
+                        canParry = true;
+                        if (currentHp <= 0)
                         {
-                            ChangeFrame(StateHelper.HIT_DEFENSE);
+                            dataHelper.isDeath = true;
+                        }
+
+                        if (dataHelper.externItr.defensable && dataHelper.isDefending)
+                        {
+                            if (dataHelper.onGround)
+                            {
+                                ChangeFrame(StateHelper.HIT_DEFENSE);
+                            }
+                            else
+                            {
+                                ChangeFrame(StateHelper.HIT_JUMP_DEFENSE);
+                            }
                         }
                         else
                         {
-                            ChangeFrame(StateHelper.HIT_JUMP_DEFENSE);
+                            ChangeFrame(dataHelper.externItr.action);
                         }
-                    }
-                    else if (dataHelper.externTeam != dataHelper.team)
-                    {
-                        ChangeFrame(dataHelper.externItr.action);
+                        hit = true;
                     }
                     break;
                 case ItrKindEnum.ALLY:
@@ -215,6 +245,7 @@ public class HurtHitObjProcess : ObjProcess
                     if (dataHelper.externTeam == dataHelper.team)
                     {
                         ChangeFrame(dataHelper.externItr.action);
+                        hit = true;
                     }
                     break;
                 case ItrKindEnum.OWNER:
@@ -222,6 +253,7 @@ public class HurtHitObjProcess : ObjProcess
                     if (dataHelper.externOwnerId == dataHelper.selfId)
                     {
                         ChangeFrame(dataHelper.externItr.action);
+                        hit = true;
                     }
                     break;
                 case ItrKindEnum.CHILD:
@@ -229,6 +261,7 @@ public class HurtHitObjProcess : ObjProcess
                     if (dataHelper.externId == dataHelper.ownerId)
                     {
                         ChangeFrame(dataHelper.externItr.action);
+                        hit = true;
                     }
                     break;
                 case ItrKindEnum.SELF:
@@ -236,11 +269,13 @@ public class HurtHitObjProcess : ObjProcess
                     if (dataHelper.externId == dataHelper.selfId)
                     {
                         ChangeFrame(dataHelper.externItr.action);
+                        hit = true;
                     }
                     break;
                 case ItrKindEnum.ALL:
                     Debug.Log("ALL");
                     ChangeFrame(dataHelper.externItr.action);
+                    hit = true;
                     break;
             }
             dataHelper.externAction = false;
@@ -248,16 +283,19 @@ public class HurtHitObjProcess : ObjProcess
         else
         {
             dataHelper.externAction = false;
+            hit = false;
         }
+
+        return hit;
     }
 
     protected void CheckPlatforms()
     {
-        Collider[] hitColliders = Physics.OverlapBox(new Vector3(transform.position.x, transform.position.y - (maxDistanceToCheckCollision / 2), transform.position.z), new Vector3(spriteRenderer.sprite.bounds.size.x, maxDistanceToCheckCollision, transform.localScale.z) / 2, Quaternion.identity, whatIsGround);
-
+        Collider[] hitColliders = Physics.OverlapBox(new Vector3(transform.position.x, transform.position.y - (maxDistanceToCheckCollision / 2), transform.position.z), new Vector3(spriteRenderer.sprite.bounds.size.x / 2, maxDistanceToCheckCollision / 2, zSizeDefault / 2), Quaternion.identity, whatIsGround);
         if (hitColliders.Length > 0)
         {
             dataHelper.onGround = true;
+            dataHelper.onCeil = false;
             if (currentFrame.properties.hitGround != null)
             {
                 this.ChangeFrame(currentFrame.properties.hitGround);
@@ -269,6 +307,48 @@ public class HurtHitObjProcess : ObjProcess
             if (currentFrame.properties.hitAir != null)
             {
                 this.ChangeFrame(currentFrame.properties.hitAir);
+            }
+        }
+
+        var forwardCenterX = transform.position.x + (spriteRenderer.sprite.bounds.size.x / 2) + maxDistanceToCheckCollision;
+        Collider[] hitWallFrontColliders = Physics.OverlapBox(new Vector3(forwardCenterX, transform.position.y + spriteRenderer.sprite.bounds.size.y / 2, transform.position.z), new Vector3(maxDistanceToCheckCollision / 2, spriteRenderer.sprite.bounds.size.y / 2, zSizeDefault / 2), Quaternion.identity, whatIsWall);
+        
+        var backCenterX = transform.position.x - (spriteRenderer.sprite.bounds.size.x / 2) - maxDistanceToCheckCollision;
+        Collider[] hitWallBackColliders = Physics.OverlapBox(new Vector3(backCenterX, transform.position.y + spriteRenderer.sprite.bounds.size.y / 2, transform.position.z), new Vector3(maxDistanceToCheckCollision / 2, spriteRenderer.sprite.bounds.size.y / 2, zSizeDefault / 2), Quaternion.identity, whatIsWall);
+        
+        if (hitWallFrontColliders.Length > 0 || hitWallBackColliders.Length > 0)
+        {
+            dataHelper.onWall = true;
+            if (currentFrame.properties.hitWall != null)
+            {
+                this.ChangeFrame(currentFrame.properties.hitWall);
+            }
+        }
+        else
+        {
+            dataHelper.onWall = false;
+        }
+
+        if (!dataHelper.onGround)
+        {
+            Collider[] hitCeilColliders = Physics.OverlapBox(new Vector3(transform.position.x, transform.position.y + spriteRenderer.sprite.bounds.size.y + maxDistanceToCheckCollision, transform.position.z), new Vector3(spriteRenderer.sprite.bounds.size.x / 2, -maxDistanceToCheckCollision / 2, zSizeDefault / 2), Quaternion.identity, whatIsCeil);
+
+            if (hitCeilColliders.Length > 0)
+            {
+                dataHelper.onGround = false;
+                dataHelper.onCeil = true;
+                if (currentFrame.properties.hitCeil != null)
+                {
+                    this.ChangeFrame(currentFrame.properties.hitCeil);
+                }
+            }
+            else
+            {
+                dataHelper.onCeil = false;
+                if (currentFrame.properties.hitAir != null)
+                {
+                    this.ChangeFrame(currentFrame.properties.hitAir);
+                }
             }
         }
     }
@@ -305,9 +385,10 @@ public class HurtHitObjProcess : ObjProcess
     {
         if (dataHelper.execImpulseForceOneTimeInFrame && velocity != Vector3.zero)
         {
-            rigidbody.velocity = Vector3.zero;
-            rigidbody.AddForce(velocity * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            rigidbody.linearVelocity = Vector3.zero;
+            rigidbody.AddForce(velocity * Time.fixedDeltaTime, forceMode);
             dataHelper.execImpulseForceOneTimeInFrame = false;
+            this.velocity = Vector3.zero;
         }
     }
 
@@ -399,6 +480,11 @@ public class HurtHitObjProcess : ObjProcess
         if (gameObject.activeInHierarchy)
         {
             Gizmos.color = Color.cyan;
+
+            Gizmos.DrawWireCube(new Vector3(transform.position.x + (spriteRenderer.sprite.bounds.size.x / 2), transform.position.y + spriteRenderer.sprite.bounds.size.y / 2, transform.position.z), new Vector3(maxDistanceToCheckCollision, spriteRenderer.sprite.bounds.size.y, zSizeDefault));
+            Gizmos.DrawWireCube(new Vector3(transform.position.x - (spriteRenderer.sprite.bounds.size.x / 2), transform.position.y + spriteRenderer.sprite.bounds.size.y / 2, transform.position.z), new Vector3(-maxDistanceToCheckCollision, spriteRenderer.sprite.bounds.size.y, zSizeDefault));
+
+            Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y + spriteRenderer.sprite.bounds.size.y + maxDistanceToCheckCollision, transform.position.z), new Vector3(spriteRenderer.sprite.bounds.size.x, -maxDistanceToCheckCollision, zSizeDefault));
             Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y - (maxDistanceToCheckCollision / 2), transform.position.z), new Vector3(spriteRenderer.sprite.bounds.size.x, maxDistanceToCheckCollision, zSizeDefault));
         }
     }

@@ -1,0 +1,935 @@
+fileFormatVersion: 2
+guid: 784941019fa761647b5da8f2ec286862
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_0
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 1815
+        width: 51
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec29cedcab15fc24c8dc4f209ced4516
+      internalID: 1952307545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_1
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 1818
+        width: 42
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3ca73655635504ebe02ad2c097e9ff
+      internalID: -218047809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1557
+        width: 60
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92eb00a3f934e7443a5bec79554faf9d
+      internalID: 1576775544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_3
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1560
+        width: 64
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1ac5f6f5fcacc4ca0f9350f2d1efab
+      internalID: 2087021637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_4
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1556
+        width: 67
+        height: 59
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd3b10eaf03a2545918e5125de85185
+      internalID: -1625606443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_5
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1574
+        width: 67
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f63c789bfce2764abd65a79ca20c7ad
+      internalID: -1562559267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_6
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1564
+        width: 66
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7237e6071106dba499911c262f1c84fa
+      internalID: -830423347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_7
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 1574
+        width: 63
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ec98846a6ee804db3a67fa9c2b301a
+      internalID: 416035215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_8
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 1567
+        width: 59
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35a519e63a11d544a179c1e7836839d
+      internalID: 1528709527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_9
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1051
+        width: 33
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8273170b11939b7428a11e03b78b98ec
+      internalID: -1932938656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_10
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 1047
+        width: 39
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12c7565ac9efec48929e97134fec843
+      internalID: -1389645130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_11
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1049
+        width: 44
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f7b9decc9a01fb49b1d4f809a2f21b7
+      internalID: 421176921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_12
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 1061
+        width: 70
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a538b238dcfe24e8291a49d1aac73f
+      internalID: -307039995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_13
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 1057
+        width: 54
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4f94ec72fdad14b926a93ca0393c8c
+      internalID: 430153164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_14
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1054
+        width: 42
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec4af7c9ca9b7f4e9d17f4a95ec5edf
+      internalID: -2105757138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_15
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 1050
+        width: 33
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710c80b6fa22a484e835e285f5f8fdb8
+      internalID: -1974816979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_16
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 540
+        width: 44
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad7681bdf7ec98a47952c947dca400de
+      internalID: 1964666059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_17
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 533
+        width: 44
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06eed3757922f1488955d1da2d0665d
+      internalID: -722972659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_18
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 534
+        width: 44
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb1b6fe03c48cd479a5948f6412f90f
+      internalID: 795765625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_19
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 533
+        width: 43
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3815fbc913908824a80a09d075fe4d88
+      internalID: 770451411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_20
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 534
+        width: 40
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8cd5631f67dcb4c9ccfab701190cf3
+      internalID: -1695532702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_21
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 281
+        width: 49
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b60ed23377f7924492457f2c77897cf
+      internalID: 1514850758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_22
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 283
+        width: 54
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbee9155877e0084189045b69d14c016
+      internalID: -1402643976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_23
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 282
+        width: 55
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fafcc7d4e076147be6d7fd0b38d9b2
+      internalID: 147093963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_24
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 282
+        width: 52
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd47ffb041fcde14986c4a0091c54598
+      internalID: -1977597353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_25
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 282
+        width: 52
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf138226c190f11429fbd5ad4df9150c
+      internalID: -886514226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_26
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 29
+        width: 63
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f099e6ca42c44974fb23a9d5c7b3e469
+      internalID: 236454984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_27
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 27
+        width: 64
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af73ec49d04256b4e82c40dde68add89
+      internalID: -1046092425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_28
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 35
+        width: 70
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd17780406688241b4829f76f081801
+      internalID: 1922862127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_29
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 29
+        width: 67
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37cd3714dcfbe9041b7b2a1214d36b1b
+      internalID: 505653446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_30
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 28
+        width: 72
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea327adec833a54785aa7ab12cd9d4d
+      internalID: 212574709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_31
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 26
+        width: 59
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065af703aa6534e47b8dba5819cfcc7e
+      internalID: 1267523296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_32
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 28
+        width: 56
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb46528b7688cc40a31aabed2e0d7bf
+      internalID: -1911594259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_33
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 28
+        width: 37
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ea136e5f16a4f46bf26054f377998c
+      internalID: -30604742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sakura_Sprite_6_34
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 31
+        width: 36
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b59153549a8464eb9dbfe451488f55
+      internalID: 1684891243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0cccf0f1d0fa98b48bf0d846ec9a972e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sakura_Sprite_6_0: 1952307545
+      Sakura_Sprite_6_1: -218047809
+      Sakura_Sprite_6_10: -1389645130
+      Sakura_Sprite_6_11: 421176921
+      Sakura_Sprite_6_12: -307039995
+      Sakura_Sprite_6_13: 430153164
+      Sakura_Sprite_6_14: -2105757138
+      Sakura_Sprite_6_15: -1974816979
+      Sakura_Sprite_6_16: 1964666059
+      Sakura_Sprite_6_17: -722972659
+      Sakura_Sprite_6_18: 795765625
+      Sakura_Sprite_6_19: 770451411
+      Sakura_Sprite_6_2: 1576775544
+      Sakura_Sprite_6_20: -1695532702
+      Sakura_Sprite_6_21: 1514850758
+      Sakura_Sprite_6_22: -1402643976
+      Sakura_Sprite_6_23: 147093963
+      Sakura_Sprite_6_24: -1977597353
+      Sakura_Sprite_6_25: -886514226
+      Sakura_Sprite_6_26: 236454984
+      Sakura_Sprite_6_27: -1046092425
+      Sakura_Sprite_6_28: 1922862127
+      Sakura_Sprite_6_29: 505653446
+      Sakura_Sprite_6_3: 2087021637
+      Sakura_Sprite_6_30: 212574709
+      Sakura_Sprite_6_31: 1267523296
+      Sakura_Sprite_6_32: -1911594259
+      Sakura_Sprite_6_33: -30604742
+      Sakura_Sprite_6_34: 1684891243
+      Sakura_Sprite_6_4: -1625606443
+      Sakura_Sprite_6_5: -1562559267
+      Sakura_Sprite_6_6: -830423347
+      Sakura_Sprite_6_7: 416035215
+      Sakura_Sprite_6_8: 1528709527
+      Sakura_Sprite_6_9: -1932938656
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

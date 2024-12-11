@@ -29,10 +29,18 @@ namespace Domains
         public int? holdDefenseAfter;
         public int? holdPowerAfter;
         public int? hitGround;
+        public int? hitWall;
+        public int? hitCeil;
         public int? hitAir;
         public bool delete = false;
         public int? mp;
         public int? hp;
+        public int? hitUp;
+        public int? hitDown;
+        public int? hitFront;
+        public float? scalex;
+        public float? scaley;
+        public float? fadeout;
 
         public override string ToString()
         {

@@ -1,10 +1,15 @@
 <bmp_begin>
    type: ATTACK
    name: Ballista
-   file: Objects/ballista/sprites
    start_hp: 400
    start_mp: 0
 <bmp_end>
+
+
+<palletes_begin>
+   file: Objects/ballista/sprites
+<palletes_end>
+
 
 <frame> 0 idle
    pic: 100  state: 2000  wait: 60  next: 1  dvx: 0  dvy: 0  dvz: 0  

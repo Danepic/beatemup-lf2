@@ -1,0 +1,19 @@
+<bmp_begin>
+   type: ETC
+   name: Jumping_Combo
+   start_hp: 1
+   start_mp: 0
+<bmp_end>
+
+
+<palletes_begin>
+   file: Etc/jumping_combo/sprites
+<palletes_end>
+
+
+<frame> 0 invoke
+   pic: 100  state: 10015  wait: 3  next: 1  dvx: 0  dvy: 0  scalex: 0,1  scaley: 0,1  fadeout: 0,1
+<frame_end>
+<frame> 1 invoke
+   pic: -9999  state: 1000  wait: 0,25  delete: true  dvx: 0  dvy: 0
+<frame_end>

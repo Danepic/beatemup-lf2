@@ -27,13 +27,13 @@ public class AttackProcess : HurtHitObjProcess
                 MovePosition();
                 break;
             case StateFrameEnum.ATTACK_FLYING:
-                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.Acceleration);
+                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.VelocityChange);
                 break;
             case StateFrameEnum.ATTACK_REMOVE:
                 this.rigidbody.constraints = RigidbodyConstraints.FreezePosition;
                 break;
             default:
-                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.Acceleration);
+                ApplyDefaultPhysic(currentFrame.properties.dvx, currentFrame.properties.dvy, currentFrame.properties.dvz, dataHelper.facingRight, ForceMode.VelocityChange);
                 break;
         }
     }

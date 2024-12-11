@@ -36,12 +36,14 @@ namespace Helpers
         public Vector3 contactPoint;
         public float damageRestTU;
 
-        public bool attacking; //TODO
-        public bool wasAttacked; //TODO
+        public bool attacking;
+        public bool wasAttacked;
         public bool damageInSingleTarget;
         public int? targetId;
 
         public bool onGround;
+        public bool onCeil;
+        public bool onWall;
 
         public bool runningRightEnable;
 
@@ -52,11 +54,12 @@ namespace Helpers
         public bool jumpDashLeftEnable;
 
         // Side Dash
-        public bool sideDashUpEnable; //TODO
+        public bool sideDashUpEnable;
 
-        public bool sideDashDownEnable; //TODO
+        public bool sideDashDownEnable;
 
-        public bool enableNextIfHit; //TODO
+        public bool enableNextIfHit = false;
+        public int? nextIfHit;
 
         //Hit
         public bool hitJump;
