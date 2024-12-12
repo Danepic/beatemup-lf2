@@ -67,6 +67,7 @@ namespace Enums
         CROUCH = 41,
         SIMPLE_DASH = 42,
         FALLING_DOWN = 43,
+        ATTACK_RESET = 44,
         EFFECT_IDLE = 1000,
 
         ATTACK_IDLE = 2000,

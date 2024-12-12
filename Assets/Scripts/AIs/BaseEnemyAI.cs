@@ -144,6 +144,7 @@ public class BaseEnemyAI : MonoBehaviour
                 approachingOption = 99;
                 CancelHitUpDown();
                 CancelHitRightLeft();
+                Attacking();
                 break;
             case StateFrameEnum.STANDING:
                 approachingOption = 99;
@@ -189,7 +190,18 @@ public class BaseEnemyAI : MonoBehaviour
                 CancelHitDefense();
                 if (distanceToTargetX <= distanceToMeleeAttack && distanceToTargetZ <= self.zSizeDefault)
                 {
-                    Attacking();
+                    if (targetInRightSide && self.facingRight)
+                    {
+                        CancelHitDefense();
+                        CancelHitJump();
+                        Attacking();
+                    }
+                    else if (!targetInRightSide && !self.facingRight)
+                    {
+                        CancelHitDefense();
+                        CancelHitJump();
+                        Attacking();
+                    }
                 }
                 else
                 {
@@ -216,6 +228,7 @@ public class BaseEnemyAI : MonoBehaviour
                 }
                 break;
             case StateFrameEnum.COMBO_FINISH:
+                Attacking();
                 int randomValueCombo = UnityEngine.Random.Range(1, 4);
                 if (option == 99)
                 {
@@ -384,6 +397,7 @@ public class BaseEnemyAI : MonoBehaviour
                 }
                 break;
             case StateFrameEnum.JUMPING:
+                approachingOption = 1;
                 WalkingApproaching();
                 if (distanceToTargetX <= distanceToMeleeAttack * 2 && distanceToTargetZ <= self.zSizeDefault)
                 {
@@ -427,6 +441,9 @@ public class BaseEnemyAI : MonoBehaviour
                 CancelHitAttack();
                 CancelHitDefense();
                 CancelHitJump();
+                break;
+            case StateFrameEnum.ATTACK_RESET:
+                CancelHitAttack();
                 break;
         }
     }
@@ -511,6 +528,7 @@ public class BaseEnemyAI : MonoBehaviour
 
     private void ApproachingFromStanding()
     {
+        CancelHitAttack();
         int randomValue = UnityEngine.Random.Range(1, 10);
         if (approachingOption == 99)
         {

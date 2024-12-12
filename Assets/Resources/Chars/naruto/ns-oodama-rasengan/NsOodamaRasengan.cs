@@ -1245,7 +1245,7 @@ public class NsOodamaRasengan : CharController
     private void Attack1Next_361()
     {
         pic = 309; wait = 8f;
-        next = Standing_0; Attack(Attack2_370);
+        next = Standing_0; DoubleTapAttack(Attack2_370);
         BdyDefault();
     }
     #endregion
@@ -1319,7 +1319,7 @@ public class NsOodamaRasengan : CharController
     {
         ResetMovementFromStop();
         pic = 318; wait = 4f;
-        next = Standing_0; Attack(Attack3_390);
+        next = Standing_0; DoubleTapAttack(Attack3_390);
         BdyDefault();
     }
     #endregion
@@ -1407,7 +1407,7 @@ public class NsOodamaRasengan : CharController
     {
         ResetMovementFromStop();
         pic = 304; wait = 4f;
-        next = Standing_0; Attack(Attack4_410);
+        next = Standing_0; DoubleTapAttack(Attack4_410);
         BdyDefault();
     }
     #endregion
@@ -1470,7 +1470,7 @@ public class NsOodamaRasengan : CharController
     {
         ResetMovementFromStop();
         pic = 336; wait = 4f;
-        next = Standing_0; Attack(ComboFinish_429);
+        next = Standing_0; DoubleTapAttack(ComboFinish_429);
         BdyDefault();
     }
     #endregion
@@ -1738,7 +1738,7 @@ public class NsOodamaRasengan : CharController
     {
         ResetMovementFromStop();
         pic = 420; wait = 2f; next = JumpAttack1_595; OnGround(Crouch_290);
-        BdyDefault(); Attack(JumpAttack2_610);
+        BdyDefault(); DoubleTapAttack(JumpAttack2_610);
     }
     #endregion
 
@@ -1794,7 +1794,7 @@ public class NsOodamaRasengan : CharController
     private void JumpAttack2_617()
     {
         pic = 506; wait = 1f; next = JumpAttack2_617; OnGround(Crouch_290);
-        BdyDefault(); Attack(JumpAttack3_630);
+        BdyDefault(); DoubleTapAttack(JumpAttack3_630);
     }
     #endregion
 

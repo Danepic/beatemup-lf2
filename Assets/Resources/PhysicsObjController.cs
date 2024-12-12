@@ -139,6 +139,7 @@ public class PhysicsObjController : ObjController
 
     protected void MovePosition()
     {
+        rb.linearVelocity = Vector3.zero;
         rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
     }
 

@@ -20,8 +20,10 @@ public class CharController : PhysicsObjController
     protected bool hitJump;
     protected bool releaseJumpButton;
     protected bool holdJump;
-    protected bool hitAttack;
+    public bool hitAttack;
+    public bool releaseAttackButton;
     protected bool hitDefense;
+    protected bool releaseDefenseButton;
     protected bool hitPower;
     protected bool hitSuperPower;
     protected bool hitTaunt;
@@ -68,7 +70,8 @@ public class CharController : PhysicsObjController
         opoints.Add(8, EnrichOpoint(2, "Etc/impact_down/impact_down"));
         opoints.Add(9, EnrichOpoint(2, "Etc/impact_forward/impact_forward"));
         opoints.Add(10, EnrichOpoint(1, "Etc/jump_recover/jump_recover"));
-        switch (playerEnum) {
+        switch (playerEnum)
+        {
             case PlayerEnum.PLAYER_1:
                 playerInput.SwitchCurrentControlScheme("P1", Keyboard.current);
                 break;
@@ -139,13 +142,10 @@ public class CharController : PhysicsObjController
         {
             hitAttack = true;
         }
-        else if (started)
-        {
-            hitAttack = true;
-        }
         else if (canceled)
         {
             hitAttack = false;
+            releaseAttackButton = true;
         }
     }
 
@@ -182,15 +182,11 @@ public class CharController : PhysicsObjController
             hitDefense = true;
             holdDefenseAfter = true;
         }
-        else if (started)
-        {
-            hitDefense = true;
-            holdDefenseAfter = true;
-        }
         else if (canceled)
         {
             hitDefense = false;
             holdDefenseAfter = false;
+            releaseDefenseButton = true;
         }
     }
 
@@ -921,6 +917,17 @@ public class CharController : PhysicsObjController
     {
         if (hitDefense)
         {
+            releaseDefenseButton = false;
+            ChangeFrame(action);
+            return;
+        }
+    }
+
+    protected void DoubleTapDefense(Action action)
+    {
+        if (hitDefense && releaseDefenseButton)
+        {
+            releaseDefenseButton = false;
             ChangeFrame(action);
             return;
         }
@@ -929,6 +936,7 @@ public class CharController : PhysicsObjController
     {
         if (hitJump)
         {
+            releaseJumpButton = false;
             ChangeFrame(action);
             return;
         }
@@ -948,6 +956,17 @@ public class CharController : PhysicsObjController
     {
         if (hitAttack)
         {
+            releaseAttackButton = false;
+            ChangeFrame(action);
+            return;
+        }
+    }
+
+    protected void DoubleTapAttack(Action action)
+    {
+        if (hitAttack && releaseAttackButton)
+        {
+            releaseAttackButton = false;
             ChangeFrame(action);
             return;
         }

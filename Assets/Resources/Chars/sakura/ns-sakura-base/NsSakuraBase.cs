@@ -538,32 +538,32 @@ public class NsSakuraBase : CharController
     private void DashBackward_130()
     {
         StopMovement();
-        pic = 132; state = StateFrameEnum.OTHER; wait = 1.5f;
+        pic = 132; state = StateFrameEnum.JUMPING; wait = 1.5f;
         next = DashBackward_131;
         BdyDefault();
     }
     private void DashBackward_131()
     {
         ResetMovementFromStop();
-        pic = 133; state = StateFrameEnum.OTHER; wait = 1f; dvx = -200; dvy = 175; dvz = 0;
+        pic = 133; state = StateFrameEnum.JUMPING; wait = 1f; dvx = -200; dvy = 175; dvz = 0;
         next = DashBackward_132;
         BdyDefault(); ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
     }
     private void DashBackward_132()
     {
-        pic = 134; state = StateFrameEnum.OTHER; wait = 6f;
+        pic = 134; state = StateFrameEnum.JUMPING; wait = 6f;
         next = DashBackward_133;
         BdyDefault();
     }
     private void DashBackward_133()
     {
-        pic = 135; state = StateFrameEnum.OTHER; wait = 0.5f;
+        pic = 135; state = StateFrameEnum.JUMPING; wait = 0.5f;
         next = DashBackward_134; OnGround(Crouch_290);
         BdyDefault();
     }
     private void DashBackward_134()
     {
-        pic = 135; state = StateFrameEnum.OTHER; wait = 6f;
+        pic = 135; state = StateFrameEnum.JUMPING; wait = 6f;
         next = DashBackward_134; OnGround(Crouch_290);
         BdyDefault();
     }
@@ -1281,7 +1281,7 @@ public class NsSakuraBase : CharController
     }
     private void Attack1_353()
     {
-        pic = 303; wait = 0.5f;
+        pic = 303; wait = 0.5f; state = StateFrameEnum.STANDING;
         next = Attack1_354; IfHit(Attack1Next_360);
         BdyDefault();
     }
@@ -1315,19 +1315,19 @@ public class NsSakuraBase : CharController
     private void Attack1Next_361()
     {
         pic = 304; wait = 4f;
-        next = Attack1Next_362; Attack(Attack2_370);
+        next = Attack1Next_362;
         BdyDefault();
     }
     private void Attack1Next_362()
     {
         pic = 304; wait = 0.5f;
-        next = Attack1Next_363; Attack(Attack2_370);
+        next = Attack1Next_363;
         BdyDefault();
     }
     private void Attack1Next_363()
     {
-        pic = 304; wait = 6f;
-        next = Standing_0; Attack(Attack2_370);
+        pic = 304; wait = 6f; state = StateFrameEnum.ATTACK;
+        next = Standing_0; DoubleTapAttack(Attack2_370);
         BdyDefault();
     }
     #endregion
@@ -1335,14 +1335,14 @@ public class NsSakuraBase : CharController
     #region Attack2
     private void Attack2_370()
     {
-        ItrDisable(); state = StateFrameEnum.ATTACK;
+        ItrDisable(); state = StateFrameEnum.ATTACK_RESET;
         pic = 307; wait = 4f;
         next = Attack2_371;
         BdyDefault();
     }
     private void Attack2_371()
     {
-        pic = 308; wait = 0.5f;
+        pic = 308; wait = 0.5f; state = StateFrameEnum.ATTACK;
         next = Attack2_372;
         BdyDefault();
         ApplyDefaultPhysic(dvx: 150, null, null, facingRight);
@@ -1401,7 +1401,7 @@ public class NsSakuraBase : CharController
     {
         ResetMovementFromStop();
         pic = 313; wait = 4f;
-        next = Standing_0; Attack(Attack3_390);
+        next = Standing_0; DoubleTapAttack(Attack3_390);
         BdyDefault();
     }
     #endregion
@@ -1409,14 +1409,14 @@ public class NsSakuraBase : CharController
     #region Attack3
     private void Attack3_390()
     {
-        ItrDisable(); state = StateFrameEnum.ATTACK;
+        ItrDisable(); state = StateFrameEnum.ATTACK_RESET;
         pic = 316; wait = 2f;
         next = Attack3_391;
         BdyDefault();
     }
     private void Attack3_391()
     {
-        pic = 315; wait = 0.5f;
+        pic = 315; wait = 0.5f; state = StateFrameEnum.ATTACK;
         next = Attack3_392;
         BdyDefault();
     }
@@ -1483,7 +1483,7 @@ public class NsSakuraBase : CharController
     {
         ResetMovementFromStop();
         pic = 325; wait = 11f;
-        next = Standing_0; Attack(Attack4_410);
+        next = Standing_0; DoubleTapAttack(Attack4_410);
         BdyDefault();
     }
     #endregion
@@ -1491,7 +1491,7 @@ public class NsSakuraBase : CharController
     #region Attack4
     private void Attack4_410()
     {
-        ItrDisable(); state = StateFrameEnum.COMBO_FINISH;
+        ItrDisable(); state = StateFrameEnum.ATTACK_RESET;
         pic = 326; wait = 0.5f;
         next = Attack4_411;
         BdyDefault();
@@ -1547,7 +1547,7 @@ public class NsSakuraBase : CharController
     {
         ResetMovementFromStop();
         pic = 333; wait = 4f; state = StateFrameEnum.COMBO_FINISH;
-        next = Standing_0; Attack(ComboFinish_429);
+        next = Standing_0; DoubleTapAttack(ComboFinish_429);
         BdyDefault();
     }
     #endregion
@@ -1906,14 +1906,14 @@ public class NsSakuraBase : CharController
     #region JumpAttack1
     private void JumpAttack1_590()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); state = StateFrameEnum.ATTACK_RESET;
         ItrDisable();
         pic = 435; wait = 1f; next = JumpAttack1_591; OnGround(Crouch_290);
         BdyDefault();
     }
     private void JumpAttack1_591()
     {
-        pic = 436; wait = 0.5f; next = JumpAttack1_592; OnGround(Crouch_290);
+        pic = 436; wait = 0.5f; next = JumpAttack1_592; OnGround(Crouch_290); state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void JumpAttack1_592()
@@ -1945,21 +1945,21 @@ public class NsSakuraBase : CharController
     {
         ResetMovementFromStop();
         pic = 440; wait = 2f; next = JumpAttack1_595; OnGround(Crouch_290);
-        BdyDefault(); Attack(JumpAttack2_610);
+        BdyDefault(); DoubleTapAttack(JumpAttack2_610);
     }
     #endregion
 
     #region JumpAttack2
     private void JumpAttack2_610()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); state = StateFrameEnum.ATTACK_RESET;
         ItrDisable();
         pic = 505; wait = 1f; next = JumpAttack2_611; OnGround(Crouch_290);
         BdyDefault();
     }
     private void JumpAttack2_611()
     {
-        pic = 506; wait = 0.5f; next = JumpAttack2_612; OnGround(Crouch_290);
+        pic = 506; wait = 0.5f; next = JumpAttack2_612; OnGround(Crouch_290); state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void JumpAttack2_612()
@@ -2001,14 +2001,14 @@ public class NsSakuraBase : CharController
     private void JumpAttack2_617()
     {
         pic = 505; wait = 1f; next = JumpAttack2_617; OnGround(Crouch_290);
-        BdyDefault(); Attack(JumpAttack3_630);
+        BdyDefault(); DoubleTapAttack(JumpAttack3_630);
     }
     #endregion
 
     #region JumpAttack3
     private void JumpAttack3_630()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); state = StateFrameEnum.ATTACK_RESET;
         ItrDisable();
         pic = 505; wait = 1f; next = JumpAttack3_631; OnGround(Crouch_290);
         BdyDefault();
@@ -2016,7 +2016,7 @@ public class NsSakuraBase : CharController
     }
     private void JumpAttack3_631()
     {
-        pic = 506; wait = 0.5f; next = JumpAttack3_632; OnGround(Crouch_290);
+        pic = 506; wait = 0.5f; next = JumpAttack3_632; OnGround(Crouch_290); state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void JumpAttack3_632()
@@ -2100,7 +2100,8 @@ public class NsSakuraBase : CharController
         ApplyPhysicJumping(); DoubleTapJump(DoubleJumpCombo_670);
     }
     private void JumpCombo_654()
-    {;
+    {
+        ;
         pic = 133; wait = 8f; next = JumpComboFalling_660; Defense(StartJumpDefense_300); state = StateFrameEnum.JUMP_COMBO_ATTACK;
         DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
         BdyDefault();

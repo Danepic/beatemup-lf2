@@ -28,7 +28,6 @@ public class Kunai : AttackController
     }
 
     public void Update() {
-        Debug.Log(currentFrame.Name);
         base.Update();
     }
 
