@@ -62,7 +62,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895118520921368545}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -266,6 +266,7 @@ MonoBehaviour:
   team: 0
   facingRight: 1
   pic: 0
+  state: 0
   palettes:
   - Attacks/Weapons/ns-naruto-fuma-shuriken/sprites
   paletteIndex: 0
@@ -285,10 +286,12 @@ MonoBehaviour:
   onGround: 0
   onCeil: 0
   onWall: 0
+  onPlatform: 0
   isDefending: 0
   externId: 0
   externTeam: 0
   externKind: 0
+  damageRestTU: 0
 --- !u!1 &5764628042147499957
 GameObject:
   m_ObjectHideFlags: 0

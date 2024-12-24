@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     public float maxX = float.MinValue;
     public float minY = float.MaxValue;
     public float maxY = float.MinValue;
+    public float adjustForY = 0f;
 
     void Start()
     {
@@ -48,7 +49,7 @@ public class CameraController : MonoBehaviour
                 if (y > maxY) maxY = y;
             }
 
-            var newPosition = new Vector3((maxX + minX) / 2, ((maxY + minY) / 2) + 4.24f, -13.88f);
+            var newPosition = new Vector3((maxX + minX) / 2, ((maxY + minY + adjustForY) / 2) + 4.24f, -13.88f);
             transform.position = Vector3.Lerp(transform.position, newPosition, 10f);
         }
     }

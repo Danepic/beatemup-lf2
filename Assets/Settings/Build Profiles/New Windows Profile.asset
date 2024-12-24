@@ -20,8 +20,10 @@ MonoBehaviour:
     rid: 6735142641585356853
   m_OverrideGlobalSceneList: 1
   m_Scenes:
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Scenes/12_FinishBasePlayer.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/CharacterSelecionScene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []

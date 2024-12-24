@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexagonal Radar Chart with Editable Attributes</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2f2f2f; /* Cor de fundo mais escura */
+        }
+        h1 {
+            color: white;
+            margin-top: 20px;
+        }
+        canvas {
+            background-color: #333; /* Cor de fundo mais escura do gráfico */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .inputs-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .inputs-container input {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #333;
+            color: #fff;
+        }
+        .inputs-container input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Character Attribute Radar</h1>
+
+<canvas id="radarChart" width="150" height="150"></canvas>
+
+<div class="inputs-container">
+    <input type="number" id="aggressive" value="8" min="0" max="10">
+    <input type="number" id="technique" value="7" min="0" max="10">
+    <input type="number" id="intelligent" value="9" min="0" max="10">
+    <input type="number" id="speed" value="6" min="0" max="10">
+    <input type="number" id="resistence" value="5" min="0" max="10">
+    <input type="number" id="stamina" value="7" min="0" max="10">
+</div>
+
+<footer></footer> <!-- Rodapé vazio -->
+
+<script>
+    // Definir os rótulos dos atributos
+    const labels = ['Agressive', 'Technique', 'Intelligent', 'Speed', 'Resistence', 'Stamina'];
+
+    // Inicializar o gráfico globalmente para poder destruir e atualizar depois
+    let radarChart;
+
+    // Função para atualizar o gráfico com os valores dos inputs
+    function updateChart() {
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Character Attributes',
+                data: [
+                    parseInt(document.getElementById('aggressive').value),
+                    parseInt(document.getElementById('technique').value),
+                    parseInt(document.getElementById('intelligent').value),
+                    parseInt(document.getElementById('speed').value),
+                    parseInt(document.getElementById('resistence').value),
+                    parseInt(document.getElementById('stamina').value)
+                ],
+                backgroundColor: 'rgba(0, 123, 255, 0.3)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(0, 123, 255, 1)',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointRadius: 5,
+            }]
+        };
+
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true,
+                            borderColor: 'white' // Linhas do radar em branco
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        ticks: {
+                            display: false, // Remover os números de referência
+                        },
+                        grid: {
+                            circular: true, // Adiciona as linhas circulares no fundo
+                            color: 'rgba(255, 255, 255, 0.1)', // Cor das linhas de fundo em branco, bem fraca
+                            lineWidth: 1,
+                        },
+                        // Remover rótulos
+                        pointLabels: {
+                            display: false // Remover os nomes dos atributos
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            },
+            // Cor de fundo do gráfico
+            backgroundColor: '#333', // Cor de fundo do gráfico (escuro)
+        };
+
+        // Se o gráfico já foi criado, destrua-o antes de criar um novo
+        if (radarChart) {
+            radarChart.destroy();
+        }
+
+        // Criação do novo gráfico
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        radarChart = new Chart(ctx, config);
+    }
+
+    // Inicializar o gráfico na carga da página
+    window.onload = updateChart;
+
+    // Adicionar evento de mudança nos inputs para atualizar o gráfico
+    document.querySelectorAll('.inputs-container input').forEach(input => {
+        input.addEventListener('input', updateChart);
+    });
+</script>
+
+</body>
+</html>
