@@ -65,6 +65,7 @@
         "hurtbox",
         "interactable",
         "KAWARIMI",
+        "Mathf",
         "opoint",
         "opoints",
         "rigidbody",

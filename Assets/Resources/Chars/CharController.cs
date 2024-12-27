@@ -213,7 +213,6 @@ public class CharController : PhysicsObjController
 
     public void HitDown(InputAction.CallbackContext context)
     {
-        Debug.Log("context");
         HitDown(context.performed, context.started, context.canceled);
     }
 

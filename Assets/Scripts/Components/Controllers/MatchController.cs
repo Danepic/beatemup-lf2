@@ -21,11 +21,14 @@ public class MatchController : MonoBehaviour
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Object"), LayerMask.NameToLayer("Attack"));
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Attack"), LayerMask.NameToLayer("Attack"));
 
-        var resourcePathP1 = ExtractObjectName(MatchControllerStore.Instance.player1CharacterResourcePath);
-        Instantiate(Resources.Load<GameObject>(resourcePathP1), p1Spawn.position, Quaternion.identity);
+        if (MatchControllerStore.Instance != null)
+        {
+            var resourcePathP1 = ExtractObjectName(MatchControllerStore.Instance.player1CharacterResourcePath);
+            Instantiate(Resources.Load<GameObject>(resourcePathP1), p1Spawn.position, Quaternion.identity);
 
-        var resourcePathP2 = ExtractObjectName(MatchControllerStore.Instance.player2CharacterResourcePath);
-        Instantiate(Resources.Load<GameObject>(resourcePathP2), p2Spawn.position, Quaternion.identity);
+            var resourcePathP2 = ExtractObjectName(MatchControllerStore.Instance.player2CharacterResourcePath);
+            Instantiate(Resources.Load<GameObject>(resourcePathP2), p2Spawn.position, Quaternion.identity);
+        }
     }
 
     private string ExtractObjectName(string path)
