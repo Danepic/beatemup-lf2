@@ -3405,7 +3405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowSpriteRenderer: {fileID: 1808746032}
   character: {fileID: 956094615}
-  shadowOffset: 0.01
+  shadowOffsetY: 0.1
 --- !u!1001 &1811457003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3424,11 +3424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795185618609565320, guid: b607a2f4fb8fbf3439a2e74b6bdd755f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4195105511629653145, guid: b607a2f4fb8fbf3439a2e74b6bdd755f, type: 3}
       propertyPath: playerEnum
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6316791474781317500, guid: b607a2f4fb8fbf3439a2e74b6bdd755f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3473,6 +3473,10 @@ PrefabInstance:
     - target: {fileID: 6552124826064462222, guid: b607a2f4fb8fbf3439a2e74b6bdd755f, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552124826064462222, guid: b607a2f4fb8fbf3439a2e74b6bdd755f, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: P1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3728,6 +3732,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1141842776471849540, guid: fc929218a7b72f544be738a710e61f55, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432748215733143284, guid: fc929218a7b72f544be738a710e61f55, type: 3}
+      propertyPath: playerEnum
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1432748215733143284, guid: fc929218a7b72f544be738a710e61f55, type: 3}
       propertyPath: 'palettes.Array.data[0]'
       value: Chars/naruto/ns-naruto-base/sprites
@@ -3786,13 +3798,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5227755694276689506, guid: fc929218a7b72f544be738a710e61f55, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1808746031}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3884850473206202114, guid: fc929218a7b72f544be738a710e61f55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1981576708}
   m_SourcePrefab: {fileID: 100100000, guid: fc929218a7b72f544be738a710e61f55, type: 3}
 --- !u!4 &1981576707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5227755694276689506, guid: fc929218a7b72f544be738a710e61f55, type: 3}
   m_PrefabInstance: {fileID: 1981576706}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1981576708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956094615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d2ec65f82310840be501454e235401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 0}
+  enemies: []
+  alies: []
+  target: {fileID: 0}
+  team: 0
 --- !u!1 &2013609313
 GameObject:
   m_ObjectHideFlags: 0

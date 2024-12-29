@@ -292,7 +292,7 @@ public class NsOodamaRasengan : CharController
     #region SimpleDash
     private void SimpleDash_40()
     {
-        pic = 131; state = StateFrameEnum.OTHER; wait = 0.5f; dvx = 450f; dvy = 0f; dvz = 0f;
+        pic = 131; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 450f; dvy = 0f; dvz = 0f;
         next = SimpleDash_41;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
@@ -301,7 +301,7 @@ public class NsOodamaRasengan : CharController
 
     private void SimpleDash_41()
     {
-        pic = 132; state = StateFrameEnum.OTHER; wait = 1.5f; dvx = 0f; dvy = 0f; dvz = 0f;
+        pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 1.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDash_42;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
         BdyDefault();
@@ -310,7 +310,7 @@ public class NsOodamaRasengan : CharController
     private void SimpleDash_42()
     {
         CanHoldForwardAfter(Running_55);
-        pic = 132; state = StateFrameEnum.OTHER; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
+        pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDash_43;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
         BdyDefault();
@@ -320,7 +320,7 @@ public class NsOodamaRasengan : CharController
     {
         StopMovement();
         CanHoldForwardAfter(Running_55);
-        pic = 132; state = StateFrameEnum.OTHER; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
+        pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDashStopRunning_44;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
         BdyDefault();
@@ -330,7 +330,7 @@ public class NsOodamaRasengan : CharController
     {
         ResetMovementFromStop();
         CanHoldForwardAfter(Running_55);
-        pic = 121; state = StateFrameEnum.STOP_RUNNING; wait = 4f; dvx = 150f; dvy = 0; dvz = 0;
+        pic = 121; state = StateFrameEnum.SIMPLE_DASH; wait = 4f; dvx = 150f; dvy = 0; dvz = 0;
         next = StopRunning_62;
         Attack(Attack1_350); Defense(RunningDash_70); Jump(DashJump_250);
         BdyDefault();
@@ -533,32 +533,32 @@ public class NsOodamaRasengan : CharController
     private void DashBackward_130()
     {
         StopMovement();
-        pic = 134; state = StateFrameEnum.OTHER; wait = 1.5f;
+        pic = 134; state = StateFrameEnum.JUMPING; wait = 1.5f;
         next = DashBackward_131;
         BdyDefault();
     }
     private void DashBackward_131()
     {
         ResetMovementFromStop();
-        pic = 135; state = StateFrameEnum.OTHER; wait = 1f; dvx = -200; dvy = 175; dvz = 0;
+        pic = 135; state = StateFrameEnum.JUMPING; wait = 1f; dvx = -200; dvy = 175; dvz = 0;
         next = DashBackward_132;
         BdyDefault(); ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
     }
     private void DashBackward_132()
     {
-        pic = 136; state = StateFrameEnum.OTHER; wait = 6f;
+        pic = 136; state = StateFrameEnum.JUMPING; wait = 6f;
         next = DashBackward_133;
         BdyDefault();
     }
     private void DashBackward_133()
     {
-        pic = 137; state = StateFrameEnum.OTHER; wait = 0.5f;
+        pic = 137; state = StateFrameEnum.JUMPING; wait = 0.5f;
         next = DashBackward_134; OnGround(Crouch_290);
         BdyDefault();
     }
     private void DashBackward_134()
     {
-        pic = 138; state = StateFrameEnum.OTHER; wait = 6f;
+        pic = 138; state = StateFrameEnum.JUMPING; wait = 6f;
         next = DashBackward_134; OnGround(Crouch_290);
         BdyDefault();
     }
@@ -567,7 +567,7 @@ public class NsOodamaRasengan : CharController
     #region Defense
     private void Start_Defense_150()
     {
-        pic = 139; state = StateFrameEnum.OTHER; wait = 1f;
+        pic = 139; state = StateFrameEnum.DEFEND; wait = 1f;
         next = Defense_151; Attack(ThrowingWeapon_310); Power(ChargeStart_170);
         Jump(DashBackward_130);
         BdyDefault();
@@ -596,7 +596,7 @@ public class NsOodamaRasengan : CharController
 
     private void HitDefense_160()
     {
-        pic = 140; state = StateFrameEnum.HIT_DEFEND; wait = 1f;
+        pic = 140; state = StateFrameEnum.DEFEND; wait = 1f;
         next = HitDefense_161; CanHoldDefenseAfter(Defense_151);
         Attack(ThrowingWeapon_310); Power(ChargeStart_170); Jump(DashBackward_130);
         BdyDefault();
@@ -962,7 +962,7 @@ public class NsOodamaRasengan : CharController
     {
         ItrDisable();
         StopMovement();
-        pic = 134; state = StateFrameEnum.OTHER; wait = 1f;
+        pic = 134; state = StateFrameEnum.CROUCH; wait = 1f;
         next = Crouch_291;
         bdy.x = 0.0855f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.2873f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
@@ -972,7 +972,7 @@ public class NsOodamaRasengan : CharController
     private void Crouch_291()
     {
         ResetMovementFromStop();
-        pic = 134; state = StateFrameEnum.OTHER; wait = 3f;
+        pic = 134; state = StateFrameEnum.CROUCH; wait = 3f;
         next = Standing_0;
         bdy.x = 0.0855f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.2873f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
@@ -1000,13 +1000,13 @@ public class NsOodamaRasengan : CharController
     #region Jump_Defense
     private void StartJumpDefense_300()
     {
-        pic = 141; state = StateFrameEnum.OTHER; wait = 1f;
+        pic = 141; state = StateFrameEnum.JUMP_DEFEND; wait = 1f;
         next = JumpDefense_301; OnGround(Crouch_290); Attack(JumpThrowingAttack_570);
         BdyDefault();
     }
     private void JumpDefense_301()
     {
-        pic = 142; state = StateFrameEnum.OTHER; wait = 5f;
+        pic = 142; state = StateFrameEnum.JUMP_DEFEND; wait = 5f;
         CanHoldDefenseAfter(JumpDefenseHold_303);
         next = StopJumpDefense_302; OnGround(Crouch_290); Attack(JumpThrowingAttack_570);
         BdyDefault();
@@ -1028,13 +1028,13 @@ public class NsOodamaRasengan : CharController
 
     private void HitJumpDefense_305()
     {
-        pic = 142; state = StateFrameEnum.OTHER; wait = 1f;
+        pic = 142; state = StateFrameEnum.JUMP_DEFEND; wait = 1f;
         next = HitJumpDefense_306; OnGround(Crouch_290); Attack(JumpThrowingAttack_570);
         BdyDefault();
     }
     private void HitJumpDefense_306()
     {
-        pic = 142; state = StateFrameEnum.OTHER; wait = 2.5f;
+        pic = 142; state = StateFrameEnum.JUMP_DEFEND; wait = 2.5f;
         CanHoldDefenseAfter(JumpDefenseHold_303);
         next = StopJumpDefense_302; OnGround(Crouch_290); Attack(JumpThrowingAttack_570);
         BdyDefault();
@@ -1060,7 +1060,7 @@ public class NsOodamaRasengan : CharController
     private void ThrowingWeapon_310()
     {
         pic = 232; wait = 3f; next = ThrowingWeapon_311;
-        BdyDefault();
+        BdyDefault(); state = StateFrameEnum.ATTACK;
         SpawnOpoint(51, Opoint(x: 0.065f, y: 0.51f, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
     }
     private void ThrowingWeapon_311()
@@ -1109,7 +1109,7 @@ public class NsOodamaRasengan : CharController
     #region RunningAttack
     private void RunningAttack_330()
     {
-        pic = 241; wait = 1f;
+        pic = 241; wait = 1f; state = StateFrameEnum.ATTACK;
         next = RunningAttack_331;
         BdyDefault();
         ItrDisable();
@@ -1224,7 +1224,7 @@ public class NsOodamaRasengan : CharController
     private void Attack1_353()
     {
         ItrDisable();
-        pic = 308; wait = 0.5f;
+        pic = 308; wait = 0.5f; state = StateFrameEnum.STANDING;
         next = Attack1_354; IfHit(Attack1Next_360);
         BdyDefault();
     }
@@ -1244,7 +1244,7 @@ public class NsOodamaRasengan : CharController
     }
     private void Attack1Next_361()
     {
-        pic = 309; wait = 8f;
+        pic = 309; wait = 8f; state = StateFrameEnum.ATTACK;
         next = Standing_0; DoubleTapAttack(Attack2_370);
         BdyDefault();
     }
@@ -1253,14 +1253,14 @@ public class NsOodamaRasengan : CharController
     #region Attack2
     private void Attack2_370()
     {
-        ItrDisable();
+        ItrDisable(); state = StateFrameEnum.ATTACK_RESET;
         pic = 310; wait = 2f;
         next = Attack2_371;
         BdyDefault();
     }
     private void Attack2_371()
     {
-        pic = 311; wait = 0.5f;
+        pic = 311; wait = 0.5f; state = StateFrameEnum.ATTACK;
         next = Attack2_372;
         BdyDefault();
         ApplyDefaultPhysic(dvx: 250, null, null, facingRight);
@@ -1327,14 +1327,14 @@ public class NsOodamaRasengan : CharController
     #region Attack3
     private void Attack3_390()
     {
-        ItrDisable();
+        ItrDisable(); state = StateFrameEnum.ATTACK_RESET;
         pic = 319; wait = 2f;
         next = Attack3_391;
         BdyDefault();
     }
     private void Attack3_391()
     {
-        pic = 320; wait = 0.5f;
+        pic = 320; wait = 0.5f; state = StateFrameEnum.ATTACK;
         next = Attack3_392;
         BdyDefault();
         ApplyDefaultPhysic(dvx: 150, null, null, facingRight);
@@ -1415,21 +1415,21 @@ public class NsOodamaRasengan : CharController
     #region Attack4
     private void Attack4_410()
     {
-        ItrDisable();
+        ItrDisable(); state = StateFrameEnum.ATTACK_RESET;
         pic = 330; wait = 6f;
         next = Attack4_411;
         BdyDefault();
     }
     private void Attack4_411()
     {
-        pic = 331; wait = 1f;
+        pic = 331; wait = 1f; state = StateFrameEnum.COMBO_FINISH;
         next = Attack4_412;
         BdyDefault();
         ApplyDefaultPhysic(dvx: 150, null, null, facingRight);
     }
     private void Attack4_412()
     {
-        pic = 332; wait = 1f;
+        pic = 332; wait = 1f; state = StateFrameEnum.COMBO_FINISH;
         next = Attack4_413;
         BdyDefault();
         itr.x = 0.2152f; itr.y = 0.3705f; itr.z = 0;
@@ -1443,32 +1443,32 @@ public class NsOodamaRasengan : CharController
 
     private void Attack4_413()
     {
-        ItrDisable();
+        ItrDisable(); state = StateFrameEnum.COMBO_FINISH;
         pic = 333; wait = 1f;
         next = Attack4_414;
         BdyDefault();
     }
     private void Attack4_414()
     {
-        pic = 334; wait = 1f;
+        pic = 334; wait = 1f; state = StateFrameEnum.COMBO_FINISH;
         next = Attack4_415;
         BdyDefault();
     }
     private void Attack4_415()
     {
-        pic = 335; wait = 0.5f;
+        pic = 335; wait = 0.5f; state = StateFrameEnum.COMBO_FINISH;
         next = Attack4_416;
         BdyDefault();
     }
     private void Attack4_416()
     {
-        pic = 336; wait = 2f;
+        pic = 336; wait = 2f; state = StateFrameEnum.COMBO_FINISH;
         next = Attack4_417;
         BdyDefault();
     }
     private void Attack4_417()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); state = StateFrameEnum.COMBO_FINISH;
         pic = 336; wait = 4f;
         next = Standing_0; DoubleTapAttack(ComboFinish_429);
         BdyDefault();
@@ -1487,7 +1487,7 @@ public class NsOodamaRasengan : CharController
     #region FrontAttack
     private void FrontAttack_430()
     {
-        pic = 223; wait = 0.5f;
+        pic = 223; wait = 0.5f; state = StateFrameEnum.ATTACK;
         next = FrontAttack_431;
         BdyDefault();
     }
@@ -1520,7 +1520,7 @@ public class NsOodamaRasengan : CharController
     #region Uppercut
     private void Uppercut_450()
     {
-        pic = 223; wait = 0.5f; next = Uppercut_451;
+        pic = 223; wait = 0.5f; next = Uppercut_451; state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void Uppercut_451()
@@ -1546,7 +1546,7 @@ public class NsOodamaRasengan : CharController
     }
     private void Uppercut_455()
     {
-        pic = 227; wait = 13f; next = Standing_0; Jump(JumpCombo_650);
+        pic = 227; wait = 13f; next = Standing_0; Jump(JumpCombo_650); state = StateFrameEnum.UPPER_TO_JUMP_COMBO;
         BdyDefault();
         SpawnOpoint(3, Opoint(x: 0.11f, y: 0.25f, z: -0.08f, oid: 0, facingFront: true, quantity: 1));
     }
@@ -1555,7 +1555,7 @@ public class NsOodamaRasengan : CharController
     #region Downercut
     private void Downercut_470()
     {
-        pic = 223; wait = 0.5f; next = Downercut_471;
+        pic = 223; wait = 0.5f; next = Downercut_471; state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void Downercut_471()
@@ -1699,14 +1699,14 @@ public class NsOodamaRasengan : CharController
     #region JumpAttack1
     private void JumpAttack1_590()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); state = StateFrameEnum.ATTACK_RESET;
         ItrDisable();
         pic = 416; wait = 1f; next = JumpAttack1_591; OnGround(Crouch_290);
         BdyDefault();
     }
     private void JumpAttack1_591()
     {
-        pic = 417; wait = 0.5f; next = JumpAttack1_592; OnGround(Crouch_290);
+        pic = 417; wait = 0.5f; next = JumpAttack1_592; OnGround(Crouch_290); state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void JumpAttack1_592()
@@ -1745,14 +1745,14 @@ public class NsOodamaRasengan : CharController
     #region JumpAttack2
     private void JumpAttack2_610()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); state = StateFrameEnum.ATTACK_RESET;
         ItrDisable();
         pic = 500; wait = 1f; next = JumpAttack2_611; OnGround(Crouch_290);
         BdyDefault();
     }
     private void JumpAttack2_611()
     {
-        pic = 501; wait = 0.5f; next = JumpAttack2_612; OnGround(Crouch_290);
+        pic = 501; wait = 0.5f; next = JumpAttack2_612; OnGround(Crouch_290); state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void JumpAttack2_612()
@@ -1801,7 +1801,7 @@ public class NsOodamaRasengan : CharController
     #region JumpAttack3
     private void JumpAttack3_630()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); state = StateFrameEnum.ATTACK_RESET;
         ItrDisable();
         pic = 507; wait = 1f; next = JumpAttack3_631; OnGround(Crouch_290);
         BdyDefault();
@@ -1809,7 +1809,7 @@ public class NsOodamaRasengan : CharController
     }
     private void JumpAttack3_631()
     {
-        pic = 508; wait = 0.5f; next = JumpAttack3_632; OnGround(Crouch_290);
+        pic = 508; wait = 0.5f; next = JumpAttack3_632; OnGround(Crouch_290); state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void JumpAttack3_632()
@@ -1894,7 +1894,7 @@ public class NsOodamaRasengan : CharController
     }
     private void JumpCombo_654()
     {
-        pic = 136; wait = 8f; next = JumpComboFalling_660; Defense(StartJumpDefense_300);
+        pic = 136; wait = 8f; next = JumpComboFalling_660; Defense(StartJumpDefense_300); state = StateFrameEnum.JUMP_COMBO_ATTACK;
         DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
         BdyDefault();
     }
@@ -2141,80 +2141,80 @@ public class NsOodamaRasengan : CharController
     private void FallingUp_840()
     {
         ResetMovementFromStop(); ItrDisable();
-        pic = 603; wait = 2f; next = FallingUp_841; state = StateFrameEnum.FALLING_UP;
+        pic = 603; wait = 2f; next = FallingUp_841;
         OnCeil(FallingUpImpact_850);
         BdyDefault();
         ApplyExternPhysic();
     }
     private void FallingUp_841()
     {
-        pic = 611; wait = 0.5f; next = FallingUp_842; state = StateFrameEnum.FALLING_UP;
+        pic = 611; wait = 0.5f; next = FallingUp_842;
         OnCeil(FallingUpImpact_850);
         BdyDefault();
     }
     void FallingUp_842()
     {
-        pic = 611; wait = 10f; next = FallingUp_843; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 611; wait = 10f; next = FallingUp_843; OnGround(Lying_910);
         OnCeil(FallingUpImpact_850);
         BdyDefault();
     }
     private void FallingUp_843()
     {
-        pic = 611; wait = 0.5f; next = FallingUp_844; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 611; wait = 0.5f; next = FallingUp_844; OnGround(Lying_910);
         OnCeil(FallingUpImpact_850);
         BdyDefault();
     }
     private void FallingUp_844()
     {
-        pic = 612; wait = 0.5f; next = FallingUp_845; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 612; wait = 0.5f; next = FallingUp_845; OnGround(Lying_910);
         BdyDefault();
     }
     private void FallingUp_845()
     {
-        pic = 613; wait = 0.5f; next = FallingUp_846; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 613; wait = 0.5f; next = FallingUp_846; OnGround(Lying_910);
         BdyDefault();
     }
     private void FallingUp_846()
     {
-        pic = 614; wait = 0.5f; next = FallingUp_847; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 614; wait = 0.5f; next = FallingUp_847; OnGround(Lying_910);
         BdyDefault();
     }
     private void FallingUp_847()
     {
-        pic = 615; wait = 0.5f; next = FallingUp_848; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 615; wait = 0.5f; next = FallingUp_848; OnGround(Lying_910);
         BdyDefault();
     }
     private void FallingUp_848()
     {
-        pic = 616; wait = 2f; next = FallingUp_848; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 616; wait = 2f; next = FallingUp_848; OnGround(Lying_910);
         BdyDefault();
     }
 
     private void FallingUpImpact_850()
     {
-        pic = 212; wait = 2f; next = FallingUpImpact_851; state = StateFrameEnum.FALLING; state = StateFrameEnum.FALLING_UP;
+        pic = 212; wait = 2f; next = FallingUpImpact_851;
         BdyDefault();
         ApplyDefaultPhysic(dvx: 0, dvy: -320, dvz: 0, facingRight);
         SpawnOpoint(7, Opoint(x: 0.13f, y: 0, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
     }
     private void FallingUpImpact_851()
     {
-        pic = 630; wait = 2f; next = FallingUpImpact_852; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 630; wait = 2f; next = FallingUpImpact_852; OnGround(Lying_910);
         BdyDefault();
     }
     private void FallingUpImpact_852()
     {
-        pic = 628; wait = 2f; next = FallingUpImpact_853; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 628; wait = 2f; next = FallingUpImpact_853; OnGround(Lying_910);
         BdyDefault();
     }
     private void FallingUpImpact_853()
     {
-        pic = 628; wait = 2f; next = FallingUpImpact_854; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 628; wait = 2f; next = FallingUpImpact_854; OnGround(Lying_910);
         BdyDefault();
     }
     private void FallingUpImpact_854()
     {
-        pic = 615; wait = 2f; next = FallingUpImpact_854; OnGround(Lying_910); state = StateFrameEnum.FALLING_UP;
+        pic = 615; wait = 2f; next = FallingUpImpact_854; OnGround(Lying_910);
         BdyDefault();
     }
     #endregion
@@ -2223,53 +2223,53 @@ public class NsOodamaRasengan : CharController
     private void FallingForwardtHit_860()
     {
         ResetMovementFromStop(); ItrDisable();
-        pic = 603; wait = 2f; next = FallingForward_861; state = StateFrameEnum.FALLING_FORWARD;
+        pic = 603; wait = 2f; next = FallingForward_861;
         BdyDefault();
         ApplyExternPhysic();
     }
     private void FallingForward_861()
     {
-        pic = 618; wait = 0.5f; next = FallingForward_862; OnGround(Lying_910); state = StateFrameEnum.FALLING_FORWARD;
+        pic = 618; wait = 0.5f; next = FallingForward_862; OnGround(Lying_910);
         OnWall(FallingForwardImpact_870);
         BdyDefault();
     }
     private void FallingForward_862()
     {
-        pic = 619; wait = 2f; next = FallingForward_863; OnGround(Lying_910); state = StateFrameEnum.FALLING_FORWARD;
+        pic = 619; wait = 2f; next = FallingForward_863; OnGround(Lying_910);
         OnWall(FallingForwardImpact_870);
         BdyDefault();
     }
     private void FallingForward_863()
     {
-        pic = 620; wait = 2f; next = FallingForward_863; OnGround(Lying_910); state = StateFrameEnum.FALLING_FORWARD;
+        pic = 620; wait = 2f; next = FallingForward_863; OnGround(Lying_910);
         OnWall(FallingForwardImpact_870);
         BdyDefault();
     }
 
     private void FallingForwardImpact_870()
     {
-        pic = 627; wait = 2f; next = FallingForwardImpact_871; state = StateFrameEnum.FALLING_FORWARD;
+        pic = 627; wait = 2f; next = FallingForwardImpact_871;
         BdyDefault();
         SpawnOpoint(9, Opoint(x: -0.17f, y: 0, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
     }
     private void FallingForwardImpact_871()
     {
-        pic = 628; wait = 2f; next = FallingForwardImpact_872; state = StateFrameEnum.FALLING_FORWARD;
+        pic = 628; wait = 2f; next = FallingForwardImpact_872;
         BdyDefault();
     }
     private void FallingForwardImpact_872()
     {
-        pic = 629; wait = 2f; next = FallingForwardImpact_873; state = StateFrameEnum.FALLING_FORWARD;
+        pic = 629; wait = 2f; next = FallingForwardImpact_873;
         BdyDefault();
     }
     private void FallingForwardImpact_873()
     {
-        pic = 630; wait = 2f; next = FallingForwardImpact_874; state = StateFrameEnum.FALLING_FORWARD;
+        pic = 630; wait = 2f; next = FallingForwardImpact_874;
         BdyDefault();
     }
     private void FallingForwardImpact_874()
     {
-        pic = 631; wait = 2f; next = FallingForwardImpact_874; OnGround(Lying_910); state = StateFrameEnum.FALLING_FORWARD;
+        pic = 631; wait = 2f; next = FallingForwardImpact_874; OnGround(Lying_910);
         BdyDefault();
     }
     #endregion
@@ -2317,55 +2317,55 @@ public class NsOodamaRasengan : CharController
     #region Lying
     private void Lying_910()
     {
-        StopMovement(); state = StateFrameEnum.LYING; ItrDisable();
+        StopMovement(); ItrDisable();
         pic = 628; wait = 2f; next = Lying_911; Jump(JumpRecover_930);
         BdyDefault();
     }
     private void Lying_911()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.LYING;
+        ResetMovementFromStop();
         pic = 629; wait = 2f; next = Lying_912;
         BdyDefault();
     }
     private void Lying_912()
     {
-        pic = 630; wait = 2f; next = Lying_913; state = StateFrameEnum.LYING;
+        pic = 630; wait = 2f; next = Lying_913;
         BdyDefault();
     }
     private void Lying_913()
     {
-        pic = 631; wait = 2f; next = Lying_914; state = StateFrameEnum.LYING;
+        pic = 631; wait = 2f; next = Lying_914;
         BdyDefault();
     }
     private void Lying_914()
     {
-        pic = 632; wait = 50f; next = LyingUp_920; state = StateFrameEnum.LYING;
+        pic = 632; wait = 50f; next = LyingUp_920;
         BdyDefault();
     }
 
     private void LyingUp_920()
     {
-        pic = 633; wait = 2f; next = LyingUp_921; state = StateFrameEnum.LYING;
+        pic = 633; wait = 2f; next = LyingUp_921;
         BdyDefault();
     }
     private void LyingUp_921()
     {
-        pic = 634; wait = 2f; next = LyingUp_922; state = StateFrameEnum.LYING;
+        pic = 634; wait = 2f; next = LyingUp_922;
         BdyDefault();
     }
     private void LyingUp_922()
     {
-        pic = 700; wait = 2f; next = LyingUp_923; state = StateFrameEnum.LYING;
+        pic = 700; wait = 2f; next = LyingUp_923;
         BdyDefault();
     }
     private void LyingUp_923()
     {
-        pic = 701; wait = 1f; next = LyingUp_924; state = StateFrameEnum.LYING;
+        pic = 701; wait = 1f; next = LyingUp_924;
         BdyDefault();
     }
     private void LyingUp_924()
     {
-        pic = 702; wait = 1f; next = Crouch_290; state = StateFrameEnum.LYING;
+        pic = 702; wait = 1f; next = Crouch_290;
         BdyDefault();
     }
     #endregion

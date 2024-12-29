@@ -29,7 +29,6 @@ public class BaseEnemyAI : MonoBehaviour
     {
         if (target == null)
         {
-
             target = FindNearestObject(enemies);
         }
         else
@@ -154,6 +153,7 @@ public class BaseEnemyAI : MonoBehaviour
                 {
                     if (targetInRightSide && self.facingRight)
                     {
+                        Debug.Log("SJJSJSJ");
                         CancelHitDefense();
                         CancelHitJump();
                         Attacking();
@@ -166,6 +166,7 @@ public class BaseEnemyAI : MonoBehaviour
                     }
                     else
                     {
+                        Debug.Log("TEST");
                         if (targetInRightSide && !self.facingRight)
                         {
                             CancelHitRightLeft();
@@ -593,6 +594,7 @@ public class BaseEnemyAI : MonoBehaviour
 
     private void CancelHitAttack()
     {
+        Debug.Log(gameObject.name + ":" + "adjiisdhoiadsh");
         self.HitAttack(false, false, true);
     }
 
