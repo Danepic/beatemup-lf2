@@ -704,6 +704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1CharacterResourcePath: 
   player2CharacterResourcePath: 
+  stageResourcePath: 
 --- !u!1 &196460126
 GameObject:
   m_ObjectHideFlags: 0

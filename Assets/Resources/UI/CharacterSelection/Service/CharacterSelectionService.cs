@@ -25,22 +25,22 @@ namespace Service
             {
                 new ("081e0659-4c10-41d9-98d4-43270909c14b", "Naruto Uzumaki", "NS", "Chars/naruto/ns-naruto-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 1),
                 new ("d395f862-3453-4d0a-bcb3-388591b82b1e", "Sakura Haruno", "NS", "Chars/sakura/ns-sakura-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 2),
-                new ("e12f65a3-bd3f-4c7c-a7a9-1f6f64f89bc3", "Kakashi Hatake", "NS", "Chars/kakashi/ns-kakashi-base/kakashi", "3f0a412f-d06b-45de-b4cd-d1234567890a", 3),
-                new ("41bc9d1f-4571-468b-998c-57c8e781e749", "Shikamaru Nara", "NS", "Chars/shikamaru/ns-shikamaru-base/shikamaru", "3f0a412f-d06b-45de-b4cd-d1234567890a", 4),
-                new ("0eac457d-b251-4d13-9e3d-7669b0f9b003", "Gaara", "NS", "Chars/gaara/ns-gaara-base/gaara", "3f0a412f-d06b-45de-b4cd-d1234567890a", 5),
-                new ("c0b16a04-5b42-4ea3-a6d8-d3b6824c3aa3", "Kankuro", "NS", "Chars/kankuro/ns-kankuro-base/kankuro", "3f0a412f-d06b-45de-b4cd-d1234567890a", 6),
-                new ("fae12078-7c5b-4d07-a053-9ab4d9f4d5fa", "Temari", "NS", "Chars/temari/ns-temari-base/temari", "3f0a412f-d06b-45de-b4cd-d1234567890a", 7),
-                new ("2cde0f6c-16f4-4ec6-8f74-769b1d0ad4b5", "Chiyo", "NS", "Chars/chiyo/ns-chiyo-base/chiyo", "3f0a412f-d06b-45de-b4cd-d1234567890a", 8),
-                new ("86f73960-0b94-45a1-8e0f-d6ae2b34bfbf", "Might Guy", "NS", "Chars/guy/ns-guy-base/guy", "3f0a412f-d06b-45de-b4cd-d1234567890a", 9),
-                new ("5a013f9a-514d-4a83-8a47-1b60f05d39e3", "Rock Lee", "NS", "Chars/lee/ns-lee-base/lee", "3f0a412f-d06b-45de-b4cd-d1234567890a", 10),
-                new ("4f305b7e-7f3f-4a48-a951-9f65e3d1a9d7", "Tenten", "NS", "Chars/tenten/ns-tenten-base/tenten", "3f0a412f-d06b-45de-b4cd-d1234567890a", 11),
-                new ("1e3c8756-b2b7-4b12-bf5e-4d5d78b98e41", "Neji Hyuga", "NS", "Chars/neji/ns-neji-base/neji", "3f0a412f-d06b-45de-b4cd-d1234567890a", 12),
-                new ("987a2f14-566b-4afc-89c9-81e3c4a5e2de", "Itachi Uchiha", "NS", "Chars/itachi/ns-itachi-base/itachi", "3f0a412f-d06b-45de-b4cd-d1234567890a", 13),
-                new ("f139e271-7581-4a1c-8d91-d423689fb3ea", "Kisame Hoshigaki", "NS", "Chars/kisame/ns-kisame-base/kisame", "3f0a412f-d06b-45de-b4cd-d1234567890a", 14),
-                new ("723fa817-c7ea-44f4-8f2c-2f2a0f2dcefa", "Deidara", "NS", "Chars/deidara/ns-deidara-base/deidara", "3f0a412f-d06b-45de-b4cd-d1234567890a", 15),
-                new ("92b61b60-e507-4d12-a60c-e24b2c54df1a", "Sasori", "NS", "Chars/sasori/ns-sasori-base/sasori", "3f0a412f-d06b-45de-b4cd-d1234567890a", 16),
-                new ("7ed5e3e9-859b-43b4-b412-e2d42c45a71d", "Sasori Puppet", "NS", "Chars/sasori_puppet/ns-sasori-puppet-base/sasori_puppet", "3f0a412f-d06b-45de-b4cd-d1234567890a", 17),
-                new ("3cb95dfd-f2b5-4f62-889b-b8f21f4cfcfe", "Hiruko", "NS", "Chars/hiruko/ns-hiruko-base/hiruko", "3f0a412f-d06b-45de-b4cd-d1234567890a", 18),
+                new ("e12f65a3-bd3f-4c7c-a7a9-1f6f64f89bc3", "Kakashi Hatake", "NS", "Chars/kakashi/ns-kakashi-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 3),
+                new ("41bc9d1f-4571-468b-998c-57c8e781e749", "Shikamaru Nara", "NS", "Chars/shikamaru/ns-shikamaru-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 4),
+                new ("0eac457d-b251-4d13-9e3d-7669b0f9b003", "Gaara", "NS", "Chars/gaara/ns-gaara-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 5),
+                new ("c0b16a04-5b42-4ea3-a6d8-d3b6824c3aa3", "Kankuro", "NS", "Chars/kankuro/ns-kankuro-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 6),
+                new ("fae12078-7c5b-4d07-a053-9ab4d9f4d5fa", "Temari", "NS", "Chars/temari/ns-temari-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 7),
+                new ("2cde0f6c-16f4-4ec6-8f74-769b1d0ad4b5", "Chiyo", "NS", "Chars/chiyo/ns-chiyo-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 8),
+                new ("86f73960-0b94-45a1-8e0f-d6ae2b34bfbf", "Might Guy", "NS", "Chars/guy/ns-guy-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 9),
+                new ("5a013f9a-514d-4a83-8a47-1b60f05d39e3", "Rock Lee", "NS", "Chars/lee/ns-lee-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 10),
+                new ("4f305b7e-7f3f-4a48-a951-9f65e3d1a9d7", "Tenten", "NS", "Chars/tenten/ns-tenten-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 11),
+                new ("1e3c8756-b2b7-4b12-bf5e-4d5d78b98e41", "Neji Hyuga", "NS", "Chars/neji/ns-neji-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 12),
+                new ("987a2f14-566b-4afc-89c9-81e3c4a5e2de", "Itachi Uchiha", "NS", "Chars/itachi/ns-itachi-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 13),
+                new ("f139e271-7581-4a1c-8d91-d423689fb3ea", "Kisame Hoshigaki", "NS", "Chars/kisame/ns-kisame-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 14),
+                new ("723fa817-c7ea-44f4-8f2c-2f2a0f2dcefa", "Deidara", "NS", "Chars/deidara/ns-deidara-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 15),
+                new ("92b61b60-e507-4d12-a60c-e24b2c54df1a", "Sasori", "NS", "Chars/sasori/ns-sasori-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 16),
+                new ("7ed5e3e9-859b-43b4-b412-e2d42c45a71d", "Sasori Puppet", "NS", "Chars/sasori_puppet/ns-sasori-puppet-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 17),
+                new ("3cb95dfd-f2b5-4f62-889b-b8f21f4cfcfe", "Hiruko", "NS", "Chars/hiruko/ns-hiruko-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 18),
 
                 new ("c12a45b7-f31b-4f2a-b40f-87d4a5c45678", "Naruto Uzumaki", "B", "Chars/naruto/timeskip-naruto", "4a7b123f-a69e-4a3f-bbcd-e89012345678", 1),
                 new ("d21b43f9-86a1-4d3c-9b4d-56e7a4c56789", "Sasuke Uchiha", "B", "Chars/sasuke/timeskip-sasuke", "4a7b123f-a69e-4a3f-bbcd-e89012345678", 2),
@@ -58,8 +58,9 @@ namespace Service
         {
             //cacheado
             return new List<Character>{
-                new ("081e0659-4c10-41d9-98d4-43270909c14b", "Naruto Uzumaki", "NS", "Chars/naruto/ns-naruto-base/naruto_mugshot", "3f0a412f-d06b-45de-b4cd-d1234567890a", 1),
+                new ("081e0659-4c10-41d9-98d4-43270909c14b", "Naruto Uzumaki", "NS", "Chars/naruto/ns-naruto-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 1),
                 new ("d395f862-3453-4d0a-bcb3-388591b82b1e", "Sakura Haruno", "NS", "Chars/sakura/ns-sakura-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 2),
+                new ("e12f65a3-bd3f-4c7c-a7a9-1f6f64f89bc3", "Kakashi Hatake", "NS", "Chars/kakashi/ns-kakashi-base", "3f0a412f-d06b-45de-b4cd-d1234567890a", 3),
             };
         }
 
