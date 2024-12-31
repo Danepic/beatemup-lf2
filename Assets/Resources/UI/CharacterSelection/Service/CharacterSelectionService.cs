@@ -80,6 +80,14 @@ namespace Service
                     "Backgrounds/rocks-day",
                     "3f0a412f-d06b-45de-b4cd-d1234567890a",
                     1
+                ),
+                new Stage(
+                    "987f6543-c21a-34b5-a678-1234567890ab",
+                    "Training Room",
+                    "Medium",
+                    "Backgrounds/training-room",
+                    "3f0a412f-d06b-45de-b4cd-d1234567890a",
+                    2
                 )
             };
         }

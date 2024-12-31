@@ -73,9 +73,7 @@ public class CharacterSelectionView : MonoBehaviour
 
         UpdateArrowButtons();
 
-        var currentStage = userStages[currentStageIndex];
-        stageCard.GetComponent<Image>().sprite = Resources.Load<Sprite>(currentStage.resourcePath + "/card");
-
+        UpdateSelectStage(currentStageIndex);
 
         stageCard.GetComponent<Button>().onClick.AddListener(ClickToSelectStage);
 
@@ -84,6 +82,9 @@ public class CharacterSelectionView : MonoBehaviour
 
         yesConfirmPanelButton.onClick.AddListener(ClickYesConfirmPanel);
         noConfirmPanelButton.onClick.AddListener(ClickNoConfirmPanel);
+
+        nextStageCard.onClick.AddListener(OnStageNextArrowClick);
+        prevStageCard.onClick.AddListener(OnStagePrevArrowClick);
 
         confirmPanelTitle.text = CharacterSelectionI18N.ConfirmPanelTitle(language);
         confirmPanelDesc.text = CharacterSelectionI18N.ConfirmPanelDesc(language);
@@ -114,6 +115,7 @@ public class CharacterSelectionView : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(MatchControllerStore.Instance.stageResourcePath);
         if (enableStageSelection)
         {
             ClearMugshots();
@@ -229,6 +231,18 @@ public class CharacterSelectionView : MonoBehaviour
         }
     }
 
+    void OnStageNextArrowClick()
+    {
+        currentStageIndex++;
+        UpdateSelectStage(currentStageIndex);
+    }
+
+    void OnStagePrevArrowClick()
+    {
+        currentStageIndex--;
+        UpdateSelectStage(currentStageIndex);
+    }
+
     void UpdateArrowButtons()
     {
         nextArrow.interactable = currentChunckListIndex < totalChunks - 1;
@@ -276,5 +290,12 @@ public class CharacterSelectionView : MonoBehaviour
         hiddenMugshots.Clear();
         availableMugshots.ForEach(mugshot => Destroy(mugshot));
         availableMugshots.Clear();
+    }
+
+    private void UpdateSelectStage(int stageIndex)
+    {
+        var currentStage = userStages[stageIndex];
+        stageCard.GetComponent<Image>().sprite = Resources.Load<Sprite>(currentStage.resourcePath + "/card");
+        MatchControllerStore.Instance.stageResourcePath = currentStage.resourcePath;
     }
 }

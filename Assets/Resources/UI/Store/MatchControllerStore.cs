@@ -11,6 +11,7 @@ public class MatchControllerStore : MonoBehaviour
     public static MatchControllerStore Instance;
     public string player1CharacterResourcePath;
     public string player2CharacterResourcePath;
+    public string stageResourcePath;
 
     private void Awake()
     {

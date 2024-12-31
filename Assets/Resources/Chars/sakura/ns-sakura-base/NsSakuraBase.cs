@@ -1281,13 +1281,13 @@ public class NsSakuraBase : CharController
     }
     private void Attack1_353()
     {
+        ItrDisable();
         pic = 303; wait = 0.5f; state = StateFrameEnum.STANDING;
         next = Attack1_354; IfHit(Attack1Next_360);
         BdyDefault();
     }
     private void Attack1_354()
     {
-        ItrDisable();
         pic = 304; wait = 2.5f;
         next = Attack1_355; IfHit(Attack1Next_361);
         BdyDefault();
