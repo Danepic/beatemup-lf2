@@ -51,6 +51,7 @@ public class NsKakashiBase : CharController
     {
         ChangeFrame(Standing_0);
         base.Start();
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
     }
 
     public void Update()
@@ -2796,7 +2797,7 @@ public class NsKakashiBase : CharController
         pic = 721; wait = 1.5f; next = RaikiriAttack_1021;
         BdyDefault();
         itr.x = 0.3905f; itr.y = 0.3948f; itr.z = 0;
-        itr.w = 0.3594886f; itr.h = 0.994279f; itr.zwidth = 0.22f;
+        itr.w = 0.3594886f; itr.h = 0.994279f; itr.zwidth = 0.66f;
         itr.dvx = 300; itr.dvy = 200; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -2806,7 +2807,7 @@ public class NsKakashiBase : CharController
     {
         pic = 722; wait = 8f; next = RaikiriAttack_1022;
         itr.x = 0.3905f; itr.y = 0.3948f; itr.z = 0;
-        itr.w = 0.3594886f; itr.h = 0.994279f; itr.zwidth = 0.22f;
+        itr.w = 0.3594886f; itr.h = 0.994279f; itr.zwidth = 0.66f;
         itr.dvx = 300; itr.dvy = 200; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;

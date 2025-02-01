@@ -307,6 +307,7 @@ public class PhysicsObjController : ObjController
         percentToHit = lockHittablePercent ? percentToHit : UnityEngine.Random.Range(0, 100);
         lockHittablePercent = true;
         bool wasHit = hittablePercent == 100 || percentToHit <= hittablePercent;
+        damageRestTU = scriptObject.itr.rest;
 
         Debug.Log(wasHit);
 
@@ -322,7 +323,6 @@ public class PhysicsObjController : ObjController
             scriptObject.enableNextIfHit = true;
             scriptObject.nextIfHit = scriptObject.itr.nextIfHit;
             wasAttacked = true;
-            damageRestTU = scriptObject.itr.rest;
             if (gameObject.activeInHierarchy)
             {
                 StartCoroutine(ItrEffectSpawn(scriptObject.itr.effect, new Vector3(0f, 0.3f, -0.1f)));

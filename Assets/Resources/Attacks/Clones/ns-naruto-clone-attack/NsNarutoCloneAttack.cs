@@ -29,6 +29,7 @@ public class NsNarutoCloneAttack : AttackController
 
     private void UppercutInvoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         ItrReset();
         pic = -9999;
         wait = 0.5f;
@@ -91,6 +92,7 @@ public class NsNarutoCloneAttack : AttackController
 
     private void DownercutInvoke_20()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = -9999;
         wait = 2f;
         next = Downercut_21;
@@ -144,6 +146,7 @@ public class NsNarutoCloneAttack : AttackController
 
     private void FrontAttackInvoke_40()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = -9999;
         wait = 2f;
         next = FrontAttack_41;

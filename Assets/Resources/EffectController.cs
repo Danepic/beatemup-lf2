@@ -17,7 +17,7 @@ public class EffectController : ObjController
         base.Awake();
     }
 
-    void Update()
+    protected void Update()
     {
         base.Update();
         Timers();

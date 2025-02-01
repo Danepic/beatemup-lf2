@@ -44,6 +44,7 @@ public class NsNarutoBase : CharController
     {
         ChangeFrame(Standing_0);
         base.Start();
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
     }
 
     public void Update()

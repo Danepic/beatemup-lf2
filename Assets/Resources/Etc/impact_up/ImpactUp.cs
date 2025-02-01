@@ -30,6 +30,7 @@ public class ImpactUp : EffectController
 
     private void Invoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 100; wait = 1f; next = Invoke_1;
     }
 

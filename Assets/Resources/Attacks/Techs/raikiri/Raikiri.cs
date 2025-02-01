@@ -29,6 +29,7 @@ public class Raikiri : AttackController
     #region Idle
     private void IdleInvoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = -9999; repeatCount = 100;
         wait = 0.5f;
         next = IdleInvoke_1;
@@ -83,6 +84,7 @@ public class Raikiri : AttackController
     #region Ground
     private void GroundIdleInvoke_50()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         repeatCount = 50;
         pic = 200;
         wait = 1f;
@@ -119,6 +121,7 @@ public class Raikiri : AttackController
     #region Idle 2
     private void IdleSecondInvoke_100()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 300; repeatCount = 50;
         wait = 0.5f;
         next = IdleSecondInvoke_101;
@@ -279,6 +282,7 @@ public class Raikiri : AttackController
     #region Running
     private void RunningInvoke_150()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 400; repeatCount = 50;
         wait = 0.5f;
         next = RunningInvoke_151;
@@ -355,6 +359,7 @@ public class Raikiri : AttackController
     #region Attack
     private void AttackInvoke_200()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 500; repeatCount = 50;
         wait = 1f;
         next = AttackInvoke_201;

@@ -30,6 +30,7 @@ public class ImpactDown : EffectController
 
     private void Invoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 115; wait = 1f; next = Invoke_1;
     }
 

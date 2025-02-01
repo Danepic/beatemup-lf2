@@ -30,6 +30,7 @@ public class JumpingCombo : EffectController
 
     private void Invoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 100; wait = 3f; next = Invoke_1;
         ScaleDown(propScalex: 0.1f, propScaley: 0.1f);
         Fadeout(fadeout: 0.1f);

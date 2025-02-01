@@ -31,6 +31,15 @@ public class Fog : AttackController
         base.Start();
     }
 
+    public void Update()
+    {
+        if (owner.currentFrameId == 1100)
+        {
+            ChangeFrame(Remove_300);
+        }
+        base.Update();
+    }
+
     #region Idle
     private void IdleInvoke_0()
     {

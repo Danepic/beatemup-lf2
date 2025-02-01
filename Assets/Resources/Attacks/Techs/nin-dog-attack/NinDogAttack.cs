@@ -29,6 +29,7 @@ public class NinDogAttack : AttackController
 
     private void DownercutInvoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = -9999;
         wait = 2f;
         next = Downercut_21;

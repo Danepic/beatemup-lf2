@@ -33,6 +33,7 @@ public class Kunai : AttackController
     #region Front
     private void InvokeFront_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = -9999;
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 0.5f;
@@ -94,6 +95,7 @@ public class Kunai : AttackController
     #region Down
     private void InvokeDown_20()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = -9999;
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 0.5f;

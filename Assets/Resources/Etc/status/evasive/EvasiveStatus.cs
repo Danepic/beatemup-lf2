@@ -30,17 +30,28 @@ public class EvasiveStatus : EffectController
         base.Start();
     }
 
+    public void Update()
+    {
+        if (owner.currentFrameId == 1100)
+        {
+            ChangeFrame(Remove_300);
+        }
+        base.Update();
+    }
+
     #region KakashiFog
     private void KakashiFogInvoke_0()
     {
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f);
-        pic = useInvSprite ? -9999 : 100; wait = 1f; next = KakashiFogInvoke_1; repeatCount = 100;
+        pic = useInvSprite ? -9999 : 100;
+        wait = 1f; next = KakashiFogInvoke_1; repeatCount = 100;
     }
     private void KakashiFogInvoke_1()
     {
         pic = useInvSprite ? -9999 : 100; wait = 15; next = KakashiFogInvoke_1; Fadein(0.05f); RepeatCountToFrame(KakashiFogInvoke_2);
         selfBoxCollider.center = new Vector3(-0.02f, -1.52f, 0);
         selfBoxCollider.size = new Vector3(4f, 2.284836f, 1.57f);
+        Debug.Log(currentFrameId);
     }
     private void KakashiFogInvoke_2()
     {
@@ -75,7 +86,6 @@ public class EvasiveStatus : EffectController
 
     void OnTriggerEnter(Collider externObj)
     {
-        Debug.Log(owner != null && externObj.transform.parent?.gameObject == owner.gameObject);
         if (owner != null && externObj.transform.parent?.gameObject == owner.gameObject)
         {
             useInvSprite = false;
@@ -84,7 +94,6 @@ public class EvasiveStatus : EffectController
 
     void OnTriggerExit(Collider externObj)
     {
-        Debug.Log(owner != null && externObj.transform.parent?.gameObject == owner.gameObject);
         if (owner != null && externObj.transform.parent?.gameObject == owner.gameObject)
         {
             useInvSprite = true;

@@ -29,6 +29,7 @@ public class NsNarutoFumaShuriken : AttackController
     #region Front
     private void InvokeFront_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 200;
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 2f;
@@ -82,6 +83,7 @@ public class NsNarutoFumaShuriken : AttackController
     #region Down
     private void InvokeDown_20()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 200;
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 2f;

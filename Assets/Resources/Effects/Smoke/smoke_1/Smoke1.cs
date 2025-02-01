@@ -28,6 +28,7 @@ public class Smoke1 : EffectController
 
     private void Invoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 100;
         state = StateFrameEnum.EFFECT_IDLE;
         wait = 0.5f;
@@ -202,6 +203,7 @@ public class Smoke1 : EffectController
 
     private void InvokeSmall_40()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 200;
         state = StateFrameEnum.EFFECT_IDLE;
         wait = 0.5f;

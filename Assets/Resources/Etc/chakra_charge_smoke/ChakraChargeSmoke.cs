@@ -29,6 +29,7 @@ public class ChakraChargeSmoke : EffectController
 
     private void Invoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 107;
         state = StateFrameEnum.EFFECT_IDLE;
         wait = 0.5f;

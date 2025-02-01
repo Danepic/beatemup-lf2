@@ -34,6 +34,7 @@ public class ObjController : MonoBehaviour
     public SerializedDictionary<int, Sprite> sprites = new();
     public Sprite inv;
     public MethodInfo currentFrame;
+    public int currentFrameId;
 
     protected float dvx;
 
@@ -85,6 +86,7 @@ public class ObjController : MonoBehaviour
             actionTriggered = false;
         }
         currentFrame = nextFrame;
+        currentFrameId = frames.FirstOrDefault(x => x.Value == currentFrame).Key;
         execOpointOnceInFrame = true;
         execPhysicsOnceInFrame = true;
         waitFrame = 0f;
@@ -223,6 +225,8 @@ public class ObjController : MonoBehaviour
                     hitbox.gameObject.SetActive(false);
                 }
             }
+
+            opointScript.spriteRenderer.color = new Color(1, 1, 1, 0f);
             opointScript.summonAction = opointScript.frames[opoint.oid];
 
             if (opoint.cancellable)
@@ -288,6 +292,8 @@ public class ObjController : MonoBehaviour
 
     public void Delete()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 0f);
+        spriteRenderer.sprite = inv;
         repeatCount = 0;
         currentRepeat = 0;
         transform.localScale = originalLocalScale;

@@ -29,6 +29,7 @@ public class ChakraChargeAura : EffectController
 
     private void Invoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 117;
         state = StateFrameEnum.EFFECT_IDLE;
         wait = 0.5f;

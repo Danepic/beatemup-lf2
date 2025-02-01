@@ -27,6 +27,7 @@ public class HitBlood : EffectController
 
     private void Invoke_0()
     {
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 100;
         state = StateFrameEnum.EFFECT_IDLE;
         wait = 1f;
