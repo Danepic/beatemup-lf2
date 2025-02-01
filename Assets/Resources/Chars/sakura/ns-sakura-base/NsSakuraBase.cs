@@ -9,7 +9,6 @@ using AYellowpaper.SerializedCollections;
 using Chars;
 using Domains;
 using Enums;
-using Helpers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -53,7 +52,7 @@ public class NsSakuraBase : CharController
     #region Standing
     private void Standing_0()
     {
-        StopMovement();
+        StopMovement(); CancelOpoints();
         ResetMovementFromStop();
         pic = 107; state = StateFrameEnum.STANDING; wait = 2.5f; next = Standing_1;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
@@ -168,7 +167,7 @@ public class NsSakuraBase : CharController
     private void Walking_20()
     {
         pic = 116; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_21;
-        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
+        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0; CancelOpoints();
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
         CanFlip();
@@ -737,50 +736,62 @@ public class NsSakuraBase : CharController
     private void Taunt_195()
     {
         pic = 100; wait = 2f; next = Taunt_196;
+        BdyDefault();
     }
     private void Taunt_196()
     {
         pic = 100; wait = 0.5f; next = Taunt_197;
+        BdyDefault();
     }
     private void Taunt_197()
     {
         pic = 100; wait = 2f; next = Taunt_198;
+        BdyDefault();
     }
     private void Taunt_198()
     {
         pic = 101; wait = 0.5f; next = Taunt_199;
+        BdyDefault();
     }
     private void Taunt_199()
     {
         pic = 101; wait = 2f; next = Taunt_200;
+        BdyDefault();
     }
     private void Taunt_200()
     {
         pic = 101; wait = 0.5f; next = Taunt_201;
+        BdyDefault();
     }
     private void Taunt_201()
     {
         pic = 102; wait = 2f; next = Taunt_202;
+        BdyDefault();
     }
     private void Taunt_202()
     {
         pic = 102; wait = 2f; next = Taunt_203;
+        BdyDefault();
     }
     private void Taunt_203()
     {
         pic = 103; wait = 2f; next = Taunt_204;
+        BdyDefault();
     }
     private void Taunt_204()
     {
         pic = 104; wait = 2f; next = Taunt_205;
+        BdyDefault();
     }
     private void Taunt_205()
     {
         pic = 105; wait = 2f; next = Taunt_206;
+        BdyDefault();
     }
     private void Taunt_206()
     {
         pic = 106; wait = 2f; next = Standing_0;
+        BdyDefault();
     }
     #endregion
 
@@ -1172,7 +1183,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void RunningAttack_337()
@@ -1185,7 +1196,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void RunningAttack_338()
@@ -1197,7 +1208,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
 
@@ -1210,7 +1221,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void RunningAttack_340()
@@ -1274,9 +1285,9 @@ public class NsSakuraBase : CharController
         BdyDefault();
         itr.x = 0.3433f; itr.y = 0.4133f; itr.z = 0;
         itr.w = 0.4044166f; itr.h = 0.2453708f; itr.zwidth = 0.22f;
-        itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
+        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void Attack1_353()
@@ -1288,7 +1299,7 @@ public class NsSakuraBase : CharController
     }
     private void Attack1_354()
     {
-        pic = 304; wait = 2.5f;
+        pic = 304; wait = 1f;
         next = Attack1_355; IfHit(Attack1Next_361);
         BdyDefault();
     }
@@ -1314,7 +1325,7 @@ public class NsSakuraBase : CharController
     }
     private void Attack1Next_361()
     {
-        pic = 304; wait = 4f;
+        pic = 304; wait = 1f;
         next = Attack1Next_362;
         BdyDefault();
     }
@@ -1336,7 +1347,7 @@ public class NsSakuraBase : CharController
     private void Attack2_370()
     {
         ItrDisable(); state = StateFrameEnum.ATTACK_RESET;
-        pic = 307; wait = 4f;
+        pic = 307; wait = 1f;
         next = Attack2_371;
         BdyDefault();
     }
@@ -1356,7 +1367,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.4044166f; itr.h = 0.2453708f; itr.zwidth = 0.22f;
         itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 8;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 8; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void Attack2_373()
@@ -1393,7 +1404,7 @@ public class NsSakuraBase : CharController
     }
     private void Attack2_378()
     {
-        pic = 313; wait = 2f;
+        pic = 313; wait = 1f;
         next = Attack2_379;
         BdyDefault();
     }
@@ -1410,7 +1421,7 @@ public class NsSakuraBase : CharController
     private void Attack3_390()
     {
         ItrDisable(); state = StateFrameEnum.ATTACK_RESET;
-        pic = 316; wait = 2f;
+        pic = 316; wait = 1f;
         next = Attack3_391;
         BdyDefault();
     }
@@ -1435,7 +1446,7 @@ public class NsSakuraBase : CharController
 
     private void Attack3_394()
     {
-        pic = 319; wait = 1.5f;
+        pic = 319; wait = 1f;
         next = Attack3_395;
         BdyDefault();
         ApplyDefaultPhysic(dvx: 200, null, null, facingRight);
@@ -1447,9 +1458,9 @@ public class NsSakuraBase : CharController
         BdyDefault();
         itr.x = 0.0001f; itr.y = 0.4315f; itr.z = 0;
         itr.w = 0.9272251f; itr.h = 0.2817348f; itr.zwidth = 0.22f;
-        itr.dvx = 200; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
+        itr.dvx = 30; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 5;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 5; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void Attack3_396()
@@ -1498,7 +1509,7 @@ public class NsSakuraBase : CharController
     }
     private void Attack4_411()
     {
-        pic = 327; wait = 3f; state = StateFrameEnum.COMBO_FINISH;
+        pic = 327; wait = 1f; state = StateFrameEnum.COMBO_FINISH;
         next = Attack4_412;
         BdyDefault();
     }
@@ -1518,9 +1529,9 @@ public class NsSakuraBase : CharController
         BdyDefault();
         itr.x = 0.0955f; itr.y = 0.3224f; itr.z = 0;
         itr.w = 0.6545281f; itr.h = 0.24537f; itr.zwidth = 0.22f;
-        itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
+        itr.dvx = 20; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 5;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 5; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
         StopMovement();
     }
@@ -1596,7 +1607,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.4590549f; itr.h = 0.5135916f; itr.zwidth = 0.22f;
         itr.dvx = 600; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault();
     }
     private void FrontAttack_435()
@@ -1660,7 +1671,7 @@ public class NsSakuraBase : CharController
     {
         pic = 403; wait = 0.5f; next = Uppercut_454;
         BdyDefault();
-        ApplyDefaultPhysic(dvx: 150f, dvy: 0, dvz: 0, facingRight);
+        ApplyDefaultPhysic(dvx: 175f, dvy: 0, dvz: 0, facingRight);
     }
     private void Uppercut_454()
     {
@@ -1668,9 +1679,9 @@ public class NsSakuraBase : CharController
         BdyDefault();
         itr.x = 0.1614f; itr.y = 0.5224f; itr.z = 0;
         itr.w = 0.1953547f; itr.h = 0.7817728f; itr.zwidth = 0.22f;
-        itr.dvx = 25; itr.dvy = 350; itr.dvz = 0; itr.action = 840;
+        itr.dvx = 5; itr.dvy = 350; itr.dvz = 0; itr.action = 840;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault();
     }
     private void Uppercut_455()
@@ -1774,7 +1785,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.3973392f; itr.h = 0.5426754f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault();
     }
     private void Downercut_483()
@@ -1826,7 +1837,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.34172f; itr.h = 0.7125095f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = -50; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void JumpSuperAttack_555()
@@ -1839,7 +1850,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.34172f; itr.h = 0.7125095f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = -50; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void JumpSuperAttack_556()
@@ -1923,9 +1934,9 @@ public class NsSakuraBase : CharController
         ApplyDefaultPhysic(dvx: 100, 50, null, facingRight);
         itr.x = 0.3613f; itr.y = 0.4408f; itr.z = 0;
         itr.w = 0.4356876f; itr.h = 0.1593104f; itr.zwidth = 0.22f;
-        itr.dvx = 15; itr.dvy = 250; itr.dvz = 0; itr.action = 720;
+        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 720;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void JumpAttack1_593()
@@ -1969,9 +1980,9 @@ public class NsSakuraBase : CharController
         ApplyDefaultPhysic(dvx: 100, 50, null, facingRight);
         itr.x = 0.3304f; itr.y = 0.3804f; itr.z = 0;
         itr.w = 0.3914549f; itr.h = 0.4217526f; itr.zwidth = 0.22f;
-        itr.dvx = 15; itr.dvy = 125; itr.dvz = 0; itr.action = 720;
+        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 720;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void JumpAttack2_613()
@@ -2040,7 +2051,7 @@ public class NsSakuraBase : CharController
         itr.w = 0.3324678f; itr.h = 0.3716239f; itr.zwidth = 0.22f;
         itr.dvx = 100; itr.dvy = -400; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void JumpAttack3_635()
@@ -2165,7 +2176,7 @@ public class NsSakuraBase : CharController
     #region InjuredManager
     private void InjuredManager_700()
     {
-        var optionInjured = UnityEngine.Random.value;
+        var optionInjured = UnityEngine.Random.value; CancelOpoints();
         pic = 107; wait = 2f; next = optionInjured > 0.5f ? Injured1_702 : Injured2_710;
         BdyDefault();
     }
@@ -2207,7 +2218,7 @@ public class NsSakuraBase : CharController
     #region InjuredSkyManager
     private void InjuredSkyManager_720()
     {
-        var optionInjured = UnityEngine.Random.value;
+        var optionInjured = UnityEngine.Random.value; CancelOpoints();
         pic = 107; wait = 2f; next = optionInjured > 0.5f ? InjuredSky1_722 : InjuredSky2_730;
         BdyDefault();
     }
@@ -2259,7 +2270,7 @@ public class NsSakuraBase : CharController
     #region Falling
     private void FallingHit_800()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); CancelOpoints();
         pic = 603; wait = 2f; next = Falling_801;
         BdyDefault();
         ApplyExternPhysic();
@@ -2300,7 +2311,7 @@ public class NsSakuraBase : CharController
     #region FallingDown
     private void FallingDown_820()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); CancelOpoints();
         pic = 623; wait = 2f; next = FallingDown_821; OnGround(FallingDownImpact_825);
         BdyDefault();
         ApplyExternPhysic();
@@ -2347,7 +2358,7 @@ public class NsSakuraBase : CharController
     #region FallingUp
     private void FallingUp_840()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); CancelOpoints();
         pic = 609; wait = 2f; next = FallingUp_841;
         OnCeil(FallingUpImpact_850);
         BdyDefault();
@@ -2429,7 +2440,7 @@ public class NsSakuraBase : CharController
     #region FallingForwardImpact
     private void FallingForwardtHit_860()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); CancelOpoints();
         pic = 616; wait = 2f; next = FallingForward_861;
         BdyDefault();
         ApplyExternPhysic();
@@ -2524,7 +2535,7 @@ public class NsSakuraBase : CharController
     #region Lying
     private void Lying_910()
     {
-        StopMovement();
+        StopMovement(); CancelOpoints();
         pic = 626; wait = 2f; next = Lying_911; Jump(JumpRecover_930);
         BdyDefault();
     }
@@ -2580,7 +2591,7 @@ public class NsSakuraBase : CharController
     #region JumpRecover
     private void JumpRecover_930()
     {
-        spriteRenderer.color = parryColor;
+        spriteRenderer.color = parryColor; CancelOpoints();
         pic = 129; wait = 1f; next = JumpRecover_931;
         BdyDefault();
         SpawnOpoint(10, Opoint(x: 0.11f, y: 0.25f, z: 0.08f, oid: 0, facingFront: true, quantity: 1));

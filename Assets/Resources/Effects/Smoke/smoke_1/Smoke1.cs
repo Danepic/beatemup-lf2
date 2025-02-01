@@ -8,7 +8,6 @@ using AYellowpaper.SerializedCollections;
 using Chars;
 using Domains;
 using Enums;
-using Helpers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -198,5 +197,174 @@ public class Smoke1 : EffectController
     private void Invoke_21()
     {
         Delete();
+    }
+
+
+    private void InvokeSmall_40()
+    {
+        pic = 200;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_41;
+    }
+
+    private void InvokeSmall_41()
+    {
+        pic = 201;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_42;
+    }
+
+    private void InvokeSmall_42()
+    {
+        pic = 202;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_43;
+    }
+
+    private void InvokeSmall_43()
+    {
+        pic = 203;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_44;
+    }
+
+    private void InvokeSmall_44()
+    {
+        pic = 204;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_45;
+    }
+
+    private void InvokeSmall_45()
+    {
+        pic = 205;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_46;
+    }
+
+    private void InvokeSmall_46()
+    {
+        pic = 206;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_47;
+    }
+
+    private void InvokeSmall_47()
+    {
+        pic = 207;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_48;
+    }
+
+    private void InvokeSmall_48()
+    {
+        pic = 208;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_49;
+    }
+
+    private void InvokeSmall_49()
+    {
+        pic = 209;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_50;
+    }
+
+    private void InvokeSmall_50()
+    {
+        pic = 210;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_51;
+    }
+
+    private void InvokeSmall_51()
+    {
+        pic = 211;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_52;
+    }
+
+    private void InvokeSmall_52()
+    {
+        pic = 212;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_53;
+    }
+
+    private void InvokeSmall_53()
+    {
+        pic = 213;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_54;
+    }
+
+    private void InvokeSmall_54()
+    {
+        pic = 214;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_55;
+    }
+
+    private void InvokeSmall_55()
+    {
+        pic = 215;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_56;
+    }
+
+    private void InvokeSmall_56()
+    {
+        pic = 216;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_57;
+    }
+
+    private void InvokeSmall_57()
+    {
+        pic = 217;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_58;
+    }
+
+    private void InvokeSmall_58()
+    {
+        pic = 218;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_59;
+    }
+
+    private void InvokeSmall_59()
+    {
+        pic = 219;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = InvokeSmall_60;
+    }
+
+    private void InvokeSmall_60()
+    {
+        pic = 220;
+        state = StateFrameEnum.EFFECT_IDLE;
+        wait = 0.5f;
+        next = Invoke_21;
     }
 }

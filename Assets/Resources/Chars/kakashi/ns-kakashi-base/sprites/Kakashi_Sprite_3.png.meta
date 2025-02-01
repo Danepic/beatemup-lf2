@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureFormat: 4
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,12 +121,694 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_0
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1563
+        width: 58
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b867834c68afef940bbe7a8f60d9bf6c
+      internalID: -148908281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_1
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1563
+        width: 74
+        height: 66
+      alignment: 9
+      pivot: {x: 0.39054054, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7ae49df942db646ba1a19400db9d7c
+      internalID: -1807091032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_2
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1562
+        width: 80
+        height: 86
+      alignment: 9
+      pivot: {x: 0.39000002, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9208e80a02c38248ab47c210b224ee1
+      internalID: 1675235838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_3
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 1561
+        width: 96
+        height: 75
+      alignment: 9
+      pivot: {x: 0.34062502, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6db83890f6ca9b49a5aad3d4440f514
+      internalID: -1542892456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_4
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 1561
+        width: 74
+        height: 73
+      alignment: 9
+      pivot: {x: 0.4189189, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5516938805722294290674a2de4288cd
+      internalID: -1098020482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_5
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 1557
+        width: 53
+        height: 87
+      alignment: 9
+      pivot: {x: 0.4811321, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93554ff4a1ae8e14da487a01bfa7850e
+      internalID: -1397780931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_6
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1559
+        width: 49
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce34fdbbc2621d4cbc1a99ef9d36e15
+      internalID: -280675620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_7
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1048
+        width: 69
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc362983dd29aa46800bd84a191899c
+      internalID: 1647583568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_8
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 1048
+        width: 58
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe08579fce5ddde4ca8a665c9d2d8d7a
+      internalID: 2128040762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_9
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1048
+        width: 96
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 993cefed4196d3f40af5e512ea203ed2
+      internalID: -734686921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_11
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 1048
+        width: 96
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2472b9b82e83df41b453ae6bc349ce6
+      internalID: -1176617312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_12
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1048
+        width: 72
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab1febdf1506db4c99662753d4f6754
+      internalID: 994388606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_13
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 1047
+        width: 72
+        height: 57
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94810dab38f19b44b9a36da3b417e263
+      internalID: 170625194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_14
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 540
+        width: 83
+        height: 63
+      alignment: 9
+      pivot: {x: 0.40963855, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472fd3acce8e5274eacb09e6b9e845e9
+      internalID: -1160384875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_15
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 540
+        width: 82
+        height: 66
+      alignment: 9
+      pivot: {x: 0.39390242, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6a2d764adf1f840bcb3e0421a44901
+      internalID: 548653909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_17
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 544
+        width: 79
+        height: 71
+      alignment: 9
+      pivot: {x: 0.36962026, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6095b9557ccf44a9032ad4d5451f40
+      internalID: -40165753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_18
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 539
+        width: 76
+        height: 77
+      alignment: 9
+      pivot: {x: 0.38947368, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64bfeff18a1c2064cb20c85e38c687d0
+      internalID: -274798167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_19
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 535
+        width: 60
+        height: 77
+      alignment: 9
+      pivot: {x: 0.435, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df85dcd84adab894fa98d2cf235021ea
+      internalID: -1402736564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_20
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 536
+        width: 55
+        height: 74
+      alignment: 9
+      pivot: {x: 0.4618182, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fde3ede845b929469f0ebef65dc026d
+      internalID: 1790376901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_21
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 538
+        width: 75
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c4ff62d359850047ac8000a62a3e952
+      internalID: 1684418590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_22
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 35
+        width: 55
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03aea0750f9d5244089533b73be722ef
+      internalID: -1229035341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_23
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 38
+        width: 42
+        height: 67
+      alignment: 9
+      pivot: {x: 0.59761906, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d6f3bacb72bbef4a8efb322e07383f4
+      internalID: -1107147364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_24
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 35
+        width: 40
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5625, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a4d8ec91e9a954a981e90c72819db9
+      internalID: 387171588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_25
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 34
+        width: 47
+        height: 71
+      alignment: 9
+      pivot: {x: 0.6255319, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7167fdd289d45ea4db23d988e8522750
+      internalID: 2015103276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_26
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 31
+        width: 50
+        height: 76
+      alignment: 9
+      pivot: {x: 0.566, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76c75f737d99464391af0dceab3025c
+      internalID: -1951587480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_27
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 34
+        width: 77
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92bcfe69511dd5949ac5d9b39499e3be
+      internalID: -190621220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_28
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 28
+        width: 77
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ffd06b0410268d44b0e3ad478a765b2
+      internalID: -1753606823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_29
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 27
+        width: 55
+        height: 62
+      alignment: 9
+      pivot: {x: 0.6818182, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475ee3135c05f4a47a7a45ce1c7382b1
+      internalID: 1622286787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_30
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 20
+        width: 55
+        height: 62
+      alignment: 9
+      pivot: {x: 0.6836363, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8230ff6470d0add43add590c5b416bb9
+      internalID: -1915526699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_31
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 20
+        width: 57
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e338e295381efc4488467cc5504eec80
+      internalID: -1409993776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kakashi_Sprite_3_32
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 19
+        width: 55
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5223859bb6c8fff479fde12285bca36b
+      internalID: -646233399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dc2e060375cde274fb7ec4473b9f91d8
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +817,40 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kakashi_Sprite_3_0: -148908281
+      Kakashi_Sprite_3_1: -1807091032
+      Kakashi_Sprite_3_10: 1927612434
+      Kakashi_Sprite_3_11: -1176617312
+      Kakashi_Sprite_3_12: 994388606
+      Kakashi_Sprite_3_13: 170625194
+      Kakashi_Sprite_3_14: -1160384875
+      Kakashi_Sprite_3_15: 548653909
+      Kakashi_Sprite_3_16: 296380867
+      Kakashi_Sprite_3_17: -40165753
+      Kakashi_Sprite_3_18: -274798167
+      Kakashi_Sprite_3_19: -1402736564
+      Kakashi_Sprite_3_2: 1675235838
+      Kakashi_Sprite_3_20: 1790376901
+      Kakashi_Sprite_3_21: 1684418590
+      Kakashi_Sprite_3_22: -1229035341
+      Kakashi_Sprite_3_23: -1107147364
+      Kakashi_Sprite_3_24: 387171588
+      Kakashi_Sprite_3_25: 2015103276
+      Kakashi_Sprite_3_26: -1951587480
+      Kakashi_Sprite_3_27: -190621220
+      Kakashi_Sprite_3_28: -1753606823
+      Kakashi_Sprite_3_29: 1622286787
+      Kakashi_Sprite_3_3: -1542892456
+      Kakashi_Sprite_3_30: -1915526699
+      Kakashi_Sprite_3_31: -1409993776
+      Kakashi_Sprite_3_32: -646233399
+      Kakashi_Sprite_3_4: -1098020482
+      Kakashi_Sprite_3_5: -1397780931
+      Kakashi_Sprite_3_6: -280675620
+      Kakashi_Sprite_3_7: 1647583568
+      Kakashi_Sprite_3_8: 2128040762
+      Kakashi_Sprite_3_9: -734686921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

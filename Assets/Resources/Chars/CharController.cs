@@ -1,5 +1,4 @@
 using Enums;
-using Helpers;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -54,6 +53,14 @@ public class CharController : PhysicsObjController
     protected bool jumpDashRightEnable;
     protected bool jumpDashLeftEnable;
     public Color parryColor = new(0, 213, 255);
+    public Action soloTech;
+    public Action soloTechSide;
+    public Action soloTechUp;
+    public Action soloTechDown;
+    public Action airTech;
+    public Action runningTech;
+    public Action lyingTech;
+    public Action superTech;
 
     protected void Awake()
     {
@@ -110,6 +117,11 @@ public class CharController : PhysicsObjController
         {
             ImpulseForce();
             execImpulseForce = false;
+        }
+        else if (execFixedMoveToPosition)
+        {
+            FixedMovePosition();
+            execFixedMoveToPosition = false;
         }
     }
 
@@ -974,7 +986,40 @@ public class CharController : PhysicsObjController
     protected void Power(Action action)
     {
 
-        if (hitPower)
+        if (hitPower && !hitLeft && !hitRight && !hitUp && !hitDown)
+        {
+            ChangeFrame(action);
+            return;
+        }
+
+    }
+
+    protected void PowerSide(Action action)
+    {
+
+        if (hitPower && (hitRight || hitLeft))
+        {
+            ChangeFrame(action);
+            return;
+        }
+
+    }
+
+    protected void PowerUp(Action action)
+    {
+
+        if (hitPower && hitUp)
+        {
+            ChangeFrame(action);
+            return;
+        }
+
+    }
+
+    protected void PowerDown(Action action)
+    {
+
+        if (hitPower && hitDown)
         {
             ChangeFrame(action);
             return;

@@ -16,6 +16,8 @@ namespace Domains
         public int poolQuantity;
         public int quantity;
         public bool useSamePalette;
+        public bool cancellable = false;
+        public bool attachToOwner = false;
 
         public override string ToString()
         {

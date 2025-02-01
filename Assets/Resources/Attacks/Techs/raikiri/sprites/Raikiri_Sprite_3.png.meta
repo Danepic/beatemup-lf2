@@ -1,0 +1,649 @@
+fileFormatVersion: 2
+guid: 56cdf4a1fba9a4941b6aa7bc1d06fb49
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 427
+        width: 173
+        height: 152
+      alignment: 9
+      pivot: {x: 0.42509788, y: 0.21583195}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3390580700f85f34584693e1f16d30fd
+      internalID: -453364919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_1
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 428
+        width: 187
+        height: 151
+      alignment: 9
+      pivot: {x: 0.45380357, y: 0.20250797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d199fb871341ed0418cc7cc5841af47c
+      internalID: 2144420957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_2
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 444
+        width: 198
+        height: 145
+      alignment: 9
+      pivot: {x: 0.48254794, y: 0.10083197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e3e2a15226a10f46b0f573c72e50868
+      internalID: 1679053275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_3
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 423
+        width: 198
+        height: 167
+      alignment: 9
+      pivot: {x: 0.48254794, y: 0.22066438}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a354f3a3a1a4e45a7584b4bd277ef9
+      internalID: -88046283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 410
+        width: 200
+        height: 180
+      alignment: 9
+      pivot: {x: 0.4811673, y: 0.28552008}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3b65e565c6411438518375a5180aa9
+      internalID: 1118391384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 410
+        width: 199
+        height: 180
+      alignment: 9
+      pivot: {x: 0.48580426, y: 0.27505764}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f815682cf899b4692638d3de755e95
+      internalID: 384742069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_6
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 410
+        width: 201
+        height: 180
+      alignment: 9
+      pivot: {x: 0.48594612, y: 0.28028888}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 397a0fa8e32c9fd47aae13df871996ac
+      internalID: -1146240622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_7
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 410
+        width: 200
+        height: 181
+      alignment: 9
+      pivot: {x: 0.48587525, y: 0.27109793}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82cb090a89bdcf54da93395f7db0fc65
+      internalID: 1891451534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213
+        width: 200
+        height: 191
+      alignment: 9
+      pivot: {x: 0.4858757, y: 0.23871282}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daab7c209fec1e842bda782fefa50b1b
+      internalID: -220662364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 213
+        width: 201
+        height: 191
+      alignment: 9
+      pivot: {x: 0.48126113, y: 0.24364291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5ae815c27846b4d859dd312b1f2cea
+      internalID: 314917242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_10
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 213
+        width: 199
+        height: 191
+      alignment: 9
+      pivot: {x: 0.4668777, y: 0.25350282}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98fa4a5402850494c8bd3b163766e90c
+      internalID: 726077258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_11
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 213
+        width: 201
+        height: 191
+      alignment: 9
+      pivot: {x: 0.481261, y: 0.24364291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a16ea80f1a951e5479066dc50b4aa30e
+      internalID: -21813520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_12
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 214
+        width: 191
+        height: 190
+      alignment: 9
+      pivot: {x: 0.49507022, y: 0.25220546}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f75e4bebfcb4b645b5bc3410ea2c738
+      internalID: -1129127830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_13
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 214
+        width: 208
+        height: 190
+      alignment: 9
+      pivot: {x: 0.49547285, y: 0.24229383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3ba256abeee504ead74756e392dc67
+      internalID: -2047794365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 214
+        width: 204
+        height: 191
+      alignment: 9
+      pivot: {x: 0.472305, y: 0.24364291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59126bf491f3a740a572e5ac59fe0cc
+      internalID: 1464507939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_15
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 214
+        width: 196
+        height: 191
+      alignment: 9
+      pivot: {x: 0.4711746, y: 0.24364291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9143463e8dbbe44888a482ac6ac700
+      internalID: -836980342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 204
+        height: 209
+      alignment: 9
+      pivot: {x: 0.47692105, y: 0.2882484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3b12255a787d6479dbb3197877cc2f
+      internalID: -674466844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_17
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 193
+        height: 209
+      alignment: 9
+      pivot: {x: 0.46096897, y: 0.29275376}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c9be7096c2478741920bca82d313a79
+      internalID: -704187682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_18
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 0
+        width: 197
+        height: 211
+      alignment: 9
+      pivot: {x: 0.476101, y: 0.28579292}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75bacd675c9a1744a94e9701a0246a9b
+      internalID: 1133536598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_19
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 209
+      alignment: 9
+      pivot: {x: 0.4905835, y: 0.28374305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2407315d77fde34e93d68ab4c2621c4
+      internalID: 40142451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_20
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 204
+        height: 212
+      alignment: 9
+      pivot: {x: 0.472305, y: 0.28236175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7640da21cf4b54bb08b9815279e04e
+      internalID: -1428626017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_3_21
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 0
+        width: 200
+        height: 212
+      alignment: 9
+      pivot: {x: 0.45762694, y: 0.28680336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6f07e1438de7e4299392a14cd674bc
+      internalID: -577843313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: eaecccd8832877240bb42429ccf1da75
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Raikiri_Sprite_3_0: -453364919
+      Raikiri_Sprite_3_1: 2144420957
+      Raikiri_Sprite_3_10: 726077258
+      Raikiri_Sprite_3_11: -21813520
+      Raikiri_Sprite_3_12: -1129127830
+      Raikiri_Sprite_3_13: -2047794365
+      Raikiri_Sprite_3_14: 1464507939
+      Raikiri_Sprite_3_15: -836980342
+      Raikiri_Sprite_3_16: -674466844
+      Raikiri_Sprite_3_17: -704187682
+      Raikiri_Sprite_3_18: 1133536598
+      Raikiri_Sprite_3_19: 40142451
+      Raikiri_Sprite_3_2: 1679053275
+      Raikiri_Sprite_3_20: -1428626017
+      Raikiri_Sprite_3_21: -577843313
+      Raikiri_Sprite_3_3: -88046283
+      Raikiri_Sprite_3_4: 1118391384
+      Raikiri_Sprite_3_5: 384742069
+      Raikiri_Sprite_3_6: -1146240622
+      Raikiri_Sprite_3_7: 1891451534
+      Raikiri_Sprite_3_8: -220662364
+      Raikiri_Sprite_3_9: 314917242
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

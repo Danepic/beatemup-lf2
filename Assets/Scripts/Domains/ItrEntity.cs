@@ -20,17 +20,19 @@ namespace Domains
         public float rest;
         public bool applyInSingleEnemy;
 
-        public int action;
+        public int? action;
         public bool defensable;
         public int injury;
         public int? nextIfHit;
         public int level;
+        public int? targetHittablePercent;
 
         public AudioClip sound;
         public ItrEffectEnum effect;
 
         public float duration;
         public bool defaultItr = false;
+        public ItrPhysicEnum physic = ItrPhysicEnum.DEFAULT;
 
         public override string ToString()
         {

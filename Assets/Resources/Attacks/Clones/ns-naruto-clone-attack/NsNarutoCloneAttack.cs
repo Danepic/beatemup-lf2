@@ -7,7 +7,6 @@ using System.Reflection;
 using Chars;
 using Domains;
 using Enums;
-using Helpers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -77,7 +76,7 @@ public class NsNarutoCloneAttack : AttackController
         itr.w = 0.1757669f; itr.h = 0.5957753f; itr.zwidth = 0.22f;
         itr.dvx = -10; itr.dvy = 325; itr.dvz = 0; itr.action = 840;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 6;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 6; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault();
         ApplyDefaultPhysic(dvx: 25, dvy: 300, dvz: 0, facingRight);
     }
@@ -128,7 +127,7 @@ public class NsNarutoCloneAttack : AttackController
         itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault();
     }
     private void Downercut_26()
@@ -139,7 +138,7 @@ public class NsNarutoCloneAttack : AttackController
         itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault();
     }
 
@@ -171,7 +170,7 @@ public class NsNarutoCloneAttack : AttackController
         itr.w = 0.3942767f; itr.h = 0.3500794f; itr.zwidth = 0.22f;
         itr.dvx = 300; itr.dvy = 150; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault();
     }
     private void FrontAttack_44()
@@ -182,7 +181,7 @@ public class NsNarutoCloneAttack : AttackController
         itr.w = 0.3942767f; itr.h = 0.3500794f; itr.zwidth = 0.22f;
         itr.dvx = 300; itr.dvy = 150; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault();
     }
     private void FrontAttack_45()

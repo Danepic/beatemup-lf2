@@ -9,7 +9,6 @@ using AYellowpaper.SerializedCollections;
 using Chars;
 using Domains;
 using Enums;
-using Helpers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -56,7 +55,7 @@ public class NsNarutoBase : CharController
     private void Standing_0()
     {
         StopMovement();
-        ResetMovementFromStop();
+        ResetMovementFromStop(); CancelOpoints();
         pic = 111; state = StateFrameEnum.STANDING; wait = 2.5f; next = Standing_1;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
@@ -158,7 +157,7 @@ public class NsNarutoBase : CharController
     private void Walking_20()
     {
         pic = 119; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_21;
-        BdyDefault();
+        BdyDefault(); CancelOpoints();
         CanFlip();
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
@@ -726,50 +725,62 @@ public class NsNarutoBase : CharController
     private void Taunt_195()
     {
         pic = 100; wait = 2f; next = Taunt_196;
+        BdyDefault();
     }
     private void Taunt_196()
     {
         pic = 101; wait = 0.5f; next = Taunt_197;
+        BdyDefault();
     }
     private void Taunt_197()
     {
         pic = 102; wait = 2f; next = Taunt_198;
+        BdyDefault();
     }
     private void Taunt_198()
     {
         pic = 103; wait = 0.5f; next = Taunt_199;
+        BdyDefault();
     }
     private void Taunt_199()
     {
         pic = 104; wait = 2f; next = Taunt_200;
+        BdyDefault();
     }
     private void Taunt_200()
     {
         pic = 105; wait = 0.5f; next = Taunt_201;
+        BdyDefault();
     }
     private void Taunt_201()
     {
         pic = 106; wait = 2f; next = Taunt_202;
+        BdyDefault();
     }
     private void Taunt_202()
     {
         pic = 107; wait = 2f; next = Taunt_203;
+        BdyDefault();
     }
     private void Taunt_203()
     {
         pic = 108; wait = 2f; next = Taunt_204;
+        BdyDefault();
     }
     private void Taunt_204()
     {
         pic = 109; wait = 2f; next = Taunt_205;
+        BdyDefault();
     }
     private void Taunt_205()
     {
         pic = 110; wait = 2f; next = Taunt_206;
+        BdyDefault();
     }
     private void Taunt_206()
     {
         pic = 104; wait = 2f; next = Standing_0;
+        BdyDefault();
     }
     #endregion
 
@@ -1156,7 +1167,7 @@ public class NsNarutoBase : CharController
         itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void RunningAttack_337()
@@ -1216,9 +1227,9 @@ public class NsNarutoBase : CharController
         BdyDefault();
         itr.x = 0.206f; itr.y = 0.404f; itr.z = 0;
         itr.w = 0.4802869f; itr.h = 0.1739243f; itr.zwidth = 0.22f;
-        itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
+        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void Attack1_353()
@@ -1272,9 +1283,9 @@ public class NsNarutoBase : CharController
         BdyDefault();
         itr.x = 0.1486f; itr.y = 0.6317f; itr.z = 0;
         itr.w = 0.4363394f; itr.h = 0.511544f; itr.zwidth = 0.22f;
-        itr.dvx = 125; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
+        itr.dvx = 40; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 8;
+        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 8; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void Attack2_373()
@@ -1383,9 +1394,9 @@ public class NsNarutoBase : CharController
         BdyDefault();
         itr.x = 0.1912f; itr.y = 0.4595f; itr.z = 0;
         itr.w = 0.427315f; itr.h = 0.2270108f; itr.zwidth = 0.22f;
-        itr.dvx = 200; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
+        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 6;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 6; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
         StopMovement();
     }
@@ -1434,9 +1445,9 @@ public class NsNarutoBase : CharController
         BdyDefault();
         itr.x = 0.2152f; itr.y = 0.3705f; itr.z = 0;
         itr.w = 0.4753025f; itr.h = 0.1846461f; itr.zwidth = 0.22f;
-        itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
+        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 5;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 5; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
         StopMovement();
     }
@@ -1612,7 +1623,7 @@ public class NsNarutoBase : CharController
         itr.w = 0.34172f; itr.h = 0.7125095f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = -50; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void JumpSuperAttack_555()
@@ -1625,7 +1636,7 @@ public class NsNarutoBase : CharController
         itr.w = 0.34172f; itr.h = 0.7125095f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = -50; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void JumpSuperAttack_556()
@@ -1638,7 +1649,7 @@ public class NsNarutoBase : CharController
         itr.w = 0.34172f; itr.h = 0.7125095f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = -50; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void JumpSuperAttack_557()
@@ -1651,7 +1662,7 @@ public class NsNarutoBase : CharController
         itr.w = 0.34172f; itr.h = 0.7125095f; itr.zwidth = 0.22f;
         itr.dvx = 50; itr.dvy = -50; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     #endregion
@@ -1716,9 +1727,9 @@ public class NsNarutoBase : CharController
         ApplyDefaultPhysic(dvx: 100, 50, null, facingRight);
         itr.x = 0.1462f; itr.y = 0.3019f; itr.z = 0;
         itr.w = 0.3625302f; itr.h = 0.2715582f; itr.zwidth = 0.22f;
-        itr.dvx = 25; itr.dvy = 250; itr.dvz = 0; itr.action = 720;
+        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 720;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void JumpAttack1_593()
@@ -1762,9 +1773,9 @@ public class NsNarutoBase : CharController
         ApplyDefaultPhysic(dvx: 100, 50, null, facingRight);
         itr.x = 0.2445f; itr.y = 0.1845f; itr.z = 0;
         itr.w = 0.4344479f; itr.h = 0.5064017f; itr.zwidth = 0.22f;
-        itr.dvx = 25; itr.dvy = 125; itr.dvz = 0; itr.action = 720;
+        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 720;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
         Itr();
     }
     private void JumpAttack2_613()
@@ -1838,7 +1849,7 @@ public class NsNarutoBase : CharController
         itr.w = 0.3146272f; itr.h = 0.3146272f; itr.zwidth = 0.22f;
         itr.dvx = 100; itr.dvy = -400; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
     private void JumpAttack3_636()
@@ -1957,7 +1968,7 @@ public class NsNarutoBase : CharController
     #region InjuredManager
     private void InjuredManager_700()
     {
-        ItrDisable();
+        ItrDisable(); CancelOpoints();
         var optionInjured = UnityEngine.Random.value;
         pic = 111; wait = 2f; next = optionInjured > 0.5f ? Injured1_702 : Injured2_710;
         BdyDefault();
@@ -2000,7 +2011,7 @@ public class NsNarutoBase : CharController
     #region InjuredSkyManager
     private void InjuredSkyManager_720()
     {
-        var optionInjured = UnityEngine.Random.value;
+        var optionInjured = UnityEngine.Random.value; CancelOpoints();
         pic = 111; wait = 2f; next = optionInjured > 0.5f ? InjuredSky1_722 : InjuredSky2_730;
         BdyDefault();
     }
@@ -2052,7 +2063,7 @@ public class NsNarutoBase : CharController
     #region Falling
     private void FallingHit_800()
     {
-        ResetMovementFromStop(); ItrDisable();
+        ResetMovementFromStop(); ItrDisable(); CancelOpoints();
         pic = 604; wait = 2f; next = Falling_801;
         BdyDefault();
         ApplyExternPhysic();
@@ -2093,7 +2104,7 @@ public class NsNarutoBase : CharController
     #region FallingDown
     private void FallingDown_820()
     {
-        ResetMovementFromStop(); ItrDisable();
+        ResetMovementFromStop(); ItrDisable(); CancelOpoints();
         pic = 625; wait = 2f; next = FallingDown_821; OnGround(FallingDownImpact_825);
         BdyDefault();
         ApplyExternPhysic();
@@ -2140,7 +2151,7 @@ public class NsNarutoBase : CharController
     #region FallingUp
     private void FallingUp_840()
     {
-        ResetMovementFromStop(); ItrDisable();
+        ResetMovementFromStop(); ItrDisable(); CancelOpoints();
         pic = 603; wait = 2f; next = FallingUp_841;
         OnCeil(FallingUpImpact_850);
         BdyDefault();
@@ -2222,7 +2233,7 @@ public class NsNarutoBase : CharController
     #region FallingForwardImpact
     private void FallingForwardtHit_860()
     {
-        ResetMovementFromStop(); ItrDisable();
+        ResetMovementFromStop(); ItrDisable(); CancelOpoints();
         pic = 603; wait = 2f; next = FallingForward_861;
         BdyDefault();
         ApplyExternPhysic();
@@ -2317,7 +2328,7 @@ public class NsNarutoBase : CharController
     #region Lying
     private void Lying_910()
     {
-        StopMovement(); ItrDisable();
+        StopMovement(); ItrDisable(); CancelOpoints();
         pic = 628; wait = 2f; next = Lying_911; Jump(JumpRecover_930);
         BdyDefault();
     }
@@ -2373,7 +2384,7 @@ public class NsNarutoBase : CharController
     #region JumpRecover
     private void JumpRecover_930()
     {
-        spriteRenderer.color = parryColor;
+        spriteRenderer.color = parryColor; CancelOpoints();
         pic = 134; wait = 1f; next = JumpRecover_931;
         BdyDefault();
         SpawnOpoint(10, Opoint(x: 0.11f, y: 0.25f, z: 0.08f, oid: 0, facingFront: true, quantity: 1));

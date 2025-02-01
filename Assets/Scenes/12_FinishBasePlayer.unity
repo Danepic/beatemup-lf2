@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51153091}
   m_Layer: 0
-  m_Name: naruto training nsun4
+  m_Name: naruto training nsun4 c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 115696174}
   m_Layer: 0
-  m_Name: kisame
+  m_Name: kisame a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 125704272}
   m_Layer: 0
-  m_Name: kakashi kage
+  m_Name: kakashi kage ss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,7 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 203068480}
   m_Layer: 0
-  m_Name: temari
+  m_Name: temari s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,7 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 207017721}
   m_Layer: 0
-  m_Name: naruto kage
+  m_Name: naruto kage ss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -810,7 +810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 229621521}
   m_Layer: 0
-  m_Name: boruto
+  m_Name: boruto c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,7 +980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 299319392}
   m_Layer: 0
-  m_Name: tenten
+  m_Name: tenten d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1042,7 +1042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 307119379}
   m_Layer: 0
-  m_Name: naruto
+  m_Name: naruto f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1104,7 +1104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 351524104}
   m_Layer: 0
-  m_Name: jiraiya
+  m_Name: jiraiya a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1276,7 +1276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363971622}
   m_Layer: 0
-  m_Name: deidara
+  m_Name: deidara a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1524,7 +1524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448220475}
   m_Layer: 0
-  m_Name: sasuke kid
+  m_Name: sasuke kid c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2024,7 +2024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 654692817}
   m_Layer: 0
-  m_Name: chiyo
+  m_Name: chiyo d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2055,7 +2055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662723336}
   m_Layer: 0
-  m_Name: sakura kage
+  m_Name: sakura kage ss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2117,7 +2117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 669313116}
   m_Layer: 0
-  m_Name: kankuro
+  m_Name: kankuro c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2282,6 +2282,7 @@ MonoBehaviour:
   maxX: -3.4028235e+38
   minY: 3.4028235e+38
   maxY: -3.4028235e+38
+  adjustForY: 0
 --- !u!1 &710317179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,7 +2509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 803874359}
   m_Layer: 0
-  m_Name: sasori
+  m_Name: sasori s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2786,7 +2787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 864879851}
   m_Layer: 0
-  m_Name: naruto kid
+  m_Name: naruto kid c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3039,7 +3040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954277992}
   m_Layer: 0
-  m_Name: shikamaru
+  m_Name: shikamaru s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3132,7 +3133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007593978}
   m_Layer: 0
-  m_Name: neji
+  m_Name: neji c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3422,7 +3423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1167244310}
   m_Layer: 0
-  m_Name: guy
+  m_Name: guy c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3656,7 +3657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276145431}
   m_Layer: 0
-  m_Name: lee
+  m_Name: lee c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3902,6 +3903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156f67c05809bf44ab94c4befee5de4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1Spawn: {fileID: 0}
+  p2Spawn: {fileID: 0}
 --- !u!4 &1357528085
 Transform:
   m_ObjectHideFlags: 0
@@ -4370,7 +4373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495304021}
   m_Layer: 0
-  m_Name: itachi
+  m_Name: itachi a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4556,7 +4559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583361883}
   m_Layer: 0
-  m_Name: sasori puppet
+  m_Name: sasori puppet ss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4618,7 +4621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1610801193}
   m_Layer: 0
-  m_Name: kakashi
+  m_Name: kakashi d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4649,7 +4652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1612999236}
   m_Layer: 0
-  m_Name: sakura
+  m_Name: sakura f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4897,7 +4900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749240687}
   m_Layer: 0
-  m_Name: gaara
+  m_Name: gaara ss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5609,7 +5612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065501022}
   m_Layer: 0
-  m_Name: hiruko
+  m_Name: hiruko a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5741,7 +5744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2096210250}
   m_Layer: 0
-  m_Name: sasuke kage
+  m_Name: sasuke kage ss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

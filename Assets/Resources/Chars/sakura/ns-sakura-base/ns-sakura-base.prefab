@@ -431,7 +431,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c5a82ab6-5caf-423c-ba1e-e62d8e4772ce
     m_ActionName: 'Gameplay/Right[/Keyboard/rightArrow]'
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: P1
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1

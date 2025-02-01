@@ -14,9 +14,10 @@ namespace Model
         public string suffix;        
         public string resourcePath;   
         public string boosterId;   
-        public int number;    
+        public int number;
+        public int version;
 
-        public Character(string id, string name, string suffix, string resourcePath, string boosterId, int number)
+        public Character(string id, string name, string suffix, string resourcePath, string boosterId, int number, int version)
         {
             this.id = id;
             this.name = name;
@@ -24,6 +25,7 @@ namespace Model
             this.resourcePath = resourcePath;
             this.boosterId = boosterId;
             this.number = number;
+            this.version = version;
         }
     }
 }

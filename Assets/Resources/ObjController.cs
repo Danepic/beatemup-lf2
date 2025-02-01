@@ -1,5 +1,4 @@
 using Enums;
-using Helpers;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -13,6 +12,8 @@ public class ObjController : MonoBehaviour
     protected ObjTypeEnum type;
     public int id;
     public int? ownerId;
+    protected ObjController owner;
+    public List<ObjController> cancellableOpoints = new();
     protected float waitFrame;
     protected Vector3 originalLocalScale;
     public Color originalColor;
@@ -22,6 +23,8 @@ public class ObjController : MonoBehaviour
     public int pic;
     public StateFrameEnum state;
     protected float wait;
+    public int repeatCount;
+    public int currentRepeat;
     protected Action next;
 
     public List<string> palettes;
@@ -49,6 +52,7 @@ public class ObjController : MonoBehaviour
     protected bool execPhysicsOnceInFrame = true;
     protected Dictionary<int, MethodInfo> frames = new();
     protected bool actionTriggered = false;
+    public int startFrame = 0;
 
     protected void Awake()
     {
@@ -76,7 +80,8 @@ public class ObjController : MonoBehaviour
 
     protected void ChangeFrame(MethodInfo nextFrame)
     {
-        if (actionTriggered) {
+        if (actionTriggered)
+        {
             actionTriggered = false;
         }
         currentFrame = nextFrame;
@@ -91,9 +96,12 @@ public class ObjController : MonoBehaviour
         ChangeFrame(nextFrame.Method);
     }
 
-    protected void ChangeFrame(int nextFrame)
+    protected void ChangeFrame(int? nextFrame)
     {
-        ChangeFrame(frames[nextFrame]);
+        if (nextFrame.HasValue)
+        {
+            ChangeFrame(frames[nextFrame.Value]);
+        }
     }
 
     protected void Timers()
@@ -103,6 +111,17 @@ public class ObjController : MonoBehaviour
         {
             ChangeFrame(next);
         }
+    }
+
+    protected void RepeatCountToFrame(Action action)
+    {
+        if (repeatCount != 0 && currentRepeat >= repeatCount)
+        {
+            currentRepeat = 0;
+            repeatCount = 0;
+            ChangeFrame(action);
+        }
+        currentRepeat++;
     }
 
     protected void GetSprites()
@@ -139,7 +158,7 @@ public class ObjController : MonoBehaviour
         }
     }
 
-    protected OpointEntity Opoint(float x, float y, float z, int oid, bool facingFront, int quantity, bool useSamePalette = false)
+    protected OpointEntity Opoint(float x, float y, float z, int oid, bool facingFront, int quantity, bool useSamePalette = false, bool cancellable = false, bool attachToOwner = false)
     {
         return new()
         {
@@ -149,7 +168,9 @@ public class ObjController : MonoBehaviour
             facingFront = facingFront,
             quantity = quantity,
             useSamePalette = useSamePalette,
-            oid = oid
+            oid = oid,
+            cancellable = cancellable,
+            attachToOwner = attachToOwner
         };
     }
 
@@ -159,6 +180,7 @@ public class ObjController : MonoBehaviour
         {
             execOpointOnceInFrame = false;
             ObjController opointScript = opoints[index].Dequeue();
+            opointScript.team = team;
 
             opointScript.facingRight = facingRight && opoint.facingFront;
 
@@ -181,17 +203,34 @@ public class ObjController : MonoBehaviour
             }
 
             opointScript.transform.position = new Vector3(xPos, yPos, zPos);
+            if (opoint.attachToOwner)
+            {
+                opointScript.transform.parent = transform;
+                opointScript.facingRight = true; //Quando é um child quem determina o lado é o Owner, e o facingRight true sempre mantém pro lado do owner
+            }
+            else
+            {
+                opointScript.facingRight = facingRight && opoint.facingFront;
+            }
 
             opointScript.gameObject.SetActive(true);
             for (int i = 0; i < opointScript.gameObject.transform.childCount; i++)
             {
                 opointScript.gameObject.transform.GetChild(i).gameObject.SetActive(true);
                 var hitbox = opointScript.gameObject.transform.Find("Hitbox");
-                if (hitbox != null) {
+                if (hitbox != null)
+                {
                     hitbox.gameObject.SetActive(false);
                 }
             }
             opointScript.summonAction = opointScript.frames[opoint.oid];
+
+            if (opoint.cancellable)
+            {
+                cancellableOpoints.Add(opointScript);
+            }
+            opointScript.owner = this;
+
             opointScript.Start();
         }
     }
@@ -239,8 +278,18 @@ public class ObjController : MonoBehaviour
         gameObj.Start();
     }
 
-    protected void Delete()
+    public void CancelOpoints()
     {
+        foreach (var opoint in cancellableOpoints)
+        {
+            opoint.Delete();
+        }
+    }
+
+    public void Delete()
+    {
+        repeatCount = 0;
+        currentRepeat = 0;
         transform.localScale = originalLocalScale;
         spriteRenderer.color = originalColor;
         for (int i = 0; i < transform.childCount; i++)
@@ -273,6 +322,7 @@ public class ObjController : MonoBehaviour
             opointObjProcess.ownerId = ownerId;
             opointObjProcess.originPool = framePoolObjects;
             opointObjProcess.team = team;
+            opointObjProcess.spriteRenderer.sprite = inv;
             gameObjectToPoolInstantiate.SetActive(false);
 
             framePoolObjects.Enqueue(opointObjProcess);
@@ -297,6 +347,11 @@ public class ObjController : MonoBehaviour
     protected void Fadeout(float fadeout)
     {
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a - fadeout);
+    }
+
+    protected void Fadein(float fadeout)
+    {
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a + fadeout);
     }
 
     protected void ScaleDown(float propScalex, float propScaley)

@@ -36,7 +36,7 @@ public class MatchController : MonoBehaviour
 
             var resourcePathP2 = ExtractObjectName(MatchControllerStore.Instance.player2CharacterResourcePath);
             var p2GameObj = Instantiate(Resources.Load<GameObject>(resourcePathP2), p2Spawn.position, Quaternion.identity);
-            p2GameObj.GetComponent<BaseEnemyAI>().enabled = false; //mudar para false
+            p2GameObj.GetComponent<BaseEnemyAI>().enabled = false; //mudar para true
 
             var p2CharController = p2GameObj.GetComponent<CharController>();
             p2CharController.playerEnum = PlayerEnum.PLAYER_2; //mudar para con

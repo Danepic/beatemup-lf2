@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8684779275247975561}
   - component: {fileID: 7924228604482880506}
-  - component: {fileID: 4413147241297523986}
+  - component: {fileID: 2829544292042915500}
   m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
@@ -196,7 +196,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4413147241297523986
+--- !u!114 &2829544292042915500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,12 +205,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025106709077475571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6fe126d6b0dc3a4493006a98e98983c, type: 3}
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shadowSpriteRenderer: {fileID: 7924228604482880506}
-  character: {fileID: 6121911019449722295}
-  shadowOffsetY: 0.1
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3164521460970664887
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 6095121000027118457}
   - component: {fileID: 2124579007145812063}
   - component: {fileID: 6889613990049068018}
-  - component: {fileID: 3009586440154398932}
+  - component: {fileID: 7990516487135078379}
   - component: {fileID: 5152913968303114450}
   - component: {fileID: 7385952355720030828}
   m_Layer: 6
@@ -462,7 +462,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.45, y: 0.71, z: 0.2}
   m_Center: {x: 0, y: 0.355, z: 0}
---- !u!114 &3009586440154398932
+--- !u!114 &7990516487135078379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -471,26 +471,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 6121911019449722295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4e83620add40947938d796d2db8103, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d2386cea0e313846a2fd2c2ca875153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  originalColor: {r: 1, g: 1, b: 1, a: 1}
+  cancellableOpoints: []
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
   spriteRenderer: {fileID: 6095121000027118457}
   team: 0
   facingRight: 1
   pic: 0
   state: 0
+  repeatCount: 0
+  currentRepeat: 0
   palettes:
   - Chars/kakashi/ns-kakashi-base/sprites
   paletteIndex: 0
   zSizeDefault: 0.22
   sprites:
-    _serializedList: []
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 0}
   inv: {fileID: 21300000, guid: 1df7f024e70a0234aa12400135176423, type: 3}
   hitNormalFrame: 0
   hitBloodFrame: 0
   defenseHitFrame: 0
+  startFrame: 0
   hurtbox: {fileID: 8809648882670262357}
   rb: {fileID: 2124579007145812063}
   selfBoxCollider: {fileID: 6889613990049068018}
@@ -506,6 +512,7 @@ MonoBehaviour:
   externTeam: 0
   externKind: 0
   damageRestTU: 0
+  hittablePercent: 100
   playerInput: {fileID: 5152913968303114450}
   playerEnum: 1
   hitAttack: 0
@@ -555,7 +562,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
+      - m_Target: {fileID: 7990516487135078379}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitJump
         m_Mode: 0
@@ -571,7 +578,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Jump[/Keyboard/x]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
+      - m_Target: {fileID: 7990516487135078379}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitAttack
         m_Mode: 0
@@ -587,7 +594,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Attack[/Keyboard/z]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
+      - m_Target: {fileID: 7990516487135078379}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitDefense
         m_Mode: 0
@@ -603,7 +610,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Defense[/Keyboard/a]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
+      - m_Target: {fileID: 7990516487135078379}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitPower
         m_Mode: 0
@@ -619,7 +626,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Power[/Keyboard/s]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
+      - m_Target: {fileID: 7990516487135078379}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitSuperPower
         m_Mode: 0
@@ -635,7 +642,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/SuperPower[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
+      - m_Target: {fileID: 7990516487135078379}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitTaunt
         m_Mode: 0
@@ -651,8 +658,8 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Taunt[/Keyboard/leftCtrl]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
-        m_TargetAssemblyTypeName: NsOodamaRasengan, Assembly-CSharp
+      - m_Target: {fileID: 7990516487135078379}
+        m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitUp
         m_Mode: 0
         m_Arguments:
@@ -667,8 +674,8 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Up[/Keyboard/upArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
-        m_TargetAssemblyTypeName: NsOodamaRasengan, Assembly-CSharp
+      - m_Target: {fileID: 7990516487135078379}
+        m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitLeft
         m_Mode: 0
         m_Arguments:
@@ -683,8 +690,8 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Left[/Keyboard/leftArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
-        m_TargetAssemblyTypeName: NsOodamaRasengan, Assembly-CSharp
+      - m_Target: {fileID: 7990516487135078379}
+        m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitDown
         m_Mode: 0
         m_Arguments:
@@ -699,8 +706,8 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Down[/Keyboard/downArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3009586440154398932}
-        m_TargetAssemblyTypeName: NsOodamaRasengan, Assembly-CSharp
+      - m_Target: {fileID: 7990516487135078379}
+        m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitRight
         m_Mode: 0
         m_Arguments:

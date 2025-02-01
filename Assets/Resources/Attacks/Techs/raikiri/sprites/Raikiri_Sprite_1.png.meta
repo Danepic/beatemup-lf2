@@ -1,0 +1,373 @@
+fileFormatVersion: 2
+guid: 05a5dc76cb4828b4681b025f05e98b22
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 278
+        width: 73
+        height: 96
+      alignment: 9
+      pivot: {x: 0.4431633, y: 0.52971363}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f75aae3c4a28f8499b150230eba4f03
+      internalID: 437766065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_1
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 278
+        width: 102
+        height: 136
+      alignment: 9
+      pivot: {x: 0.6335805, y: 0.4822253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad8dade2b0af684894b6dac15f3c79d
+      internalID: 1787495338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_2
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 243
+        width: 175
+        height: 176
+      alignment: 9
+      pivot: {x: 0.62696254, y: 0.6291769}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b313a528a65be43a7345caac4d11f2
+      internalID: -2076470730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_3
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 257
+        width: 179
+        height: 189
+      alignment: 9
+      pivot: {x: 0.59533894, y: 0.5050165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60919058044398d43b1f3dc0e0b03923
+      internalID: 803917519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_4
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 245
+        width: 145
+        height: 213
+      alignment: 9
+      pivot: {x: 0.39268506, y: 0.51311255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6223a2ba546464e4f82041fb5594f9c6
+      internalID: -1764299659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 6
+        width: 169
+        height: 193
+      alignment: 9
+      pivot: {x: 0.41765183, y: 0.5608413}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1e4376673f992f4c8c666d794a3a814
+      internalID: -783614848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_6
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 13
+        width: 190
+        height: 208
+      alignment: 9
+      pivot: {x: 0.44735414, y: 0.48745483}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a31f7a6f4629984dbe5050f2e92e080
+      internalID: -1466456819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_7
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 62
+        width: 219
+        height: 146
+      alignment: 9
+      pivot: {x: 0.48997128, y: 0.35959765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 573fd6432cff3c94dbe7ffe1b726c947
+      internalID: -7124647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_8
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 43
+        width: 160
+        height: 177
+      alignment: 9
+      pivot: {x: 0.58800125, y: 0.41408643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cf7cc57e174e6c479b5f4194a1198c1
+      internalID: -768987782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raikiri_Sprite_1_9
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 16
+        width: 163
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5483728, y: 0.49999988}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 231f352e3e7bee043997b8995e8d155f
+      internalID: 861511275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8b306f22e0cd2b14db9ec4708546523e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Raikiri_Sprite_1_0: 437766065
+      Raikiri_Sprite_1_1: 1787495338
+      Raikiri_Sprite_1_2: -2076470730
+      Raikiri_Sprite_1_3: 803917519
+      Raikiri_Sprite_1_4: -1764299659
+      Raikiri_Sprite_1_5: -783614848
+      Raikiri_Sprite_1_6: -1466456819
+      Raikiri_Sprite_1_7: -7124647
+      Raikiri_Sprite_1_8: -768987782
+      Raikiri_Sprite_1_9: 861511275
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,5 +1,4 @@
 using Enums;
-using Helpers;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -17,6 +16,7 @@ public class PhysicsObjController : ObjController
     protected Vector3 velocity = Vector3.zero;
     protected bool execMoveToPosition = false;
     protected bool execImpulseForce = false;
+    protected bool execFixedMoveToPosition = false;
     public BoxCollider selfBoxCollider;
     public Transform hitbox;
 
@@ -39,9 +39,10 @@ public class PhysicsObjController : ObjController
     protected int lastDamage;
     protected bool isDeath;
     protected ItrEntity externItr;
+    protected Vector3 externPosition;
     protected bool isExternAction;
     protected bool externFacingRight;
-    protected int externAction;
+    protected int? externAction;
     public bool onGround;
     public bool onCeil;
     protected Action hitAir;
@@ -69,6 +70,11 @@ public class PhysicsObjController : ObjController
     protected bool damageInSingleTarget;
     protected Action hitDefenseAction;
     protected Action jumpDefenseAction;
+    public int hittablePercent = 100;
+    private bool lockHittablePercent = true;
+    private int percentToHit = 0;
+    private int hitDefenseActionId = 160;
+    private int hitJumpDefenseActionId = 305;
 
     public void Start()
     {
@@ -103,6 +109,7 @@ public class PhysicsObjController : ObjController
 
     protected void ItrDefault()
     {
+        itr.kind = ItrKindEnum.ENEMY;
         hitbox.gameObject.SetActive(true);
         hitbox.localPosition = new Vector3(0f, spriteRenderer.sprite.bounds.size.y / 2, 0f);
         hitbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x, spriteRenderer.sprite.bounds.size.y, zSizeDefault);
@@ -110,6 +117,23 @@ public class PhysicsObjController : ObjController
 
     protected void Itr()
     {
+        itr.kind = ItrKindEnum.ENEMY;
+        hitbox.gameObject.SetActive(true);
+        hitbox.localPosition = new Vector3(itr.x, itr.y, itr.z);
+        hitbox.localScale = new Vector3(itr.w, itr.h, itr.zwidth);
+    }
+
+    protected void AllyItr()
+    {
+        itr.kind = ItrKindEnum.ALLY;
+        hitbox.gameObject.SetActive(true);
+        hitbox.localPosition = new Vector3(itr.x, itr.y, itr.z);
+        hitbox.localScale = new Vector3(itr.w, itr.h, itr.zwidth);
+    }
+
+    protected void OwnerItr()
+    {
+        itr.kind = ItrKindEnum.OWNER;
         hitbox.gameObject.SetActive(true);
         hitbox.localPosition = new Vector3(itr.x, itr.y, itr.z);
         hitbox.localScale = new Vector3(itr.w, itr.h, itr.zwidth);
@@ -131,16 +155,22 @@ public class PhysicsObjController : ObjController
 
     protected void ImpulseForce()
     {
-        // rb.linearVelocity = Vector3.zero;
-        // Debug.Log(velocity);
         rb.AddForce(velocity * Time.fixedDeltaTime, ForceMode.VelocityChange);
-        // this.velocity = Vector3.zero;
     }
 
     protected void MovePosition()
     {
         rb.linearVelocity = Vector3.zero;
         rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
+    }
+
+    protected void FixedMovePosition()
+    {
+        if (!onWall)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.MovePosition(externPosition + velocity * Time.fixedDeltaTime);
+        }
     }
 
     protected void ApplyDefaultPhysic(float? dvx, float? dvy, float? dvz, bool facingRight)
@@ -185,16 +215,27 @@ public class PhysicsObjController : ObjController
         this.velocity.y = externItr.dvy;
         this.velocity.z = externItr.dvz;
 
-        // Debug.Log(this.velocity);
+        switch (externItr.physic)
+        {
+            case ItrPhysicEnum.FIXED:
+                execFixedMoveToPosition = true;
+                break;
 
+            default:
+                execImpulseForce = true;
+                break;
+        }
         isExternAction = false;
-        execImpulseForce = true;
         execPhysicsOnceInFrame = false;
     }
 
-    protected bool ExternInteraction(PhysicsObjController scriptObject, Action hitDefenseAction, Action hitJumpDefenseAction)
+    protected void ExternInteraction(PhysicsObjController scriptObject, Action hitDefenseAction, Action hitJumpDefenseAction)
     {
-        bool hit = false;
+        isExternAction = true;
+        externTeam = scriptObject.team;
+        defensable = scriptObject.itr.defensable;
+        externAction = scriptObject.itr.action;
+
         if (isExternAction)
         {
             switch (externKind)
@@ -214,56 +255,43 @@ public class PhysicsObjController : ObjController
                         {
                             if (onGround)
                             {
-                                ChangeFrame(hitDefenseAction);
+                                ApplyExternPhysicsBehavior(scriptObject, hitDefenseActionId);
                             }
                             else
                             {
-                                ChangeFrame(hitJumpDefenseAction);
+                                ApplyExternPhysicsBehavior(scriptObject, hitJumpDefenseActionId);
                             }
                         }
                         else
                         {
-                            ChangeFrame(externAction);
+                            ApplyExternPhysicsBehavior(scriptObject, externAction);
                         }
-                        hit = true;
                     }
                     break;
                 case ItrKindEnum.ALLY:
                     Debug.Log("ALLY");
                     if (externTeam == team)
                     {
-                        ChangeFrame(externAction);
-                        hit = true;
-                    }
-                    break;
-                case ItrKindEnum.OWNER:
-                    Debug.Log("OWNER");
-                    if (externOwnerId == id)
-                    {
-                        ChangeFrame(externAction);
-                        hit = true;
+                        ApplyExternPhysicsBehavior(scriptObject, externAction);
                     }
                     break;
                 case ItrKindEnum.CHILD:
                     Debug.Log("CHILD");
                     if (externId == ownerId)
                     {
-                        ChangeFrame(externAction);
-                        hit = true;
+                        ApplyExternPhysicsBehavior(scriptObject, externAction);
                     }
                     break;
                 case ItrKindEnum.SELF:
                     Debug.Log("SELF");
                     if (externId == id)
                     {
-                        ChangeFrame(externAction);
-                        hit = true;
+                        ApplyExternPhysicsBehavior(scriptObject, externAction);
                     }
                     break;
                 case ItrKindEnum.ALL:
                     Debug.Log("ALL");
-                    ChangeFrame(externAction);
-                    hit = true;
+                    ApplyExternPhysicsBehavior(scriptObject, externAction);
                     break;
             }
             isExternAction = false;
@@ -271,10 +299,38 @@ public class PhysicsObjController : ObjController
         else
         {
             isExternAction = false;
-            hit = false;
         }
+    }
 
-        return hit;
+    private void ApplyExternPhysicsBehavior(PhysicsObjController scriptObject, int? action)
+    {
+        percentToHit = lockHittablePercent ? percentToHit : UnityEngine.Random.Range(0, 100);
+        lockHittablePercent = true;
+        bool wasHit = hittablePercent == 100 || percentToHit <= hittablePercent;
+
+        Debug.Log(wasHit);
+
+        if (wasHit)
+        {
+            externItr = scriptObject.itr;
+            externFacingRight = scriptObject.facingRight;
+            externId = scriptObject.ownerId.HasValue ? scriptObject.ownerId.Value : scriptObject.id;
+            externOwnerId = scriptObject.ownerId;
+            externPosition = scriptObject.transform.position;
+            scriptObject.attacking = true;
+            scriptObject.damageInSingleTarget = scriptObject.itr.applyInSingleEnemy;
+            scriptObject.enableNextIfHit = true;
+            scriptObject.nextIfHit = scriptObject.itr.nextIfHit;
+            wasAttacked = true;
+            damageRestTU = scriptObject.itr.rest;
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(ItrEffectSpawn(scriptObject.itr.effect, new Vector3(0f, 0.3f, -0.1f)));
+            }
+            Debug.Log("Qual action? = " + action);
+            ChangeFrame(action);
+        }
+        lockHittablePercent = false;
     }
 
     protected void CheckPlatforms()
@@ -327,12 +383,12 @@ public class PhysicsObjController : ObjController
 
     protected void CheckInteraction()
     {
-        if (restDamageWaitTime != 0)
+        if (restDamageWaitTime != 0 || !hurtbox.gameObject.activeInHierarchy)
         {
             return;
         }
 
-        Collider[] hitColliders = new Collider[1];
+        Collider[] hitColliders = new Collider[5];
         int numColliders = Physics.OverlapBoxNonAlloc(hurtbox.position, hurtbox.localScale / 2, hitColliders, Quaternion.identity, whatIsItr);
 
         for (int i = 0; i < numColliders; i++)
@@ -346,8 +402,6 @@ public class PhysicsObjController : ObjController
                 return;
             }
 
-            // Debug.Log(collider.transform.parent.name + " acertou " + gameObject.name + "|" + scriptObject.itr.kind);
-
             if (scriptObject.targetId == null && scriptObject.damageInSingleTarget)
             {
                 scriptObject.targetId = ownerId != null ? ownerId : id;
@@ -357,27 +411,7 @@ public class PhysicsObjController : ObjController
                 scriptObject.targetId = null;
             }
 
-            externItr = scriptObject.itr;
-            isExternAction = true;
-            externFacingRight = scriptObject.facingRight;
-            externTeam = scriptObject.team;
-            externId = scriptObject.ownerId.HasValue ? scriptObject.ownerId.Value : scriptObject.id;
-            externOwnerId = scriptObject.ownerId;
-            externAction = scriptObject.itr.action;
-
-            if (this.ExternInteraction(scriptObject, hitDefenseAction, jumpDefenseAction))
-            {
-                scriptObject.attacking = true;
-                scriptObject.damageInSingleTarget = scriptObject.itr.applyInSingleEnemy;
-                scriptObject.enableNextIfHit = true;
-                scriptObject.nextIfHit = scriptObject.itr.nextIfHit;
-                wasAttacked = true;
-                damageRestTU = scriptObject.itr.rest;
-                if (gameObject.activeInHierarchy)
-                {
-                    StartCoroutine(ItrEffectSpawn(scriptObject.itr.effect, new Vector3(0f, 0.3f, -0.1f)));
-                }
-            }
+            this.ExternInteraction(scriptObject, hitDefenseAction, jumpDefenseAction);
         }
     }
 

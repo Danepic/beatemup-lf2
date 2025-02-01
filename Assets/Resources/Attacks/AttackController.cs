@@ -1,5 +1,4 @@
 using Enums;
-using Helpers;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -16,8 +15,8 @@ public class AttackController : PhysicsObjController
     {
         type = ObjTypeEnum.ATTACK;
         base.Awake();
-        opoints.Add(4, EnrichOpoint(10, "Etc/hit_normal/hit_normal"));
-        opoints.Add(5, EnrichOpoint(10, "Etc/hit_blood/hit_blood"));
+        // opoints.Add(4, EnrichOpoint(10, "Etc/hit_normal/hit_normal"));
+        // opoints.Add(5, EnrichOpoint(10, "Etc/hit_blood/hit_blood"));
     }
 
     public void Start()

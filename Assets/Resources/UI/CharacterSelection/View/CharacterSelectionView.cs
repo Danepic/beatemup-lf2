@@ -192,19 +192,19 @@ public class CharacterSelectionView : MonoBehaviour
         shadow.useGraphicAlpha = true;
     }
 
-    private void ClickToSelectChar(Button currentButton, string resourcePath)
+    private void ClickToSelectChar(Button currentButton, string resourcePath, int version)
     {
         if (p1TurnToSelect)
         {
             currentButton.transform.Find("1pSelect").gameObject.SetActive(true);
-            cardP1.GetComponent<Image>().sprite = Resources.Load<Sprite>(resourcePath + "/" + "card"); //Obter o objeto com o nome da pasta e caminho completo
+            cardP1.GetComponent<Image>().sprite = Resources.Load<Sprite>(resourcePath + "/" + "cards/" + version); //Obter o objeto com o nome da pasta e caminho completo
             p1TurnToSelect = false;
             MatchControllerStore.Instance.player1CharacterResourcePath = resourcePath;
         }
         else
         {
             currentButton.transform.Find("2pSelect").gameObject.SetActive(true);
-            cardP2.GetComponent<Image>().sprite = Resources.Load<Sprite>(resourcePath + "/" + "card"); //Obter o objeto com o nome da pasta e caminho completo
+            cardP2.GetComponent<Image>().sprite = Resources.Load<Sprite>(resourcePath + "/" + "cards/" + version); //Obter o objeto com o nome da pasta e caminho completo
             p1TurnToSelect = true;
             enableStageSelection = true;
             MatchControllerStore.Instance.player2CharacterResourcePath = resourcePath;
@@ -268,7 +268,7 @@ public class CharacterSelectionView : MonoBehaviour
                 currentAvailableMugshots.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * 125 + rectTransformAvailableMugshot.anchoredPosition.x, rectTransformAvailableMugshot.anchoredPosition.y);
 
                 var currentButton = currentAvailableMugshots.GetComponent<Button>();
-                currentButton.onClick.AddListener(() => ClickToSelectChar(currentButton, character.resourcePath));
+                currentButton.onClick.AddListener(() => ClickToSelectChar(currentButton, character.resourcePath, character.version));
                 availableMugshots.Add(currentAvailableMugshots);
             }
             else
