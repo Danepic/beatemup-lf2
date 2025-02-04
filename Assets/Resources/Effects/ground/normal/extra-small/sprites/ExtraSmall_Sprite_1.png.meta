@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,16 +34,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,12 +121,342 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 159
+        width: 40
+        height: 33
+      alignment: 9
+      pivot: {x: 0.52500004, y: 0.15151516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3f2db6f764160c4cb22b7203b8c8072
+      internalID: 1279028001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 151
+        width: 45
+        height: 41
+      alignment: 9
+      pivot: {x: 0.4888889, y: 0.121951215}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc85935f356f964086e82323544b3fb
+      internalID: -1739991250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 149
+        width: 50
+        height: 43
+      alignment: 9
+      pivot: {x: 0.48, y: 0.13953489}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3ad46b4886ac945bbcfeccbb803757
+      internalID: -400755023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 148
+        width: 51
+        height: 43
+      alignment: 9
+      pivot: {x: 0.4901961, y: 0.13953489}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bcffbc753fd1dc42929acd0e781a478
+      internalID: -1163754506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_4
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 147
+        width: 50
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.13636364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a764b3194fda334409beafe145b0559b
+      internalID: -1463845806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 108
+        width: 56
+        height: 41
+      alignment: 9
+      pivot: {x: 0.46428573, y: 0.14634146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e454cefb1227a6d49aca72458043d55b
+      internalID: 364669138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_6
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 108
+        width: 57
+        height: 40
+      alignment: 9
+      pivot: {x: 0.47368422, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1b81d2e66a0c845b161b813bb2f10a
+      internalID: 1678168521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_7
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 107
+        width: 61
+        height: 40
+      alignment: 9
+      pivot: {x: 0.45901638, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed82e96d62bdf1408919a07ffe75230
+      internalID: -1722558893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_8
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 105
+        width: 60
+        height: 40
+      alignment: 9
+      pivot: {x: 0.4666667, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f164baf73a406a448199b2fe72e50c6
+      internalID: -76699926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 61
+        width: 63
+        height: 43
+      alignment: 9
+      pivot: {x: 0.44444448, y: 0.1627907}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a617d88b2014964d8717cc14095b6eb
+      internalID: 877274004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_10
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 60
+        width: 68
+        height: 42
+      alignment: 9
+      pivot: {x: 0.44117647, y: 0.16666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ab701d17687e543b990fe19f00d9d5
+      internalID: -872009845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_11
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 57
+        width: 69
+        height: 45
+      alignment: 9
+      pivot: {x: 0.49275362, y: 0.15555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863ec8f5b82431c45921e56ab39c6358
+      internalID: 1427593329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 13
+        width: 68
+        height: 44
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.18181819}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7c1be893f92be498d998cf4bd483e2
+      internalID: 1627353296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_13
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 12
+        width: 80
+        height: 44
+      alignment: 9
+      pivot: {x: 0.4761905, y: 0.20454547}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3585a6303bf534d9bffc0fbe1c3183
+      internalID: -1050262228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraSmall_Sprite_1_14
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 8
+        width: 54
+        height: 47
+      alignment: 9
+      pivot: {x: 0.47826087, y: 0.25531915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a225b49e2a5c74e96770c334b96998
+      internalID: -723047064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 952201f38f6a9f544b442981bb0f870a
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +465,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ExtraSmall_Sprite_1_0: 1279028001
+      ExtraSmall_Sprite_1_1: -1739991250
+      ExtraSmall_Sprite_1_10: -872009845
+      ExtraSmall_Sprite_1_11: 1427593329
+      ExtraSmall_Sprite_1_12: 1627353296
+      ExtraSmall_Sprite_1_13: -1050262228
+      ExtraSmall_Sprite_1_14: -723047064
+      ExtraSmall_Sprite_1_2: -400755023
+      ExtraSmall_Sprite_1_3: -1163754506
+      ExtraSmall_Sprite_1_4: -1463845806
+      ExtraSmall_Sprite_1_5: 364669138
+      ExtraSmall_Sprite_1_6: 1678168521
+      ExtraSmall_Sprite_1_7: -1722558893
+      ExtraSmall_Sprite_1_8: -76699926
+      ExtraSmall_Sprite_1_9: 877274004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

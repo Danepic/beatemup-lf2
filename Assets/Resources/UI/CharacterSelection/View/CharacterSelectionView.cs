@@ -115,7 +115,6 @@ public class CharacterSelectionView : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(MatchControllerStore.Instance.stageResourcePath);
         if (enableStageSelection)
         {
             ClearMugshots();

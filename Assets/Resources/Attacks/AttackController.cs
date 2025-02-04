@@ -15,8 +15,11 @@ public class AttackController : PhysicsObjController
     {
         type = ObjTypeEnum.ATTACK;
         base.Awake();
-        // opoints.Add(4, EnrichOpoint(10, "Etc/hit_normal/hit_normal"));
-        // opoints.Add(5, EnrichOpoint(10, "Etc/hit_blood/hit_blood"));
+        opoints.Add(11, EnrichOpoint(1, "Effects/ground/normal/extra-large/ground-extra-large"));
+        opoints.Add(12, EnrichOpoint(1, "Effects/ground/normal/extra-small/ground-extra-small"));
+        opoints.Add(13, EnrichOpoint(1, "Effects/ground/normal/normal/ground-normal"));
+        opoints.Add(14, EnrichOpoint(1, "Effects/ground/normal/large/ground-large"));
+        opoints.Add(15, EnrichOpoint(1, "Effects/ground/normal/small/ground-small"));
     }
 
     public void Start()

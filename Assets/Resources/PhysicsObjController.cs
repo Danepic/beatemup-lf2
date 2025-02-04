@@ -309,8 +309,6 @@ public class PhysicsObjController : ObjController
         bool wasHit = hittablePercent == 100 || percentToHit <= hittablePercent;
         damageRestTU = scriptObject.itr.rest;
 
-        Debug.Log(wasHit);
-
         if (wasHit)
         {
             externItr = scriptObject.itr;
@@ -327,7 +325,6 @@ public class PhysicsObjController : ObjController
             {
                 StartCoroutine(ItrEffectSpawn(scriptObject.itr.effect, new Vector3(0f, 0.3f, -0.1f)));
             }
-            Debug.Log("Qual action? = " + action);
             ChangeFrame(action);
         }
         lockHittablePercent = false;
@@ -337,8 +334,9 @@ public class PhysicsObjController : ObjController
     {
         Collider[] hitColliders = Physics.OverlapBox(new Vector3(transform.position.x, transform.position.y - (maxDistanceToCheckCollision / 2), transform.position.z),
             new Vector3(hurtbox.localScale.x / 2, maxDistanceToCheckCollision / 2, zSizeDefault / 2), Quaternion.identity, whatIsGround);
-        if (hitColliders.Length > 0 && hitColliders[0].bounds.max.y - 0.01f <= transform.position.y)
+        if (hitColliders.Length > 0 && hitColliders[0].bounds.max.y - 0.01f <= transform.position.y && gameObject.activeSelf)
         {
+            StartCoroutine(DetectStage(hitColliders[0]));
             onGround = true;
             onCeil = false;
         }
@@ -379,6 +377,17 @@ public class PhysicsObjController : ObjController
                 onCeil = false;
             }
         }
+    }
+
+    private IEnumerator DetectStage(Collider collider)
+    {
+        GroundEffectsController groundEffectsController;
+        if (collider.gameObject.TryGetComponent(out groundEffectsController))
+        {
+            Debug.Log(groundEffectsController.type);
+            stage = groundEffectsController.type;
+        }
+        yield return null;
     }
 
     protected void CheckInteraction()
@@ -608,5 +617,75 @@ public class PhysicsObjController : ObjController
     {
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+    }
+
+    protected void SpawnGroundExtraLarge(OpointEntity opoint)
+    {
+        switch (stage)
+        {
+            case GroundEnum.NONE:
+                break;
+            case GroundEnum.NORMAL:
+                SpawnOpoint(11, opoint);
+                break;
+            case GroundEnum.WATER:
+                break;
+        }
+    }
+
+    protected void SpawnGroundLarge(OpointEntity opoint)
+    {
+        switch (stage)
+        {
+            case GroundEnum.NONE:
+                break;
+            case GroundEnum.NORMAL:
+                SpawnOpoint(14, opoint);
+                break;
+            case GroundEnum.WATER:
+                break;
+        }
+    }
+
+    protected void SpawnGroundNormal(OpointEntity opoint)
+    {
+        switch (stage)
+        {
+            case GroundEnum.NONE:
+                break;
+            case GroundEnum.NORMAL:
+                SpawnOpoint(13, opoint);
+                break;
+            case GroundEnum.WATER:
+                break;
+        }
+    }
+
+    protected void SpawnGroundExtraSmall(OpointEntity opoint)
+    {
+        switch (stage)
+        {
+            case GroundEnum.NONE:
+                break;
+            case GroundEnum.NORMAL:
+                SpawnOpoint(12, opoint);
+                break;
+            case GroundEnum.WATER:
+                break;
+        }
+    }
+
+    protected void SpawnGroundSmall(OpointEntity opoint)
+    {
+        switch (stage)
+        {
+            case GroundEnum.NONE:
+                break;
+            case GroundEnum.NORMAL:
+                SpawnOpoint(15, opoint);
+                break;
+            case GroundEnum.WATER:
+                break;
+        }
     }
 }

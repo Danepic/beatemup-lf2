@@ -77,6 +77,11 @@ public class CharController : PhysicsObjController
         opoints.Add(8, EnrichOpoint(2, "Etc/impact_down/impact_down"));
         opoints.Add(9, EnrichOpoint(2, "Etc/impact_forward/impact_forward"));
         opoints.Add(10, EnrichOpoint(1, "Etc/jump_recover/jump_recover"));
+        opoints.Add(11, EnrichOpoint(1, "Effects/ground/normal/extra-large/ground-extra-large"));
+        opoints.Add(12, EnrichOpoint(1, "Effects/ground/normal/extra-small/ground-extra-small"));
+        opoints.Add(13, EnrichOpoint(1, "Effects/ground/normal/normal/ground-normal"));
+        opoints.Add(14, EnrichOpoint(1, "Effects/ground/normal/large/ground-large"));
+        opoints.Add(15, EnrichOpoint(1, "Effects/ground/normal/small/ground-small"));
         switch (playerEnum)
         {
             case PlayerEnum.PLAYER_1:

@@ -43,9 +43,7 @@ public class MatchController : MonoBehaviour
             p2CharController.team = TeamEnum.TEAM_2;
             p2GameObj.GetComponent<PlayerInput>().SwitchCurrentControlScheme("P2", Keyboard.current); // remover
 
-            Debug.Log(MatchControllerStore.Instance.stageResourcePath);
             var stageResourcePath = ExtractObjectName(MatchControllerStore.Instance.stageResourcePath);
-            Debug.Log(stageResourcePath);
             var stageGameObj = Resources.Load<GameObject>(stageResourcePath);
             Instantiate(stageGameObj, stageGameObj.transform.position, Quaternion.identity);
         }

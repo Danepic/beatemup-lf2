@@ -13,6 +13,7 @@ public class ObjController : MonoBehaviour
     public int id;
     public int? ownerId;
     protected ObjController owner;
+    public GroundEnum stage;
     public List<ObjController> cancellableOpoints = new();
     protected float waitFrame;
     protected Vector3 originalLocalScale;
@@ -41,7 +42,7 @@ public class ObjController : MonoBehaviour
     protected float dvy;
 
     protected float dvz;
-    protected MethodInfo summonAction;
+    public MethodInfo summonAction;
     protected bool enableNextIfHit;
     protected Vector3 originLocalPosition;
     protected Dictionary<int, Queue<ObjController>> opoints = new();
@@ -51,7 +52,7 @@ public class ObjController : MonoBehaviour
     public int defenseHitFrame;
     protected bool execOpointOnceInFrame = true;
     protected bool execPhysicsOnceInFrame = true;
-    protected Dictionary<int, MethodInfo> frames = new();
+    public Dictionary<int, MethodInfo> frames = new();
     protected bool actionTriggered = false;
     public int startFrame = 0;
 
@@ -329,12 +330,12 @@ public class ObjController : MonoBehaviour
             opointObjProcess.originPool = framePoolObjects;
             opointObjProcess.team = team;
             opointObjProcess.spriteRenderer.sprite = inv;
+            opointObjProcess.stage = stage;
             gameObjectToPoolInstantiate.SetActive(false);
 
             framePoolObjects.Enqueue(opointObjProcess);
         }
 
-        // Debug.Log($"Queue opoint {gameObjectToPool.name} with pool size of {framePoolObjects.Count()}");
         return framePoolObjects;
     }
 

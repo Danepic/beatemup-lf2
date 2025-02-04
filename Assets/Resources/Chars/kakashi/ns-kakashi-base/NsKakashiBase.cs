@@ -1834,6 +1834,7 @@ public class NsKakashiBase : CharController
     }
     private void Downercut_483()
     {
+        SpawnGroundSmall(Opoint(x: 0, y: -0.128f, z: -0.08f, oid: 0, facingFront: true, quantity: 1));
         pic = 431; wait = 0.5f; next = Downercut_484;
         BdyDefault();
     }

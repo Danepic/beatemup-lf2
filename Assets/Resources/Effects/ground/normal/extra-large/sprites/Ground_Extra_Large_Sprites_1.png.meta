@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,16 +34,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,12 +121,210 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1685
+        width: 541
+        height: 315
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1215873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f30075ad2028894cb3770a1abba7e5a
+      internalID: -1989536368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_1
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1525
+        width: 561
+        height: 475
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0876}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e3409c32bcd7749b074cb9f38582ed
+      internalID: -772457011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_2
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 1518
+        width: 614
+        height: 482
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07342324}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5050889e3f2ad24d9a17f6902f43d0a
+      internalID: 484349965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_3
+      rect:
+        serializedVersion: 2
+        x: 1795
+        y: 1516
+        width: 668
+        height: 484
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07376033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ab89cbb1752a24d8be58da3296ef66
+      internalID: 1356708540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 951
+        width: 704
+        height: 499
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16691382}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96acf3152ad00e41ae36a4b8f0cfa42
+      internalID: 670958934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_5
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 953
+        width: 688
+        height: 500
+      alignment: 9
+      pivot: {x: 0.47281975, y: 0.112220004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547f45bcdb1119942a9b03ed5b44ff60
+      internalID: 44910307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_6
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 954
+        width: 529
+        height: 503
+      alignment: 9
+      pivot: {x: 0.47448015, y: 0.077017896}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 964e9b2ef588b89409c0d9bf665b0fa6
+      internalID: -1731975412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_7
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 299
+        width: 531
+        height: 492
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11849593}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fabb400c9ad88e4b9932706ec453b8c
+      internalID: -1756476491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_Extra_Large_Sprites_1_8
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 272
+        width: 595
+        height: 510
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16705881}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ce0ad0e9492b141b849510bf74279e
+      internalID: -980277529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1686850a77ac9a844937ee6aa3ed2667
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +333,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ground_Extra_Large_Sprites_1_0: -1989536368
+      Ground_Extra_Large_Sprites_1_1: -772457011
+      Ground_Extra_Large_Sprites_1_2: 484349965
+      Ground_Extra_Large_Sprites_1_3: 1356708540
+      Ground_Extra_Large_Sprites_1_4: 670958934
+      Ground_Extra_Large_Sprites_1_5: 44910307
+      Ground_Extra_Large_Sprites_1_6: -1731975412
+      Ground_Extra_Large_Sprites_1_7: -1756476491
+      Ground_Extra_Large_Sprites_1_8: -980277529
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
