@@ -15,6 +15,7 @@ public class GroundExtraLarge : EffectController
 {
     void Awake()
     {
+        palettes.Add("Effects/ground/normal/extra-large/sprites");
         base.Awake();
         headerName = "Ground Extra Large";
         frames = PopulateFrames(this);

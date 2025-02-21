@@ -15,6 +15,7 @@ public class ChakraChargeSmoke : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/chakra_charge_smoke/sprites");
         base.Awake();
         headerName = "Chakra Charge Smoke";
         type = ObjTypeEnum.ETC;

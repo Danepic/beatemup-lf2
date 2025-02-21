@@ -24,6 +24,10 @@ public class MatchController : MonoBehaviour
 
         if (MatchControllerStore.Instance != null)
         {
+            var stageResourcePath = ExtractObjectName(MatchControllerStore.Instance.stageResourcePath);
+            var stageGameObj = Resources.Load<GameObject>(stageResourcePath);
+            var stageSpriteRenderer = Instantiate(stageGameObj, stageGameObj.transform.position, Quaternion.identity).transform.Find("BackgroundImage").GetComponent<SpriteRenderer>();
+
             var resourcePathP1 = ExtractObjectName(MatchControllerStore.Instance.player1CharacterResourcePath);
             var p1GameObj = Instantiate(Resources.Load<GameObject>(resourcePathP1), p1Spawn.position, Quaternion.identity);
             p1GameObj.GetComponent<BaseEnemyAI>().enabled = false;
@@ -31,6 +35,7 @@ public class MatchController : MonoBehaviour
             var p1CharController = p1GameObj.GetComponent<CharController>();
             p1CharController.playerEnum = PlayerEnum.PLAYER_1;
             p1CharController.team = TeamEnum.TEAM_1;
+            p1CharController.stageSpriteRenderer = stageSpriteRenderer;
             p1GameObj.GetComponent<PlayerInput>().SwitchCurrentControlScheme("P1", Keyboard.current);
 
 
@@ -41,11 +46,8 @@ public class MatchController : MonoBehaviour
             var p2CharController = p2GameObj.GetComponent<CharController>();
             p2CharController.playerEnum = PlayerEnum.PLAYER_2; //mudar para con
             p2CharController.team = TeamEnum.TEAM_2;
+            p2CharController.stageSpriteRenderer = stageSpriteRenderer;
             p2GameObj.GetComponent<PlayerInput>().SwitchCurrentControlScheme("P2", Keyboard.current); // remover
-
-            var stageResourcePath = ExtractObjectName(MatchControllerStore.Instance.stageResourcePath);
-            var stageGameObj = Resources.Load<GameObject>(stageResourcePath);
-            Instantiate(stageGameObj, stageGameObj.transform.position, Quaternion.identity);
         }
     }
 

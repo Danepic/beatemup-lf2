@@ -14,6 +14,7 @@ public class Raikiri : AttackController
 {
     void Awake()
     {
+        palettes.Add("Attacks/Techs/raikiri/sprites");
         base.Awake();
         headerName = "Raikiri";
         totalHp = -1;

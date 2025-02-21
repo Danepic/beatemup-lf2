@@ -29,6 +29,7 @@ namespace Domains
 
         public AudioClip sound;
         public ItrEffectEnum effect;
+        public ItrContactEnum contact = ItrContactEnum.NORMAL;
 
         public float duration;
         public bool defaultItr = false;

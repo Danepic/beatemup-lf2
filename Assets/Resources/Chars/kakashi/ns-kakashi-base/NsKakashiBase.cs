@@ -16,6 +16,7 @@ public class NsKakashiBase : CharController
 {
     void Awake()
     {
+        palettes.Add("Chars/kakashi/ns-kakashi-base/sprites");
         base.Awake();
         header = new()
         {
@@ -37,12 +38,22 @@ public class NsKakashiBase : CharController
         opoints.Add(52, EnrichOpoint(12, "Attacks/Techs/raikiri/raikiri"));
         opoints.Add(53, EnrichOpoint(4, "Attacks/Techs/fog/fog"));
         opoints.Add(54, EnrichOpoint(4, "Etc/status/evasive/evasive"));
-        hitDefenseAction = HitDefense_160;
-        jumpDefenseAction = HitJumpDefense_305;
+        opoints.Add(55, EnrichOpoint(1, "Attacks/Techs/fire/prepare/fire-prepare"));
+        opoints.Add(56, EnrichOpoint(1, "Attacks/Techs/fire/impact/fire-impact"));
+        opoints.Add(57, EnrichOpoint(6, "Attacks/Techs/fire/ball/fire-ball"));
+        opoints.Add(58, EnrichOpoint(1, "Attacks/Techs/sharingan/kamui/eye/kamui-eye"));
+        opoints.Add(59, EnrichOpoint(1, "Attacks/Techs/sharingan/kamui/target/kamui-target"));
+
+        hitDefenseAction = HitDefense_160; //Todo tirar essa atribuição direta e usar o index dos frames
+        jumpDefenseAction = HitJumpDefense_305; //Todo tirar essa atribuição direta e usar o index dos frames
 
         //para testar techs
         soloTechSide = Raikiri_1000;
         soloTech = Kirigakure_1100;
+        soloTechDown = CortePresaBroca_1150;
+        soloTechUp = KatonBall_1200;
+        airTech = RaikiriAir_1250;
+        superTech = SuperKamui_1300;
 
         frames = PopulateFrames(this);
     }
@@ -62,7 +73,7 @@ public class NsKakashiBase : CharController
     #region Standing
     private void Standing_0()
     {
-        StopMovement(); CancelOpoints();
+        StopMovement(); CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         ResetMovementFromStop();
         pic = 108; state = StateFrameEnum.STANDING; wait = 2f; next = Standing_1;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
@@ -72,7 +83,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
 
@@ -86,7 +97,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_2()
@@ -99,7 +110,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_3()
@@ -112,7 +123,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_4()
@@ -125,7 +136,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_5()
@@ -138,7 +149,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_6()
@@ -151,7 +162,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_7()
@@ -164,7 +175,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_8()
@@ -177,7 +188,7 @@ public class NsKakashiBase : CharController
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     #endregion
@@ -185,7 +196,7 @@ public class NsKakashiBase : CharController
     #region Walking
     private void Walking_20()
     {
-        pic = 119; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_21; CancelOpoints();
+        pic = 119; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_21; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -193,7 +204,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -207,7 +218,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -221,7 +232,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -233,7 +244,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -245,7 +256,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -257,7 +268,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -269,7 +280,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -281,7 +292,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -293,7 +304,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -305,7 +316,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -317,7 +328,7 @@ public class NsKakashiBase : CharController
         CanStandingFromWalking(Standing_0);
         Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingWhenXMove_298);
-        PowerSide(Raikiri_1000); Power(Kirigakure_1100);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
         ApplyPhysicWalking();
         ManageWalking();
     }
@@ -582,19 +593,19 @@ public class NsKakashiBase : CharController
     {
         pic = 136; state = StateFrameEnum.JUMPING; wait = 6f;
         next = DashBackward_133;
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void DashBackward_133()
     {
         pic = 137; state = StateFrameEnum.JUMPING; wait = 0.5f;
         next = DashBackward_134; OnGround(Crouch_290);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void DashBackward_134()
     {
         pic = 138; state = StateFrameEnum.JUMPING; wait = 6f;
         next = DashBackward_134; OnGround(Crouch_290);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     #endregion
 
@@ -852,7 +863,7 @@ public class NsKakashiBase : CharController
         pic = 136; state = StateFrameEnum.JUMPING; wait = 1f;
         next = Jump_214; DoubleTapJump(DoubleJump_230);
         BdyDefault();
-        CanFlip(); CountJumpDash(); CanJumpDash(JumpDash_270);
+        CanFlip(); CountJumpDash(); CanJumpDash(JumpDash_270); Power(airTech); PowerSide(airTech);
     }
     private void Jump_214()
     {
@@ -860,7 +871,7 @@ public class NsKakashiBase : CharController
         next = JumpFalling_220; DoubleTapJump(DoubleJump_230);
         Defense(StartJumpDefense_300); Attack(JumpSuperAttack_550);
         BdyDefault();
-        CanFlip(); CountJumpDash(); CanJumpDash(JumpDash_270);
+        CanFlip(); CountJumpDash(); CanJumpDash(JumpDash_270); Power(airTech); PowerSide(airTech);
     }
 
     private void JumpFalling_220()
@@ -869,7 +880,7 @@ public class NsKakashiBase : CharController
         next = JumpFalling_221; DoubleTapJump(DoubleJump_230);
         Defense(StartJumpDefense_300); OnGround(Crouch_290); Attack(JumpSuperAttack_550);
         BdyDefault();
-        CanFlip(); CountJumpDash(); CanJumpDash(JumpDash_270);
+        CanFlip(); CountJumpDash(); CanJumpDash(JumpDash_270); Power(airTech); PowerSide(airTech);
     }
     private void JumpFalling_221()
     {
@@ -877,7 +888,7 @@ public class NsKakashiBase : CharController
         next = JumpFalling_221; DoubleTapJump(DoubleJump_230);
         Defense(StartJumpDefense_300); OnGround(Crouch_290); Attack(JumpSuperAttack_550);
         BdyDefault();
-        CanFlip(); CountJumpDash(); CanJumpDash(JumpDash_270);
+        CanFlip(); CountJumpDash(); CanJumpDash(JumpDash_270); Power(airTech); PowerSide(airTech);
     }
     #endregion
 
@@ -908,7 +919,7 @@ public class NsKakashiBase : CharController
     {
         pic = 136; state = StateFrameEnum.JUMPING; wait = 8f;
         next = DoubleJumpFalling_240; Defense(StartJumpDefense_300); OnGround(Crouch_290);
-        Attack(JumpSuperAttack_550);
+        Attack(JumpSuperAttack_550); Power(airTech); PowerSide(airTech);
         BdyDefault();
         CanFlip();
     }
@@ -919,7 +930,7 @@ public class NsKakashiBase : CharController
     {
         pic = 137; state = StateFrameEnum.JUMPING; wait = 1f;
         next = DoubleJumpFalling_241; Defense(StartJumpDefense_300); OnGround(Crouch_290);
-        Attack(JumpSuperAttack_550);
+        Attack(JumpSuperAttack_550); Power(airTech); PowerSide(airTech);
         BdyDefault();
         CanFlip();
     }
@@ -927,7 +938,7 @@ public class NsKakashiBase : CharController
     {
         pic = 138; state = StateFrameEnum.JUMPING; wait = 1f;
         next = DoubleJumpFalling_241; Defense(StartJumpDefense_300); OnGround(Crouch_290);
-        Attack(JumpSuperAttack_550);
+        Attack(JumpSuperAttack_550); Power(airTech); PowerSide(airTech);
         BdyDefault();
         CanFlip();
     }
@@ -961,7 +972,7 @@ public class NsKakashiBase : CharController
         pic = 136; state = StateFrameEnum.OTHER; wait = 3f;
         next = DashJump_254; DoubleTapJump(DoubleJump_230);
         BdyDefault(); CountJumpDash(); CanJumpDash(JumpDash_270);
-        CanFlip();
+        CanFlip(); Power(airTech); PowerSide(airTech);
     }
     private void DashJump_254()
     {
@@ -969,7 +980,7 @@ public class NsKakashiBase : CharController
         next = JumpFalling_220; Defense(StartJumpDefense_300); OnGround(Crouch_290);
         DoubleTapJump(DoubleJump_230); Attack(JumpSuperAttack_550);
         BdyDefault(); CountJumpDash(); CanJumpDash(JumpDash_270);
-        CanFlip();
+        CanFlip(); Power(airTech); PowerSide(airTech);
     }
     #endregion
 
@@ -993,19 +1004,19 @@ public class NsKakashiBase : CharController
     {
         pic = 132; state = StateFrameEnum.OTHER; wait = 0.5f;
         next = JumpDash_273; Attack(JumpAttack1_590);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void JumpDash_273()
     {
         pic = 132; state = StateFrameEnum.OTHER; wait = 1f;
         next = JumpDash_274; Attack(JumpAttack1_590);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void JumpDash_274()
     {
         pic = 121; state = StateFrameEnum.OTHER; wait = 4f;
         next = DoubleJumpFalling_240; Attack(JumpAttack1_590);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     #endregion
 
@@ -1210,7 +1221,7 @@ public class NsKakashiBase : CharController
         next = RunningAttack_337;
         BdyDefault();
         itr.x = 0.2098f; itr.y = 0.2994f; itr.z = 0;
-        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
+        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.44f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -1223,7 +1234,7 @@ public class NsKakashiBase : CharController
         next = RunningAttack_338;
         BdyDefault();
         itr.x = 0.2098f; itr.y = 0.2994f; itr.z = 0;
-        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
+        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.44f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -1235,7 +1246,7 @@ public class NsKakashiBase : CharController
         next = RunningAttack_339;
         BdyDefault();
         itr.x = 0.2098f; itr.y = 0.2994f; itr.z = 0;
-        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
+        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.44f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -1248,7 +1259,7 @@ public class NsKakashiBase : CharController
         next = RunningAttack_340;
         BdyDefault();
         itr.x = 0.2098f; itr.y = 0.2994f; itr.z = 0;
-        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.22f;
+        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.44f;
         itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7;
@@ -1314,7 +1325,7 @@ public class NsKakashiBase : CharController
         next = Attack1_353;
         BdyDefault();
         itr.x = 0.3433f; itr.y = 0.4133f; itr.z = 0;
-        itr.w = 0.4044166f; itr.h = 0.2453708f; itr.zwidth = 0.22f;
+        itr.w = 0.4044166f; itr.h = 0.2453708f; itr.zwidth = 0.44f;
         itr.dvx = 40; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
@@ -1394,7 +1405,7 @@ public class NsKakashiBase : CharController
         next = Attack2_373;
         BdyDefault();
         itr.x = 0.3433f; itr.y = 0.4133f; itr.z = 0;
-        itr.w = 0.4044166f; itr.h = 0.2453708f; itr.zwidth = 0.22f;
+        itr.w = 0.4044166f; itr.h = 0.2453708f; itr.zwidth = 0.44f;
         itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 8; itr.physic = ItrPhysicEnum.FIXED;
@@ -1487,7 +1498,7 @@ public class NsKakashiBase : CharController
         next = Attack3_396;
         BdyDefault();
         itr.x = 0.0001f; itr.y = 0.4315f; itr.z = 0;
-        itr.w = 0.9272251f; itr.h = 0.2817348f; itr.zwidth = 0.22f;
+        itr.w = 0.9272251f; itr.h = 0.2817348f; itr.zwidth = 0.44f;
         itr.dvx = 40; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 5; itr.physic = ItrPhysicEnum.FIXED;
@@ -1576,7 +1587,7 @@ public class NsKakashiBase : CharController
         next = Attack4_414;
         BdyDefault();
         itr.x = 0.0955f; itr.y = 0.3224f; itr.z = 0;
-        itr.w = 0.6545281f; itr.h = 0.24537f; itr.zwidth = 0.22f;
+        itr.w = 0.6545281f; itr.h = 0.24537f; itr.zwidth = 0.44f;
         itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 5; itr.physic = ItrPhysicEnum.FIXED;
@@ -1659,7 +1670,7 @@ public class NsKakashiBase : CharController
         pic = 434; wait = 2f; next = FrontAttack_435;
         BdyDefault();
         itr.x = 0.2114f; itr.y = 0.3655f; itr.z = 0;
-        itr.w = 0.4590549f; itr.h = 0.5135916f; itr.zwidth = 0.22f;
+        itr.w = 0.4590549f; itr.h = 0.5135916f; itr.zwidth = 0.44f;
         itr.dvx = 400; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -1733,7 +1744,7 @@ public class NsKakashiBase : CharController
         pic = 416; wait = 0.5f; next = Uppercut_455;
         BdyDefault();
         itr.x = 0.1614f; itr.y = 0.5224f; itr.z = 0;
-        itr.w = 0.1953547f; itr.h = 0.7817728f; itr.zwidth = 0.22f;
+        itr.w = 0.1953547f; itr.h = 0.7817728f; itr.zwidth = 0.44f;
         itr.dvx = 25; itr.dvy = 350; itr.dvz = 0; itr.action = 840;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -1834,7 +1845,7 @@ public class NsKakashiBase : CharController
     }
     private void Downercut_483()
     {
-        SpawnGroundSmall(Opoint(x: 0, y: -0.128f, z: -0.08f, oid: 0, facingFront: true, quantity: 1));
+        SpawnGroundExtraSmall(Opoint(x: 0, y: -0.128f, z: -0.08f, oid: 0, facingFront: true, quantity: 1));
         pic = 431; wait = 0.5f; next = Downercut_484;
         BdyDefault();
     }
@@ -1879,7 +1890,7 @@ public class NsKakashiBase : CharController
         bdy.w = 0.4125906f; bdy.h = 0.371265f; bdy.zwidth = 0.22f;
         Bdy();
         itr.x = 0.4922f; itr.y = 0.3392f; itr.z = 0;
-        itr.w = 0.2629879f; itr.h = 0.3019446f; itr.zwidth = 0.22f;
+        itr.w = 0.2629879f; itr.h = 0.3019446f; itr.zwidth = 0.44f;
         itr.dvx = 100; itr.dvy = -50; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -1892,7 +1903,7 @@ public class NsKakashiBase : CharController
         bdy.w = 0.4125906f; bdy.h = 0.371265f; bdy.zwidth = 0.22f;
         Bdy();
         itr.x = 0.4922f; itr.y = 0.3392f; itr.z = 0;
-        itr.w = 0.2629879f; itr.h = 0.3019446f; itr.zwidth = 0.22f;
+        itr.w = 0.2629879f; itr.h = 0.3019446f; itr.zwidth = 0.44f;
         itr.dvx = 100; itr.dvy = -50; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -1978,7 +1989,7 @@ public class NsKakashiBase : CharController
         BdyDefault();
         ApplyDefaultPhysic(dvx: 100, 50, null, facingRight);
         itr.x = 0.1226f; itr.y = 0.509f; itr.z = 0;
-        itr.w = 0.396165f; itr.h = 0.3019446f; itr.zwidth = 0.22f;
+        itr.w = 0.396165f; itr.h = 0.3019446f; itr.zwidth = 0.44f;
         itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 720;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
@@ -2024,7 +2035,7 @@ public class NsKakashiBase : CharController
         BdyDefault();
         ApplyDefaultPhysic(dvx: 100, 50, null, facingRight);
         itr.x = 0.518f; itr.y = 0.348f; itr.z = 0;
-        itr.w = 0.396165f; itr.h = 0.3019446f; itr.zwidth = 0.22f;
+        itr.w = 0.396165f; itr.h = 0.3019446f; itr.zwidth = 0.44f;
         itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 720;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 4; itr.physic = ItrPhysicEnum.FIXED;
@@ -2093,7 +2104,7 @@ public class NsKakashiBase : CharController
         pic = 509; wait = 0.5f; next = JumpAttack3_635; OnGround(Crouch_290);
         BdyDefault();
         itr.x = 0.2088f; itr.y = 0.3524f; itr.z = 0;
-        itr.w = 0.577767f; itr.h = 0.4391482f; itr.zwidth = 0.22f;
+        itr.w = 0.577767f; itr.h = 0.4391482f; itr.zwidth = 0.44f;
         itr.dvx = 100; itr.dvy = -400; itr.dvz = 0; itr.action = 820;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -2102,34 +2113,34 @@ public class NsKakashiBase : CharController
     private void JumpAttack3_635()
     {
         pic = 510; wait = 0.5f; next = JumpAttack3_636; OnGround(Crouch_290);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void JumpAttack3_636()
     {
         ItrDisable();
         pic = 511; wait = 8f; next = JumpAttack3_637; OnGround(Crouch_290);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void JumpAttack3_637()
     {
         pic = 511; wait = 0.5f; next = JumpAttack3_638; OnGround(Crouch_290);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void JumpAttack3_638()
     {
         ResetMovementFromStop();
         pic = 511; wait = 0.5f; next = JumpAttack3_639; OnGround(Crouch_290);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void JumpAttack3_639()
     {
         pic = 511; wait = 2f; next = JumpAttack3_640; OnGround(Crouch_290);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void JumpAttack3_640()
     {
         pic = 511; wait = 1f; next = JumpAttack3_640; OnGround(Crouch_290);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     #endregion
 
@@ -2157,9 +2168,8 @@ public class NsKakashiBase : CharController
     }
     private void JumpCombo_654()
     {
-        ;
         pic = 136; wait = 8f; next = JumpComboFalling_660; Defense(StartJumpDefense_300); state = StateFrameEnum.JUMP_COMBO_ATTACK;
-        DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
+        DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590); Power(airTech); PowerSide(airTech);
         BdyDefault();
     }
     #endregion
@@ -2168,13 +2178,13 @@ public class NsKakashiBase : CharController
     private void JumpComboFalling_660()
     {
         pic = 137; wait = 0.5f; next = JumpComboFalling_661; Defense(StartJumpDefense_300);
-        OnGround(Crouch_290); Jump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
+        OnGround(Crouch_290); Jump(DoubleJumpCombo_670); Attack(JumpAttack1_590); Power(airTech); PowerSide(airTech);
         BdyDefault();
     }
     private void JumpComboFalling_661()
     {
         pic = 138; wait = 1f; next = JumpComboFalling_661; Defense(StartJumpDefense_300);
-        OnGround(Crouch_290); Jump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
+        OnGround(Crouch_290); Jump(DoubleJumpCombo_670); Attack(JumpAttack1_590); Power(airTech); PowerSide(airTech);
         BdyDefault();
     }
     #endregion
@@ -2199,7 +2209,7 @@ public class NsKakashiBase : CharController
     private void DoubleJumpCombo_673()
     {
         pic = 136; wait = 8f; next = DoubleJumpCombo_673; Defense(StartJumpDefense_300); Attack(JumpAttack1_590);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     #endregion
 
@@ -2208,22 +2218,22 @@ public class NsKakashiBase : CharController
     {
         pic = 137; wait = 0.5f; next = DoubleJumpFalling_681; Defense(StartJumpDefense_300);
         OnGround(Crouch_290); Attack(JumpAttack1_590);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void DoubleJumpFalling_681()
     {
         pic = 138; wait = 1f; next = DoubleJumpFalling_681; Defense(StartJumpDefense_300);
         OnGround(Crouch_290); Attack(JumpAttack1_590);
-        BdyDefault();
+        BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     #endregion
 
     #region InjuredManager
     private void InjuredManager_700()
     {
-        var optionInjured = UnityEngine.Random.value; state = StateFrameEnum.INJURED; CancelOpoints();
+        var optionInjured = UnityEngine.Random.value; state = StateFrameEnum.INJURED; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 602; wait = 2f; next = optionInjured > 0.5f ? Injured1_702 : Injured2_710;
-        BdyDefault();
+        BdyDefault(); Defense(Kawa_1500);
     }
     #endregion
 
@@ -2233,7 +2243,7 @@ public class NsKakashiBase : CharController
         ResetMovementFromStop();
         pic = 602; wait = 3f; next = Injured1_703; Defense(CriticalDefense_880);
         BdyDefault();
-        ApplyExternPhysic();
+        ApplyExternPhysic(); Defense(Kawa_1500);
     }
     private void Injured1_703()
     {
@@ -2249,7 +2259,7 @@ public class NsKakashiBase : CharController
         ResetMovementFromStop();
         pic = 605; wait = 3f; next = Injured2_711; Defense(CriticalDefense_880);
         BdyDefault();
-        ApplyExternPhysic();
+        ApplyExternPhysic(); Defense(Kawa_1500);
     }
 
     private void Injured2_711()
@@ -2263,9 +2273,9 @@ public class NsKakashiBase : CharController
     #region InjuredSkyManager
     private void InjuredSkyManager_720()
     {
-        var optionInjured = UnityEngine.Random.value; state = StateFrameEnum.INJURED; CancelOpoints();
+        var optionInjured = UnityEngine.Random.value; state = StateFrameEnum.INJURED; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 602; wait = 2f; next = optionInjured > 0.5f ? InjuredSky1_722 : InjuredSky2_730;
-        BdyDefault();
+        BdyDefault(); Defense(Kawa_1500);
     }
     #endregion
 
@@ -2275,7 +2285,7 @@ public class NsKakashiBase : CharController
         ResetMovementFromStop();
         pic = 602; wait = 3f; next = InjuredSky1_723; Defense(JumpCriticalDefense_885);
         BdyDefault();
-        ApplyExternPhysic();
+        ApplyExternPhysic(); Defense(Kawa_1500);
     }
 
     private void InjuredSky1_723()
@@ -2297,7 +2307,7 @@ public class NsKakashiBase : CharController
         ResetMovementFromStop();
         pic = 605; wait = 3f; next = InjuredSky2_731; Defense(JumpCriticalDefense_885);
         BdyDefault();
-        ApplyExternPhysic();
+        ApplyExternPhysic(); Defense(Kawa_1500);
     }
     private void InjuredSky2_731()
     {
@@ -2315,14 +2325,14 @@ public class NsKakashiBase : CharController
     #region Falling
     private void FallingHit_800()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints();
+        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 605; wait = 2f; next = Falling_801;
         BdyDefault();
         ApplyExternPhysic();
     }
     private void Falling_801()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 606; wait = 2f; next = Falling_802; OnGround(Lying_910);
         BdyDefault();
     }
@@ -2356,7 +2366,7 @@ public class NsKakashiBase : CharController
     #region FallingDown
     private void FallingDown_820()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints();
+        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 630; wait = 2f; next = FallingDown_821; OnGround(FallingDownImpact_825);
         BdyDefault();
         ApplyExternPhysic();
@@ -2403,7 +2413,7 @@ public class NsKakashiBase : CharController
     #region FallingUp
     private void FallingUp_840()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints();
+        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 605; wait = 2f; next = FallingUp_841;
         OnCeil(FallingUpImpact_850);
         BdyDefault();
@@ -2485,7 +2495,7 @@ public class NsKakashiBase : CharController
     #region FallingForwardImpact
     private void FallingForwardtHit_860()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints();
+        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 620; wait = 2f; next = FallingForward_861;
         BdyDefault();
         ApplyExternPhysic();
@@ -2580,7 +2590,7 @@ public class NsKakashiBase : CharController
     #region Lying
     private void Lying_910()
     {
-        StopMovement(); state = StateFrameEnum.LYING; CancelOpoints();
+        StopMovement(); state = StateFrameEnum.LYING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 626; wait = 2f; next = Lying_911; Jump(JumpRecover_930);
         BdyDefault();
     }
@@ -2636,7 +2646,7 @@ public class NsKakashiBase : CharController
     #region JumpRecover
     private void JumpRecover_930()
     {
-        spriteRenderer.color = parryColor; CancelOpoints();
+        spriteRenderer.color = parryColor; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 431; wait = 1f; next = JumpRecover_931;
         BdyDefault();
         SpawnOpoint(10, Opoint(x: 0.11f, y: 0.25f, z: 0.08f, oid: 0, facingFront: true, quantity: 1));
@@ -2645,6 +2655,25 @@ public class NsKakashiBase : CharController
     {
         pic = 431; wait = 2f; next = Crouch_290;
         BdyDefault();
+    }
+    #endregion
+
+    #region Catch Invisible
+    private void CatchInvisible_950()
+    {
+        repeatCount = 250;
+        ResetMovementFromStop(); CancelOpoints();
+        pic = -9999; wait = 2f; next = CatchInvisible_951;
+        BdyDefault();
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+    }
+    private void CatchInvisible_951()
+    {
+        RepeatCountToFrame(Falling_801);
+        ResetMovementFromStop(); CancelOpoints();
+        pic = -9999; wait = 2f; next = CatchInvisible_951;
+        BdyDefault();
+        bdy.kind = BdyKindEnum.INVULNERABLE;
     }
     #endregion
 
@@ -2690,7 +2719,7 @@ public class NsKakashiBase : CharController
     {
         pic = 706; wait = 0.5f; next = RaikiriRunning_1006;
         BdyDefault();
-        CancelOpoints();
+        CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         SpawnOpoint(52, Opoint(x: -0.226f, y: 0.384f, z: -0.058f, oid: 150, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
     }
 
@@ -2781,7 +2810,7 @@ public class NsKakashiBase : CharController
     }
     private void RaikiriAttack_1018()
     {
-        CancelOpoints();
+        CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 719; wait = 1f; next = RaikiriAttack_1019;
         BdyDefault();
     }
@@ -2823,38 +2852,33 @@ public class NsKakashiBase : CharController
         CancelOpoints();
     }
     #endregion
-    
+
     #region Kirigakure
     private void Kirigakure_1100()
     {
         pic = 731; wait = 1f; next = Kirigakure_1101;
         BdyDefault();
-        ItrDisable();
     }
     private void Kirigakure_1101()
     {
         pic = 732; wait = 1f; next = Kirigakure_1102;
         BdyDefault();
-        ItrDisable();
     }
     private void Kirigakure_1102()
     {
         pic = 733; wait = 1f; next = Kirigakure_1103;
         BdyDefault();
-        ItrDisable();
     }
     private void Kirigakure_1103()
     {
         pic = 734; wait = 1f; next = Kirigakure_1104;
         BdyDefault();
-        ItrDisable();
         SpawnOpoint(54, Opoint(x: 0f, y: 2.61f, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
     }
     private void Kirigakure_1104()
     {
         pic = 739; wait = 1f; next = Kirigakure_1105;
         BdyDefault();
-        ItrDisable();
         SpawnOpoint(53, Opoint(x: 0.25f, y: 0.35f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
     }
     private void Kirigakure_1105()
@@ -2862,18 +2886,391 @@ public class NsKakashiBase : CharController
         pic = 740; wait = 10f; next = Kirigakure_1106;
         SpawnOpoint(53, Opoint(x: -0.20f, y: 0.35f, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
         BdyDefault();
-        ItrDisable();
     }
     private void Kirigakure_1106()
     {
         pic = 741; wait = 1f; next = Kirigakure_1107;
         BdyDefault();
-        ItrDisable();
     }
     private void Kirigakure_1107()
     {
         pic = 742; wait = 2f; next = Standing_0;
         BdyDefault();
+    }
+    #endregion
+
+    #region Corte Presa Broca
+    private void CortePresaBroca_1150()
+    {
+        pic = 201; wait = 1f; next = CortePresaBroca_1151;
+        BdyDefault();
+    }
+    private void CortePresaBroca_1151()
+    {
+        pic = 202; wait = 1f; next = CortePresaBroca_1152;
+        BdyDefault();
+    }
+    private void CortePresaBroca_1152()
+    {
+        pic = 203; wait = 1f; next = CortePresaBroca_1153;
+        BdyDefault();
+    }
+    private void CortePresaBroca_1153()
+    {
+        pic = 204; wait = 1f; next = CortePresaBroca_1154;
+        BdyDefault();
+    }
+    private void CortePresaBroca_1154()
+    {
+        pic = 425; wait = 1f; next = CortePresaBroca_1155;
+        BdyDefault();
+    }
+    private void CortePresaBroca_1155()
+    {
+        pic = 426; wait = 1f; next = CortePresaBroca_1156;
+        BdyDefault();
+    }
+    private void CortePresaBroca_1156()
+    {
+        SpawnGroundSmall(Opoint(x: 0, y: 0, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
+        pic = 427; wait = 1f; next = CortePresaBroca_1157;
+        BdyDefault();
+    }
+    private void CortePresaBroca_1157()
+    {
+        SpawnGroundExtraSmall(Opoint(x: 0, y: 0, z: -0.03716838f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
+        pic = 702; wait = 1f; next = CortePresaBrocaWalinkg_1160;
+        BdyDefault();
+    }
+    private void CortePresaBrocaWalinkg_1160()
+    {
+        pic = -9999; state = StateFrameEnum.WALKING; wait = 1f; dvx = 5f; dvz = 3f; next = CortePresaBrocaWalinkg_1160; mp = -25;
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        Bdy();
+        CanFlip();
+        Jump(CortePresaBrocaAttack_1165); Taunt(CortePresaBrocaAttack_1165);
+        Defense(CortePresaBrocaAttack_1165); Attack(CortePresaBrocaAttack_1165); InAir(CortePresaBrocaAttack_1165);
+        ApplyPhysicRunning();
+        ManageWalking();
+    }
+
+    private void CortePresaBrocaAttack_1165()
+    {
+        SpawnGroundSmall(Opoint(x: 0, y: 0, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
+        pic = 723; wait = 0.5f; next = CortePresaBrocaAttack_1166;
+        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
+        StopMovement();
+    }
+    private void CortePresaBrocaAttack_1166()
+    {
+        SpawnGroundExtraSmall(Opoint(x: 0, y: 0, z: -0.03716838f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
+        ResetMovementFromStop();
+        pic = 724; wait = 0.5f; next = CortePresaBrocaAttack_1167;
+        BdyDefault();
+        ItrDisable();
+        ApplyDefaultPhysic(dvx = 40, dvy = 350, dvz = 0, facingRight);
+    }
+    private void CortePresaBrocaAttack_1167()
+    {
+        pic = 725; wait = 1f; next = CortePresaBrocaAttack_1168;
+        BdyDefault();
+        itr.dvx = 40; itr.dvy = 350; itr.dvz = 0; itr.action = 840;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 14; itr.physic = ItrPhysicEnum.DEFAULT;
+        ItrDefault(zwidth: 0.22f);
+    }
+    private void CortePresaBrocaAttack_1168()
+    {
+        pic = 726; wait = 10f; next = CortePresaBroca_1169;
+        BdyDefault();
+        itr.dvx = 20; itr.dvy = 200; itr.dvz = 0; itr.action = 840;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
+        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 12; itr.physic = ItrPhysicEnum.DEFAULT;
+        ItrDefault(zwidth: 0.22f);
+        OnGround(Crouch_290);
+    }
+    private void CortePresaBroca_1169()
+    {
+        ItrDisable();
+        pic = 727; wait = 0.5f; next = CortePresaBroca_1170;
+        BdyDefault();
+        OnGround(Crouch_290);
+    }
+    private void CortePresaBroca_1170()
+    {
+        ItrDisable();
+        pic = 727; wait = 2f; next = CortePresaBroca_1171; state = StateFrameEnum.JUMP_COMBO_ATTACK;
+        BdyDefault();
+        OnGround(Crouch_290);
+        DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
+    }
+    private void CortePresaBroca_1171()
+    {
+        ItrDisable();
+        pic = 727; wait = 0.5f; next = CortePresaBroca_1172; state = StateFrameEnum.JUMP_COMBO_ATTACK;
+        BdyDefault();
+        OnGround(Crouch_290);
+        DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
+    }
+    private void CortePresaBroca_1172()
+    {
+        ItrDisable();
+        pic = 727; wait = 2f; next = CortePresaBroca_1172; state = StateFrameEnum.JUMP_COMBO_ATTACK;
+        BdyDefault();
+        OnGround(Crouch_290);
+        DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
+    }
+    #endregion
+
+    #region Katon Ball
+    private void KatonBall_1200()
+    {
+        pic = 743; wait = 2f; next = KatonBall_1201;
+        BdyDefault();
+    }
+    private void KatonBall_1201()
+    {
+        pic = 744; wait = 1f; next = KatonBall_1202;
+        BdyDefault();
+    }
+    private void KatonBall_1202()
+    {
+        pic = 745; wait = 2f; next = KatonBall_1203;
+        BdyDefault();
+    }
+    private void KatonBall_1203()
+    {
+        pic = 746; wait = 1f; next = KatonBall_1204;
+        BdyDefault();
+    }
+    private void KatonBall_1204()
+    {
+        pic = 747; wait = 2f; next = KatonBall_1205;
+        BdyDefault();
+    }
+    private void KatonBall_1205()
+    {
+        pic = 748; wait = 1f; next = KatonBall_1206;
+        BdyDefault();
+    }
+    private void KatonBall_1206()
+    {
+        pic = 749; wait = 2f; next = KatonBall_1207;
+        BdyDefault();
+    }
+    private void KatonBall_1207()
+    {
+        pic = 750; wait = 1f; next = KatonBall_1208;
+        BdyDefault();
+        SpawnOpoint(55, Opoint(x: 0.65f, y: 0.451f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
+    }
+    private void KatonBall_1208()
+    {
+        pic = 751; wait = 1f; next = KatonBall_1209;
+        BdyDefault();
+        SpawnOpoint(56, Opoint(x: 0.65f, y: 0.451f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
+    }
+    private void KatonBall_1209()
+    {
+        pic = 752; wait = 10f; next = KatonBall_1210;
+        BdyDefault();
+        SpawnOpoint(57, Opoint(x: 0.55f, y: -0.15f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
+    }
+    private void KatonBall_1210()
+    {
+        pic = 753; wait = 1f; next = KatonBall_1211;
+        BdyDefault();
+    }
+    private void KatonBall_1211()
+    {
+        pic = 754; wait = 10f; next = Standing_0;
+        BdyDefault();
+    }
+    #endregion
+
+    #region Raikiri Air
+    private void RaikiriAir_1250()
+    {
+        state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES; ResetMovementFromStop();
+        pic = 756; wait = 1f; next = RaikiriAir_1251;
+        BdyDefault();
+        ItrDisable();
+    }
+    private void RaikiriAir_1251()
+    {
+        pic = 757; wait = 5f; next = RaikiriAir_1252; StopMovement();
+        BdyDefault();
+        SpawnOpoint(52, Opoint(x: -0.1f, y: 0.268f, z: -0.058f, oid: 100, facingFront: true, quantity: 1, cancellable: true));
+    }
+    private void RaikiriAir_1252()
+    {
+        pic = 758; wait = 1f; next = RaikiriAir_1253;
+        BdyDefault();
+    }
+    private void RaikiriAir_1253()
+    {
+        pic = 759; wait = 5f; next = RaikiriAirDash_1254;
+        BdyDefault();
+    }
+    private void RaikiriAirDash_1254()
+    {
+        CancelOpoints();
+        pic = 760; wait = 1f; next = RaikiriAirDash_1255; ResetMovementFromStop();
+        BdyDefault();
+        ApplyDefaultPhysic(dvx = 250, dvy = -50, dvz = 0f, facingRight);
+    }
+    private void RaikiriAirDash_1255()
+    {
+        SpawnOpoint(52, Opoint(x: 0.497f, y: 0.01019996f, z: -0.115f, oid: 200, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
+        pic = 761; wait = 1f; next = RaikiriAirAttack_1256;
+        BdyDefault();
+    }
+    private void RaikiriAirAttack_1256()
+    {
+        pic = 762; wait = 1f; next = RaikiriAirAttack_1257;
+        BdyDefault();
+        itr.contact = ItrContactEnum.LYING;
+        itr.x = 0.3283f; itr.y = 0.067f; itr.z = 0;
+        itr.w = 0.3895265f; itr.h = 1.197269f; itr.zwidth = 0.44f;
+        itr.dvx = 75; itr.dvy = 200; itr.dvz = 0; itr.action = 800;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
+        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;
+        Itr();
+    }
+    private void RaikiriAirAttack_1257()
+    {
+        pic = 763; wait = 1f; next = RaikiriAirAttack_1257;
+        BdyDefault(); OnGround(RaikiriAirGround_1258);
+        itr.contact = ItrContactEnum.LYING;
+        itr.x = 0.3283f; itr.y = 0.067f; itr.z = 0;
+        itr.w = 0.3895265f; itr.h = 1.197269f; itr.zwidth = 0.44f;
+        itr.dvx = 75; itr.dvy = 200; itr.dvz = 0; itr.action = 800;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
+        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;
+        Itr();
+    }
+    private void RaikiriAirGround_1258()
+    {
+        ItrDisable();
+        pic = 763; wait = 0.5f; next = RaikiriAirGround_1259;
+        BdyDefault();
+    }
+    private void RaikiriAirGround_1259()
+    {
+        pic = 763; wait = 1f; next = DashBackward_130;
+        BdyDefault();
+        SpawnGroundNormal(Opoint(x: 0, y: 0, z: 0, oid: 0, facingFront: true, quantity: 1, cancellable: false));
+        CancelOpoints();
+    }
+    #endregion
+
+    #region Super Kamui
+    private void SuperKamui_1300()
+    {
+        state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES; ResetMovementFromStop();
+        pic = 764; wait = 2f; next = SuperKamui_1301;
+        BdyDefault();
+        ItrDisable();
+        SpawnOpoint(16, Opoint(x: 0f, y: 0.371f, z: -0.094f, oid: 0, facingFront: true, quantity: 1));
+        StageFadeOut(0.05f);
+    }
+    private void SuperKamui_1301()
+    {
+        pic = 765; wait = 1f; next = SuperKamui_1302;
+        BdyDefault();
+        SpawnOpoint(17, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        StageFadeOut(0.05f);
+    }
+    private void SuperKamui_1302()
+    {
+        stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 0);
+        pic = 766; wait = 2f; next = SuperKamui_1303;
+        BdyDefault();
+    }
+    private void SuperKamui_1303()
+    {
+        pic = 767; wait = 1f; next = SuperKamui_1304;
+        BdyDefault();
+        SpawnOpoint(58, Opoint(x: 0.05f, y: 0.806f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        opointsControl = null;
+    }
+    private void SuperKamui_1304()
+    {
+        pic = 768; wait = 5f; next = SuperKamui_1305;
+        BdyDefault();
+        StageFadeIn(0.1f);
+        opointsControl = SpawnOpoint(59, Opoint(x: 0.03900003f, y: 0.3f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: true), opointsControl);
+    }
+    private void SuperKamui_1305()
+    {
+        pic = 769; wait = 1f; next = SuperKamui_1306;
+        BdyDefault();
+        StageFadeIn(0.1f);
+    }
+    private void SuperKamui_1306()
+    {
+        stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 1);
+        pic = 770; wait = 2f; next = SuperKamui_1306;
+        BdyDefault(); Attack(SuperKamui_1310_Attack);
+    }
+    private void SuperKamui_1310_Attack()
+    {
+        pic = 770; wait = 4f; next = SuperKamui_1311_Attack;
+        BdyDefault();
+        opointsControl[0].ChangeFrame(50);
+    }
+    private void SuperKamui_1311_Attack()
+    {
+        pic = 602; wait = 4f; next = Standing_0;
+        BdyDefault();
+    }
+    #endregion
+
+    #region Kawarimi
+    private void Kawa_1500()
+    {
+        pic = -9999; wait = 1f; next = Kawa_1501;
+        BdyDefault(); bdy.kind = BdyKindEnum.INVULNERABLE;
+        ItrDisable();
+        SpawnOpoint(18, Opoint(x: 0f, y: 0.5f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+    }
+    private void Kawa_1501()
+    {
+        pic = -9999; wait = 2f; next = Kawa_1502;
+        BdyDefault(); bdy.kind = BdyKindEnum.INVULNERABLE;
+        ItrDisable();
+        if (hitRight)
+        {
+            dvx = 300f;
+            ApplyDefaultPhysic(dvx, dvy: 0f, dvz: 0f, facingRight, ItrPhysicEnum.DEFAULT, ignoreFacing: true);
+        }
+        else if (hitLeft)
+        {
+            dvx = -300f;
+            ApplyDefaultPhysic(dvx, dvy: 0f, dvz: 0f, facingRight, ItrPhysicEnum.DEFAULT, ignoreFacing: true);
+        } else {
+            ApplyDefaultPhysic(dvx: -300f, dvy: 0f, dvz: 0f, facingRight, ItrPhysicEnum.DEFAULT);
+        }
+    }
+    private void Kawa_1502()
+    {
+        pic = 702; wait = 1f; next = Kawa_1503;
+        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
+        ItrDisable();
+    }
+    private void Kawa_1503()
+    {
+        pic = 701; wait = 1f; next = Kawa_1504;
+        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
+        ItrDisable();
+    }
+    private void Kawa_1504()
+    {
+        StopMovement();
+        pic = 700; wait = 1f; next = Standing_0;
+        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
         ItrDisable();
     }
     #endregion

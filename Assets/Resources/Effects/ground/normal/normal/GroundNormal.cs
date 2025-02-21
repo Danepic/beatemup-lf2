@@ -15,6 +15,7 @@ public class GroundNormal : EffectController
 {
     void Awake()
     {
+        palettes.Add("Effects/ground/normal/normal/sprites");
         base.Awake();
         headerName = "Ground Normal";
         frames = PopulateFrames(this);

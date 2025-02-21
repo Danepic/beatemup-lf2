@@ -18,6 +18,7 @@ public class EvasiveStatus : EffectController
 
     void Awake()
     {
+        palettes.Add("Etc/status/evasive/sprites");
         base.Awake();
         headerName = "Evasive Status";
         frames = PopulateFrames(this);

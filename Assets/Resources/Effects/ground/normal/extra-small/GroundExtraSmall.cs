@@ -15,6 +15,7 @@ public class GroundExtraSmall : EffectController
 {
     void Awake()
     {
+        palettes.Add("Effects/ground/normal/extra-small/sprites");
         base.Awake();
         headerName = "Ground Extra Small";
         frames = PopulateFrames(this);

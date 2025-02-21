@@ -14,6 +14,7 @@ public class Kunai : AttackController
 {
     void Awake()
     {
+        palettes.Add("Attacks/Weapons/kunai/sprites");
         base.Awake();
         headerName = "Kunai";
         totalHp = 175;
@@ -123,7 +124,7 @@ public class Kunai : AttackController
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
-        ItrDefault();
+        ItrDefault(zwidth: 0.22f);
         OnGround(Remove_300);
     }
     private void InvokeDown_23()
@@ -136,7 +137,7 @@ public class Kunai : AttackController
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
-        ItrDefault();
+        ItrDefault(zwidth: 0.22f);
         OnGround(Remove_300);
     }
     #endregion

@@ -16,6 +16,7 @@ public class JumpingCombo : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/jumping_combo/sprites");
         base.Awake();
         headerName = "Jumping Combo";
         type = ObjTypeEnum.ETC;

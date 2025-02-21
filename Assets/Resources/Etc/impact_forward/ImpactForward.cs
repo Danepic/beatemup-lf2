@@ -16,6 +16,7 @@ public class ImpactForward : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/impact_forward/sprites");
         base.Awake();
         headerName = "Impact Forward";
         type = ObjTypeEnum.ETC;

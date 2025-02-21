@@ -13,6 +13,7 @@ public class HitBlood : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/hit_blood/sprites");
         base.Awake();
         headerName = "Hit Blood";
         type = ObjTypeEnum.ETC;

@@ -13,6 +13,7 @@ public class HitNormal : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/hit_normal/sprites");
         base.Awake();
         headerName = "Hit Normal";
         type = ObjTypeEnum.ETC;

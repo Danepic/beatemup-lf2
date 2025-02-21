@@ -16,6 +16,7 @@ public class ImpactDown : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/impact_down/sprites");
         base.Awake();
         headerName = "Impact Down";
         type = ObjTypeEnum.ETC;

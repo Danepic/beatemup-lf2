@@ -15,6 +15,7 @@ public class GroundSmall : EffectController
 {
     void Awake()
     {
+        palettes.Add("Effects/ground/normal/small/sprites");
         base.Awake();
         headerName = "Ground Small";
         frames = PopulateFrames(this);
@@ -31,7 +32,7 @@ public class GroundSmall : EffectController
         spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 100;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_1;
     }
 
@@ -39,7 +40,7 @@ public class GroundSmall : EffectController
     {
         pic = 101;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_2;
     }
 
@@ -47,7 +48,7 @@ public class GroundSmall : EffectController
     {
         pic = 102;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_3;
     }
 
@@ -55,7 +56,7 @@ public class GroundSmall : EffectController
     {
         pic = 103;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_4;
     }
 
@@ -63,7 +64,7 @@ public class GroundSmall : EffectController
     {
         pic = 104;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_5;
     }
 
@@ -71,7 +72,7 @@ public class GroundSmall : EffectController
     {
         pic = 105;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_6;
     }
 
@@ -79,7 +80,7 @@ public class GroundSmall : EffectController
     {
         pic = 106;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_7;
     }
 
@@ -87,7 +88,7 @@ public class GroundSmall : EffectController
     {
         pic = 107;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_8;
     }
 
@@ -95,7 +96,7 @@ public class GroundSmall : EffectController
     {
         pic = 108;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_9;
     }
 
@@ -103,7 +104,7 @@ public class GroundSmall : EffectController
     {
         pic = 109;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_10;
     }
 
@@ -111,7 +112,7 @@ public class GroundSmall : EffectController
     {
         pic = 110;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_11;
     }
 
@@ -119,7 +120,7 @@ public class GroundSmall : EffectController
     {
         pic = 111;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_12;
     }
 
@@ -127,7 +128,7 @@ public class GroundSmall : EffectController
     {
         pic = 112;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_13;
     }
 
@@ -135,7 +136,7 @@ public class GroundSmall : EffectController
     {
         pic = 113;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_14;
     }
 
@@ -143,7 +144,7 @@ public class GroundSmall : EffectController
     {
         pic = 114;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_15;
     }
 
@@ -151,7 +152,7 @@ public class GroundSmall : EffectController
     {
         pic = 115;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Invoke_16;
     }
 
@@ -159,7 +160,7 @@ public class GroundSmall : EffectController
     {
         pic = 116;
         state = StateFrameEnum.EFFECT_IDLE;
-        wait = 1f;
+        wait = 0.5f;
         next = Remove_300;
     }
 

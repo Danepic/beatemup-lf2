@@ -14,6 +14,7 @@ public class NsNarutoCloneAttack : AttackController
 {
     void Awake()
     {
+        palettes.Add("Attacks/Clones/ns-naruto-clone-attack/sprites");
         base.Awake();
         headerName = "NS Naruto Clone Attack";
         totalHp = 150;

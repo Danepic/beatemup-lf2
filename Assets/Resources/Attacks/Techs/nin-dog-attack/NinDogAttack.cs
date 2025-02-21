@@ -14,6 +14,7 @@ public class NinDogAttack : AttackController
 {
     void Awake()
     {
+        palettes.Add("Attacks/Techs/nin-dog-attack/sprites");
         base.Awake();
         headerName = "Ninja Dog Attack";
         totalHp = 150;
@@ -65,7 +66,7 @@ public class NinDogAttack : AttackController
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
-        ItrDefault();
+        ItrDefault(zwidth: 0.22f);
     }
     private void Downercut_26()
     {
@@ -76,7 +77,7 @@ public class NinDogAttack : AttackController
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
-        ItrDefault();
+        ItrDefault(zwidth: 0.22f);
     }
 
     private void Remove_300()

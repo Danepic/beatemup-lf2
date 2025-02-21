@@ -1,0 +1,373 @@
+fileFormatVersion: 2
+guid: 1bf960418a018b54e8bd9ab3fd1912dc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KamuiAttack_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 314
+        width: 125
+        height: 143
+      alignment: 9
+      pivot: {x: 0.50535905, y: 0.48594654}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd861d77e346df645a841147ab9d95f4
+      internalID: -1968424135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 310
+        width: 118
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5, y: 0.45898646}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 963fea4daa6eb8549b43bd500d3c6b92
+      internalID: 868170258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_2
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 311
+        width: 122
+        height: 146
+      alignment: 9
+      pivot: {x: 0.48352727, y: 0.45870554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9f178398b98c741be43240746f1afd
+      internalID: 1113640250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_3
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 311
+        width: 138
+        height: 146
+      alignment: 9
+      pivot: {x: 0.45145714, y: 0.45411724}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d72aaf3eb20c884dbfd235b30afa50f
+      internalID: 1302451673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 174
+        width: 130
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5515301, y: 0.52537477}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344083a2402dc054782c13c06f239a2d
+      internalID: -1342602378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_5
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 184
+        width: 117
+        height: 126
+      alignment: 9
+      pivot: {x: 0.50572556, y: 0.5000001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04fb7196cfc9cbe41b5202f7b706fc34
+      internalID: -973947166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_6
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 180
+        width: 124
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5108047, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc3915abed9d1e4cb88e6ab72fde4dd
+      internalID: -1509855785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_7
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 180
+        width: 125
+        height: 129
+      alignment: 9
+      pivot: {x: 0.4785635, y: 0.5000001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d071e9717cd5b9242aadba7fd4b14ada
+      internalID: -394064023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 37
+        width: 122
+        height: 131
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.5051136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab38168a231dcf3468e37f7e209e3b31
+      internalID: 1265110796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KamuiAttack_1_9
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 52
+        width: 99
+        height: 109
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.45083365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b5d27e98f5e48478b726bcdecb7ade
+      internalID: -1221324789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5f734bb563548f441a95aea15f8285dd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      KamuiAttack_1_0: -1968424135
+      KamuiAttack_1_1: 868170258
+      KamuiAttack_1_2: 1113640250
+      KamuiAttack_1_3: 1302451673
+      KamuiAttack_1_4: -1342602378
+      KamuiAttack_1_5: -973947166
+      KamuiAttack_1_6: -1509855785
+      KamuiAttack_1_7: -394064023
+      KamuiAttack_1_8: 1265110796
+      KamuiAttack_1_9: -1221324789
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

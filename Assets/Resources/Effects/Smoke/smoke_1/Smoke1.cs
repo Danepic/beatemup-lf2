@@ -15,6 +15,7 @@ public class Smoke1 : EffectController
 {
     void Awake()
     {
+        palettes.Add("Effects/smoke/smoke_1/sprites");
         base.Awake();
         headerName = "Smoke 1";
         frames = PopulateFrames(this);

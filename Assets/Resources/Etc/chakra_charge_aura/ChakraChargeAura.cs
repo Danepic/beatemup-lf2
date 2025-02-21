@@ -15,6 +15,7 @@ public class ChakraChargeAura : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/chakra_charge_aura/sprites");
         base.Awake();
         headerName = "Chakra Charge Aura";
         type = ObjTypeEnum.ETC;

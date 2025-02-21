@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367271531295969940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -475,32 +475,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  stage: 0
   cancellableOpoints: []
   originalColor: {r: 0, g: 0, b: 0, a: 0}
-  spriteRenderer: {fileID: 6095121000027118457}
   team: 0
   facingRight: 1
   pic: 0
   state: 0
   repeatCount: 0
   currentRepeat: 0
-  palettes:
-  - Chars/kakashi/ns-kakashi-base/sprites
   paletteIndex: 0
   zSizeDefault: 0.22
   sprites:
     _serializedList:
     - Key: 0
       Value: {fileID: 0}
-  inv: {fileID: 21300000, guid: 1df7f024e70a0234aa12400135176423, type: 3}
+  currentFrameId: 0
   hitNormalFrame: 0
   hitBloodFrame: 0
   defenseHitFrame: 0
   startFrame: 0
-  hurtbox: {fileID: 8809648882670262357}
-  rb: {fileID: 2124579007145812063}
-  selfBoxCollider: {fileID: 6889613990049068018}
-  hitbox: {fileID: 8129389446340419785}
+  stageSpriteRenderer: {fileID: 0}
   currentHp: 0
   currentMp: 0
   onGround: 0

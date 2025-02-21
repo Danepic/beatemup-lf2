@@ -16,6 +16,7 @@ public class NsNarutoBase : CharController
 {
     void Awake()
     {
+        palettes.Add("Chars/naruto/ns-naruto-base/sprites");
         base.Awake();
         header = new()
         {

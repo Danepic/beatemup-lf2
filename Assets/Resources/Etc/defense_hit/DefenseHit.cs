@@ -13,6 +13,7 @@ public class DefenseHit : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/defense_hit/sprites");
         base.Awake();
         headerName = "Defense Hit";
         type = ObjTypeEnum.ETC;

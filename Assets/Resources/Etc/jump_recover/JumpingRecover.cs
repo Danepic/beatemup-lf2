@@ -16,6 +16,7 @@ public class JumpingRecover : EffectController
 {
     void Awake()
     {
+        palettes.Add("Etc/jumping_recover/sprites");
         base.Awake();
         headerName = "Jumping Recover";
         type = ObjTypeEnum.ETC;

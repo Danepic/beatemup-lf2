@@ -16,6 +16,7 @@ public class NsSakuraBase : CharController
 {
     void Awake()
     {
+        palettes.Add("Chars/sakura/ns-sakura-base/sprites");
         base.Awake();
         header = new()
         {
@@ -2601,6 +2602,25 @@ public class NsSakuraBase : CharController
     {
         pic = 129; wait = 2f; next = Crouch_290;
         BdyDefault();
+    }
+    #endregion
+
+    #region Catch Invisible
+    private void CatchInvisible_950()
+    {
+        repeatCount = 250;
+        ResetMovementFromStop(); CancelOpoints();
+        pic = -9999; wait = 2f; next = CatchInvisible_951;
+        BdyDefault();
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+    }
+    private void CatchInvisible_951()
+    {
+        RepeatCountToFrame(Falling_801);
+        ResetMovementFromStop(); CancelOpoints();
+        pic = -9999; wait = 2f; next = CatchInvisible_951;
+        BdyDefault();
+        bdy.kind = BdyKindEnum.INVULNERABLE;
     }
     #endregion
 }

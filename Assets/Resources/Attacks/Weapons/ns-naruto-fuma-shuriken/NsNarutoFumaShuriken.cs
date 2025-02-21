@@ -14,6 +14,7 @@ public class NsNarutoFumaShuriken : AttackController
 {
     void Awake()
     {
+        palettes.Add("Attacks/Weapons/ns-naruto-fuma-shuriken/sprites");
         base.Awake();
         headerName = "NS Naruto Fūma Shuriken";
         totalHp = 350;

@@ -18,7 +18,7 @@ public class ObjController : MonoBehaviour
     protected float waitFrame;
     protected Vector3 originalLocalScale;
     public Color originalColor;
-    public SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
     public TeamEnum team;
     public bool facingRight = true;
     public int pic;
@@ -28,12 +28,12 @@ public class ObjController : MonoBehaviour
     public int currentRepeat;
     protected Action next;
 
-    public List<string> palettes;
+    protected List<string> palettes = new();
 
     public int paletteIndex = 0;
     public float zSizeDefault = 0.22f;
     public SerializedDictionary<int, Sprite> sprites = new();
-    public Sprite inv;
+    protected Sprite inv;
     public MethodInfo currentFrame;
     public int currentFrameId;
 
@@ -44,6 +44,7 @@ public class ObjController : MonoBehaviour
     protected float dvz;
     public MethodInfo summonAction;
     protected bool enableNextIfHit;
+    protected ObjController targetHit = null;
     protected Vector3 originLocalPosition;
     protected Dictionary<int, Queue<ObjController>> opoints = new();
     protected Queue<ObjController> originPool = new();
@@ -55,13 +56,16 @@ public class ObjController : MonoBehaviour
     public Dictionary<int, MethodInfo> frames = new();
     protected bool actionTriggered = false;
     public int startFrame = 0;
+    private float shortestDistance = Mathf.Infinity;
 
     protected void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         id = gameObject.GetInstanceID();
         GetSprites();
         originalLocalScale = transform.localScale;
         originalColor = spriteRenderer.color;
+        inv = Resources.Load<Sprite>("Etc/inv");
     }
 
     public void Start()
@@ -99,7 +103,7 @@ public class ObjController : MonoBehaviour
         ChangeFrame(nextFrame.Method);
     }
 
-    protected void ChangeFrame(int? nextFrame)
+    public void ChangeFrame(int? nextFrame)
     {
         if (nextFrame.HasValue)
         {
@@ -118,13 +122,16 @@ public class ObjController : MonoBehaviour
 
     protected void RepeatCountToFrame(Action action)
     {
-        if (repeatCount != 0 && currentRepeat >= repeatCount)
+        if (currentRepeat >= repeatCount)
         {
             currentRepeat = 0;
             repeatCount = 0;
             ChangeFrame(action);
         }
-        currentRepeat++;
+        else
+        {
+            currentRepeat++;
+        }
     }
 
     protected void GetSprites()
@@ -177,8 +184,13 @@ public class ObjController : MonoBehaviour
         };
     }
 
-    protected void SpawnOpoint(int index, OpointEntity opoint)
+    protected List<ObjController> SpawnOpoint(int index, OpointEntity opoint, List<ObjController> opointsControl = null)
     {
+        if (opointsControl != null && opointsControl.Count > 0) {
+            return opointsControl;
+        }
+        
+        List<ObjController> result = new();
         if (execOpointOnceInFrame && opoints[index].Count > 0)
         {
             execOpointOnceInFrame = false;
@@ -213,13 +225,18 @@ public class ObjController : MonoBehaviour
             }
             else
             {
+                opointScript.transform.parent = null;
                 opointScript.facingRight = facingRight && opoint.facingFront;
             }
 
             opointScript.gameObject.SetActive(true);
             for (int i = 0; i < opointScript.gameObject.transform.childCount; i++)
             {
-                opointScript.gameObject.transform.GetChild(i).gameObject.SetActive(true);
+                var childGameObj = opointScript.gameObject.transform.GetChild(i).gameObject;
+                if (!childGameObj.TryGetComponent<ObjController>(out _))
+                {
+                    childGameObj.SetActive(true);
+                }
                 var hitbox = opointScript.gameObject.transform.Find("Hitbox");
                 if (hitbox != null)
                 {
@@ -237,6 +254,12 @@ public class ObjController : MonoBehaviour
             opointScript.owner = this;
 
             opointScript.Start();
+            result.Add(opointScript);
+            return result;
+        }
+        else
+        {
+            return opointsControl;
         }
     }
 
@@ -289,19 +312,22 @@ public class ObjController : MonoBehaviour
         {
             opoint.Delete();
         }
+        cancellableOpoints.Clear();
     }
 
     public void Delete()
     {
+        CancelOpoints();
         spriteRenderer.color = new Color(1, 1, 1, 0f);
         spriteRenderer.sprite = inv;
         repeatCount = 0;
         currentRepeat = 0;
         transform.localScale = originalLocalScale;
         spriteRenderer.color = originalColor;
+
         for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(true);
+            transform.GetChild(i).gameObject.SetActive(false);
         }
         if (ownerId == null)
         {
@@ -310,6 +336,7 @@ public class ObjController : MonoBehaviour
         }
         else
         {
+            transform.parent = owner.gameObject.transform;
             originPool.Enqueue(this);
             gameObject.SetActive(false);
         }
@@ -322,15 +349,27 @@ public class ObjController : MonoBehaviour
 
         for (int currentPool = 0; currentPool < poolObjectsQuantity; currentPool++)
         {
-            var gameObjectToPoolInstantiate = GameObject.Instantiate<GameObject>(gameObjectToPool);
+            GameObject gameObjectToPoolInstantiate;
+            try
+            {
+                gameObjectToPoolInstantiate = GameObject.Instantiate<GameObject>(gameObjectToPool);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("[EnrichOpoint] Problem to instantiate " + objPath);
+                throw e;
+            }
 
             ObjController opointObjProcess = gameObjectToPoolInstantiate.GetComponent<ObjController>();
             opointObjProcess.originLocalPosition = new Vector3(opointObjProcess.transform.position.x, opointObjProcess.transform.position.y, opointObjProcess.transform.position.z);
-            opointObjProcess.ownerId = ownerId;
+            opointObjProcess.ownerId = ownerId ?? id;
             opointObjProcess.originPool = framePoolObjects;
             opointObjProcess.team = team;
             opointObjProcess.spriteRenderer.sprite = inv;
             opointObjProcess.stage = stage;
+
+            opointObjProcess.transform.parent = transform;
+
             gameObjectToPoolInstantiate.SetActive(false);
 
             framePoolObjects.Enqueue(opointObjProcess);
@@ -375,5 +414,24 @@ public class ObjController : MonoBehaviour
 
         var scaleY = transform.localScale.y <= 0 ? 0 : transform.localScale.y - propScaley;
         transform.localScale = new Vector3(scaleX, scaleY, transform.localScale.z);
+    }
+
+    protected CharController FindNearestObject(List<CharController> objects)
+    {
+        CharController nearestObject = null;
+        foreach (var obj in objects)
+        {
+            if (obj == null) continue;
+
+            float distance = Vector3.Distance(transform.position, obj.transform.position);
+
+            if (distance < this.shortestDistance)
+            {
+                shortestDistance = distance;
+                nearestObject = obj;
+            }
+        }
+
+        return nearestObject;
     }
 }

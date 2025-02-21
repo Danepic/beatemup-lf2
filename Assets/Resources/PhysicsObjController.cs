@@ -11,14 +11,15 @@ public class PhysicsObjController : ObjController
 {
     protected BdyEntity bdy = new();
     protected ItrEntity itr = new();
-    public Transform hurtbox;
-    public Rigidbody rb;
+    protected Transform hurtbox;
+    protected Rigidbody rb;
     protected Vector3 velocity = Vector3.zero;
     protected bool execMoveToPosition = false;
     protected bool execImpulseForce = false;
     protected bool execFixedMoveToPosition = false;
-    public BoxCollider selfBoxCollider;
-    public Transform hitbox;
+    protected BoxCollider selfBoxCollider;
+    protected Transform hitbox;
+    public SpriteRenderer stageSpriteRenderer;
 
     protected float maxDistanceToCheckCollision = 0.1f;
     protected LayerMask whatIsGround;
@@ -75,6 +76,16 @@ public class PhysicsObjController : ObjController
     private int percentToHit = 0;
     private int hitDefenseActionId = 160;
     private int hitJumpDefenseActionId = 305;
+    protected List<ObjController> opointsControl = new();
+
+    public void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        selfBoxCollider = GetComponent<BoxCollider>();
+        hurtbox = transform.Find("Hurtbox"); ;
+        hitbox = transform.Find("Hitbox"); ;
+        base.Awake();
+    }
 
     public void Start()
     {
@@ -107,12 +118,12 @@ public class PhysicsObjController : ObjController
         selfBoxCollider.size = hurtbox.localScale;
     }
 
-    protected void ItrDefault()
+    protected void ItrDefault(float zwidth = 0)
     {
         itr.kind = ItrKindEnum.ENEMY;
         hitbox.gameObject.SetActive(true);
         hitbox.localPosition = new Vector3(0f, spriteRenderer.sprite.bounds.size.y / 2, 0f);
-        hitbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x, spriteRenderer.sprite.bounds.size.y, zSizeDefault);
+        hitbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x, spriteRenderer.sprite.bounds.size.y, zSizeDefault + zwidth);
     }
 
     protected void Itr()
@@ -173,7 +184,7 @@ public class PhysicsObjController : ObjController
         }
     }
 
-    protected void ApplyDefaultPhysic(float? dvx, float? dvy, float? dvz, bool facingRight)
+    protected void ApplyDefaultPhysic(float? dvx, float? dvy, float? dvz, bool facingRight, ItrPhysicEnum physicType = ItrPhysicEnum.DEFAULT, bool ignoreFacing = false)
     {
         if (!execPhysicsOnceInFrame)
         {
@@ -181,14 +192,19 @@ public class PhysicsObjController : ObjController
         }
         if (dvx != null)
         {
-            if (facingRight)
+            if (!ignoreFacing)
             {
-                this.velocity.x = dvx.Value;
+                if (facingRight)
+                {
+                    this.velocity.x = dvx.Value;
 
-            }
-            else
-            {
-                this.velocity.x = -dvx.Value;
+                }
+                else
+                {
+                    this.velocity.x = -dvx.Value;
+                }
+            } else {
+                this.velocity.x = dvx.Value;
             }
         }
 
@@ -201,7 +217,18 @@ public class PhysicsObjController : ObjController
         {
             this.velocity.z = dvz.Value;
         }
-        execImpulseForce = true;
+
+        switch (physicType)
+        {
+            case ItrPhysicEnum.FIXED:
+                execMoveToPosition = true;
+                break;
+
+            default:
+                execImpulseForce = true;
+                break;
+        }
+
         execPhysicsOnceInFrame = false;
     }
 
@@ -320,6 +347,7 @@ public class PhysicsObjController : ObjController
             scriptObject.damageInSingleTarget = scriptObject.itr.applyInSingleEnemy;
             scriptObject.enableNextIfHit = true;
             scriptObject.nextIfHit = scriptObject.itr.nextIfHit;
+            scriptObject.targetHit = this;
             wasAttacked = true;
             if (gameObject.activeInHierarchy)
             {
@@ -384,7 +412,6 @@ public class PhysicsObjController : ObjController
         GroundEffectsController groundEffectsController;
         if (collider.gameObject.TryGetComponent(out groundEffectsController))
         {
-            Debug.Log(groundEffectsController.type);
             stage = groundEffectsController.type;
         }
         yield return null;
@@ -687,5 +714,78 @@ public class PhysicsObjController : ObjController
             case GroundEnum.WATER:
                 break;
         }
+    }
+
+    protected void StageFadeIn(float fadeInValue)
+    {
+        if (stageSpriteRenderer.color.a >= 1)
+        {
+            stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 1);
+        }
+        else
+        {
+            stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, fadeInValue + stageSpriteRenderer.color.a);
+        }
+    }
+
+    protected void StageFadeOut(float fadeOutValue)
+    {
+        if (stageSpriteRenderer.color.a <= 0)
+        {
+            stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 0);
+        }
+        else
+        {
+            stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, fadeOutValue - stageSpriteRenderer.color.a);
+        }
+    }
+
+    protected void FollowTargetPhysic(Transform enemyPosition, float velocityX, float velocityY, float velocityZ)
+    {
+        if (enemyPosition == null)
+        {
+            return;
+        }
+        var selfPosition = transform.position;
+        float dvx = 0; float dvy = 0; float dvz = 0; bool facingRight = true;
+        if (selfPosition.x < enemyPosition.position.x)
+        { //inimigo a frente
+            dvx = velocityX;
+        }
+        else if (selfPosition.x > enemyPosition.position.x)
+        { //inimigo a trás
+            dvx = -velocityX;
+        }
+        else
+        {
+            dvx = 0f;
+        }
+
+        if (selfPosition.y < enemyPosition.position.y)
+        { //inimigo acima
+            dvy = velocityY;
+        }
+        else if (selfPosition.y > enemyPosition.position.y)
+        { //inimigo abaixo
+            dvy = -velocityY;
+        }
+        else
+        {
+            dvy = 0f;
+        }
+
+        if (selfPosition.z < enemyPosition.position.z)
+        { //inimigo acima em z
+            dvz = velocityZ;
+        }
+        else if (selfPosition.z > enemyPosition.position.z)
+        { //inimigo abaixo em z
+            dvz = -velocityZ;
+        }
+        else
+        {
+            dvz = 0f;
+        }
+        ApplyDefaultPhysic(dvx, dvy, dvz, facingRight, ItrPhysicEnum.FIXED);
     }
 }

@@ -15,6 +15,7 @@ public class Fog : AttackController
     private PhysicsObjController ownerPhysics;
     void Awake()
     {
+        palettes.Add("Attacks/Techs/fog/sprites");
         base.Awake();
         headerName = "Fog";
         totalHp = -1;

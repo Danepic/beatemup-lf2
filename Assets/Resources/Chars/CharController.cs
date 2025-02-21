@@ -82,6 +82,9 @@ public class CharController : PhysicsObjController
         opoints.Add(13, EnrichOpoint(1, "Effects/ground/normal/normal/ground-normal"));
         opoints.Add(14, EnrichOpoint(1, "Effects/ground/normal/large/ground-large"));
         opoints.Add(15, EnrichOpoint(1, "Effects/ground/normal/small/ground-small"));
+        opoints.Add(16, EnrichOpoint(1, "Etc/ultimate/ultimate"));
+        opoints.Add(17, EnrichOpoint(1, "Etc/ultimate_mugshot/ultimate_mugshot"));
+        opoints.Add(18, EnrichOpoint(6, "Attacks/Techs/kawa/log/kawa_log"));
         switch (playerEnum)
         {
             case PlayerEnum.PLAYER_1:
@@ -1074,6 +1077,24 @@ public class CharController : PhysicsObjController
     protected void Front(Action action)
     {
         if ((facingRight && hitRight) || (!facingRight && hitLeft))
+        {
+            ChangeFrame(action);
+            return;
+        }
+    }
+
+    protected void Left(Action action)
+    {
+        if (hitLeft)
+        {
+            ChangeFrame(action);
+            return;
+        }
+    }
+
+    protected void Right(Action action)
+    {
+        if (hitRight)
         {
             ChangeFrame(action);
             return;
