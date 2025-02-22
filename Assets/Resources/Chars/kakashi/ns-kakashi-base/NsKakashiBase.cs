@@ -2954,6 +2954,7 @@ public class NsKakashiBase : CharController
         Defense(CortePresaBrocaAttack_1165); Attack(CortePresaBrocaAttack_1165); InAir(CortePresaBrocaAttack_1165);
         ApplyPhysicRunning();
         ManageWalking();
+        SpawnGroundSmall(Opoint(x: 0, y: 0, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
     }
 
     private void CortePresaBrocaAttack_1165()
