@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,16 +34,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -121,12 +121,562 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1560
+        width: 36
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524e5b895ef18584abcc781c763aa2dd
+      internalID: -456579887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1563
+        width: 37
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7776fc903e3ceaf4792fe78891667f8d
+      internalID: 754550474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1561
+        width: 32
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d5884f95110d14aa5c08c97f987655
+      internalID: 731805154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_3
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1562
+        width: 52
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b48434f6afd0160448ad2a0944b9027d
+      internalID: 518925941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_4
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1561
+        width: 55
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35f9a89e8d4b874e8fab99caf970312
+      internalID: 347267565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_5
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1561
+        width: 59
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e50f243ab298a4183c4ce30897d5df
+      internalID: -746490288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_6
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 1558
+        width: 57
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97fd22f469b4524b949130ca40ddae3
+      internalID: 525372967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_7
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 1563
+        width: 45
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd91711976ca5c4289d6f89ff208b86
+      internalID: 2110628181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_8
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1558
+        width: 42
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101b6977ea6d3ab4c9dd0c55ed30e5d4
+      internalID: -1681401535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1053
+        width: 36
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c076933b05da7774dbee0ce8621993cb
+      internalID: -1569179701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_10
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1055
+        width: 40
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9912d8fbddce840a6078a2cb269b3e
+      internalID: 467919818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 1056
+        width: 38
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f95c5c24c030144cad966f5f46ccee5
+      internalID: 1582907731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_12
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1053
+        width: 46
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999787b9fd136684fbb6d1fd10bbb275
+      internalID: 1702974472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_13
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 1056
+        width: 50
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637951b08179da3478d9fd095751c8ef
+      internalID: 1911237920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_14
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 1053
+        width: 63
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7e8c78dd034cc4880f23dfecfdc931
+      internalID: -758819239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_15
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 1053
+        width: 63
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b290fb43042df94ca5d0937ac7aacbf
+      internalID: -719811979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_16
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 1054
+        width: 50
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2f9bbca51b40746bc825b95cd1d168
+      internalID: 600109677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_17
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 1054
+        width: 44
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10cf016007bbef449a84cb57944667b6
+      internalID: 1199214201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_18
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 537
+        width: 39
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf264dd1afac9624a901354dd7d949ec
+      internalID: 1693410729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_19
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 540
+        width: 58
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478fd4d5985702f4d9b2fc3e1a34646a
+      internalID: -802342363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_20
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 540
+        width: 63
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54f73d0290b1814782aef463dd03fb4
+      internalID: -368453029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_21
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 534
+        width: 63
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c07b403f2bab284f8bc1a03f05039c0
+      internalID: 1434821408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_22
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 534
+        width: 63
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b45246ef4b5b441ac956770338af97
+      internalID: 1639736449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_23
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 535
+        width: 62
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7157fbde7d681448bb85d489215e58
+      internalID: -325566689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gaara_Sprite_3_24
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 534
+        width: 39
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20899dfcfd4b13b4889b48e8d86159a1
+      internalID: -1505763208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f7841bfc60f43d247a4ac54d157e5d64
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +685,32 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gaara_Sprite_3_0: -456579887
+      Gaara_Sprite_3_1: 754550474
+      Gaara_Sprite_3_10: 467919818
+      Gaara_Sprite_3_11: 1582907731
+      Gaara_Sprite_3_12: 1702974472
+      Gaara_Sprite_3_13: 1911237920
+      Gaara_Sprite_3_14: -758819239
+      Gaara_Sprite_3_15: -719811979
+      Gaara_Sprite_3_16: 600109677
+      Gaara_Sprite_3_17: 1199214201
+      Gaara_Sprite_3_18: 1693410729
+      Gaara_Sprite_3_19: -802342363
+      Gaara_Sprite_3_2: 731805154
+      Gaara_Sprite_3_20: -368453029
+      Gaara_Sprite_3_21: 1434821408
+      Gaara_Sprite_3_22: 1639736449
+      Gaara_Sprite_3_23: -325566689
+      Gaara_Sprite_3_24: -1505763208
+      Gaara_Sprite_3_3: 518925941
+      Gaara_Sprite_3_4: 347267565
+      Gaara_Sprite_3_5: -746490288
+      Gaara_Sprite_3_6: 525372967
+      Gaara_Sprite_3_7: 2110628181
+      Gaara_Sprite_3_8: -1681401535
+      Gaara_Sprite_3_9: -1569179701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

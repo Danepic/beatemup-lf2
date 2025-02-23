@@ -331,9 +331,9 @@ GameObject:
   - component: {fileID: 6095121000027118457}
   - component: {fileID: 2124579007145812063}
   - component: {fileID: 6889613990049068018}
-  - component: {fileID: 7990516487135078379}
-  - component: {fileID: 5152913968303114450}
   - component: {fileID: 7385952355720030828}
+  - component: {fileID: 1650544786995279375}
+  - component: {fileID: 5152913968303114450}
   m_Layer: 6
   m_Name: ns-gaara-base
   m_TagString: Character
@@ -462,7 +462,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.45, y: 0.71, z: 0.2}
   m_Center: {x: 0, y: 0.355, z: 0}
---- !u!114 &7990516487135078379
+--- !u!114 &7385952355720030828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -471,7 +471,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 6121911019449722295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d2386cea0e313846a2fd2c2ca875153, type: 3}
+  m_Script: {fileID: 11500000, guid: d6d2ec65f82310840be501454e235401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 0}
+  enemies: []
+  alies: []
+  target: {fileID: 0}
+  team: 0
+--- !u!114 &1650544786995279375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6121911019449722295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a640b94a5b7fd5f4088ff0d563000328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
@@ -487,9 +504,7 @@ MonoBehaviour:
   paletteIndex: 0
   zSizeDefault: 0.22
   sprites:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: 0}
+    _serializedList: []
   currentFrameId: 0
   hitNormalFrame: 0
   hitBloodFrame: 0
@@ -508,8 +523,7 @@ MonoBehaviour:
   externKind: 0
   damageRestTU: 0
   hittablePercent: 100
-  playerInput: {fileID: 5152913968303114450}
-  playerEnum: 1
+  playerEnum: 2
   hitAttack: 0
   releaseAttackButton: 0
   hitUp: 0
@@ -557,7 +571,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitJump
         m_Mode: 0
@@ -573,7 +587,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Jump[/Keyboard/x]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitAttack
         m_Mode: 0
@@ -589,7 +603,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Attack[/Keyboard/z]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitDefense
         m_Mode: 0
@@ -605,7 +619,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Defense[/Keyboard/a]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitPower
         m_Mode: 0
@@ -621,7 +635,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Power[/Keyboard/s]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitSuperPower
         m_Mode: 0
@@ -637,7 +651,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/SuperPower[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitTaunt
         m_Mode: 0
@@ -653,7 +667,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Taunt[/Keyboard/leftCtrl]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitUp
         m_Mode: 0
@@ -669,7 +683,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Up[/Keyboard/upArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitLeft
         m_Mode: 0
@@ -685,7 +699,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Left[/Keyboard/leftArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitDown
         m_Mode: 0
@@ -701,7 +715,7 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Down[/Keyboard/downArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7990516487135078379}
+      - m_Target: {fileID: 1650544786995279375}
         m_TargetAssemblyTypeName: CharController, Assembly-CSharp
         m_MethodName: HitRight
         m_Mode: 0
@@ -720,20 +734,3 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7385952355720030828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6121911019449722295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d2ec65f82310840be501454e235401, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  self: {fileID: 0}
-  enemies: []
-  alies: []
-  target: {fileID: 0}
-  team: 0

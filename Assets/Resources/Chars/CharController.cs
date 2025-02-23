@@ -11,7 +11,7 @@ using Unity.VisualScripting;
 
 public class CharController : PhysicsObjController
 {
-    public PlayerInput playerInput;
+    protected PlayerInput playerInput;
     public PlayerEnum playerEnum = PlayerEnum.COM;
     protected HeaderChar header;
     protected StatsChar stats;
@@ -64,6 +64,7 @@ public class CharController : PhysicsObjController
 
     protected void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
         type = ObjTypeEnum.CHARACTER;
         base.Awake();
         opoints.Add(0, EnrichOpoint(3, "Etc/chakra_charge/chakra_charge"));
