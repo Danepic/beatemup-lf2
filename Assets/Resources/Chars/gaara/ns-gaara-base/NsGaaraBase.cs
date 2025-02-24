@@ -16,22 +16,22 @@ public class NsGaaraBase : CharController
 {
     void Awake()
     {
-        palettes.Add("Chars/kakashi/ns-kakashi-base/sprites");
+        palettes.Add("Chars/gaara/ns-gaara-base/sprites");
         base.Awake();
         header = new()
         {
-            name = "Kakashi Hatake",
+            name = "Gaara",
             startHp = 1025,
-            startMp = 1050,
+            startMp = 1200,
         };
         stats = new()
         {
-            aggressive = 8,
-            technique = 8,
-            intelligent = 9,
-            speed = 8,
+            aggressive = 7,
+            technique = 10,
+            intelligent = 8,
+            speed = 5,
             resistance = 6,
-            stamina = 6,
+            stamina = 9,
         };
         opoints.Add(50, EnrichOpoint(6, "Attacks/Weapons/kunai/kunai"));
         opoints.Add(51, EnrichOpoint(2, "Attacks/Techs/nin-dog-attack/nin-dog-attack"));
@@ -73,9 +73,9 @@ public class NsGaaraBase : CharController
     #region Standing
     private void Standing_0()
     {
-        StopMovement(); CancelOpoints();
+        StopMovement(); CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         ResetMovementFromStop();
-        pic = 108; state = StateFrameEnum.STANDING; wait = 2f; next = Standing_1;
+        pic = 112; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_1;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -89,7 +89,7 @@ public class NsGaaraBase : CharController
 
     private void Standing_1()
     {
-        pic = 111; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_2;
+        pic = 113; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_2;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -102,7 +102,7 @@ public class NsGaaraBase : CharController
     }
     private void Standing_2()
     {
-        pic = 110; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_3;
+        pic = 114; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_3;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -115,7 +115,7 @@ public class NsGaaraBase : CharController
     }
     private void Standing_3()
     {
-        pic = 113; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_4;
+        pic = 115; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_4;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -128,7 +128,7 @@ public class NsGaaraBase : CharController
     }
     private void Standing_4()
     {
-        pic = 112; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_5;
+        pic = 116; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_5;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -140,45 +140,6 @@ public class NsGaaraBase : CharController
         ResetParams();
     }
     private void Standing_5()
-    {
-        pic = 115; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_6;
-        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
-        Bdy();
-        CanWalking(Walking_20);
-        ApplyPhysicStanding();
-        CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
-        Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
-        ResetParams();
-    }
-    private void Standing_6()
-    {
-        pic = 114; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_7;
-        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
-        Bdy();
-        CanWalking(Walking_20);
-        ApplyPhysicStanding();
-        CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
-        Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
-        ResetParams();
-    }
-    private void Standing_7()
-    {
-        pic = 118; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_8;
-        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
-        Bdy();
-        CanWalking(Walking_20);
-        ApplyPhysicStanding();
-        CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
-        Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
-        ResetParams();
-    }
-    private void Standing_8()
     {
         pic = 117; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_0;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
@@ -196,7 +157,7 @@ public class NsGaaraBase : CharController
     #region Walking
     private void Walking_20()
     {
-        pic = 119; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_21; CancelOpoints();
+        pic = 118; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_21; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -210,7 +171,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_21()
     {
-        pic = 120; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_22;
+        pic = 119; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_22;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -224,7 +185,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_22()
     {
-        pic = 121; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_23;
+        pic = 120; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_23;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -238,7 +199,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_23()
     {
-        pic = 122; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_24;
+        pic = 121; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_24;
         BdyDefault();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -250,7 +211,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_24()
     {
-        pic = 123; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_25;
+        pic = 122; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_25;
         BdyDefault();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -262,7 +223,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_25()
     {
-        pic = 124; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_26;
+        pic = 123; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_26;
         BdyDefault();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -274,7 +235,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_26()
     {
-        pic = 125; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_27;
+        pic = 124; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_27;
         BdyDefault();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -286,7 +247,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_27()
     {
-        pic = 126; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_28;
+        pic = 125; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_28;
         BdyDefault();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -298,7 +259,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_28()
     {
-        pic = 127; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_29;
+        pic = 126; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_29;
         BdyDefault();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -310,7 +271,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_29()
     {
-        pic = 128; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_30;
+        pic = 127; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_30;
         BdyDefault();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -322,7 +283,7 @@ public class NsGaaraBase : CharController
     }
     private void Walking_30()
     {
-        pic = 130; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_20;
+        pic = 128; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_20;
         BdyDefault();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -337,7 +298,7 @@ public class NsGaaraBase : CharController
     #region SimpleDash
     private void SimpleDash_40()
     {
-        pic = 119; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 450f; dvy = 0f; dvz = 0f;
+        pic = 118; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 450f; dvy = 0f; dvz = 0f;
         next = SimpleDash_41;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
@@ -348,7 +309,7 @@ public class NsGaaraBase : CharController
 
     private void SimpleDash_41()
     {
-        pic = 131; state = StateFrameEnum.SIMPLE_DASH; wait = 1.5f; dvx = 0f; dvy = 0f; dvz = 0f;
+        pic = 129; state = StateFrameEnum.SIMPLE_DASH; wait = 1.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDash_42;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
@@ -359,7 +320,7 @@ public class NsGaaraBase : CharController
     private void SimpleDash_42()
     {
         CanHoldForwardAfter(Running_55);
-        pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
+        pic = 130; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDash_43;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
         BdyDefault();
@@ -369,7 +330,7 @@ public class NsGaaraBase : CharController
     {
         StopMovement();
         CanHoldForwardAfter(Running_55);
-        pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
+        pic = 131; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDashStopRunning_44;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
         BdyDefault();
@@ -379,7 +340,7 @@ public class NsGaaraBase : CharController
     {
         ResetMovementFromStop();
         CanHoldForwardAfter(Running_55);
-        pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 4f; dvx = 150f; dvy = 0; dvz = 0;
+        pic = 131; state = StateFrameEnum.SIMPLE_DASH; wait = 4f; dvx = 150f; dvy = 0; dvz = 0;
         next = StopRunning_62;
         Attack(Attack1_350); Defense(RunningDash_70); Jump(DashJump_250);
         BdyDefault();
@@ -390,7 +351,7 @@ public class NsGaaraBase : CharController
     #region Running
     private void Running_45()
     {
-        pic = 119; state = StateFrameEnum.RUNNING; wait = 1.5f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 118; state = StateFrameEnum.RUNNING; wait = 1.5f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_46;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -400,7 +361,7 @@ public class NsGaaraBase : CharController
     }
     private void Running_46()
     {
-        pic = 120; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 119; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_47;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -410,7 +371,7 @@ public class NsGaaraBase : CharController
     }
     private void Running_47()
     {
-        pic = 121; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 120; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_48;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -419,7 +380,7 @@ public class NsGaaraBase : CharController
 
     private void Running_48()
     {
-        pic = 122; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 121; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_49;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -428,7 +389,7 @@ public class NsGaaraBase : CharController
 
     private void Running_49()
     {
-        pic = 123; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 122; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_50;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -437,7 +398,7 @@ public class NsGaaraBase : CharController
 
     private void Running_50()
     {
-        pic = 124; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 123; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_51;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -446,7 +407,7 @@ public class NsGaaraBase : CharController
 
     private void Running_51()
     {
-        pic = 125; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 124; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_52;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -455,7 +416,7 @@ public class NsGaaraBase : CharController
 
     private void Running_52()
     {
-        pic = 126; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 125; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_53;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -464,7 +425,7 @@ public class NsGaaraBase : CharController
 
     private void Running_53()
     {
-        pic = 127; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 126; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_54;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -472,7 +433,7 @@ public class NsGaaraBase : CharController
     }
     private void Running_54()
     {
-        pic = 128; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 127; state = StateFrameEnum.RUNNING; wait = 0.5f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_55;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -480,7 +441,7 @@ public class NsGaaraBase : CharController
     }
     private void Running_55()
     {
-        pic = 130; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
+        pic = 128; state = StateFrameEnum.RUNNING; wait = 1f; dvx = 3f; dvy = 0f; dvz = 3f;
         next = Running_45;
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
@@ -492,7 +453,7 @@ public class NsGaaraBase : CharController
     private void StopRunning_60()
     {
         StopMovement();
-        pic = 133; state = StateFrameEnum.STOP_RUNNING; wait = 1f; dvx = 0; dvy = 0; dvz = 0;
+        pic = 131; state = StateFrameEnum.STOP_RUNNING; wait = 1f; dvx = 0; dvy = 0; dvz = 0;
         next = StopRunning_61;
         Attack(RunningAttack_330);
         BdyDefault();
@@ -500,7 +461,7 @@ public class NsGaaraBase : CharController
     private void StopRunning_61()
     {
         ResetMovementFromStop();
-        pic = 134; state = StateFrameEnum.STOP_RUNNING; wait = 4f; dvx = 150f; dvy = 0; dvz = 0;
+        pic = 131; state = StateFrameEnum.STOP_RUNNING; wait = 4f; dvx = 150f; dvy = 0; dvz = 0;
         next = StopRunning_62;
         Attack(RunningAttack_330);
         BdyDefault();
@@ -508,7 +469,7 @@ public class NsGaaraBase : CharController
     }
     private void StopRunning_62()
     {
-        pic = 133; state = StateFrameEnum.STOP_RUNNING; wait = 1f; dvx = 0f; dvy = 0f; dvz = 0f;
+        pic = 131; state = StateFrameEnum.STOP_RUNNING; wait = 1f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = Standing_0;
         Attack(RunningAttack_330);
         BdyDefault();
@@ -519,7 +480,7 @@ public class NsGaaraBase : CharController
     #region RunningDash
     private void RunningDash_70()
     {
-        pic = 119; state = StateFrameEnum.DASH; wait = 2f;
+        pic = 118; state = StateFrameEnum.DASH; wait = 2f;
         next = RunningDash_71;
         BdyDefault();
         StopMovement();
@@ -527,20 +488,20 @@ public class NsGaaraBase : CharController
     private void RunningDash_71()
     {
         ResetMovementFromStop();
-        pic = 131; state = StateFrameEnum.DASH; wait = 0.5f; dvx = 600; dvy = 0; dvz = 200;
+        pic = 129; state = StateFrameEnum.DASH; wait = 0.5f; dvx = 600; dvy = 0; dvz = 200;
         next = RunningDash_72;
         BdyDefault();
         ApplyPhysicDash();
     }
     private void RunningDash_72()
     {
-        pic = 132; state = StateFrameEnum.DASH; wait = 5f;
+        pic = 130; state = StateFrameEnum.DASH; wait = 5f;
         next = RunningDash_73;
         BdyDefault();
     }
     private void RunningDash_73()
     {
-        pic = 133; state = StateFrameEnum.DASH; wait = 0.5f;
+        pic = 130; state = StateFrameEnum.DASH; wait = 0.5f;
         next = StopRunning_60;
         BdyDefault();
     }
@@ -578,32 +539,32 @@ public class NsGaaraBase : CharController
     private void DashBackward_130()
     {
         StopMovement();
-        pic = 134; state = StateFrameEnum.JUMPING; wait = 1.5f;
+        pic = 131; state = StateFrameEnum.JUMPING; wait = 1.5f;
         next = DashBackward_131;
         BdyDefault();
     }
     private void DashBackward_131()
     {
         ResetMovementFromStop();
-        pic = 135; state = StateFrameEnum.JUMPING; wait = 1f; dvx = -200; dvy = 175; dvz = 0;
+        pic = 132; state = StateFrameEnum.JUMPING; wait = 1f; dvx = -200; dvy = 175; dvz = 0;
         next = DashBackward_132;
         BdyDefault(); ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
     }
     private void DashBackward_132()
     {
-        pic = 136; state = StateFrameEnum.JUMPING; wait = 6f;
+        pic = 136; state = StateFrameEnum.JUMPING; wait = 0.5f;
         next = DashBackward_133;
         BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void DashBackward_133()
     {
-        pic = 137; state = StateFrameEnum.JUMPING; wait = 0.5f;
+        pic = 137; state = StateFrameEnum.JUMPING; wait = 6f;
         next = DashBackward_134; OnGround(Crouch_290);
         BdyDefault(); Power(airTech); PowerSide(airTech);
     }
     private void DashBackward_134()
     {
-        pic = 138; state = StateFrameEnum.JUMPING; wait = 6f;
+        pic = 137; state = StateFrameEnum.JUMPING; wait = 6f;
         next = DashBackward_134; OnGround(Crouch_290);
         BdyDefault(); Power(airTech); PowerSide(airTech);
     }
@@ -612,28 +573,28 @@ public class NsGaaraBase : CharController
     #region Defense
     private void Start_Defense_150()
     {
-        pic = 139; state = StateFrameEnum.DEFEND; wait = 1f;
+        pic = 301; state = StateFrameEnum.DEFEND; wait = 1f;
         next = Defense_151; Attack(ThrowingWeapon_310); Power(ChargeStart_170);
         Jump(DashBackward_130);
         BdyDefault();
     }
     private void Defense_151()
     {
-        pic = 140; state = StateFrameEnum.DEFEND; wait = 2f;
+        pic = 302; state = StateFrameEnum.DEFEND; wait = 2f;
         next = StopDefense_152; CanHoldDefenseAfter(DefenseHold_155);
         Attack(ThrowingWeapon_310); Power(ChargeStart_170); Jump(DashBackward_130);
         BdyDefault();
     }
     private void StopDefense_152()
     {
-        pic = 139; state = StateFrameEnum.OTHER; wait = 1f;
+        pic = 301; state = StateFrameEnum.OTHER; wait = 1f;
         next = Standing_0; Attack(ThrowingWeapon_310); Power(ChargeStart_170);
         Jump(DashBackward_130);
         BdyDefault();
     }
     private void DefenseHold_155()
     {
-        pic = 140; state = StateFrameEnum.DEFEND; wait = 1f;
+        pic = 302; state = StateFrameEnum.DEFEND; wait = 1f;
         next = Defense_151;
         Attack(ThrowingWeapon_310); Power(ChargeStart_170); Jump(DashBackward_130);
         BdyDefault();
@@ -641,14 +602,14 @@ public class NsGaaraBase : CharController
 
     private void HitDefense_160()
     {
-        pic = 140; state = StateFrameEnum.DEFEND; wait = 1f;
+        pic = 302; state = StateFrameEnum.DEFEND; wait = 1f;
         next = HitDefense_161; CanHoldDefenseAfter(Defense_151);
         Attack(ThrowingWeapon_310); Power(ChargeStart_170); Jump(DashBackward_130);
         BdyDefault();
     }
     private void HitDefense_161()
     {
-        pic = 140; state = StateFrameEnum.DEFEND; wait = 2.5f;
+        pic = 302; state = StateFrameEnum.DEFEND; wait = 2.5f;
         next = StopDefense_152; CanHoldDefenseAfter(Defense_151);
         Attack(ThrowingWeapon_310); Power(ChargeStart_170); Jump(DashBackward_130);
         BdyDefault();
@@ -683,15 +644,15 @@ public class NsGaaraBase : CharController
 
     private void Charge_175()
     {
-        pic = 204; state = StateFrameEnum.OTHER; wait = 0.5f;
+        pic = 203; state = StateFrameEnum.OTHER; wait = 0.5f;
         next = Charge_176; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
-        SpawnOpoint(0, Opoint(x: 0.173f, y: 0.497f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(0, Opoint(x: 0.05f, y: 0.4f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Charge_176()
     {
-        pic = 204; state = StateFrameEnum.OTHER; wait = 0.5f;
+        pic = 202; state = StateFrameEnum.OTHER; wait = 0.5f;
         next = Charge_177; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
@@ -699,7 +660,7 @@ public class NsGaaraBase : CharController
     }
     private void Charge_177()
     {
-        pic = 204; state = StateFrameEnum.OTHER; wait = 0.5f;
+        pic = 203; state = StateFrameEnum.OTHER; wait = 0.5f;
         next = Charge_178; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
@@ -714,21 +675,21 @@ public class NsGaaraBase : CharController
     }
     private void Charge_179()
     {
-        pic = 204; state = StateFrameEnum.OTHER; wait = 2f;
+        pic = 203; state = StateFrameEnum.OTHER; wait = 2f;
         next = Charge_180; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
     }
     private void Charge_180()
     {
-        pic = 204; state = StateFrameEnum.OTHER; wait = 2f;
+        pic = 202; state = StateFrameEnum.OTHER; wait = 2f;
         next = Charge_181; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
     }
     private void Charge_181()
     {
-        pic = 204; state = StateFrameEnum.OTHER; wait = 2f;
+        pic = 203; state = StateFrameEnum.OTHER; wait = 2f;
         next = Charge_182; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
@@ -749,13 +710,13 @@ public class NsGaaraBase : CharController
     }
     private void ChargeStop_191()
     {
-        pic = 203; state = StateFrameEnum.OTHER; wait = 1f;
+        pic = 202; state = StateFrameEnum.OTHER; wait = 1f;
         next = ChargeStop_192;
         BdyDefault();
     }
     private void ChargeStop_192()
     {
-        pic = 202; state = StateFrameEnum.OTHER; wait = 1f;
+        pic = 201; state = StateFrameEnum.OTHER; wait = 1f;
         next = ChargeStop_193;
         BdyDefault();
     }
@@ -776,62 +737,62 @@ public class NsGaaraBase : CharController
     #region Taunt
     private void Taunt_195()
     {
-        pic = 100; wait = 2f; next = Taunt_196;
+        pic = 102; wait = 2f; next = Taunt_196;
         BdyDefault();
     }
     private void Taunt_196()
     {
-        pic = 101; wait = 0.5f; next = Taunt_197;
+        pic = 103; wait = 0.5f; next = Taunt_197;
         BdyDefault();
     }
     private void Taunt_197()
     {
-        pic = 102; wait = 2f; next = Taunt_198;
+        pic = 104; wait = 2f; next = Taunt_198;
         BdyDefault();
     }
     private void Taunt_198()
     {
-        pic = 103; wait = 0.5f; next = Taunt_199;
+        pic = 105; wait = 0.5f; next = Taunt_199;
         BdyDefault();
     }
     private void Taunt_199()
     {
-        pic = 104; wait = 2f; next = Taunt_200;
+        pic = 106; wait = 2f; next = Taunt_200;
         BdyDefault();
     }
     private void Taunt_200()
     {
-        pic = 105; wait = 0.5f; next = Taunt_201;
+        pic = 107; wait = 0.5f; next = Taunt_201;
         BdyDefault();
     }
     private void Taunt_201()
     {
-        pic = 106; wait = 2f; next = Taunt_202;
+        pic = 108; wait = 2f; next = Taunt_202;
         BdyDefault();
     }
     private void Taunt_202()
     {
-        pic = 106; wait = 2f; next = Taunt_203;
+        pic = 109; wait = 2f; next = Taunt_203;
         BdyDefault();
     }
     private void Taunt_203()
     {
-        pic = 106; wait = 2f; next = Taunt_204;
+        pic = 110; wait = 2f; next = Taunt_204;
         BdyDefault();
     }
     private void Taunt_204()
     {
-        pic = 106; wait = 2f; next = Taunt_205;
+        pic = 111; wait = 2f; next = Taunt_205;
         BdyDefault();
     }
     private void Taunt_205()
     {
-        pic = 106; wait = 2f; next = Taunt_206;
+        pic = 111; wait = 2f; next = Taunt_206;
         BdyDefault();
     }
     private void Taunt_206()
     {
-        pic = 107; wait = 2f; next = Standing_0;
+        pic = 111; wait = 2f; next = Standing_0;
         BdyDefault();
     }
     #endregion
@@ -1025,7 +986,7 @@ public class NsGaaraBase : CharController
     {
         ItrDisable();
         StopMovement();
-        pic = 133; state = StateFrameEnum.CROUCH; wait = 1f;
+        pic = 131; state = StateFrameEnum.CROUCH; wait = 1f;
         next = Crouch_291;
         bdy.x = 0.0855f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.2873f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
@@ -1035,7 +996,7 @@ public class NsGaaraBase : CharController
     private void Crouch_291()
     {
         ResetMovementFromStop();
-        pic = 134; state = StateFrameEnum.CROUCH; wait = 3f;
+        pic = 131; state = StateFrameEnum.CROUCH; wait = 3f;
         next = Standing_0;
         bdy.x = 0.0855f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.2873f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
@@ -2231,9 +2192,9 @@ public class NsGaaraBase : CharController
     #region InjuredManager
     private void InjuredManager_700()
     {
-        var optionInjured = UnityEngine.Random.value; state = StateFrameEnum.INJURED; CancelOpoints();
+        var optionInjured = UnityEngine.Random.value; state = StateFrameEnum.INJURED; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 602; wait = 2f; next = optionInjured > 0.5f ? Injured1_702 : Injured2_710;
-        BdyDefault();
+        BdyDefault(); Defense(Kawa_1500);
     }
     #endregion
 
@@ -2243,7 +2204,7 @@ public class NsGaaraBase : CharController
         ResetMovementFromStop();
         pic = 602; wait = 3f; next = Injured1_703; Defense(CriticalDefense_880);
         BdyDefault();
-        ApplyExternPhysic();
+        ApplyExternPhysic(); Defense(Kawa_1500);
     }
     private void Injured1_703()
     {
@@ -2259,7 +2220,7 @@ public class NsGaaraBase : CharController
         ResetMovementFromStop();
         pic = 605; wait = 3f; next = Injured2_711; Defense(CriticalDefense_880);
         BdyDefault();
-        ApplyExternPhysic();
+        ApplyExternPhysic(); Defense(Kawa_1500);
     }
 
     private void Injured2_711()
@@ -2273,9 +2234,9 @@ public class NsGaaraBase : CharController
     #region InjuredSkyManager
     private void InjuredSkyManager_720()
     {
-        var optionInjured = UnityEngine.Random.value; state = StateFrameEnum.INJURED; CancelOpoints();
+        var optionInjured = UnityEngine.Random.value; state = StateFrameEnum.INJURED; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 602; wait = 2f; next = optionInjured > 0.5f ? InjuredSky1_722 : InjuredSky2_730;
-        BdyDefault();
+        BdyDefault(); Defense(Kawa_1500);
     }
     #endregion
 
@@ -2285,7 +2246,7 @@ public class NsGaaraBase : CharController
         ResetMovementFromStop();
         pic = 602; wait = 3f; next = InjuredSky1_723; Defense(JumpCriticalDefense_885);
         BdyDefault();
-        ApplyExternPhysic();
+        ApplyExternPhysic(); Defense(Kawa_1500);
     }
 
     private void InjuredSky1_723()
@@ -2307,7 +2268,7 @@ public class NsGaaraBase : CharController
         ResetMovementFromStop();
         pic = 605; wait = 3f; next = InjuredSky2_731; Defense(JumpCriticalDefense_885);
         BdyDefault();
-        ApplyExternPhysic();
+        ApplyExternPhysic(); Defense(Kawa_1500);
     }
     private void InjuredSky2_731()
     {
@@ -2325,14 +2286,14 @@ public class NsGaaraBase : CharController
     #region Falling
     private void FallingHit_800()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints();
+        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 605; wait = 2f; next = Falling_801;
         BdyDefault();
         ApplyExternPhysic();
     }
     private void Falling_801()
     {
-        ResetMovementFromStop();
+        ResetMovementFromStop(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 606; wait = 2f; next = Falling_802; OnGround(Lying_910);
         BdyDefault();
     }
@@ -2366,7 +2327,7 @@ public class NsGaaraBase : CharController
     #region FallingDown
     private void FallingDown_820()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints();
+        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 630; wait = 2f; next = FallingDown_821; OnGround(FallingDownImpact_825);
         BdyDefault();
         ApplyExternPhysic();
@@ -2413,7 +2374,7 @@ public class NsGaaraBase : CharController
     #region FallingUp
     private void FallingUp_840()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints();
+        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 605; wait = 2f; next = FallingUp_841;
         OnCeil(FallingUpImpact_850);
         BdyDefault();
@@ -2495,7 +2456,7 @@ public class NsGaaraBase : CharController
     #region FallingForwardImpact
     private void FallingForwardtHit_860()
     {
-        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints();
+        ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 620; wait = 2f; next = FallingForward_861;
         BdyDefault();
         ApplyExternPhysic();
@@ -2590,7 +2551,7 @@ public class NsGaaraBase : CharController
     #region Lying
     private void Lying_910()
     {
-        StopMovement(); state = StateFrameEnum.LYING; CancelOpoints();
+        StopMovement(); state = StateFrameEnum.LYING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 626; wait = 2f; next = Lying_911; Jump(JumpRecover_930);
         BdyDefault();
     }
@@ -2646,7 +2607,7 @@ public class NsGaaraBase : CharController
     #region JumpRecover
     private void JumpRecover_930()
     {
-        spriteRenderer.color = parryColor; CancelOpoints();
+        spriteRenderer.color = parryColor; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 431; wait = 1f; next = JumpRecover_931;
         BdyDefault();
         SpawnOpoint(10, Opoint(x: 0.11f, y: 0.25f, z: 0.08f, oid: 0, facingFront: true, quantity: 1));
@@ -2719,7 +2680,7 @@ public class NsGaaraBase : CharController
     {
         pic = 706; wait = 0.5f; next = RaikiriRunning_1006;
         BdyDefault();
-        CancelOpoints();
+        CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         SpawnOpoint(52, Opoint(x: -0.226f, y: 0.384f, z: -0.058f, oid: 150, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
     }
 
@@ -2810,7 +2771,7 @@ public class NsGaaraBase : CharController
     }
     private void RaikiriAttack_1018()
     {
-        CancelOpoints();
+        CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         pic = 719; wait = 1f; next = RaikiriAttack_1019;
         BdyDefault();
     }
@@ -2954,13 +2915,14 @@ public class NsGaaraBase : CharController
         Defense(CortePresaBrocaAttack_1165); Attack(CortePresaBrocaAttack_1165); InAir(CortePresaBrocaAttack_1165);
         ApplyPhysicRunning();
         ManageWalking();
+        SpawnGroundSmall(Opoint(x: 0, y: 0, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
     }
 
     private void CortePresaBrocaAttack_1165()
     {
         SpawnGroundSmall(Opoint(x: 0, y: 0, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
         pic = 723; wait = 0.5f; next = CortePresaBrocaAttack_1166;
-        BdyDefault();
+        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
         StopMovement();
     }
     private void CortePresaBrocaAttack_1166()
@@ -3225,6 +3187,53 @@ public class NsGaaraBase : CharController
     {
         pic = 602; wait = 4f; next = Standing_0;
         BdyDefault();
+    }
+    #endregion
+
+    #region Kawarimi
+    private void Kawa_1500()
+    {
+        pic = -9999; wait = 1f; next = Kawa_1501;
+        BdyDefault(); bdy.kind = BdyKindEnum.INVULNERABLE;
+        ItrDisable();
+        SpawnOpoint(18, Opoint(x: 0f, y: 0.5f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+    }
+    private void Kawa_1501()
+    {
+        pic = -9999; wait = 2f; next = Kawa_1502;
+        BdyDefault(); bdy.kind = BdyKindEnum.INVULNERABLE;
+        ItrDisable();
+        if (hitRight)
+        {
+            dvx = 300f;
+            ApplyDefaultPhysic(dvx, dvy: 0f, dvz: 0f, facingRight, ItrPhysicEnum.DEFAULT, ignoreFacing: true);
+        }
+        else if (hitLeft)
+        {
+            dvx = -300f;
+            ApplyDefaultPhysic(dvx, dvy: 0f, dvz: 0f, facingRight, ItrPhysicEnum.DEFAULT, ignoreFacing: true);
+        } else {
+            ApplyDefaultPhysic(dvx: -300f, dvy: 0f, dvz: 0f, facingRight, ItrPhysicEnum.DEFAULT);
+        }
+    }
+    private void Kawa_1502()
+    {
+        pic = 702; wait = 1f; next = Kawa_1503;
+        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
+        ItrDisable();
+    }
+    private void Kawa_1503()
+    {
+        pic = 701; wait = 1f; next = Kawa_1504;
+        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
+        ItrDisable();
+    }
+    private void Kawa_1504()
+    {
+        StopMovement();
+        pic = 700; wait = 1f; next = Standing_0;
+        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
+        ItrDisable();
     }
     #endregion
 }
