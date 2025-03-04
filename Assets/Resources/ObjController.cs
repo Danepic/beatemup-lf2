@@ -363,6 +363,7 @@ public class ObjController : MonoBehaviour
             ObjController opointObjProcess = gameObjectToPoolInstantiate.GetComponent<ObjController>();
             opointObjProcess.originLocalPosition = new Vector3(opointObjProcess.transform.position.x, opointObjProcess.transform.position.y, opointObjProcess.transform.position.z);
             opointObjProcess.ownerId = ownerId ?? id;
+            opointObjProcess.owner = this;
             opointObjProcess.originPool = framePoolObjects;
             opointObjProcess.team = team;
             opointObjProcess.spriteRenderer.sprite = inv;

@@ -53,7 +53,6 @@ public class PhysicsObjController : ObjController
     protected Action hitPlatformWall;
     public bool onWall;
     public bool onPlatform;
-    public bool isDefending;
     public int externId;
     public int? externOwnerId;
     public TeamEnum externTeam;
@@ -77,6 +76,9 @@ public class PhysicsObjController : ObjController
     private int hitDefenseActionId = 160;
     private int hitJumpDefenseActionId = 305;
     protected List<ObjController> opointsControl = new();
+    protected int? attackLevel1Frame;
+    protected int? attackLevel2Frame;
+    protected int? attackLevel3Frame;
 
     public void Awake()
     {
@@ -100,10 +102,10 @@ public class PhysicsObjController : ObjController
         base.Start();
     }
 
-    protected void BdyDefault()
+    protected void BdyDefault(float zwidth = 0)
     {
         hurtbox.localPosition = new Vector3(0f, spriteRenderer.sprite.bounds.size.y / 2, 0f);
-        hurtbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x / 2, spriteRenderer.sprite.bounds.size.y, zSizeDefault);
+        hurtbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x / 2, spriteRenderer.sprite.bounds.size.y, zSizeDefault + zwidth);
 
         selfBoxCollider.center = hurtbox.localPosition;
         selfBoxCollider.size = hurtbox.localScale;
@@ -203,7 +205,9 @@ public class PhysicsObjController : ObjController
                 {
                     this.velocity.x = -dvx.Value;
                 }
-            } else {
+            }
+            else
+            {
                 this.velocity.x = dvx.Value;
             }
         }
@@ -278,8 +282,12 @@ public class PhysicsObjController : ObjController
                             isDeath = true;
                         }
 
-                        if (defensable && isDefending)
+                        if (defensable && (state == StateFrameEnum.DEFEND || state == StateFrameEnum.JUMP_DEFEND))
                         {
+                            scriptObject.itr.dvx /= 2;
+                            scriptObject.itr.dvy /= 2;
+                            scriptObject.itr.dvz /= 2;
+                            scriptObject.itr.physic = ItrPhysicEnum.DEFAULT;
                             if (onGround)
                             {
                                 ApplyExternPhysicsBehavior(scriptObject, hitDefenseActionId);
@@ -353,7 +361,25 @@ public class PhysicsObjController : ObjController
             {
                 StartCoroutine(ItrEffectSpawn(scriptObject.itr.effect, new Vector3(0f, 0.3f, -0.1f)));
             }
-            ChangeFrame(action);
+
+            if (this.TryGetComponent<CharController>(out _))
+            {
+                ChangeFrame(action);
+            } else {
+                switch(scriptObject.itr.level) {
+                    case 1:
+                        ChangeFrame(attackLevel1Frame);
+                        break;
+                    case 2:
+                        ChangeFrame(attackLevel2Frame);
+                        break;
+                    case 3:
+                        ChangeFrame(attackLevel3Frame);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
         lockHittablePercent = false;
     }

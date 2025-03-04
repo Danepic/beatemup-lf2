@@ -17,6 +17,7 @@ public class DefenseHit : EffectController
         base.Awake();
         headerName = "Defense Hit";
         type = ObjTypeEnum.ETC;
+        frames = PopulateFrames(this);
     }
 
     public void Start()

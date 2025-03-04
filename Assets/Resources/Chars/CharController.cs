@@ -1104,7 +1104,6 @@ public class CharController : PhysicsObjController
 
     protected void ResetParams()
     {
-        isDefending = false;
         wasAttacked = false;
         lock_x_direction = 0;
         lock_z_direction = 0;
