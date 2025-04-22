@@ -33,16 +33,16 @@ public class NsGaaraBase : CharController
             resistance = 6,
             stamina = 9,
         };
-        opoints.Add(50, EnrichOpoint(6, "Attacks/Weapons/kunai/kunai"));
+        opoints.Add(50, EnrichOpoint(6, "Attacks/Weapons/sand-bullet/sand-bullet"));
         opoints.Add(51, EnrichOpoint(2, "Attacks/Techs/nin-dog-attack/nin-dog-attack"));
         opoints.Add(52, EnrichOpoint(2, "Attacks/Techs/sand/shield-2/shield-2"));
         opoints.Add(53, EnrichOpoint(4, "Attacks/Techs/sand/attack-1/attackSand-1"));
-        opoints.Add(54, EnrichOpoint(4, "Etc/status/evasive/evasive"));
-        opoints.Add(55, EnrichOpoint(1, "Attacks/Techs/fire/prepare/fire-prepare"));
-        opoints.Add(56, EnrichOpoint(1, "Attacks/Techs/fire/impact/fire-impact"));
-        opoints.Add(57, EnrichOpoint(6, "Attacks/Techs/fire/ball/fire-ball"));
-        opoints.Add(58, EnrichOpoint(1, "Attacks/Techs/sharingan/kamui/eye/kamui-eye"));
-        opoints.Add(59, EnrichOpoint(1, "Attacks/Techs/sharingan/kamui/target/kamui-target"));
+        opoints.Add(54, EnrichOpoint(4, "Attacks/Techs/sand/attack-2/attackSand-2"));
+        opoints.Add(55, EnrichOpoint(4, "Attacks/Techs/sand/attack-3/attackSand-3"));
+        opoints.Add(56, EnrichOpoint(4, "Attacks/Techs/sand/attack-4/attackSand-4"));
+        opoints.Add(57, EnrichOpoint(4, "Attacks/Techs/sand/attack-5/attackSand-5"));
+        opoints.Add(58, EnrichOpoint(4, "Attacks/Techs/sand/attack-6/attackSand-6"));
+        opoints.Add(59, EnrichOpoint(2, "Attacks/Techs/sand/shield-2/shield-attack-2"));
 
         hitDefenseAction = HitDefense_160; //Todo tirar essa atribuição direta e usar o index dos frames
         jumpDefenseAction = HitJumpDefense_305; //Todo tirar essa atribuição direta e usar o index dos frames
@@ -1126,12 +1126,12 @@ public class NsGaaraBase : CharController
     #region ThrowingWeapon
     private void ThrowingWeapon_310()
     {
-        pic = 302; wait = 0.5f; next = ThrowingWeapon_311; state = StateFrameEnum.ATTACK;
+        pic = 301; wait = 0.5f; next = ThrowingWeapon_311; state = StateFrameEnum.ATTACK;
         BdyDefault();
     }
     private void ThrowingWeapon_311()
     {
-        pic = 302; wait = 0.5f; next = ThrowingWeapon_312;
+        pic = 301; wait = 0.5f; next = ThrowingWeapon_312;
         BdyDefault();
     }
     private void ThrowingWeapon_312()
@@ -1141,39 +1141,39 @@ public class NsGaaraBase : CharController
     }
     private void ThrowingWeapon_313()
     {
-        pic = 302; wait = 0.5f; next = ThrowingWeapon_314;
+        pic = 303; wait = 0.5f; next = ThrowingWeapon_314;
         BdyDefault();
         SpawnOpoint(50, Opoint(x: 0f, y: 0.4f, z: -0.1191684f, oid: 0, facingFront: true, quantity: 1));
     }
     private void ThrowingWeapon_314()
     {
-        pic = 302; wait = 0.5f; next = ThrowingWeapon_315;
+        pic = 304; wait = 0.5f; next = ThrowingWeapon_315;
         BdyDefault();
     }
     private void ThrowingWeapon_315()
     {
-        pic = 302; wait = 0.5f; next = ThrowingWeapon_316;
+        pic = 305; wait = 0.5f; next = ThrowingWeapon_316;
         BdyDefault();
         SpawnOpoint(50, Opoint(x: 0f, y: 0.4f, z: -0.1191684f, oid: 0, facingFront: true, quantity: 1));
     }
     private void ThrowingWeapon_316()
     {
-        pic = 302; wait = 8f; next = ThrowingWeapon_317;
+        pic = 306; wait = 8f; next = ThrowingWeapon_317;
         BdyDefault();
     }
     private void ThrowingWeapon_317()
     {
-        pic = 302; wait = 0.5f; next = ThrowingWeapon_318;
+        pic = 307; wait = 0.5f; next = ThrowingWeapon_318;
         BdyDefault();
     }
     private void ThrowingWeapon_318()
     {
-        pic = 302; wait = 1f; next = ThrowingWeapon_319;
+        pic = 308; wait = 1f; next = ThrowingWeapon_319;
         BdyDefault();
     }
     private void ThrowingWeapon_319()
     {
-        pic = 301; wait = 0.5f; next = Standing_0;
+        pic = 308; wait = 0.5f; next = Standing_0;
         BdyDefault();
     }
     #endregion
@@ -1224,37 +1224,19 @@ public class NsGaaraBase : CharController
         pic = 213; wait = 1f;
         next = RunningAttack_337;
         BdyDefault();
-        itr.x = 0.2098f; itr.y = 0.2994f; itr.z = 0;
-        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.44f;
-        itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
+        SpawnOpoint(57, Opoint(x: 0.401f, y: -0.005600005f, z: -0.1191684f, oid: 60, facingFront: true, quantity: 1, attachToOwner: true, cancellable: true));
     }
     private void RunningAttack_337()
     {
-        ItrDisable();
         pic = 214; wait = 1f;
         next = RunningAttack_338;
         BdyDefault();
-        itr.x = 0.2098f; itr.y = 0.2994f; itr.z = 0;
-        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.44f;
-        itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
     }
     private void RunningAttack_338()
     {
         pic = 215; wait = 1f;
         next = RunningAttack_339;
         BdyDefault();
-        itr.x = 0.2098f; itr.y = 0.2994f; itr.z = 0;
-        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.44f;
-        itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
     }
 
     private void RunningAttack_339()
@@ -1262,12 +1244,6 @@ public class NsGaaraBase : CharController
         pic = 216; wait = 1f;
         next = RunningAttack_340;
         BdyDefault();
-        itr.x = 0.2098f; itr.y = 0.2994f; itr.z = 0;
-        itr.w = 0.4802928f; itr.h = 0.3247183f; itr.zwidth = 0.44f;
-        itr.dvx = 250; itr.dvy = 200; itr.dvz = 0; itr.action = 860;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 7;
-        Itr();
     }
     private void RunningAttack_340()
     {
@@ -1399,15 +1375,10 @@ public class NsGaaraBase : CharController
     }
     private void Attack2_372()
     {
+        SpawnOpoint(54, Opoint(x: -0.532f, y: 0.157f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
         pic = 207; wait = 1f;
         next = Attack2_373;
         BdyDefault();
-        itr.x = 0.3433f; itr.y = 0.4133f; itr.z = 0;
-        itr.w = 0.4044166f; itr.h = 0.2453708f; itr.zwidth = 0.44f;
-        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 8; itr.physic = ItrPhysicEnum.FIXED;
-        Itr();
     }
     private void Attack2_373()
     {
@@ -1494,12 +1465,7 @@ public class NsGaaraBase : CharController
         pic = 402; wait = 1f;
         next = Attack3_396;
         BdyDefault();
-        itr.x = 0.0001f; itr.y = 0.4315f; itr.z = 0;
-        itr.w = 0.9272251f; itr.h = 0.2817348f; itr.zwidth = 0.44f;
-        itr.dvx = 40; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 5; itr.physic = ItrPhysicEnum.FIXED;
-        Itr();
+        SpawnOpoint(55, Opoint(x: -0.532f, y: 0.157f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Attack3_396()
     {
@@ -1582,12 +1548,7 @@ public class NsGaaraBase : CharController
         pic = 320; wait = 1f;
         next = Attack4_414;
         BdyDefault();
-        itr.x = 0.0955f; itr.y = 0.3224f; itr.z = 0;
-        itr.w = 0.6545281f; itr.h = 0.24537f; itr.zwidth = 0.44f;
-        itr.dvx = 25; itr.dvy = 0; itr.dvz = 0; itr.action = 700;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 5; itr.physic = ItrPhysicEnum.FIXED;
-        Itr();
+        SpawnOpoint(56, Opoint(x: -0.532f, y: 0.157f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
         StopMovement();
     }
     private void Attack4_414()
@@ -1640,14 +1601,12 @@ public class NsGaaraBase : CharController
         pic = 212; wait = 0.5f; state = StateFrameEnum.ATTACK;
         next = FrontAttack_431;
         BdyDefault();
-        ResetMovementFromStop();
     }
     private void FrontAttack_431()
     {
         pic = 212; wait = 0.5f;
         next = FrontAttack_432;
         BdyDefault();
-        ApplyDefaultPhysic(dvx: 100, dvy: 0, dvz: 0, facingRight);
     }
     private void FrontAttack_432()
     {
@@ -1665,12 +1624,7 @@ public class NsGaaraBase : CharController
     {
         pic = 214; wait = 2f; next = FrontAttack_435;
         BdyDefault();
-        itr.x = 0.2114f; itr.y = 0.3655f; itr.z = 0;
-        itr.w = 0.4590549f; itr.h = 0.5135916f; itr.zwidth = 0.44f;
-        itr.dvx = 400; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
-        ItrDefault();
+        SpawnOpoint(58, Opoint(x: 0.122f, y: 0.192f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
     }
     private void FrontAttack_435()
     {
@@ -1717,6 +1671,7 @@ public class NsGaaraBase : CharController
     {
         pic = 405; wait = 1f; next = Uppercut_451; state = StateFrameEnum.ATTACK;
         BdyDefault();
+        ItrDisable();
     }
     private void Uppercut_451()
     {
@@ -1737,12 +1692,8 @@ public class NsGaaraBase : CharController
     {
         pic = 407; wait = 0.5f; next = Uppercut_455;
         BdyDefault();
-        itr.x = 0.1614f; itr.y = 0.5224f; itr.z = 0;
-        itr.w = 0.1953547f; itr.h = 0.7817728f; itr.zwidth = 0.44f;
-        itr.dvx = 25; itr.dvy = 350; itr.dvz = 0; itr.action = 840;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
-        ItrDefault();
+        SpawnOpoint(59, Opoint(x: 0.667f, y: -0.107f, z: -0.102f, oid: 40, facingFront: true, quantity: 1));
+        Itr();
     }
     private void Uppercut_455()
     {
@@ -1804,18 +1755,17 @@ public class NsGaaraBase : CharController
     {
         pic = 424; wait = 0.5f; next = Downercut_483;
         BdyDefault();
-        SpawnOpoint(51, Opoint(x: 0.11f, y: 0f, z: -0.08f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(57, Opoint(x: 0.556f, y: 0.04440001f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Downercut_483()
     {
-        SpawnGroundExtraSmall(Opoint(x: 0, y: -0.128f, z: -0.08f, oid: 0, facingFront: true, quantity: 1));
         pic = 425; wait = 1f; next = Downercut_484;
         BdyDefault();
     }
     private void Downercut_484()
     {
         ItrDisable();
-        pic = 426; wait = 1.5f; next = Downercut_485;
+        pic = 425; wait = 1.5f; next = Downercut_485;
         BdyDefault();
     }
     private void Downercut_485()
@@ -1860,6 +1810,7 @@ public class NsGaaraBase : CharController
     {
         pic = 439; wait = 1f; next = JumpSuperAttack_554; OnGround(Crouch_290);
         BdyDefault();
+        SpawnOpoint(57, Opoint(x: 0.5560001f, y: -0.432f, z: -0.102f, oid: 30, facingFront: true, quantity: 1, attachToOwner: true));
     }
     private void JumpSuperAttack_554()
     {
@@ -1867,12 +1818,6 @@ public class NsGaaraBase : CharController
         bdy.x = 0.1047f; bdy.y = 0.1856f; bdy.z = 0;
         bdy.w = 0.4125906f; bdy.h = 0.371265f; bdy.zwidth = 0.22f;
         Bdy();
-        itr.x = 0.4922f; itr.y = 0.3392f; itr.z = 0;
-        itr.w = 0.2629879f; itr.h = 0.3019446f; itr.zwidth = 0.44f;
-        itr.dvx = 100; itr.dvy = -50; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
     }
     private void JumpSuperAttack_555()
     {
@@ -1880,12 +1825,6 @@ public class NsGaaraBase : CharController
         bdy.x = 0.1047f; bdy.y = 0.1856f; bdy.z = 0;
         bdy.w = 0.4125906f; bdy.h = 0.371265f; bdy.zwidth = 0.22f;
         Bdy();
-        itr.x = 0.4922f; itr.y = 0.3392f; itr.z = 0;
-        itr.w = 0.2629879f; itr.h = 0.3019446f; itr.zwidth = 0.44f;
-        itr.dvx = 100; itr.dvy = -50; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
     }
     private void JumpSuperAttack_556()
     {
@@ -2311,7 +2250,7 @@ public class NsGaaraBase : CharController
     }
     #endregion
 
-    #region FallingForwardImpact
+    #region FallingForward
     private void FallingForwardtHit_860()
     {
         ResetMovementFromStop(); state = StateFrameEnum.FALLING; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;

@@ -1,11 +1,10 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Domains;
 using Enums;
 using UnityEngine;
-using System;
-using System.Collections.Generic;
-using AYellowpaper.SerializedCollections;
-using System.Linq;
-using Domains;
-using System.Collections;
+using Random = UnityEngine.Random;
 
 public class PhysicsObjController : ObjController
 {
@@ -168,6 +167,7 @@ public class PhysicsObjController : ObjController
 
     protected void ImpulseForce()
     {
+        Debug.Log(velocity);
         rb.AddForce(velocity * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
 
@@ -198,28 +198,28 @@ public class PhysicsObjController : ObjController
             {
                 if (facingRight)
                 {
-                    this.velocity.x = dvx.Value;
+                    velocity.x = dvx.Value;
 
                 }
                 else
                 {
-                    this.velocity.x = -dvx.Value;
+                    velocity.x = -dvx.Value;
                 }
             }
             else
             {
-                this.velocity.x = dvx.Value;
+                velocity.x = dvx.Value;
             }
         }
 
         if (dvy != null)
         {
-            this.velocity.y = dvy.Value;
+            velocity.y = dvy.Value;
         }
 
         if (dvz != null)
         {
-            this.velocity.z = dvz.Value;
+            velocity.z = dvz.Value;
         }
 
         switch (physicType)
@@ -242,9 +242,11 @@ public class PhysicsObjController : ObjController
         {
             return;
         }
-        this.velocity.x = externFacingRight ? externItr.dvx : -externItr.dvx;
-        this.velocity.y = externItr.dvy;
-        this.velocity.z = externItr.dvz;
+        velocity.x = externFacingRight ? externItr.dvx : -externItr.dvx;
+        velocity.y = externItr.dvy;
+        velocity.z = externItr.dvz;
+        
+        Debug.Log("SS: " + velocity.x + " " + externFacingRight);
 
         switch (externItr.physic)
         {
@@ -260,7 +262,7 @@ public class PhysicsObjController : ObjController
         execPhysicsOnceInFrame = false;
     }
 
-    protected void ExternInteraction(PhysicsObjController scriptObject, Action hitDefenseAction, Action hitJumpDefenseAction)
+    protected void ExternInteraction(PhysicsObjController scriptObject)
     {
         isExternAction = true;
         externTeam = scriptObject.team;
@@ -339,7 +341,7 @@ public class PhysicsObjController : ObjController
 
     private void ApplyExternPhysicsBehavior(PhysicsObjController scriptObject, int? action)
     {
-        percentToHit = lockHittablePercent ? percentToHit : UnityEngine.Random.Range(0, 100);
+        percentToHit = lockHittablePercent ? percentToHit : Random.Range(0, 100);
         lockHittablePercent = true;
         bool wasHit = hittablePercent == 100 || percentToHit <= hittablePercent;
         damageRestTU = scriptObject.itr.rest;
@@ -347,7 +349,7 @@ public class PhysicsObjController : ObjController
         if (wasHit)
         {
             externItr = scriptObject.itr;
-            externFacingRight = scriptObject.facingRight;
+            externFacingRight = scriptObject.attachToOwner ? scriptObject.owner.facingRight : scriptObject.facingRight;
             externId = scriptObject.ownerId.HasValue ? scriptObject.ownerId.Value : scriptObject.id;
             externOwnerId = scriptObject.ownerId;
             externPosition = scriptObject.transform.position;
@@ -362,7 +364,7 @@ public class PhysicsObjController : ObjController
                 StartCoroutine(ItrEffectSpawn(scriptObject.itr.effect, new Vector3(0f, 0.3f, -0.1f)));
             }
 
-            if (this.TryGetComponent<CharController>(out _))
+            if (TryGetComponent<CharController>(out _))
             {
                 ChangeFrame(action);
             } else {
@@ -376,8 +378,6 @@ public class PhysicsObjController : ObjController
                     case 3:
                         ChangeFrame(attackLevel3Frame);
                         break;
-                    default:
-                        break;
                 }
             }
         }
@@ -386,61 +386,11 @@ public class PhysicsObjController : ObjController
 
     protected void CheckPlatforms()
     {
-        Collider[] hitColliders = Physics.OverlapBox(new Vector3(transform.position.x, transform.position.y - (maxDistanceToCheckCollision / 2), transform.position.z),
-            new Vector3(hurtbox.localScale.x / 2, maxDistanceToCheckCollision / 2, zSizeDefault / 2), Quaternion.identity, whatIsGround);
-        if (hitColliders.Length > 0 && hitColliders[0].bounds.max.y - 0.01f <= transform.position.y && gameObject.activeSelf)
+        if (gameObject.activeInHierarchy && gameObject.activeSelf)
         {
-            StartCoroutine(DetectStage(hitColliders[0]));
-            onGround = true;
-            onCeil = false;
+            StartCoroutine(DetectGround());
+            StartCoroutine(DetectWall());
         }
-        else
-        {
-            onGround = false;
-        }
-
-        var forwardCenterX = transform.position.x + (hurtbox.localScale.x / 2) + maxDistanceToCheckCollision;
-        Collider[] hitWallFrontColliders = Physics.OverlapBox(new Vector3(forwardCenterX, transform.position.y + spriteRenderer.sprite.bounds.size.y / 2, transform.position.z),
-            new Vector3(maxDistanceToCheckCollision / 2, spriteRenderer.sprite.bounds.size.y / 2, zSizeDefault / 2), Quaternion.identity, whatIsWall);
-
-        var backCenterX = transform.position.x - (hurtbox.localScale.x / 2) - maxDistanceToCheckCollision;
-        Collider[] hitWallBackColliders = Physics.OverlapBox(new Vector3(backCenterX, transform.position.y + spriteRenderer.sprite.bounds.size.y / 2, transform.position.z),
-            new Vector3(maxDistanceToCheckCollision / 2, spriteRenderer.sprite.bounds.size.y / 2, zSizeDefault / 2), Quaternion.identity, whatIsWall);
-
-        if (hitWallFrontColliders.Length > 0 || hitWallBackColliders.Length > 0)
-        {
-            onWall = true;
-        }
-        else
-        {
-            onWall = false;
-        }
-
-        if (!onGround)
-        {
-            Collider[] hitCeilColliders = Physics.OverlapBox(new Vector3(transform.position.x, transform.position.y + spriteRenderer.sprite.bounds.size.y + maxDistanceToCheckCollision, transform.position.z),
-                new Vector3(spriteRenderer.sprite.bounds.size.x / 2, -maxDistanceToCheckCollision / 2, zSizeDefault / 2), Quaternion.identity, whatIsCeil);
-
-            if (hitCeilColliders.Length > 0)
-            {
-                onGround = false;
-                onCeil = true;
-            }
-            else
-            {
-                onCeil = false;
-            }
-        }
-    }
-
-    private IEnumerator DetectStage(Collider collider)
-    {
-        GroundEffectsController groundEffectsController;
-        if (collider.gameObject.TryGetComponent(out groundEffectsController))
-        {
-            stage = groundEffectsController.type;
-        }
-        yield return null;
     }
 
     protected void CheckInteraction()
@@ -473,7 +423,7 @@ public class PhysicsObjController : ObjController
                 scriptObject.targetId = null;
             }
 
-            this.ExternInteraction(scriptObject, hitDefenseAction, jumpDefenseAction);
+            ExternInteraction(scriptObject);
         }
     }
 
@@ -814,4 +764,140 @@ public class PhysicsObjController : ObjController
         }
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight, ItrPhysicEnum.FIXED);
     }
+    
+    private IEnumerator DetectWall()
+    {
+        var forwardCenterX = hurtbox.transform.position.x + (hurtbox.lossyScale.x / 2) + (0.005f / 2);
+        
+        Collider[] hitWallFrontColliders = new Collider[3];
+        var hitWallFrontCollidersResult = Physics.OverlapBoxNonAlloc(new Vector3(forwardCenterX, hurtbox.transform.position.y, hurtbox.transform.position.z),
+            new Vector3(0.005f / 2, hurtbox.lossyScale.y / 2, zSizeDefault / 2), hitWallFrontColliders, Quaternion.identity, whatIsWall);
+
+        var backCenterX = hurtbox.transform.position.x - (hurtbox.lossyScale.x / 2) - (0.005f / 2);
+        
+        Collider[] hitWallBackColliders = new Collider[3];
+        var hitWallBackCollidersResult = Physics.OverlapBoxNonAlloc(new Vector3(backCenterX, hurtbox.transform.position.y, hurtbox.transform.position.z),
+            new Vector3(0.005f / 2, hurtbox.lossyScale.y / 2, zSizeDefault / 2), hitWallBackColliders, Quaternion.identity, whatIsWall);
+
+        if (hitWallFrontCollidersResult > 0)
+        {
+            Debug.Log(gameObject.name + " | " + hitWallFrontColliders[0].gameObject.name);
+            onWall = true;
+        } else if (hitWallBackCollidersResult > 0)
+        {
+            Debug.Log(gameObject.name + " | " + hitWallBackColliders[0].gameObject.name);
+            onWall = true;
+        }
+        else
+        {
+            onWall = false;
+        }
+        
+        yield return null;
+    }
+
+    private IEnumerator DetectGround()
+    {
+        Collider[] hitColliders = new Collider[3];
+        int hitCollidersResult = Physics.OverlapBoxNonAlloc(new Vector3(hurtbox.transform.position.x, hurtbox.position.y - (hurtbox.transform.lossyScale.y / 2) - (maxDistanceToCheckCollision / 2), hurtbox.transform.position.z),
+            new Vector3(hurtbox.lossyScale.x / 2, maxDistanceToCheckCollision / 2, zSizeDefault / 2), hitColliders, Quaternion.identity, whatIsGround);
+        if (hitCollidersResult > 0 && hitColliders[0].bounds.max.y - 0.01f <= hurtbox.transform.position.y && gameObject.activeSelf)
+        {
+            StartCoroutine(DetectStage(hitColliders[0]));
+            onGround = true;
+            onCeil = false;
+        }
+        else
+        {
+            onGround = false;
+        }
+        
+        if (!onGround)
+        {
+            Collider[] hitCeilColliders = new Collider[3];
+            int hitCeilCollidersResult = Physics.OverlapBoxNonAlloc(new Vector3(hurtbox.transform.position.x, hurtbox.position.y - (hurtbox.transform.lossyScale.y / 2) - (maxDistanceToCheckCollision / 2), hurtbox.transform.position.z),
+                new Vector3(hurtbox.lossyScale.x / 2, -maxDistanceToCheckCollision / 2, zSizeDefault / 2), hitCeilColliders, Quaternion.identity, whatIsCeil);
+
+            if (hitCeilCollidersResult > 0)
+            {
+                onGround = false;
+                onCeil = true;
+            }
+            else
+            {
+                onCeil = false;
+            }
+        }
+        
+        yield return null;
+    }
+
+    private IEnumerator DetectStage(Collider collider)
+    {
+        GroundEffectsController groundEffectsController;
+        if (collider.gameObject.TryGetComponent(out groundEffectsController))
+        {
+            stage = groundEffectsController.type;
+        }
+        yield return null;
+    }
+    
+    private void OnDrawGizmos()
+    {
+        // if (hurtbox == null) return;
+        //
+        // // Cor do gizmo
+        // Gizmos.color = Color.red;
+        //
+        // // FRONT WALL BOX
+        // Vector3 forwardCenterX = hurtbox.transform.position + new Vector3((hurtbox.lossyScale.x / 2) + (0.005f / 2), 0, 0);
+        // Vector3 forwardHalfExtents = new Vector3(0.005f / 2, hurtbox.lossyScale.y / 2, zSizeDefault / 2);
+        // Gizmos.DrawWireCube(forwardCenterX, forwardHalfExtents * 2); // *2 porque extents = metade
+        //
+        // // BACK WALL BOX
+        // Vector3 backCenterX = hurtbox.transform.position - new Vector3((hurtbox.lossyScale.x / 2) + (0.005f / 2), 0, 0);
+        // Vector3 backHalfExtents = forwardHalfExtents; // mesmo tamanho
+        // Gizmos.DrawWireCube(backCenterX, backHalfExtents * 2);
+        //
+        // // ========== GROUND BOX ==========
+        // Gizmos.color = Color.green;
+        //
+        // Vector3 groundCenter = new Vector3(
+        //     hurtbox.transform.position.x,
+        //     hurtbox.position.y - (hurtbox.transform.lossyScale.y / 2) - (maxDistanceToCheckCollision / 2),
+        //     hurtbox.transform.position.z
+        // );
+        //
+        // Vector3 groundHalfExtents = new Vector3(
+        //     hurtbox.lossyScale.x / 2,
+        //     maxDistanceToCheckCollision / 2,
+        //     zSizeDefault / 2
+        // );
+        //
+        // Gizmos.DrawWireCube(groundCenter, groundHalfExtents * 2);
+        //
+        // // ========== CEIL BOX ==========
+        // if (spriteRenderer != null && spriteRenderer.sprite != null)
+        // {
+        //     Gizmos.color = Color.cyan;
+        //
+        //     float spriteHeight = spriteRenderer.sprite.bounds.size.y;
+        //     float spriteWidth = spriteRenderer.sprite.bounds.size.x;
+        //
+        //     Vector3 ceilCenter = new Vector3(
+        //         hurtbox.transform.position.x,
+        //         hurtbox.position.y+ (hurtbox.transform.lossyScale.y / 2) - (maxDistanceToCheckCollision / 2),
+        //         hurtbox.transform.position.z
+        //     );
+        //
+        //     Vector3 ceilHalfExtents = new Vector3(
+        //         hurtbox.lossyScale.x / 2,
+        //         Mathf.Abs(maxDistanceToCheckCollision / 2),
+        //         zSizeDefault / 2
+        //     );
+        //
+        //     Gizmos.DrawWireCube(ceilCenter, ceilHalfExtents * 2);
+        // }
+    }
+
 }

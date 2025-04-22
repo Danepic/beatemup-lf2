@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 7623207200449012774}
   - component: {fileID: 2722465290607547943}
   - component: {fileID: 8561929279343075306}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: attackSand-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,6 +383,7 @@ MonoBehaviour:
   sprites:
     _serializedList: []
   currentFrameId: 0
+  enableNextIfHit: 0
   hitNormalFrame: 0
   hitBloodFrame: 0
   defenseHitFrame: 0

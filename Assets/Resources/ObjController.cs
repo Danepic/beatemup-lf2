@@ -43,7 +43,7 @@ public class ObjController : MonoBehaviour
 
     protected float dvz;
     public MethodInfo summonAction;
-    protected bool enableNextIfHit;
+    public bool enableNextIfHit;
     protected ObjController targetHit = null;
     protected Vector3 originLocalPosition;
     protected Dictionary<int, Queue<ObjController>> opoints = new();
@@ -57,6 +57,7 @@ public class ObjController : MonoBehaviour
     protected bool actionTriggered = false;
     public int startFrame = 0;
     private float shortestDistance = Mathf.Infinity;
+    protected bool attachToOwner = false;
 
     protected void Awake()
     {
@@ -65,6 +66,7 @@ public class ObjController : MonoBehaviour
         GetSprites();
         originalLocalScale = transform.localScale;
         originalColor = spriteRenderer.color;
+        originLocalPosition = transform.position;
         inv = Resources.Load<Sprite>("Etc/inv");
     }
 
@@ -198,6 +200,7 @@ public class ObjController : MonoBehaviour
             opointScript.team = team;
 
             opointScript.facingRight = facingRight && opoint.facingFront;
+            Debug.Log("AA:" + opointScript.facingRight);
 
             if (opoint.useSamePalette)
             {
@@ -222,6 +225,7 @@ public class ObjController : MonoBehaviour
             {
                 opointScript.transform.parent = transform;
                 opointScript.facingRight = true; //Quando é um child quem determina o lado é o Owner, e o facingRight true sempre mantém pro lado do owner
+                opointScript.attachToOwner = opoint.attachToOwner;
             }
             else
             {
@@ -323,6 +327,7 @@ public class ObjController : MonoBehaviour
         repeatCount = 0;
         currentRepeat = 0;
         transform.localScale = originalLocalScale;
+        transform.position = originLocalPosition;
         spriteRenderer.color = originalColor;
 
         for (int i = 0; i < transform.childCount; i++)
@@ -361,7 +366,6 @@ public class ObjController : MonoBehaviour
             }
 
             ObjController opointObjProcess = gameObjectToPoolInstantiate.GetComponent<ObjController>();
-            opointObjProcess.originLocalPosition = new Vector3(opointObjProcess.transform.position.x, opointObjProcess.transform.position.y, opointObjProcess.transform.position.z);
             opointObjProcess.ownerId = ownerId ?? id;
             opointObjProcess.owner = this;
             opointObjProcess.originPool = framePoolObjects;

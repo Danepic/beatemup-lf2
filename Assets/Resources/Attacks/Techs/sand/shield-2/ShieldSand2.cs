@@ -1,14 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Reflection;
-using Chars;
-using Domains;
 using Enums;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class ShieldSand2 : AttackController
 {
@@ -175,6 +166,87 @@ public class ShieldSand2 : AttackController
     #endregion
 
 
+    #region Attack Up
+    private void AttackUpInvoke_40()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
+        pic = 106;
+        wait = 0.5f;
+        next = AttackUpInvoke_41;
+        ItrDisable();
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_41()
+    {
+        pic = 100; wait = 0.5f; next = AttackUpInvoke_42;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_42()
+    {
+        pic = 101; wait = 0.5f; next = AttackUpInvoke_43;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_43()
+    {
+        pic = 103; wait = 0.5f; next = AttackUpInvoke_44;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_44()
+    {
+        pic = 104; wait = 1f; next = AttackUpInvoke_45;
+        BdyDefault(zwidth: 0.33f);
+                
+        itr.dvx = -5f; itr.dvy = 350; itr.dvz = 0; itr.action = 840;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
+
+        itr.x = -0.0049f;
+        itr.y = 0.392f;
+        itr.z = 0f;
+        itr.w = -0.4255021f;
+        itr.h = 0.8759739f;
+        itr.zwidth = 0.55f;
+        Itr();
+    }
+    private void AttackUpInvoke_45()
+    {
+        pic = 105; wait = 1f; next = AttackUpInvoke_46;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_46()
+    {
+        pic = 105; wait = 1f; next = AttackUpInvoke_47;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_47()
+    {
+        pic = 104; wait = 1f; next = AttackUpInvoke_48;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_48()
+    {
+        pic = 103; wait = 1f; next = AttackUpInvoke_49;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_49()
+    {
+        pic = 101; wait = 1f; next = AttackUpInvoke_50;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_50()
+    {
+        pic = 100; wait = 1f; next = AttackUpInvoke_51;
+        BdyDefault(zwidth: 0.33f);
+    }
+    private void AttackUpInvoke_51()
+    {
+        pic = 106; wait = 1f; next = Remove_300;
+        BdyDefault(zwidth: 0.33f);
+    }
+    #endregion
+    
+    
     #region Remove
     private void Remove_300()
     {

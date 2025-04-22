@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,16 +34,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -121,12 +121,100 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SandAttack4_Sprite_1_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 344
+        width: 312
+        height: 132
+      alignment: 9
+      pivot: {x: 0.05448718, y: 0.24242425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22735a4c0e1e3f14da3b564ce1a774bc
+      internalID: 1407934893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandAttack4_Sprite_1_1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 355
+        width: 299
+        height: 141
+      alignment: 9
+      pivot: {x: 0.005685619, y: 0.15602836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2065ba7c0ce3774895c881a49cd01ff
+      internalID: -1483047402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandAttack4_Sprite_1_2
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 201
+        width: 279
+        height: 136
+      alignment: 9
+      pivot: {x: 0.03154122, y: 0.2647059}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44053e5f6a28e264980f227663b1dd59
+      internalID: -689962639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandAttack4_Sprite_1_3
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 191
+        width: 269
+        height: 159
+      alignment: 9
+      pivot: {x: 0.08550186, y: 0.3018868}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b497df85276fc49b95d81ba97dde73
+      internalID: 303010703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 78977d193bf8018489c9c173ea9c9266
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +223,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SandAttack4_Sprite_1_0: 1407934893
+      SandAttack4_Sprite_1_1: -1483047402
+      SandAttack4_Sprite_1_2: -689962639
+      SandAttack4_Sprite_1_3: 303010703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
