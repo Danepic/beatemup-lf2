@@ -242,7 +242,6 @@ public class AttackSand5 : AttackController
         wait = 1f;
         next = JumpSuperAttackInvoke_36;
         BdyDefault(zwidth: 0.22f);
-        OnGround(AttackDownGroundInvoke_10);
     }
 
     private void JumpSuperAttackInvoke_36()

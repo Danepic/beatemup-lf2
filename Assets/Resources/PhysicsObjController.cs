@@ -423,7 +423,10 @@ public class PhysicsObjController : ObjController
                 scriptObject.targetId = null;
             }
 
-            ExternInteraction(scriptObject);
+            if (bdy.kind != BdyKindEnum.INVULNERABLE)
+            {
+                ExternInteraction(scriptObject);
+            }
         }
     }
 

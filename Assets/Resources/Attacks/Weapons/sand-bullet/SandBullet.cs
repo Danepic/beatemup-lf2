@@ -230,7 +230,7 @@ public class SandBullet : AttackController
         wait = 1f;
         next = InvokeDown_22;
         BdyDefault();
-        OnGround(Remove_300);
+        OnGround(Ground_160); OnWall(Wall_150);
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
     }
     private void InvokeDown_22()
@@ -244,7 +244,7 @@ public class SandBullet : AttackController
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
-        OnGround(Remove_300); OnWall(Remove_300);
+        OnGround(Ground_160); OnWall(Wall_150);
     }
     private void InvokeDown_23()
     {
@@ -266,7 +266,7 @@ public class SandBullet : AttackController
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
-        OnGround(Remove_300); OnWall(Remove_300);
+        OnGround(Ground_160); OnWall(Wall_150);
     }
     private void InvokeDown_24()
     {
@@ -288,7 +288,7 @@ public class SandBullet : AttackController
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
-        OnGround(Remove_300); OnWall(Remove_300);
+        OnGround(Ground_160); OnWall(Wall_150);
     }
     private void InvokeDown_25()
     {
@@ -310,7 +310,7 @@ public class SandBullet : AttackController
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
-        OnGround(Remove_300); OnWall(Remove_300);
+        OnGround(Ground_160); OnWall(Wall_150);
     }
     private void InvokeDown_26()
     {
@@ -332,7 +332,7 @@ public class SandBullet : AttackController
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
-        OnGround(Remove_300); OnWall(Remove_300);
+        OnGround(Ground_160); OnWall(Wall_150);
     }
     private void InvokeDown_27()
     {
@@ -354,7 +354,7 @@ public class SandBullet : AttackController
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
-        OnGround(Remove_300); OnWall(Remove_300);
+        OnGround(Ground_160); OnWall(Wall_150);
     }
     private void InvokeDown_28()
     {
@@ -375,38 +375,65 @@ public class SandBullet : AttackController
         itr.h = 2.91f;
         itr.zwidth = 0.22f;
         Itr();
-        OnGround(Remove_300); OnWall(Remove_300);
+        OnGround(Ground_160); OnWall(Wall_150);
     }
     #endregion
     
 
-    private void Remove_300()
+    private void Wall_150()
     {
         CancelOpoints();
         pic = 109;
         wait = 1f;
-        next = Remove_301;
+        next = Wall_151;
         ItrDisable();
     }
 
-    private void Remove_301()
+    private void Wall_151()
     {
         pic = 110;
         wait = 1f;
-        next = Remove_302;
+        next = Wall_152;
         ItrDisable();
     }
 
-    private void Remove_302()
+    private void Wall_152()
     {
         pic = 111;
         wait = 1f;
         ItrDisable();
-        next = Remove_303;
+        next = Remove_300;
+    }
+    
+
+    private void Ground_160()
+    {
+        CancelOpoints();
+        pic = 200;
+        wait = 1f;
+        next = Ground_161;
+        ItrDisable();
     }
 
-    private void Remove_303()
+    private void Ground_161()
     {
+        pic = 201;
+        wait = 1f;
+        next = Ground_162;
+        ItrDisable();
+    }
+
+    private void Ground_162()
+    {
+        pic = 202;
+        wait = 1f;
+        ItrDisable();
+        next = Remove_300;
+    }
+
+    private void Remove_300()
+    {
+        pic = -9999;
         ItrDisable();
         Delete();
     }

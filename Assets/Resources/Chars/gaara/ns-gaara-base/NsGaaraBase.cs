@@ -34,7 +34,7 @@ public class NsGaaraBase : CharController
             stamina = 9,
         };
         opoints.Add(50, EnrichOpoint(6, "Attacks/Weapons/sand-bullet/sand-bullet"));
-        opoints.Add(51, EnrichOpoint(2, "Attacks/Techs/nin-dog-attack/nin-dog-attack"));
+        opoints.Add(51, EnrichOpoint(2, "Attacks/Techs/sand/demon-arm/demon-arm-sand"));
         opoints.Add(52, EnrichOpoint(2, "Attacks/Techs/sand/shield-2/shield-2"));
         opoints.Add(53, EnrichOpoint(4, "Attacks/Techs/sand/attack-1/attackSand-1"));
         opoints.Add(54, EnrichOpoint(4, "Attacks/Techs/sand/attack-2/attackSand-2"));
@@ -43,13 +43,14 @@ public class NsGaaraBase : CharController
         opoints.Add(57, EnrichOpoint(4, "Attacks/Techs/sand/attack-5/attackSand-5"));
         opoints.Add(58, EnrichOpoint(4, "Attacks/Techs/sand/attack-6/attackSand-6"));
         opoints.Add(59, EnrichOpoint(2, "Attacks/Techs/sand/shield-2/shield-attack-2"));
+        opoints.Add(60, EnrichOpoint(2, "Attacks/Techs/sand/shield-1/shield-1"));
 
         hitDefenseAction = HitDefense_160; //Todo tirar essa atribuição direta e usar o index dos frames
         jumpDefenseAction = HitJumpDefense_305; //Todo tirar essa atribuição direta e usar o index dos frames
 
         //para testar techs
-        soloTechSide = Raikiri_1000;
-        soloTech = Kirigakure_1100;
+        soloTechSide = ArmMonster_1000;
+        soloTech = SandShield_1100;
         soloTechDown = CortePresaBroca_1150;
         soloTechUp = KatonBall_1200;
         airTech = RaikiriAir_1250;
@@ -2435,225 +2436,139 @@ public class NsGaaraBase : CharController
     }
     #endregion
 
-    #region Raikiri
-    private void Raikiri_1000()
+    #region ArmMonster
+    private void ArmMonster_1000()
     {
         state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES;
-        pic = 420; wait = 1f; next = Raikiri_1001;
+        pic = 318; wait = 5f; next = ArmMonster_1001;
         BdyDefault();
         ItrDisable();
     }
-    private void Raikiri_1001()
+    private void ArmMonster_1001()
     {
-        pic = 421; wait = 5f; next = Raikiri_1002;
+        pic = 319; wait = 2f; next = ArmMonster_1002;
         BdyDefault();
-        SpawnOpoint(52, Opoint(x: 0, y: -0.085f, z: -0.058f, oid: 50, facingFront: true, quantity: 1, cancellable: true));
     }
-    private void Raikiri_1002()
+    private void ArmMonster_1002()
     {
-        pic = 703; wait = 1f; next = Raikiri_1003;
+        pic = 320; wait = 2f; next = ArmMonster_1003;
         BdyDefault();
-        SpawnOpoint(52, Opoint(x: 0.018f, y: 0.136f, z: -0.058f, oid: 100, facingFront: true, quantity: 1, cancellable: true));
     }
-    private void Raikiri_1003()
+    private void ArmMonster_1003()
     {
-        pic = 704; wait = 10f; next = Raikiri_1004;
+        pic = 321; wait = 2; next = ArmMonster_1004;
+        BdyDefault();
+        SpawnOpoint(51, Opoint(x: 0.2080002f, y: 0.3660002f, z: -0.058f, oid: 0, facingFront: true, quantity: 1));
+    }
+
+    private void ArmMonster_1004()
+    {
+        pic = 322; wait = 9f; next = ArmMonster_1005;
         BdyDefault();
     }
 
-    private void Raikiri_1004()
+    private void ArmMonster_1005()
     {
-        pic = 705; wait = 0.5f; next = Raikiri_1005;
+        pic = 323; wait = 2f; next = ArmMonster_1006;
         BdyDefault();
     }
 
-    private void Raikiri_1005()
+    private void ArmMonster_1006()
     {
-        pic = 706; wait = 1.5f; next = Raikiri_1030;
+        pic = 324; wait = 10f; next = Standing_0;
         BdyDefault();
     }
 
-    private void Raikiri_1030()
+    #endregion
+
+    #region Sand Shield
+    private void SandShield_1100()
     {
-        pic = 706; wait = 0.5f; next = RaikiriRunning_1006;
+        pic = 201; wait = 1f; next = SandShield_1101;
         BdyDefault();
-        CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
-        SpawnOpoint(52, Opoint(x: -0.226f, y: 0.384f, z: -0.058f, oid: 150, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
+    }
+    private void SandShield_1101()
+    {
+        pic = 202; wait = 1f; next = SandShield_1102;
+        BdyDefault();
+    }
+    private void SandShield_1102()
+    {
+        pic = 203; wait = 1f; next = SandShield_1103;
+        BdyDefault();
+        SpawnOpoint(60, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
+    }
+    private void SandShield_1103()
+    {
+        pic = 204; wait = 2f; next = SandShield_1104;
+        BdyDefault();
+        bdy.kind = BdyKindEnum.NORMAL;
+    }
+    private void SandShield_1104()
+    {
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+        pic = -9999; wait = 40f; next = SandShield_1109;
+        BdyDefault(); Attack(SandShieldArmMonster_1120);
+    }
+    private void SandShield_1109()
+    {
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+        pic = -9999; wait = 40f; next = SandShield_1105;
+        BdyDefault(); Attack(SandShieldArmMonster_1120);
+    }
+    private void SandShield_1105()
+    {
+        bdy.kind = BdyKindEnum.NORMAL;
+        pic = 203; wait = 1f; next = SandShield_1107;
+        BdyDefault();
     }
 
-    private void RaikiriRunning_1006()
+    private void SandShield_1107()
     {
-        pic = 707; wait = 1.5f; next = RaikiriRunning_1007;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
+        pic = 202;
+        wait = 1f;
+        next = SandShield_1108;
+        BdyDefault(); 
     }
 
-    private void RaikiriRunning_1007()
+    private void SandShield_1108()
     {
-        pic = 708; wait = 0.5f; next = RaikiriRunning_1008;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1008()
-    {
-        pic = 709; wait = 1.5f; next = RaikiriRunning_1009;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1009()
-    {
-        pic = 710; wait = 0.5f; next = RaikiriRunning_1010;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1010()
-    {
-        pic = 711; wait = 1.5f; next = RaikiriRunning_1011;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1011()
-    {
-        pic = 712; wait = 0.5f; next = RaikiriRunning_1012;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1012()
-    {
-        pic = 713; wait = 1.5f; next = RaikiriRunning_1013;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1013()
-    {
-        pic = 714; wait = 0.5f; next = RaikiriRunning_1014;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1014()
-    {
-        pic = 715; wait = 1.5f; next = RaikiriRunning_1015;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1015()
-    {
-        pic = 716; wait = 0.5f; next = RaikiriRunning_1016;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10f; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1016()
-    {
-        pic = 717; wait = 1.5f; next = RaikiriRunning_1017;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 10f; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriRunning_1017()
-    {
-        pic = 718; wait = 0.5f; next = RaikiriRunning_1006;
-        BdyDefault(); Attack(RaikiriAttack_1018);
-        dvx = 5f; dvy = 0f; dvz = 3f;
-        ApplyPhysicRunning();
-    }
-    private void RaikiriAttack_1018()
-    {
-        CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
-        pic = 719; wait = 1f; next = RaikiriAttack_1019;
-        BdyDefault();
-    }
-    private void RaikiriAttack_1019()
-    {
-        pic = 720; wait = 1.5f; next = RaikiriAttack_1020;
-        BdyDefault();
-        ApplyDefaultPhysic(350f, 0f, 0f, facingRight);
-        ItrDisable();
-        SpawnOpoint(52, Opoint(x: 0.65f, y: 0.384f, z: -0.058f, oid: 200, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
-    }
-    private void RaikiriAttack_1020()
-    {
-        pic = 721; wait = 1.5f; next = RaikiriAttack_1021;
-        BdyDefault();
-        itr.x = 0.3905f; itr.y = 0.3948f; itr.z = 0;
-        itr.w = 0.3594886f; itr.h = 0.994279f; itr.zwidth = 0.66f;
-        itr.dvx = 300; itr.dvy = 200; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
-    }
-    private void RaikiriAttack_1021()
-    {
-        pic = 722; wait = 8f; next = RaikiriAttack_1022;
-        itr.x = 0.3905f; itr.y = 0.3948f; itr.z = 0;
-        itr.w = 0.3594886f; itr.h = 0.994279f; itr.zwidth = 0.66f;
-        itr.dvx = 300; itr.dvy = 200; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
-        BdyDefault();
-    }
-    private void RaikiriAttack_1022()
-    {
-        pic = 722; wait = 2f; next = Standing_0;
-        BdyDefault(); ItrDisable();
-        StopMovement();
-        CancelOpoints();
+        pic = 201;
+        wait = 1f;
+        next = Standing_0;
+        BdyDefault(); 
     }
     #endregion
 
-    #region Kirigakure
-    private void Kirigakure_1100()
+    #region SandShieldArmMonster
+    private void SandShieldArmMonster_1120()
     {
-        pic = 731; wait = 1f; next = Kirigakure_1101;
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+        pic = -9999; wait = 40f; next = SandShieldArmMonster_1121;
+        BdyDefault();
+        SpawnOpoint(51, Opoint(x: 0.2080002f, y: 0.3660002f, z: -0.058f, oid: 0, facingFront: true, quantity: 1));
+    }
+    private void SandShieldArmMonster_1121()
+    {
+        bdy.kind = BdyKindEnum.NORMAL;
+        pic = 203; wait = 1f; next = SandShieldArmMonster_1121;
         BdyDefault();
     }
-    private void Kirigakure_1101()
+
+    private void SandShieldArmMonster_1122()
     {
-        pic = 732; wait = 1f; next = Kirigakure_1102;
-        BdyDefault();
+        pic = 202;
+        wait = 1f;
+        next = SandShieldArmMonster_1123;
+        BdyDefault(); 
     }
-    private void Kirigakure_1102()
+
+    private void SandShieldArmMonster_1123()
     {
-        pic = 733; wait = 1f; next = Kirigakure_1103;
-        BdyDefault();
-    }
-    private void Kirigakure_1103()
-    {
-        pic = 734; wait = 1f; next = Kirigakure_1104;
-        BdyDefault();
-        SpawnOpoint(54, Opoint(x: 0f, y: 2.61f, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
-    }
-    private void Kirigakure_1104()
-    {
-        pic = 739; wait = 1f; next = Kirigakure_1105;
-        BdyDefault();
-        SpawnOpoint(53, Opoint(x: 0.25f, y: 0.35f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
-    }
-    private void Kirigakure_1105()
-    {
-        pic = 740; wait = 10f; next = Kirigakure_1106;
-        SpawnOpoint(53, Opoint(x: -0.20f, y: 0.35f, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
-        BdyDefault();
-    }
-    private void Kirigakure_1106()
-    {
-        pic = 741; wait = 1f; next = Kirigakure_1107;
-        BdyDefault();
-    }
-    private void Kirigakure_1107()
-    {
-        pic = 742; wait = 2f; next = Standing_0;
-        BdyDefault();
+        pic = 201;
+        wait = 1f;
+        next = Standing_0;
+        BdyDefault(); 
     }
     #endregion
 
