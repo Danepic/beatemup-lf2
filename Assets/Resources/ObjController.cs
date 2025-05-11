@@ -12,7 +12,7 @@ public class ObjController : MonoBehaviour
     protected ObjTypeEnum type;
     public int id;
     public int? ownerId;
-    protected ObjController owner;
+    public ObjController owner;
     public GroundEnum stage;
     public List<ObjController> cancellableOpoints = new();
     protected float waitFrame;
@@ -170,7 +170,7 @@ public class ObjController : MonoBehaviour
         }
     }
 
-    protected OpointEntity Opoint(float x, float y, float z, int oid, bool facingFront, int quantity, bool useSamePalette = false, bool cancellable = false, bool attachToOwner = false)
+    protected OpointEntity Opoint(float x, float y, float z, int oid, bool facingFront, int quantity, bool useSamePalette = false, bool cancellable = false, bool attachToOwner = false, bool useParentOwner = false)
     {
         return new()
         {
@@ -182,7 +182,8 @@ public class ObjController : MonoBehaviour
             useSamePalette = useSamePalette,
             oid = oid,
             cancellable = cancellable,
-            attachToOwner = attachToOwner
+            attachToOwner = attachToOwner,
+            useParentOwner = useParentOwner
         };
     }
 
@@ -255,7 +256,15 @@ public class ObjController : MonoBehaviour
             {
                 cancellableOpoints.Add(opointScript);
             }
-            opointScript.owner = this;
+
+            if (opoint.useParentOwner)
+            {
+                opointScript.owner = owner;
+            }
+            else
+            {
+                opointScript.owner = this;
+            }
 
             opointScript.Start();
             result.Add(opointScript);

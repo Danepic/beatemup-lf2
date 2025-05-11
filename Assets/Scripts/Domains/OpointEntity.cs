@@ -18,6 +18,7 @@ namespace Domains
         public bool useSamePalette;
         public bool cancellable = false;
         public bool attachToOwner = false;
+        public bool useParentOwner = false;
 
         public override string ToString()
         {

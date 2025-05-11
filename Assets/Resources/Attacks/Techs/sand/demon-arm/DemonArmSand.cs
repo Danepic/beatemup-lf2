@@ -13,6 +13,8 @@ public class DemonArmSand : AttackController
         attackLevel1Frame = null;
         attackLevel2Frame = null;
         attackLevel3Frame = null;
+        
+        opoints.Add(50, EnrichOpoint(100, "Attacks/Elements/sand/sandElement"));
     }
 
     public void Start()
@@ -115,6 +117,8 @@ public class DemonArmSand : AttackController
         bdy.zwidth = 0.44f;
         Bdy();
         
+        SpawnOpoint(50, Opoint(x: 0.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        
         itr.dvx = 350; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -134,6 +138,8 @@ public class DemonArmSand : AttackController
         pic = 101;
         wait = 5f;
         next = AttackFrontInvoke_7;
+        
+        SpawnOpoint(50, Opoint(x: 1f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
 
         bdy.x = 0.9932f;
         bdy.y = 0.0455f;
@@ -149,6 +155,8 @@ public class DemonArmSand : AttackController
         pic = 100;
         wait = 0.5f;
         next = AttackFrontInvoke_8;
+        
+        SpawnOpoint(50, Opoint(x: 1.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
 
         bdy.x = 0.9932f;
         bdy.y = 0.0455f;

@@ -3275,4 +3275,5 @@ public class NsKakashiBase : CharController
         ItrDisable();
     }
     #endregion
+    
 }

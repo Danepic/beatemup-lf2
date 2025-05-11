@@ -532,14 +532,6 @@ public class CharController : PhysicsObjController
         }
     }
 
-    protected void InAir(Action action)
-    {
-        if (!onGround)
-        {
-            ChangeFrame(action);
-        }
-    }
-
     protected void ManageWalking()
     {
         if (hitRight && !hitLeft)

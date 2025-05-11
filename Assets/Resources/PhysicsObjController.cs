@@ -588,6 +588,14 @@ public class PhysicsObjController : ObjController
             ChangeFrame(action);
         }
     }
+    
+    protected void InAir(Action action)
+    {
+        if (!onGround)
+        {
+            ChangeFrame(action);
+        }
+    }
 
     protected void OnCeil(Action action)
     {

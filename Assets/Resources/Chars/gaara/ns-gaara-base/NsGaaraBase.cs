@@ -14,6 +14,7 @@ using UnityEngine.InputSystem;
 
 public class NsGaaraBase : CharController
 {
+    public Dictionary<int, SandElement> SandElements = new();
     void Awake()
     {
         palettes.Add("Chars/gaara/ns-gaara-base/sprites");
@@ -44,16 +45,18 @@ public class NsGaaraBase : CharController
         opoints.Add(58, EnrichOpoint(4, "Attacks/Techs/sand/attack-6/attackSand-6"));
         opoints.Add(59, EnrichOpoint(2, "Attacks/Techs/sand/shield-2/shield-attack-2"));
         opoints.Add(60, EnrichOpoint(2, "Attacks/Techs/sand/shield-1/shield-1"));
+        opoints.Add(61, EnrichOpoint(2, "Attacks/Techs/sand/float/sand-float"));
+        opoints.Add(62, EnrichOpoint(6, "Attacks/Techs/sand/spear/sand-spear"));
 
         hitDefenseAction = HitDefense_160; //Todo tirar essa atribuição direta e usar o index dos frames
         jumpDefenseAction = HitJumpDefense_305; //Todo tirar essa atribuição direta e usar o index dos frames
 
         //para testar techs
-        soloTechSide = ArmMonster_1000;
+        soloTechSide = SandSpear_1200;
         soloTech = SandShield_1100;
-        soloTechDown = CortePresaBroca_1150;
-        soloTechUp = KatonBall_1200;
-        airTech = RaikiriAir_1250;
+        soloTechDown = Erupcao_1250;
+        soloTechUp = ArmMonster_1000;
+        airTech = SandFloat_1150;
         superTech = SuperKamui_1300;
 
         frames = PopulateFrames(this);
@@ -2572,272 +2575,307 @@ public class NsGaaraBase : CharController
     }
     #endregion
 
-    #region Corte Presa Broca
-    private void CortePresaBroca_1150()
-    {
-        pic = 201; wait = 1f; next = CortePresaBroca_1151;
+    #region SandFloat
+    private void SandFloat_1150() {
+        pic = 531; wait = 1f; next = SandFloat_1151;
         BdyDefault();
     }
-    private void CortePresaBroca_1151()
+
+    private void SandFloat_1151()
     {
-        pic = 202; wait = 1f; next = CortePresaBroca_1152;
+        pic = 532; wait = 1f; next = SandFloat_1152;
         BdyDefault();
     }
-    private void CortePresaBroca_1152()
+
+    private void SandFloat_1152()
     {
-        pic = 203; wait = 1f; next = CortePresaBroca_1153;
+        pic = 533; wait = 1f; next = SandFloat_1153;
         BdyDefault();
+        opointsControl = null;
     }
-    private void CortePresaBroca_1153()
+
+    private void SandFloat_1153()
     {
-        pic = 204; wait = 1f; next = CortePresaBroca_1154;
+        pic = 534; wait = 1f; next = SandFloatIdle_1160;
         BdyDefault();
+        if (opointsControl == null)
+        {
+            opointsControl = SpawnOpoint(61, Opoint(x: 0f, y: -0.2f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
+        }
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
-    private void CortePresaBroca_1154()
+    
+
+    private void SandFloatIdle_1160()
     {
-        pic = 425; wait = 1f; next = CortePresaBroca_1155;
+        pic = 535; wait = 5f; next = SandFloatIdle_1161;
         BdyDefault();
+        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190);
+        Attack(SandFloatAttack_1180);
+        CanSimpleDash(SandFloatRunning_1175);
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
-    private void CortePresaBroca_1155()
+    
+    private void SandFloatIdle_1161()
     {
-        pic = 426; wait = 1f; next = CortePresaBroca_1156;
+        pic = 534; wait = 5f; next = SandFloatIdle_1162;
         BdyDefault();
+        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190);
+        Attack(SandFloatAttack_1180);
+        CanSimpleDash(SandFloatRunning_1175);
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
-    private void CortePresaBroca_1156()
+    
+    private void SandFloatIdle_1162()
     {
-        SpawnGroundSmall(Opoint(x: 0, y: 0, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
-        pic = 427; wait = 1f; next = CortePresaBroca_1157;
+        pic = 535; wait = 5f; next = SandFloatIdle_1163;
         BdyDefault();
+        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190);
+        Attack(SandFloatAttack_1180);
+        CanSimpleDash(SandFloatRunning_1175);
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
-    private void CortePresaBroca_1157()
+
+    private void SandFloatIdle_1163()
     {
-        SpawnGroundExtraSmall(Opoint(x: 0, y: 0, z: -0.03716838f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
-        pic = 702; wait = 1f; next = CortePresaBrocaWalinkg_1160;
+        pic = 534; wait = 5f; next = SandFloatIdle_1160;
         BdyDefault();
+        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190);
+        Attack(SandFloatAttack_1180);
+        CanSimpleDash(SandFloatRunning_1175);
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
-    private void CortePresaBrocaWalinkg_1160()
+    
+    private void SandFloatWalking_1170()
     {
-        pic = -9999; state = StateFrameEnum.WALKING; wait = 1f; dvx = 5f; dvz = 3f; next = CortePresaBrocaWalinkg_1160; mp = -25;
-        bdy.kind = BdyKindEnum.INVULNERABLE;
+        pic = 534; state = StateFrameEnum.WALKING; wait = 1f; dvx = 4f; dvz = 3f; next = SandFloatWalking_1171; bdy.kind = BdyKindEnum.NORMAL;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
         CanFlip();
-        Jump(CortePresaBrocaAttack_1165); Taunt(CortePresaBrocaAttack_1165);
-        Defense(CortePresaBrocaAttack_1165); Attack(CortePresaBrocaAttack_1165); InAir(CortePresaBrocaAttack_1165);
-        ApplyPhysicRunning();
+        CanStandingFromWalking(SandFloatIdle_1160);
+        Jump(SandFloatExit_1190); Taunt(Taunt_195);
+        Defense(Start_Defense_150); Attack(SandFloatAttack_1180); OnCeil(Standing_0);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        ApplyPhysicWalking();
         ManageWalking();
-        SpawnGroundSmall(Opoint(x: 0, y: 0, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+    }
+    private void SandFloatWalking_1171()
+    {
+        pic = 534; state = StateFrameEnum.WALKING; wait = 1f; dvx = 4f; dvz = 3f; next = SandFloatWalking_1170; bdy.kind = BdyKindEnum.NORMAL;
+        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        Bdy();
+        CanFlip();
+        CanStandingFromWalking(SandFloatIdle_1160);
+        Jump(SandFloatExit_1190); Taunt(Taunt_195);
+        Defense(Start_Defense_150); Attack(SandFloatAttack_1180); OnCeil(Standing_0);
+        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        ApplyPhysicWalking();
+        ManageWalking();
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+    }
+    
+    private void SandFloatRunning_1175()
+    {
+        pic = 534; state = StateFrameEnum.RUNNING; wait = .75f; dvx = 4f; dvy = 0f; dvz = 3f;
+        next = SandFloatRunning_1176;
+        Jump(SandFloatExit_1190); Attack(SandFloatAttack_1180);
+        CanStopRunning(SandFloatIdle_1160); ApplyPhysicRunning();
+        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        Bdy();
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+    }
+    
+    private void SandFloatRunning_1176()
+    {
+        pic = 534; state = StateFrameEnum.RUNNING; wait = .75f; dvx = 4f; dvy = 0f; dvz = 3f;
+        next = SandFloatRunning_1175;
+        Jump(SandFloatExit_1190);Attack(SandFloatAttack_1180);
+        CanStopRunning(SandFloatIdle_1160); ApplyPhysicRunning();
+        bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        Bdy();
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
 
-    private void CortePresaBrocaAttack_1165()
+    private void SandFloatAttack_1180()
     {
-        SpawnGroundSmall(Opoint(x: 0, y: 0, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
-        pic = 723; wait = 0.5f; next = CortePresaBrocaAttack_1166;
-        BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
-        StopMovement();
+        pic = 400; wait = 1f; next = SandFloatAttack_1181;
+        BdyDefault();
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
-    private void CortePresaBrocaAttack_1166()
+
+    private void SandFloatAttack_1181()
     {
-        SpawnGroundExtraSmall(Opoint(x: 0, y: 0, z: -0.03716838f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
+        pic = 401; wait = 1f; next = SandFloatAttack_1182;
+        BdyDefault();
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+    }
+
+    private void SandFloatAttack_1182()
+    {
+        pic = 402; wait = 1f; next = SandFloatAttack_1183;
+        BdyDefault();
+        SpawnOpoint(57, Opoint(x: 0.608f, y: -0.884f, z: -0.102f, oid: 30, facingFront: true, quantity: 1, attachToOwner: true));
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+    }
+
+    private void SandFloatAttack_1183()
+    {
+        pic = 403; wait = 1f; next = SandFloatAttack_1184;
+        BdyDefault();
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+    }
+
+    private void SandFloatAttack_1184()
+    {
+        pic = 404; wait = 10f; next = SandFloatAttack_1185;
+        BdyDefault();
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+    }
+
+    private void SandFloatAttack_1185()
+    {
+        pic = 533; wait = 2f; next = SandFloatIdle_1160;
+        BdyDefault();
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+    }
+
+    private void SandFloatExit_1190()
+    {
+        if (opointsControl != null && opointsControl[0] != null) 
+        {
+            opointsControl[0].ChangeFrame(8);
+            opointsControl = null;
+        }
         ResetMovementFromStop();
-        pic = 724; wait = 0.5f; next = CortePresaBrocaAttack_1167;
+        pic = 533; wait = 2f; next = JumpFallingNoAction_308;
         BdyDefault();
-        ItrDisable();
-        ApplyDefaultPhysic(dvx = 40, dvy = 350, dvz = 0, facingRight);
     }
-    private void CortePresaBrocaAttack_1167()
-    {
-        pic = 725; wait = 1f; next = CortePresaBrocaAttack_1168;
-        BdyDefault();
-        itr.dvx = 40; itr.dvy = 350; itr.dvz = 0; itr.action = 840;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 14; itr.physic = ItrPhysicEnum.DEFAULT;
-        ItrDefault(zwidth: 0.22f);
-    }
-    private void CortePresaBrocaAttack_1168()
-    {
-        pic = 726; wait = 10f; next = CortePresaBroca_1169;
-        BdyDefault();
-        itr.dvx = 20; itr.dvy = 200; itr.dvz = 0; itr.action = 840;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 12; itr.physic = ItrPhysicEnum.DEFAULT;
-        ItrDefault(zwidth: 0.22f);
-        OnGround(Crouch_290);
-    }
-    private void CortePresaBroca_1169()
-    {
-        ItrDisable();
-        pic = 727; wait = 0.5f; next = CortePresaBroca_1170;
-        BdyDefault();
-        OnGround(Crouch_290);
-    }
-    private void CortePresaBroca_1170()
-    {
-        ItrDisable();
-        pic = 727; wait = 2f; next = CortePresaBroca_1171; state = StateFrameEnum.JUMP_COMBO_ATTACK;
-        BdyDefault();
-        OnGround(Crouch_290);
-        DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
-    }
-    private void CortePresaBroca_1171()
-    {
-        ItrDisable();
-        pic = 727; wait = 0.5f; next = CortePresaBroca_1172; state = StateFrameEnum.JUMP_COMBO_ATTACK;
-        BdyDefault();
-        OnGround(Crouch_290);
-        DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
-    }
-    private void CortePresaBroca_1172()
-    {
-        ItrDisable();
-        pic = 727; wait = 2f; next = CortePresaBroca_1172; state = StateFrameEnum.JUMP_COMBO_ATTACK;
-        BdyDefault();
-        OnGround(Crouch_290);
-        DoubleTapJump(DoubleJumpCombo_670); Attack(JumpAttack1_590);
-    }
+    
     #endregion
 
-    #region Katon Ball
-    private void KatonBall_1200()
+    #region SandSpear
+    private void SandSpear_1200()
     {
-        pic = 743; wait = 2f; next = KatonBall_1201;
+        pic = 201; wait = 1f; next = SandSpear_1201;
         BdyDefault();
     }
-    private void KatonBall_1201()
+
+    private void SandSpear_1201()
     {
-        pic = 744; wait = 1f; next = KatonBall_1202;
+        pic = 202; wait = 8f; next = SandSpear_1202;
+        BdyDefault();
+        SpawnOpoint(62, Opoint(x: 0f, y: 0f, z: -0.04116842f, oid: 0, facingFront: true, quantity: 1));
+    }
+
+    private void SandSpear_1202()
+    {
+        pic = 203; wait = 1f; next = SandSpear_1203;
         BdyDefault();
     }
-    private void KatonBall_1202()
+
+    private void SandSpear_1203()
     {
-        pic = 745; wait = 2f; next = KatonBall_1203;
+        pic = 204; wait = 2f; next = SandSpear_1204;
         BdyDefault();
     }
-    private void KatonBall_1203()
+
+    private void SandSpear_1204()
     {
-        pic = 746; wait = 1f; next = KatonBall_1204;
+        pic = 205; wait = 2f; next = SandSpear_1205;
         BdyDefault();
     }
-    private void KatonBall_1204()
+
+    private void SandSpear_1205()
     {
-        pic = 747; wait = 2f; next = KatonBall_1205;
+        pic = 206; wait = 1f; next = SandSpear_1206;
         BdyDefault();
     }
-    private void KatonBall_1205()
+
+    private void SandSpear_1206()
     {
-        pic = 748; wait = 1f; next = KatonBall_1206;
+        pic = 207; wait = 1f; next = SandSpear_1207;
         BdyDefault();
     }
-    private void KatonBall_1206()
+
+    private void SandSpear_1207()
     {
-        pic = 749; wait = 2f; next = KatonBall_1207;
+        pic = 208; wait = 1f; next = SandSpear_1208;
         BdyDefault();
     }
-    private void KatonBall_1207()
+
+    private void SandSpear_1208()
     {
-        pic = 750; wait = 1f; next = KatonBall_1208;
-        BdyDefault();
-        SpawnOpoint(55, Opoint(x: 0.65f, y: 0.451f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
-    }
-    private void KatonBall_1208()
-    {
-        pic = 751; wait = 1f; next = KatonBall_1209;
-        BdyDefault();
-        SpawnOpoint(56, Opoint(x: 0.65f, y: 0.451f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
-    }
-    private void KatonBall_1209()
-    {
-        pic = 752; wait = 10f; next = KatonBall_1210;
-        BdyDefault();
-        SpawnOpoint(57, Opoint(x: 0.55f, y: -0.15f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
-    }
-    private void KatonBall_1210()
-    {
-        pic = 753; wait = 1f; next = KatonBall_1211;
+        pic = 209; wait = 10f; next = SandSpear_1209;
         BdyDefault();
     }
-    private void KatonBall_1211()
+
+    private void SandSpear_1209()
     {
-        pic = 754; wait = 10f; next = Standing_0;
+        pic = 210; wait = 1f; next = SandSpear_1210;
+        BdyDefault();
+    }
+
+    private void SandSpear_1210()
+    {
+        pic = 211; wait = 8f; next = Standing_0;
         BdyDefault();
     }
     #endregion
 
-    #region Raikiri Air
-    private void RaikiriAir_1250()
+    #region Erupcao
+    private void Erupcao_1250()
     {
-        state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES; ResetMovementFromStop();
-        pic = 756; wait = 1f; next = RaikiriAir_1251;
+        state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES;
+        pic = 531; wait = 1f; next = Erupcao_1251;
         BdyDefault();
         ItrDisable();
     }
-    private void RaikiriAir_1251()
+
+    private void Erupcao_1251()
     {
-        pic = 757; wait = 5f; next = RaikiriAir_1252; StopMovement();
-        BdyDefault();
-        SpawnOpoint(52, Opoint(x: -0.1f, y: 0.268f, z: -0.058f, oid: 100, facingFront: true, quantity: 1, cancellable: true));
-    }
-    private void RaikiriAir_1252()
-    {
-        pic = 758; wait = 1f; next = RaikiriAir_1253;
+        pic = 532;
+        wait = 2;
+        next = Erupcao_1252;
         BdyDefault();
     }
-    private void RaikiriAir_1253()
+
+    private void Erupcao_1252()
     {
-        pic = 759; wait = 5f; next = RaikiriAirDash_1254;
+        pic = 533;
+        wait = 2;
+        next = Erupcao_1253;
         BdyDefault();
     }
-    private void RaikiriAirDash_1254()
+
+    private void Erupcao_1253()
     {
-        CancelOpoints();
-        pic = 760; wait = 1f; next = RaikiriAirDash_1255; ResetMovementFromStop();
-        BdyDefault();
-        ApplyDefaultPhysic(dvx = 250, dvy = -50, dvz = 0f, facingRight);
-    }
-    private void RaikiriAirDash_1255()
-    {
-        SpawnOpoint(52, Opoint(x: 0.497f, y: 0.01019996f, z: -0.115f, oid: 200, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
-        pic = 761; wait = 1f; next = RaikiriAirAttack_1256;
+        pic = 534;
+        wait = 2;
+        next = Erupcao_1254;
         BdyDefault();
     }
-    private void RaikiriAirAttack_1256()
+
+    private void Erupcao_1254()
     {
-        pic = 762; wait = 1f; next = RaikiriAirAttack_1257;
-        BdyDefault();
-        itr.contact = ItrContactEnum.LYING;
-        itr.x = 0.3283f; itr.y = 0.067f; itr.z = 0;
-        itr.w = 0.3895265f; itr.h = 1.197269f; itr.zwidth = 0.44f;
-        itr.dvx = 75; itr.dvy = 200; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
-    }
-    private void RaikiriAirAttack_1257()
-    {
-        pic = 763; wait = 1f; next = RaikiriAirAttack_1257;
-        BdyDefault(); OnGround(RaikiriAirGround_1258);
-        itr.contact = ItrContactEnum.LYING;
-        itr.x = 0.3283f; itr.y = 0.067f; itr.z = 0;
-        itr.w = 0.3895265f; itr.h = 1.197269f; itr.zwidth = 0.44f;
-        itr.dvx = 75; itr.dvy = 200; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
-        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;
-        Itr();
-    }
-    private void RaikiriAirGround_1258()
-    {
-        ItrDisable();
-        pic = 763; wait = 0.5f; next = RaikiriAirGround_1259;
+        pic = 535;
+        wait = 8;
+        next = Erupcao_1255;
         BdyDefault();
     }
-    private void RaikiriAirGround_1259()
+
+    private void Erupcao_1255()
     {
-        pic = 763; wait = 1f; next = DashBackward_130;
+        pic = 533;
+        wait = 2;
+        next = Standing_0;
         BdyDefault();
-        SpawnGroundNormal(Opoint(x: 0, y: 0, z: 0, oid: 0, facingFront: true, quantity: 1, cancellable: false));
-        CancelOpoints();
     }
+    
     #endregion
 
     #region Super Kamui

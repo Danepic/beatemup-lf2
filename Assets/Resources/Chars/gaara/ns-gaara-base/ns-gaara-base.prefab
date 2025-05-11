@@ -185,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1775366576, guid: ab813aed15b99c344aaac8fbd6fcb10b, type: 3}
+  m_Sprite: {fileID: 1938690326, guid: fe3f708596fdbd04b81a2e0d88b5472c, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.84705883}
   m_FlipX: 0
   m_FlipY: 0
@@ -506,6 +506,7 @@ MonoBehaviour:
   sprites:
     _serializedList: []
   currentFrameId: 0
+  enableNextIfHit: 0
   hitNormalFrame: 0
   hitBloodFrame: 0
   defenseHitFrame: 0
@@ -517,7 +518,6 @@ MonoBehaviour:
   onCeil: 0
   onWall: 0
   onPlatform: 0
-  isDefending: 0
   externId: 0
   externTeam: 0
   externKind: 0

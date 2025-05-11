@@ -229,7 +229,7 @@ public class SandBullet : AttackController
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 1f;
         next = InvokeDown_22;
-        BdyDefault();
+        BdyDefault(zwidth: 0.22f);
         OnGround(Ground_160); OnWall(Wall_150);
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
     }
@@ -239,7 +239,7 @@ public class SandBullet : AttackController
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 10f;
         next = InvokeDown_23;
-        BdyDefault();
+        BdyDefault(zwidth: 0.22f);
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
@@ -253,14 +253,14 @@ public class SandBullet : AttackController
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 5f;
         next = InvokeDown_24;
-        BdyDefault();
+        BdyDefault(zwidth: 0.22f);
 
         itr.x = 0f;
         itr.y = 0.2f;
         itr.z = 0f;
         itr.w = 2.75f;
         itr.h = 2.91f;
-        itr.zwidth = 0.22f;
+        itr.zwidth = 0.44f;
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
@@ -275,14 +275,14 @@ public class SandBullet : AttackController
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 5f;
         next = InvokeDown_25;
-        BdyDefault();
+        BdyDefault(zwidth: 0.22f);
         
         itr.x = 0f;
         itr.y = 0.2f;
         itr.z = 0f;
         itr.w = 2.75f;
         itr.h = 2.91f;
-        itr.zwidth = 0.22f;
+        itr.zwidth = 0.44f;
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
@@ -297,14 +297,14 @@ public class SandBullet : AttackController
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 5f;
         next = InvokeDown_26;
-        BdyDefault();
+        BdyDefault(zwidth: 0.22f);
         
         itr.x = 0f;
         itr.y = 0.2f;
         itr.z = 0f;
         itr.w = 2.75f;
         itr.h = 2.91f;
-        itr.zwidth = 0.22f;
+        itr.zwidth = 0.44f;
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
@@ -319,14 +319,14 @@ public class SandBullet : AttackController
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 5f;
         next = InvokeDown_27;
-        BdyDefault();
+        BdyDefault(zwidth: 0.22f);
         
         itr.x = 0f;
         itr.y = 0.2f;
         itr.z = 0f;
         itr.w = 2.75f;
         itr.h = 2.91f;
-        itr.zwidth = 0.22f;
+        itr.zwidth = 0.44f;
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
@@ -341,14 +341,14 @@ public class SandBullet : AttackController
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 5f;
         next = InvokeDown_28;
-        BdyDefault();
+        BdyDefault(zwidth: 0.22f);
         
         itr.x = 0f;
         itr.y = 0.2f;
         itr.z = 0f;
         itr.w = 2.75f;
         itr.h = 2.91f;
-        itr.zwidth = 0.22f;
+        itr.zwidth = 0.44f;
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
@@ -363,7 +363,7 @@ public class SandBullet : AttackController
         state = StateFrameEnum.ATTACK_IDLE;
         wait = 5f;
         next = InvokeDown_23;
-        BdyDefault();
+        BdyDefault(zwidth: 0.22f);
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
         itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
@@ -373,7 +373,7 @@ public class SandBullet : AttackController
         itr.z = 0f;
         itr.w = 2.75f;
         itr.h = 2.91f;
-        itr.zwidth = 0.22f;
+        itr.zwidth = 0.44f;
         Itr();
         OnGround(Ground_160); OnWall(Wall_150);
     }

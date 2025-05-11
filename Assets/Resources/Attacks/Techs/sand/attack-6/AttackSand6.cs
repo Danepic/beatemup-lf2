@@ -96,6 +96,58 @@ public class AttackSand6 : AttackController
     }
     #endregion
 
+    #region ErupcaoAttack
+
+    private void ErupcaoAttack_20()
+    {
+        pic = 200;
+        wait = 2;
+        next = ErupcaoAttack_21;
+        BdyDefault(zwidth: 0.22f);
+    }
+
+    private void ErupcaoAttack_21()
+    {
+        pic = 201;
+        wait = 2;
+        next = ErupcaoAttack_22;
+        BdyDefault(zwidth: 0.22f);
+    }
+
+    private void ErupcaoAttack_22()
+    {
+        pic = 202;
+        wait = 2;
+        next = ErupcaoAttack_23;
+        BdyDefault(zwidth: 0.22f);
+    }
+
+    private void ErupcaoAttack_23()
+    {
+        pic = 203;
+        wait = 2;
+        next = ErupcaoAttack_24;
+        BdyDefault(zwidth: 0.22f);
+    }
+
+    private void ErupcaoAttack_24()
+    {
+        pic = 204;
+        wait = 2;
+        next = ErupcaoAttack_25;
+        BdyDefault(zwidth: 0.22f);
+    }
+
+    private void ErupcaoAttack_25()
+    {
+        pic = 205;
+        wait = 2;
+        next = ErupcaoAttack_20; // loop opcional
+        BdyDefault(zwidth: 0.22f);
+    }
+
+    #endregion
+
 
     #region Remove
 
