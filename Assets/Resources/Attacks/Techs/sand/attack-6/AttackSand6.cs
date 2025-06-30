@@ -31,7 +31,7 @@ public class AttackSand6 : AttackController
         wait = 0.5f;
         next = AttackFrontInvoke_1;
         ItrDisable();
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void AttackFrontInvoke_1()
@@ -39,7 +39,7 @@ public class AttackSand6 : AttackController
         pic = 300;
         wait = 0.5f;
         next = AttackFrontInvoke_2;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void AttackFrontInvoke_2()
@@ -50,7 +50,7 @@ public class AttackSand6 : AttackController
         BdyDefault(zwidth: 0.22f);
         
         itr.dvx = 350; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 50;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
 
         itr.x = 1.864f;
@@ -100,32 +100,48 @@ public class AttackSand6 : AttackController
 
     private void ErupcaoAttack_20()
     {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         pic = 200;
-        wait = 2;
+        wait = 1;
         next = ErupcaoAttack_21;
         BdyDefault(zwidth: 0.22f);
+        ItrDisable();
     }
 
     private void ErupcaoAttack_21()
     {
         pic = 201;
-        wait = 2;
+        wait = 1;
         next = ErupcaoAttack_22;
         BdyDefault(zwidth: 0.22f);
+        
+        itr.dvx = 25; itr.dvy = 250; itr.dvz = 0; itr.action = 840;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
+
+        itr.x = -0.014f;
+        itr.y = 1.476f;
+        itr.z = 0f;
+        itr.w = 1.93749f;
+        itr.h = 2.95001f;
+        itr.zwidth = 0.44f;
+        Itr();
     }
 
     private void ErupcaoAttack_22()
     {
         pic = 202;
-        wait = 2;
+        wait = 1;
         next = ErupcaoAttack_23;
         BdyDefault(zwidth: 0.22f);
+        ItrDisable();
     }
 
     private void ErupcaoAttack_23()
     {
         pic = 203;
-        wait = 2;
+        wait = 1;
         next = ErupcaoAttack_24;
         BdyDefault(zwidth: 0.22f);
     }
@@ -133,7 +149,7 @@ public class AttackSand6 : AttackController
     private void ErupcaoAttack_24()
     {
         pic = 204;
-        wait = 2;
+        wait = 1;
         next = ErupcaoAttack_25;
         BdyDefault(zwidth: 0.22f);
     }
@@ -141,8 +157,8 @@ public class AttackSand6 : AttackController
     private void ErupcaoAttack_25()
     {
         pic = 205;
-        wait = 2;
-        next = ErupcaoAttack_20; // loop opcional
+        wait = 1;
+        next = Remove_300;
         BdyDefault(zwidth: 0.22f);
     }
 

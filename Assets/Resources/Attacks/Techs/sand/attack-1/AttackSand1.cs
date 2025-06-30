@@ -33,7 +33,7 @@ public class AttackSand1 : AttackController
         wait = 0.5f;
         next = IdleInvoke_1;
         ItrDisable();
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_1()
@@ -41,7 +41,7 @@ public class AttackSand1 : AttackController
         pic = 100;
         wait = 1;
         next = IdleInvoke_2;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_2()
@@ -49,7 +49,7 @@ public class AttackSand1 : AttackController
         pic = 101;
         wait = 1f;
         next = IdleInvoke_3;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_3()
@@ -57,7 +57,7 @@ public class AttackSand1 : AttackController
         pic = 102;
         wait = 1f;
         next = IdleInvoke_4;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
         
         itr.dvx = 10;
         itr.dvy = 0;
@@ -66,11 +66,11 @@ public class AttackSand1 : AttackController
         itr.applyInSingleEnemy = false;
         itr.defensable = true;
         itr.level = 1;
-        itr.injury = 50;
+        itr.injury = 25;
         itr.effect = ItrEffectEnum.BLOOD;
         itr.rest = 4;
         itr.physic = ItrPhysicEnum.FIXED;
-        ItrDefault(zwidth: 0.22f);
+        ItrDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_4()
@@ -79,7 +79,7 @@ public class AttackSand1 : AttackController
         pic = 104;
         wait = 1f;
         next = IdleInvoke_5;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
         if (enableNextIfHit && owner != null)
         {
             owner.enableNextIfHit = true;
@@ -91,7 +91,7 @@ public class AttackSand1 : AttackController
         pic = 105;
         wait = 1f;
         next = IdleInvoke_6;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_6()
@@ -99,7 +99,7 @@ public class AttackSand1 : AttackController
         pic = 106;
         wait = 1f;
         next = IdleInvoke_7;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_7()
@@ -107,7 +107,7 @@ public class AttackSand1 : AttackController
         pic = 110;
         wait = 1f;
         next = Remove_300;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     #endregion

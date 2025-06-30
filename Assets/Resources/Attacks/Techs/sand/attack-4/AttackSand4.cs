@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AttackSand4 : AttackController
 {
+    private int onwerAdditionalDamage = 0;
+    private CharacterController ownerCharController;
     void Awake()
     {
         palettes.Add("Attacks/Techs/sand/attack-4/sprites");
@@ -13,6 +15,10 @@ public class AttackSand4 : AttackController
         attackLevel1Frame = null;
         attackLevel2Frame = null;
         attackLevel3Frame = null;
+        if (owner != null)
+        {
+            onwerAdditionalDamage = owner.GetComponent<CharController>().additionalDamage;
+        }
     }
 
     public void Start()
@@ -31,7 +37,7 @@ public class AttackSand4 : AttackController
         wait = 1.5f;
         next = IdleInvoke_1;
         ItrDisable();
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_1()
@@ -39,7 +45,7 @@ public class AttackSand4 : AttackController
         pic = 100;
         wait = 1;
         next = IdleInvoke_2;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_2()
@@ -47,7 +53,7 @@ public class AttackSand4 : AttackController
         pic = 101;
         wait = 1f;
         next = IdleInvoke_3;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
         
         itr.dvx = 65;
         itr.dvy = -10f;
@@ -56,7 +62,7 @@ public class AttackSand4 : AttackController
         itr.applyInSingleEnemy = false;
         itr.defensable = true;
         itr.level = 1;
-        itr.injury = 50;
+        itr.injury = 50 + onwerAdditionalDamage;
         itr.effect = ItrEffectEnum.BLOOD;
         itr.rest = 4;
         itr.physic = ItrPhysicEnum.FIXED;
@@ -76,7 +82,7 @@ public class AttackSand4 : AttackController
         wait = 1f;
         next = IdleInvoke_4;
         
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void IdleInvoke_4()
@@ -84,7 +90,7 @@ public class AttackSand4 : AttackController
         pic = 103;
         wait = 1f;
         next = Remove_300;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
     #endregion
 

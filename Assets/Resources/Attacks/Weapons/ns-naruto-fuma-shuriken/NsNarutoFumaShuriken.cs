@@ -45,7 +45,7 @@ public class NsNarutoFumaShuriken : AttackController
         wait = 1f;
         next = InvokeImpulse_2;
         bdy.x = 0.0266f; bdy.y = 0.1758f; bdy.z = 0f;
-        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.22f;
+        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.44f;
         Bdy();
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
     }
@@ -56,7 +56,7 @@ public class NsNarutoFumaShuriken : AttackController
         wait = 1f;
         next = InvokeImpulse_3;
         bdy.x = 0.0266f; bdy.y = 0.1758f; bdy.z = 0f;
-        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.22f;
+        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.44f;
         Bdy();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
@@ -71,7 +71,7 @@ public class NsNarutoFumaShuriken : AttackController
         wait = 1f;
         next = InvokeImpulse_2;
         bdy.x = 0.0266f; bdy.y = 0.1758f; bdy.z = 0f;
-        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.22f;
+        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.44f;
         Bdy();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
@@ -108,7 +108,7 @@ public class NsNarutoFumaShuriken : AttackController
         wait = 1f;
         next = InvokeDown_23;
         bdy.x = 0.0266f; bdy.y = 0.1758f; bdy.z = 0f;
-        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.22f;
+        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.44f;
         Bdy();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
@@ -123,7 +123,7 @@ public class NsNarutoFumaShuriken : AttackController
         wait = 1f;
         next = InvokeDown_22;
         bdy.x = 0.0266f; bdy.y = 0.1758f; bdy.z = 0f;
-        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.22f;
+        bdy.w = 0.6639989f; bdy.h = 0.2523443f; bdy.zwidth = 0.44f;
         Bdy();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;

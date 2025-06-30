@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SweepGitChangeService">
+    <option name="recentCommitSummaries">
+      <list>
+        <option value="Added new sand-based techniques for the character Gaara, including Sand Float, Sand Spear, and Sand Element. Updated NsGaaraBase.cs to integrate these new techniques and their corresponding opoints. Created new prefabs (sand-float.prefab, sand-spear.prefab, sandElement.prefab) and associated scripts (SandFloat.cs, SandSpear.cs, SandElement.cs) to define their behavior and animations. Modified existing files such as AttackSand6.cs and DemonArmSand.cs to spawn SandElement instances. Updated the training-room.prefab and CharacterSelecionScene.unity to include the new prefabs. Also adjusted physics and collision logic in SandBullet.cs and RaycastScript.cs to support the new z-dimension interactions. Added new sprite assets and animation metadata for visual representation." />
+      </list>
+    </option>
+  </component>
+</project>

@@ -68,7 +68,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Remove_300); OnWall(Remove_300);
     }
@@ -90,7 +90,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Remove_300); OnWall(Remove_300);
     }
@@ -112,7 +112,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Remove_300); OnWall(Remove_300);
     }
@@ -134,7 +134,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Remove_300); OnWall(Remove_300);
     }
@@ -156,7 +156,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Remove_300); OnWall(Remove_300);
     }
@@ -178,7 +178,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Remove_300); OnWall(Remove_300);
     }
@@ -192,7 +192,7 @@ public class SandBullet : AttackController
         BdyDefault(zwidth: 0.22f);
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         
         itr.x = 0f;
         itr.y = 0.2f;
@@ -242,7 +242,7 @@ public class SandBullet : AttackController
         BdyDefault(zwidth: 0.22f);
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Ground_160); OnWall(Wall_150);
     }
@@ -264,7 +264,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Ground_160); OnWall(Wall_150);
     }
@@ -286,7 +286,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Ground_160); OnWall(Wall_150);
     }
@@ -308,7 +308,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Ground_160); OnWall(Wall_150);
     }
@@ -330,7 +330,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Ground_160); OnWall(Wall_150);
     }
@@ -352,7 +352,7 @@ public class SandBullet : AttackController
         
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         Itr();
         OnGround(Ground_160); OnWall(Wall_150);
     }
@@ -366,7 +366,7 @@ public class SandBullet : AttackController
         BdyDefault(zwidth: 0.22f);
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         
         itr.x = 0f;
         itr.y = 0.2f;

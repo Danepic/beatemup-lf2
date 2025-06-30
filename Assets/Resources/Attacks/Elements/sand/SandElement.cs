@@ -16,7 +16,7 @@ public class SandElement : AttackController
         attackLevel2Frame = null;
         attackLevel3Frame = null;
         
-        opoints.Add(50, EnrichOpoint(100, "Attacks/Techs/sand/attack-6/attackSand-6"));
+        opoints.Add(50, EnrichOpoint(1, "Attacks/Techs/sand/attack-6/attackSand-6"));
     }
 
     public void Start()
@@ -34,11 +34,12 @@ public class SandElement : AttackController
         wait = 1;
         next = SandElement_1;
         BdyDefault();
-        OnGround(SandElement_2);
+        OnGround(SandElement_2); repeatCount = 750;
     }
 
     private void SandElement_1()
     {
+        RepeatCountToFrame(Remove_300);
         pic = 101;
         wait = 1;
         next = SandElement_1;
@@ -51,10 +52,10 @@ public class SandElement : AttackController
         pic = 102;
         wait = 1;
         BdyDefault(); InAir(SandElement_0);
-        if (owner.currentFrameId == 1251)
+        if (owner.currentFrameId is 1253 or 1703)
         {
             SpawnOpoint(50, Opoint(x: 0f, y: 0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
-            next = Remove_300;
+            ChangeFrame(300);
         }
         else
         {
@@ -67,10 +68,10 @@ public class SandElement : AttackController
         pic = 103;
         wait = 1;
         BdyDefault(); InAir(SandElement_0);
-        if (owner.currentFrameId == 1251)
+        if (owner.currentFrameId is 1253 or 1703)
         {
             SpawnOpoint(50, Opoint(x: 0f, y: 0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
-            next = Remove_300;
+            ChangeFrame(300);
         }
         else
         {
@@ -82,10 +83,10 @@ public class SandElement : AttackController
     {
         pic = 104;
         wait = 1;
-        if (owner.currentFrameId == 1251)
+        if (owner.currentFrameId is 1253 or 1703)
         {
             SpawnOpoint(50, Opoint(x: 0f, y: 0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
-            next = Remove_300;
+            ChangeFrame(300);
         }
         else
         {
@@ -99,10 +100,10 @@ public class SandElement : AttackController
     {
         pic = 105;
         wait = 1;
-        if (owner.currentFrameId == 1251)
+        if (owner.currentFrameId is 1253 or 1703)
         {
             SpawnOpoint(50, Opoint(x: 0f, y: 0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
-            next = Remove_300;
+            ChangeFrame(300);
         }
         else
         {

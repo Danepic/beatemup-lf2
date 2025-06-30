@@ -210,6 +210,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowSpriteRenderer: {fileID: 7924228604482880506}
   character: {fileID: 6121911019449722295}
+  charSpriteRenderer: {fileID: 6095121000027118457}
+  charObjeController: {fileID: 7990516487135078379}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
   shadowOffsetY: 0.1
 --- !u!1 &3164521460970664887
 GameObject:
@@ -421,10 +426,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6121911019449722295}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -475,6 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  owner: {fileID: 0}
   stage: 0
   cancellableOpoints: []
   originalColor: {r: 0, g: 0, b: 0, a: 0}
@@ -491,10 +497,12 @@ MonoBehaviour:
     - Key: 0
       Value: {fileID: 0}
   currentFrameId: 0
+  enableNextIfHit: 0
   hitNormalFrame: 0
   hitBloodFrame: 0
   defenseHitFrame: 0
   startFrame: 0
+  usedRotationZ: 0
   stageSpriteRenderer: {fileID: 0}
   currentHp: 0
   currentMp: 0
@@ -502,13 +510,11 @@ MonoBehaviour:
   onCeil: 0
   onWall: 0
   onPlatform: 0
-  isDefending: 0
   externId: 0
   externTeam: 0
   externKind: 0
   damageRestTU: 0
   hittablePercent: 100
-  playerInput: {fileID: 5152913968303114450}
   playerEnum: 1
   hitAttack: 0
   releaseAttackButton: 0

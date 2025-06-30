@@ -60,7 +60,7 @@ public class NsNarutoBase : CharController
         ResetMovementFromStop(); CancelOpoints();
         pic = 111; state = StateFrameEnum.STANDING; wait = 2.5f; next = Standing_1;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -73,7 +73,7 @@ public class NsNarutoBase : CharController
     {
         pic = 112; state = StateFrameEnum.STANDING; wait = 1.5f; next = Standing_2;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -85,7 +85,7 @@ public class NsNarutoBase : CharController
     {
         pic = 113; state = StateFrameEnum.STANDING; wait = 2.5f; next = Standing_3;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -97,7 +97,7 @@ public class NsNarutoBase : CharController
     {
         pic = 114; state = StateFrameEnum.STANDING; wait = 1.5f; next = Standing_4;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -109,7 +109,7 @@ public class NsNarutoBase : CharController
     {
         pic = 115; state = StateFrameEnum.STANDING; wait = 2.5f; next = Standing_5;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -121,7 +121,7 @@ public class NsNarutoBase : CharController
     {
         pic = 116; state = StateFrameEnum.STANDING; wait = 1.5f; next = Standing_6;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -133,7 +133,7 @@ public class NsNarutoBase : CharController
     {
         pic = 117; state = StateFrameEnum.STANDING; wait = 2.5f; next = Standing_7;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -145,7 +145,7 @@ public class NsNarutoBase : CharController
     {
         pic = 118; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_0;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();

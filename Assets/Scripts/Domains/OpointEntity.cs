@@ -19,6 +19,7 @@ namespace Domains
         public bool cancellable = false;
         public bool attachToOwner = false;
         public bool useParentOwner = false;
+        public float rotationZ = 0f;
 
         public override string ToString()
         {

@@ -18,12 +18,14 @@ public class CharController : PhysicsObjController
     protected float runningSpeed;
     protected bool hitJump;
     protected bool releaseJumpButton;
+    public int additionalDamage;
     protected bool holdJump;
     public bool hitAttack;
     public bool releaseAttackButton;
     protected bool hitDefense;
     protected bool releaseDefenseButton;
     protected bool hitPower;
+    public bool releasePowerButton;
     protected bool hitSuperPower;
     protected bool hitTaunt;
     public bool hitUp;
@@ -106,6 +108,7 @@ public class CharController : PhysicsObjController
         currentMp = header.startMp;
         totalHp = ResolveHealthPoint();
         totalMp = ResolveManaPoint();
+        additionalDamage = ResolveAdditionalDamagePoint();
         base.Start();
     }
     protected void Update()
@@ -181,13 +184,10 @@ public class CharController : PhysicsObjController
         {
             hitPower = true;
         }
-        else if (started)
-        {
-            hitPower = true;
-        }
         else if (canceled)
         {
             hitPower = false;
+            releasePowerButton = true;
         }
     }
 
@@ -889,7 +889,7 @@ public class CharController : PhysicsObjController
     private int ResolveHealthPoint()
     {
         int hp = 0;
-        switch (stats.stamina)
+        switch (stats.resistance)
         {
             case 1:
                 hp = 900;
@@ -923,6 +923,45 @@ public class CharController : PhysicsObjController
                 break;
         }
         return hp;
+    }
+    
+    private int ResolveAdditionalDamagePoint()
+    {
+        int additionalDamagePoints = 0;
+        switch (stats.aggressive)
+        {
+            case 1:
+                additionalDamagePoints = 0;
+                break;
+            case 2:
+                additionalDamagePoints = 10;
+                break;
+            case 3:
+                additionalDamagePoints = 20;
+                break;
+            case 4:
+                additionalDamagePoints = 30;
+                break;
+            case 5:
+                additionalDamagePoints = 40;
+                break;
+            case 6:
+                additionalDamagePoints = 50;
+                break;
+            case 7:
+                additionalDamagePoints = 60;
+                break;
+            case 8:
+                additionalDamagePoints = 70;
+                break;
+            case 9:
+                additionalDamagePoints = 80;
+                break;
+            case 10:
+                additionalDamagePoints = 90;
+                break;
+        }
+        return additionalDamagePoints;
     }
 
     protected void Defense(Action action)
@@ -986,13 +1025,21 @@ public class CharController : PhysicsObjController
 
     protected void Power(Action action)
     {
-
         if (hitPower && !hitLeft && !hitRight && !hitUp && !hitDown)
         {
             ChangeFrame(action);
             return;
         }
+    }
 
+    protected void DoubleTapPower(Action action)
+    {
+        if (releasePowerButton && hitPower && !hitLeft && !hitRight && !hitUp && !hitDown)
+        {
+            releasePowerButton = false;
+            ChangeFrame(action);
+            return;
+        }
     }
 
     protected void PowerSide(Action action)
@@ -1006,26 +1053,54 @@ public class CharController : PhysicsObjController
 
     }
 
-    protected void PowerUp(Action action)
+    protected void DoubleTapPowerSide(Action action)
     {
 
-        if (hitPower && hitUp)
+        if (releasePowerButton && hitPower && (hitRight || hitLeft))
         {
+            releasePowerButton = false;
             ChangeFrame(action);
             return;
         }
 
     }
 
+    protected void PowerUp(Action action)
+    {
+        if (hitPower && hitUp)
+        {
+            ChangeFrame(action);
+            return;
+        }
+    }
+    
+    protected void DoubleTapPowerUp(Action action)
+    {
+        if (hitPower && hitUp)
+        {
+            releasePowerButton = false;
+            ChangeFrame(action);
+            return;
+        }
+    }
+
     protected void PowerDown(Action action)
     {
-
         if (hitPower && hitDown)
         {
             ChangeFrame(action);
             return;
         }
+    }
 
+    protected void DoubleTapPowerDown(Action action)
+    {
+        if (releasePowerButton && hitPower && hitDown)
+        {
+            releasePowerButton = false;
+            ChangeFrame(action);
+            return;
+        }
     }
 
     protected void SuperPower(Action action)
@@ -1101,6 +1176,8 @@ public class CharController : PhysicsObjController
         lock_z_direction = 0;
         spriteRenderer.color = originalColor;
         releaseJumpButton = false;
+        releaseDefenseButton = false;
+        releaseAttackButton = false;
         ResetMovementFromStop();
         enableNextIfHit = false;
         ItrDisable();

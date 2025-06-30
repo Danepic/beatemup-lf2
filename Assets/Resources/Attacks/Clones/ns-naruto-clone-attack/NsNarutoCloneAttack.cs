@@ -75,7 +75,7 @@ public class NsNarutoCloneAttack : AttackController
         next = Uppercut_6;
         BdyDefault();
         itr.x = 0.0654f; itr.y = 0.5173f; itr.z = 0;
-        itr.w = 0.1757669f; itr.h = 0.5957753f; itr.zwidth = 0.22f;
+        itr.w = 0.1757669f; itr.h = 0.5957753f; itr.zwidth = 0.44f;
         itr.dvx = -10; itr.dvy = 325; itr.dvz = 0; itr.action = 840;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 6; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -127,7 +127,7 @@ public class NsNarutoCloneAttack : AttackController
         pic = 409; wait = 1; next = Downercut_26;
         BdyDefault();
         itr.x = 0.1273f; itr.y = 0.3239f; itr.z = 0;
-        itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.22f;
+        itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.44f;
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -138,7 +138,7 @@ public class NsNarutoCloneAttack : AttackController
         pic = 410; wait = 15; next = Remove_300; OnGround(Remove_300);
         BdyDefault();
         itr.x = 0.1273f; itr.y = 0.3239f; itr.z = 0;
-        itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.22f;
+        itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.44f;
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -171,7 +171,7 @@ public class NsNarutoCloneAttack : AttackController
         pic = 412; wait = 1; next = FrontAttack_44;
         BdyDefault();
         itr.x = 0.1292f; itr.y = 0.2191f; itr.z = 0;
-        itr.w = 0.3942767f; itr.h = 0.3500794f; itr.zwidth = 0.22f;
+        itr.w = 0.3942767f; itr.h = 0.3500794f; itr.zwidth = 0.44f;
         itr.dvx = 300; itr.dvy = 150; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
@@ -182,7 +182,7 @@ public class NsNarutoCloneAttack : AttackController
         pic = 413; wait = 10; next = FrontAttack_45;
         BdyDefault();
         itr.x = 0.1292f; itr.y = 0.2191f; itr.z = 0;
-        itr.w = 0.3942767f; itr.h = 0.3500794f; itr.zwidth = 0.22f;
+        itr.w = 0.3942767f; itr.h = 0.3500794f; itr.zwidth = 0.44f;
         itr.dvx = 300; itr.dvy = 150; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.NORMAL; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;

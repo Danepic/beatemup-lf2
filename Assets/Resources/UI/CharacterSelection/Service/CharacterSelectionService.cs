@@ -78,7 +78,7 @@ namespace Service
                 new Stage(
                     "987f6543-c21a-34b5-a678-1234567890ab",
                     "Training Room",
-                    "Medium",
+                    "Small",
                     "Backgrounds/training-room",
                     "3f0a412f-d06b-45de-b4cd-d1234567890a",
                     1
@@ -90,6 +90,14 @@ namespace Service
                     "Backgrounds/rocks-day",
                     "3f0a412f-d06b-45de-b4cd-d1234567890a",
                     2
+                ),
+                new Stage(
+                    "2f7a1e00-26b9-4dbb-a7f1-51e89fd80184",
+                    "Sand Desert (Statue)",
+                    "Small",
+                    "Backgrounds/sand-desert-statue",
+                    "3f0a412f-d06b-45de-b4cd-d1234567890a",
+                    3
                 )
             };
         }

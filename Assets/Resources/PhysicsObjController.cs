@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Domains;
 using Enums;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class PhysicsObjController : ObjController
     protected bool execFixedMoveToPosition = false;
     protected BoxCollider selfBoxCollider;
     protected Transform hitbox;
-    public SpriteRenderer stageSpriteRenderer;
+    public SpriteRenderer[] stageSpriteRenderer;
 
     protected float maxDistanceToCheckCollision = 0.1f;
     protected LayerMask whatIsGround;
@@ -32,9 +33,9 @@ public class PhysicsObjController : ObjController
     protected float restDamageWaitTime;
 
     public int currentHp;
-    protected int totalHp;
+    public int totalHp;
     public int currentMp;
-    protected int totalMp;
+    public int totalMp;
     protected bool canParry;
     protected int lastDamage;
     protected bool isDeath;
@@ -57,7 +58,6 @@ public class PhysicsObjController : ObjController
     public TeamEnum externTeam;
     public ItrKindEnum externKind;
 
-    protected int injury;
     protected bool defensable;
     protected bool execHealthPointsOneTimeInFrame;
     protected bool execManaPointsOneTimeInFrame;
@@ -78,6 +78,7 @@ public class PhysicsObjController : ObjController
     protected int? attackLevel1Frame;
     protected int? attackLevel2Frame;
     protected int? attackLevel3Frame;
+    protected List<PhysicsObjController> hittableObjects = new List<PhysicsObjController>();
 
     public void Awake()
     {
@@ -121,6 +122,7 @@ public class PhysicsObjController : ObjController
 
     protected void ItrDefault(float zwidth = 0)
     {
+        hittableObjects = new List<PhysicsObjController>();
         itr.kind = ItrKindEnum.ENEMY;
         hitbox.gameObject.SetActive(true);
         hitbox.localPosition = new Vector3(0f, spriteRenderer.sprite.bounds.size.y / 2, 0f);
@@ -167,7 +169,6 @@ public class PhysicsObjController : ObjController
 
     protected void ImpulseForce()
     {
-        Debug.Log(velocity);
         rb.AddForce(velocity * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }
 
@@ -246,8 +247,6 @@ public class PhysicsObjController : ObjController
         velocity.y = externItr.dvy;
         velocity.z = externItr.dvz;
         
-        Debug.Log("SS: " + velocity.x + " " + externFacingRight);
-
         switch (externItr.physic)
         {
             case ItrPhysicEnum.FIXED:
@@ -276,8 +275,7 @@ public class PhysicsObjController : ObjController
                 case ItrKindEnum.ENEMY:
                     if (externTeam != team)
                     {
-                        currentHp -= injury;
-                        lastDamage = injury;
+                        ApplyInjured(scriptObject.itr.injury);
                         canParry = true;
                         if (currentHp <= 0)
                         {
@@ -301,6 +299,7 @@ public class PhysicsObjController : ObjController
                         }
                         else
                         {
+                            scriptObject.hittableObjects.Add(this);
                             ApplyExternPhysicsBehavior(scriptObject, externAction);
                         }
                     }
@@ -357,7 +356,7 @@ public class PhysicsObjController : ObjController
             scriptObject.damageInSingleTarget = scriptObject.itr.applyInSingleEnemy;
             scriptObject.enableNextIfHit = true;
             scriptObject.nextIfHit = scriptObject.itr.nextIfHit;
-            scriptObject.targetHit = this;
+            scriptObject.lastTargetHit = this;
             wasAttacked = true;
             if (gameObject.activeInHierarchy)
             {
@@ -705,25 +704,48 @@ public class PhysicsObjController : ObjController
 
     protected void StageFadeIn(float fadeInValue)
     {
-        if (stageSpriteRenderer.color.a >= 1)
+        foreach (var picStage in stageSpriteRenderer)
         {
-            stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 1);
-        }
-        else
-        {
-            stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, fadeInValue + stageSpriteRenderer.color.a);
+            if (picStage.color.a >= 1)
+            {
+                picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, 1);
+            }
+            else
+            {
+                picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, fadeInValue + picStage.color.a);
+            }
         }
     }
 
     protected void StageFadeOut(float fadeOutValue)
     {
-        if (stageSpriteRenderer.color.a <= 0)
-        {
-            stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 0);
+        foreach (var picStage in stageSpriteRenderer)
+        {        
+            if (picStage.color.a <= 0)
+            {
+                picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, 0);
+            }
+            else
+            {
+                picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, fadeOutValue - picStage.color.a);
+            }
         }
-        else
+
+    }
+
+    protected void BlackoutStage()
+    {
+        foreach (var picStage in stageSpriteRenderer)
         {
-            stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, fadeOutValue - stageSpriteRenderer.color.a);
+            picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, 0);
+        }
+    }
+
+    protected void ResetStageColor()
+    {
+        foreach (var picStage in stageSpriteRenderer)
+        {
+            picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, 1);
         }
     }
 
@@ -851,6 +873,17 @@ public class PhysicsObjController : ObjController
             stage = groundEffectsController.type;
         }
         yield return null;
+    }
+
+    public List<PhysicsObjController> GetHittableCharacters()
+    {
+        return hittableObjects.Where(ob => ob.type == ObjTypeEnum.CHARACTER).ToList();
+    }
+
+    public void ApplyInjured(int injuryDamage)
+    {
+        currentHp -= injuryDamage;
+        lastDamage = injuryDamage;
     }
     
     private void OnDrawGizmos()

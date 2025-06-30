@@ -14,7 +14,7 @@ public class SandFloat : AttackController
         attackLevel2Frame = null;
         attackLevel3Frame = null;
         
-        opoints.Add(50, EnrichOpoint(100, "Attacks/Elements/sand/sandElement"));
+        opoints.Add(50, EnrichOpoint(50, "Attacks/Elements/sand/sandElement"));
     }
 
     public void Start()

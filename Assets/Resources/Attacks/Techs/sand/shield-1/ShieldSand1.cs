@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ShieldSand1 : AttackController
 {
+    private CharController ownerChar;
     void Awake()
     {
         palettes.Add("Attacks/Techs/sand/shield-1/sprites");
@@ -25,6 +26,7 @@ public class ShieldSand1 : AttackController
             Physics.IgnoreCollision(selfBoxCollider, owner.GetComponent<BoxCollider>(), ignore: true);
         }
         ChangeFrame(frames[startFrame]);
+        ownerChar = owner.GetComponent<CharController>();
         base.Start();
     }
 
@@ -78,7 +80,14 @@ public class ShieldSand1 : AttackController
     {
         if (owner != null)
         {
-            owner.ChangeFrame(1122);
+            if (ownerChar.onGround)
+            {
+                owner.ChangeFrame(1122);
+            }
+            else
+            {
+                owner.ChangeFrame(1622);
+            }
         }
 
         pic = 106; wait = 0.5f; next = IdleInvoke_9;

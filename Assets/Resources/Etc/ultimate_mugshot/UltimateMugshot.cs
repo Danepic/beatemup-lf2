@@ -41,6 +41,15 @@ public class UltimateMugshot : EffectController
         wait = 8f; next = Remove_300;
     }
     #endregion
+    
+    #region NsKakashiBase
+    private void NsGaaraBase_1()
+    {
+        spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+        pic = 200;
+        wait = 8f; next = Remove_300;
+    }
+    #endregion
 
     #region Remove
     private void Remove_300()

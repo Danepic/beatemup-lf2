@@ -31,7 +31,7 @@ public class ObjController : MonoBehaviour
     protected List<string> palettes = new();
 
     public int paletteIndex = 0;
-    public float zSizeDefault = 0.22f;
+    public float zSizeDefault = 0.44f;
     public SerializedDictionary<int, Sprite> sprites = new();
     protected Sprite inv;
     public MethodInfo currentFrame;
@@ -44,8 +44,9 @@ public class ObjController : MonoBehaviour
     protected float dvz;
     public MethodInfo summonAction;
     public bool enableNextIfHit;
-    protected ObjController targetHit = null;
+    protected ObjController lastTargetHit = null;
     protected Vector3 originLocalPosition;
+    protected Quaternion originRotation;
     protected Dictionary<int, Queue<ObjController>> opoints = new();
     protected Queue<ObjController> originPool = new();
     public int hitNormalFrame;
@@ -58,6 +59,7 @@ public class ObjController : MonoBehaviour
     public int startFrame = 0;
     private float shortestDistance = Mathf.Infinity;
     protected bool attachToOwner = false;
+    public float usedRotationZ = 0f;
 
     protected void Awake()
     {
@@ -67,6 +69,7 @@ public class ObjController : MonoBehaviour
         originalLocalScale = transform.localScale;
         originalColor = spriteRenderer.color;
         originLocalPosition = transform.position;
+        originRotation = transform.rotation;
         inv = Resources.Load<Sprite>("Etc/inv");
     }
 
@@ -107,7 +110,7 @@ public class ObjController : MonoBehaviour
 
     public void ChangeFrame(int? nextFrame)
     {
-        if (nextFrame.HasValue)
+        if (nextFrame.HasValue && frames.ContainsKey(nextFrame.Value))
         {
             ChangeFrame(frames[nextFrame.Value]);
         }
@@ -123,6 +126,11 @@ public class ObjController : MonoBehaviour
     }
 
     protected void RepeatCountToFrame(Action action)
+    {
+        RepeatCountToFrame(action.Method);
+    }
+    
+    protected void RepeatCountToFrame(MethodInfo action)
     {
         if (currentRepeat >= repeatCount)
         {
@@ -170,7 +178,8 @@ public class ObjController : MonoBehaviour
         }
     }
 
-    protected OpointEntity Opoint(float x, float y, float z, int oid, bool facingFront, int quantity, bool useSamePalette = false, bool cancellable = false, bool attachToOwner = false, bool useParentOwner = false)
+    protected OpointEntity Opoint(float x, float y, float z, int oid, bool facingFront, int quantity, bool useSamePalette = false, bool cancellable = false, bool attachToOwner = false,
+        bool useParentOwner = false, float rotationZ = 0f)
     {
         return new()
         {
@@ -183,7 +192,8 @@ public class ObjController : MonoBehaviour
             oid = oid,
             cancellable = cancellable,
             attachToOwner = attachToOwner,
-            useParentOwner = useParentOwner
+            useParentOwner = useParentOwner,
+            rotationZ = rotationZ
         };
     }
 
@@ -201,7 +211,6 @@ public class ObjController : MonoBehaviour
             opointScript.team = team;
 
             opointScript.facingRight = facingRight && opoint.facingFront;
-            Debug.Log("AA:" + opointScript.facingRight);
 
             if (opoint.useSamePalette)
             {
@@ -219,6 +228,17 @@ public class ObjController : MonoBehaviour
             else
             {
                 xPos = transform.position.x - opoint.x;
+            }
+
+            
+            if (opoint.rotationZ != 0)
+            {
+                opointScript.usedRotationZ = opoint.rotationZ;
+                opointScript.transform.Rotate(0f, 0f, opoint.rotationZ);
+            }
+            else
+            {
+                opointScript.transform.rotation = Quaternion.identity;
             }
 
             opointScript.transform.position = new Vector3(xPos, yPos, zPos);
@@ -337,11 +357,15 @@ public class ObjController : MonoBehaviour
         currentRepeat = 0;
         transform.localScale = originalLocalScale;
         transform.position = originLocalPosition;
+        transform.rotation = originRotation;
         spriteRenderer.color = originalColor;
+        usedRotationZ = 0;
+        transform.rotation = Quaternion.identity;
 
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
+            transform.GetChild(i).transform.Rotate(0f,0f,0f);
         }
         if (ownerId == null)
         {
@@ -447,5 +471,15 @@ public class ObjController : MonoBehaviour
         }
 
         return nearestObject;
+    }
+
+    protected List<CharController> FindEnemies()
+    {
+        return GameObject.FindGameObjectsWithTag("Character").Select(chara => chara.GetComponent<CharController>()).ToList().Where(charController => charController.team != team).ToList();
+    }
+
+    protected CharController FindNearestEnemy()
+    {
+        return FindNearestObject(FindEnemies());
     }
 }

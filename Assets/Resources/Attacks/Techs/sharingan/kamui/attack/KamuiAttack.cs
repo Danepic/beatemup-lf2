@@ -39,7 +39,6 @@ public class KamuiAttack : AttackController
         pic = 100; wait = 0.5f; next = Invoke_1;
         BdyDefault();
         ItrDisable();
-        targetHit = null;
     }
     private void Invoke_1()
     {
@@ -91,7 +90,7 @@ public class KamuiAttack : AttackController
     }
     private void Invoke_9()
     {
-        pic = 109; wait = 0.5f; next = targetHit != null ? Invoke_10 : Remove_300;
+        pic = 109; wait = 0.5f; next = lastTargetHit != null ? Invoke_10 : Remove_300;
         BdyDefault();
     }
     private void Invoke_10()
@@ -101,9 +100,13 @@ public class KamuiAttack : AttackController
     }
     private void Invoke_11()
     {
+        foreach (var physicsObjController in GetHittableCharacters())
+        {
+            physicsObjController.ChangeFrame(800);
+        }
+        hittableObjects.Clear();
         pic = 109; wait = 0.5f; next = Invoke_12;
         BdyDefault();
-        targetHit.ChangeFrame(800);
     }
     private void Invoke_12()
     {

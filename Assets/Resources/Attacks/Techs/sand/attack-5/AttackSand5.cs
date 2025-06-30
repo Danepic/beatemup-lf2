@@ -30,7 +30,7 @@ public class AttackSand5 : AttackController
         wait = 0.5f;
         next = AttackDownInvoke_1;
         ItrDisable();
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void AttackDownInvoke_1()
@@ -38,7 +38,7 @@ public class AttackSand5 : AttackController
         pic = 100;
         wait = 0.5f;
         next = AttackDownInvoke_2;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void AttackDownInvoke_2()
@@ -46,10 +46,10 @@ public class AttackSand5 : AttackController
         pic = 101;
         wait = 1f;
         next = AttackDownInvoke_3;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
         
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 80;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
 
         itr.x = -0.542f;
@@ -67,7 +67,7 @@ public class AttackSand5 : AttackController
         wait = 0.5f;
         next = AttackDownInvoke_4;
         
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void AttackDownInvoke_4()
@@ -75,7 +75,7 @@ public class AttackSand5 : AttackController
         pic = 103;
         wait = 0.5f;
         next = AttackDownInvoke_5;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void AttackDownInvoke_5()
@@ -83,7 +83,7 @@ public class AttackSand5 : AttackController
         pic = 104;
         wait = 1f;
         next = AttackDownInvoke_6;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
         OnGround(AttackDownGroundInvoke_10);
     }
 
@@ -92,7 +92,7 @@ public class AttackSand5 : AttackController
         pic = 105;
         wait = 0.5f;
         next = AttackDownInvoke_7;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void AttackDownInvoke_7()
@@ -100,7 +100,7 @@ public class AttackSand5 : AttackController
         pic = 106;
         wait = 0.5f;
         next = Remove_300;
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
     #endregion
     
@@ -115,7 +115,7 @@ public class AttackSand5 : AttackController
         wait = 0.5f;
         next = AttackDownGroundInvoke_11;
         ItrDisable();
-        BdyDefault(zwidth: 0.22f);
+        BdyDefault(zwidth: 0.44f);
     }
 
     private void AttackDownGroundInvoke_11()
@@ -223,7 +223,7 @@ public class AttackSand5 : AttackController
         itr.x = -0.301f; itr.y = 1.211f; itr.z = 0;
         itr.w = 1.771828f; itr.h = 3.155782f; itr.zwidth = 0.44f;
         itr.dvx = 0; itr.dvy = -250; itr.dvz = 0; itr.action = 820;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 60;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }
@@ -291,7 +291,7 @@ public class AttackSand5 : AttackController
         BdyDefault(zwidth: 0.44f);
         
         itr.dvx = 350; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 60;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
 
         itr.x = -0.542f;

@@ -28,8 +28,7 @@ public class KamuiTarget : AttackController
     {
         ChangeFrame(frames[startFrame]);
         base.Start();
-        var enemies = GameObject.FindGameObjectsWithTag("Character").Select(chara => chara.GetComponent<CharController>()).ToList().Where(charController => charController.team != team).ToList();
-        enemyTarget = FindNearestObject(enemies)?.transform;
+        enemyTarget = FindNearestEnemy()?.transform;
     }
 
     public void Update()

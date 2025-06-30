@@ -12,6 +12,8 @@ public class MatchController : MonoBehaviour
     public Transform p1Spawn;
     public Transform p2Spawn;
 
+    private string barsPath = "UI/Battle/Bars";
+
     void Awake()
     {
         QualitySettings.vSyncCount = 0;
@@ -26,10 +28,13 @@ public class MatchController : MonoBehaviour
         {
             var stageResourcePath = ExtractObjectName(MatchControllerStore.Instance.stageResourcePath);
             var stageGameObj = Resources.Load<GameObject>(stageResourcePath);
-            var stageSpriteRenderer = Instantiate(stageGameObj, stageGameObj.transform.position, Quaternion.identity).transform.Find("BackgroundImage").GetComponent<SpriteRenderer>();
+
+            var stage = Instantiate(stageGameObj, stageGameObj.transform.position, Quaternion.identity);
+            var stageSpriteRenderer = stage.transform.GetComponentsInChildren<SpriteRenderer>();
 
             var resourcePathP1 = ExtractObjectName(MatchControllerStore.Instance.player1CharacterResourcePath);
-            var p1GameObj = Instantiate(Resources.Load<GameObject>(resourcePathP1), p1Spawn.position, Quaternion.identity);
+            var p1GameObj = Instantiate(Resources.Load<GameObject>(resourcePathP1), p1Spawn.position,
+                Quaternion.identity);
             p1GameObj.GetComponent<BaseEnemyAI>().enabled = false;
 
             var p1CharController = p1GameObj.GetComponent<CharController>();
@@ -40,7 +45,8 @@ public class MatchController : MonoBehaviour
 
 
             var resourcePathP2 = ExtractObjectName(MatchControllerStore.Instance.player2CharacterResourcePath);
-            var p2GameObj = Instantiate(Resources.Load<GameObject>(resourcePathP2), p2Spawn.position, Quaternion.identity);
+            var p2GameObj = Instantiate(Resources.Load<GameObject>(resourcePathP2), p2Spawn.position,
+                Quaternion.identity);
             p2GameObj.GetComponent<BaseEnemyAI>().enabled = false; //mudar para true
 
             var p2CharController = p2GameObj.GetComponent<CharController>();

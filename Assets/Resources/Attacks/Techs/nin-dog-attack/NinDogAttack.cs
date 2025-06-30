@@ -66,18 +66,18 @@ public class NinDogAttack : AttackController
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
-        ItrDefault(zwidth: 0.22f);
+        ItrDefault(zwidth: 0.44f);
     }
     private void Downercut_26()
     {
         pic = 102; wait = 15; next = Remove_300; OnGround(Remove_300);
         BdyDefault();
         itr.x = 0.1273f; itr.y = 0.3239f; itr.z = 0;
-        itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.22f;
+        itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.44f;
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
-        ItrDefault(zwidth: 0.22f);
+        ItrDefault(zwidth: 0.44f);
     }
 
     private void Remove_300()

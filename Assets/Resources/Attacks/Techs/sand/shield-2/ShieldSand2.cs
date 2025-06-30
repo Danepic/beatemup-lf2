@@ -198,7 +198,7 @@ public class ShieldSand2 : AttackController
         BdyDefault(zwidth: 0.33f);
                 
         itr.dvx = -5f; itr.dvy = 350; itr.dvz = 0; itr.action = 840;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 20;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
 
         itr.x = -0.0049f;

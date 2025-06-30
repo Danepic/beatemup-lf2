@@ -23,6 +23,11 @@ public class DemonArmSand : AttackController
         base.Start();
     }
 
+    void Update()
+    {
+        base.Update();
+    }
+
     #region Attack Front
 
     private void AttackFrontInvoke_0()
@@ -117,7 +122,7 @@ public class DemonArmSand : AttackController
         bdy.zwidth = 0.44f;
         Bdy();
         
-        SpawnOpoint(50, Opoint(x: 0.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(50, Opoint(x: 0.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
         
         itr.dvx = 350; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
@@ -139,7 +144,7 @@ public class DemonArmSand : AttackController
         wait = 5f;
         next = AttackFrontInvoke_7;
         
-        SpawnOpoint(50, Opoint(x: 1f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(50, Opoint(x: 1f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
 
         bdy.x = 0.9932f;
         bdy.y = 0.0455f;
@@ -156,7 +161,7 @@ public class DemonArmSand : AttackController
         wait = 0.5f;
         next = AttackFrontInvoke_8;
         
-        SpawnOpoint(50, Opoint(x: 1.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(50, Opoint(x: 1.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
 
         bdy.x = 0.9932f;
         bdy.y = 0.0455f;
@@ -258,6 +263,151 @@ public class DemonArmSand : AttackController
     }
     #endregion
 
+    #region Float Attack
+
+    private void FloatAttackFrontInvoke_20()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
+        pic = -9999;
+        wait = 0.5f;
+        next = FloatAttackFrontInvoke_21;
+        ItrDisable();
+
+        bdy.x = 0.9932f;
+        bdy.y = 0.0455f;
+        bdy.z = 0f;
+        bdy.w = 1.898169f;
+        bdy.h = 0.4315155f;
+        bdy.zwidth = 0.44f;
+        Bdy();
+    }
+
+    private void FloatAttackFrontInvoke_21()
+    {
+        pic = 106;
+        wait = 0.5f;
+        next = FloatAttackFrontInvoke_22;
+
+        bdy.x = 0.9932f;
+        bdy.y = 0.0455f;
+        bdy.z = 0f;
+        bdy.w = 1.898169f;
+        bdy.h = 0.4315155f;
+        bdy.zwidth = 0.44f;
+        Bdy();
+    }
+
+    private void FloatAttackFrontInvoke_22()
+    {
+        pic = 105;
+        wait = 1f;
+        next = FloatAttackFrontInvoke_23;
+
+        bdy.x = 0.9932f;
+        bdy.y = 0.0455f;
+        bdy.z = 0f;
+        bdy.w = 1.898169f;
+        bdy.h = 0.4315155f;
+        bdy.zwidth = 0.44f;
+        Bdy();
+    }
+
+    private void FloatAttackFrontInvoke_23()
+    {
+        pic = 104;
+        wait = 0.5f;
+        next = FloatAttackFrontInvoke_24;
+
+        bdy.x = 0.9932f;
+        bdy.y = 0.0455f;
+        bdy.z = 0f;
+        bdy.w = 1.898169f;
+        bdy.h = 0.4315155f;
+        bdy.zwidth = 0.44f;
+        Bdy();
+    }
+
+    private void FloatAttackFrontInvoke_24()
+    {
+        pic = 103;
+        wait = 0.5f;
+        next = FloatAttackFrontInvoke_25;
+
+        bdy.x = 0.9932f;
+        bdy.y = 0.0455f;
+        bdy.z = 0f;
+        bdy.w = 1.898169f;
+        bdy.h = 0.4315155f;
+        bdy.zwidth = 0.44f;
+        Bdy();
+    }
+
+    private void FloatAttackFrontInvoke_25()
+    {
+        pic = 102;
+        wait = 1f;
+        next = FloatAttackFrontInvoke_26;
+
+        bdy.x = 0.9932f;
+        bdy.y = 0.0455f;
+        bdy.z = 0f;
+        bdy.w = 1.898169f;
+        bdy.h = 0.4315155f;
+        bdy.zwidth = 0.44f;
+        Bdy();
+        
+        SpawnOpoint(50, Opoint(x: 0.195f, y: -0.039f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        
+        itr.dvx = 350; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
+
+        itr.x = 0.9932f;
+        itr.y = 0.0455f;
+        itr.z = 0f;
+        itr.w = 1.898169f;
+        itr.h = 0.4315155f;
+        itr.zwidth = 0.44f;
+        Itr();
+    }
+
+    private void FloatAttackFrontInvoke_26()
+    {
+        ItrDisable();
+        pic = 101;
+        wait = 5f;
+        next = FloatAttackFrontInvoke_27;
+        
+        SpawnOpoint(50, Opoint(x: 0.858f, y: -1f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+
+        bdy.x = 0.9932f;
+        bdy.y = 0.0455f;
+        bdy.z = 0f;
+        bdy.w = 1.898169f;
+        bdy.h = 0.4315155f;
+        bdy.zwidth = 0.44f;
+        Bdy();
+    }
+
+    private void FloatAttackFrontInvoke_27()
+    {
+        pic = 100;
+        wait = 0.5f;
+        next = AttackFrontInvoke_8;
+        
+        SpawnOpoint(50, Opoint(x: 1.36f, y: -1.5f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+
+        bdy.x = 0.9932f;
+        bdy.y = 0.0455f;
+        bdy.z = 0f;
+        bdy.w = 1.898169f;
+        bdy.h = 0.4315155f;
+        bdy.zwidth = 0.44f;
+        Bdy();
+    }
+
+    #endregion
 
     #region Remove
 

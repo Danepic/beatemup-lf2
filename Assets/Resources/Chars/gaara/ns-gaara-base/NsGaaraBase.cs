@@ -14,7 +14,6 @@ using UnityEngine.InputSystem;
 
 public class NsGaaraBase : CharController
 {
-    public Dictionary<int, SandElement> SandElements = new();
     void Awake()
     {
         palettes.Add("Chars/gaara/ns-gaara-base/sprites");
@@ -42,11 +41,14 @@ public class NsGaaraBase : CharController
         opoints.Add(55, EnrichOpoint(4, "Attacks/Techs/sand/attack-3/attackSand-3"));
         opoints.Add(56, EnrichOpoint(4, "Attacks/Techs/sand/attack-4/attackSand-4"));
         opoints.Add(57, EnrichOpoint(4, "Attacks/Techs/sand/attack-5/attackSand-5"));
-        opoints.Add(58, EnrichOpoint(4, "Attacks/Techs/sand/attack-6/attackSand-6"));
+        opoints.Add(58, EnrichOpoint(8, "Attacks/Techs/sand/attack-6/attackSand-6"));
         opoints.Add(59, EnrichOpoint(2, "Attacks/Techs/sand/shield-2/shield-attack-2"));
         opoints.Add(60, EnrichOpoint(2, "Attacks/Techs/sand/shield-1/shield-1"));
         opoints.Add(61, EnrichOpoint(2, "Attacks/Techs/sand/float/sand-float"));
-        opoints.Add(62, EnrichOpoint(6, "Attacks/Techs/sand/spear/sand-spear"));
+        opoints.Add(62, EnrichOpoint(4, "Attacks/Techs/sand/spear/sand-spear"));
+        opoints.Add(63, EnrichOpoint(2, "Attacks/Techs/sand/prison/sand-prison"));
+        opoints.Add(64, EnrichOpoint(2, "Attacks/Techs/sand/demon-arm/demon-arm-sand")); //For rotate in float
+        opoints.Add(65, EnrichOpoint(4, "Attacks/Techs/sand/spear/sand-spear"));//For rotate in float
 
         hitDefenseAction = HitDefense_160; //Todo tirar essa atribuição direta e usar o index dos frames
         jumpDefenseAction = HitJumpDefense_305; //Todo tirar essa atribuição direta e usar o index dos frames
@@ -57,7 +59,7 @@ public class NsGaaraBase : CharController
         soloTechDown = Erupcao_1250;
         soloTechUp = ArmMonster_1000;
         airTech = SandFloat_1150;
-        superTech = SuperKamui_1300;
+        superTech = SandPrison_1300;
 
         frames = PopulateFrames(this);
     }
@@ -81,13 +83,13 @@ public class NsGaaraBase : CharController
         ResetMovementFromStop();
         pic = 112; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_1;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        DoubleTapPowerSide(soloTechSide); DoubleTapPower(soloTech); DoubleTapPowerDown(soloTechDown); DoubleTapPowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
 
@@ -95,65 +97,65 @@ public class NsGaaraBase : CharController
     {
         pic = 113; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_2;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        DoubleTapPowerSide(soloTechSide); DoubleTapPower(soloTech); DoubleTapPowerDown(soloTechDown); DoubleTapPowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_2()
     {
         pic = 114; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_3;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        DoubleTapPowerSide(soloTechSide); DoubleTapPower(soloTech); DoubleTapPowerDown(soloTechDown); DoubleTapPowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_3()
     {
         pic = 115; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_4;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        DoubleTapPowerSide(soloTechSide); DoubleTapPower(soloTech); DoubleTapPowerDown(soloTechDown); DoubleTapPowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_4()
     {
         pic = 116; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_5;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        DoubleTapPowerSide(soloTechSide); DoubleTapPower(soloTech); DoubleTapPowerDown(soloTechDown); DoubleTapPowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     private void Standing_5()
     {
         pic = 117; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_0;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
         CanSimpleDash(SimpleDash_40); CanSideDash(SideDash_90); Jump(Jump_210); Taunt(Taunt_195);
         Defense(Start_Defense_150); Attack(Attack1_350); InAir(JumpFallingNoAction_308);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        DoubleTapPowerSide(soloTechSide); DoubleTapPower(soloTech); DoubleTapPowerDown(soloTechDown); DoubleTapPowerUp(soloTechUp); SuperPower(superTech);
         ResetParams();
     }
     #endregion
@@ -163,7 +165,7 @@ public class NsGaaraBase : CharController
     {
         pic = 118; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_21; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -177,7 +179,7 @@ public class NsGaaraBase : CharController
     {
         pic = 119; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_22;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -191,7 +193,7 @@ public class NsGaaraBase : CharController
     {
         pic = 120; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_23;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -304,10 +306,10 @@ public class NsGaaraBase : CharController
     {
         pic = 118; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 450f; dvy = 0f; dvz = 0f;
         next = SimpleDash_41;
-        Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
+        Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
     }
 
@@ -315,9 +317,9 @@ public class NsGaaraBase : CharController
     {
         pic = 129; state = StateFrameEnum.SIMPLE_DASH; wait = 1.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDash_42;
-        Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
+        Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
     }
 
@@ -326,7 +328,7 @@ public class NsGaaraBase : CharController
         CanHoldForwardAfter(Running_55);
         pic = 130; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDash_43;
-        Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
+        Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         BdyDefault();
     }
 
@@ -336,7 +338,7 @@ public class NsGaaraBase : CharController
         CanHoldForwardAfter(Running_55);
         pic = 131; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDashStopRunning_44;
-        Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
+        Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         BdyDefault();
     }
 
@@ -346,7 +348,7 @@ public class NsGaaraBase : CharController
         CanHoldForwardAfter(Running_55);
         pic = 131; state = StateFrameEnum.SIMPLE_DASH; wait = 4f; dvx = 150f; dvy = 0; dvz = 0;
         next = StopRunning_62;
-        Attack(Attack1_350); Defense(RunningDash_70); Jump(DashJump_250);
+        Attack(RunningAttack_330); Defense(RunningDash_70); Jump(DashJump_250);
         BdyDefault();
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
     }
@@ -360,7 +362,7 @@ public class NsGaaraBase : CharController
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
     }
     private void Running_46()
@@ -370,7 +372,7 @@ public class NsGaaraBase : CharController
         Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         InAir(JumpFallingWhenXMove_298); CanStopRunning(StopRunning_60); ApplyPhysicRunning();
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
     }
     private void Running_47()
@@ -669,7 +671,7 @@ public class NsGaaraBase : CharController
     private void Charge_175()
     {
         pic = 203; state = StateFrameEnum.OTHER; wait = 0.5f;
-        next = Charge_176; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
+        next = Charge_176; Attack(ChargeStop_190); DoubleTapPower(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
         SpawnOpoint(0, Opoint(x: 0.05f, y: 0.4f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
@@ -677,7 +679,7 @@ public class NsGaaraBase : CharController
     private void Charge_176()
     {
         pic = 202; state = StateFrameEnum.OTHER; wait = 0.5f;
-        next = Charge_177; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
+        next = Charge_177; Attack(ChargeStop_190); DoubleTapPower(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
         SpawnOpoint(1, Opoint(x: 0f, y: 0.014f, z: 0f, oid: 0, facingFront: true, quantity: 1));
@@ -685,7 +687,7 @@ public class NsGaaraBase : CharController
     private void Charge_177()
     {
         pic = 203; state = StateFrameEnum.OTHER; wait = 0.5f;
-        next = Charge_178; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
+        next = Charge_178; Attack(ChargeStop_190); DoubleTapPower(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
         SpawnOpoint(2, Opoint(x: 0f, y: 0.109f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
@@ -693,35 +695,35 @@ public class NsGaaraBase : CharController
     private void Charge_178()
     {
         pic = 204; state = StateFrameEnum.OTHER; wait = 3f;
-        next = Charge_179; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
+        next = Charge_179; Attack(ChargeStop_190); DoubleTapPower(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
     }
     private void Charge_179()
     {
         pic = 203; state = StateFrameEnum.OTHER; wait = 2f;
-        next = Charge_180; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
+        next = Charge_180; Attack(ChargeStop_190); DoubleTapPower(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
     }
     private void Charge_180()
     {
         pic = 202; state = StateFrameEnum.OTHER; wait = 2f;
-        next = Charge_181; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
+        next = Charge_181; Attack(ChargeStop_190); DoubleTapPower(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
     }
     private void Charge_181()
     {
         pic = 203; state = StateFrameEnum.OTHER; wait = 2f;
-        next = Charge_182; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
+        next = Charge_182; Attack(ChargeStop_190); DoubleTapPower(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
     }
     private void Charge_182()
     {
         pic = 204; state = StateFrameEnum.OTHER; wait = 2f;
-        next = Charge_175; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
+        next = Charge_175; Attack(ChargeStop_190); DoubleTapPower(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
     }
@@ -1018,7 +1020,7 @@ public class NsGaaraBase : CharController
         pic = 131; state = StateFrameEnum.CROUCH; wait = 1f;
         next = Crouch_291;
         bdy.x = 0.0855f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.2873f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.2873f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         releaseJumpButton = false;
     }
@@ -2419,10 +2421,11 @@ public class NsGaaraBase : CharController
         BdyDefault();
     }
     #endregion
-
+    
     #region Catch Invisible
     private void CatchInvisible_950()
     {
+        Debug.Log("test");
         repeatCount = 250;
         ResetMovementFromStop(); CancelOpoints();
         pic = -9999; wait = 2f; next = CatchInvisible_951;
@@ -2431,7 +2434,7 @@ public class NsGaaraBase : CharController
     }
     private void CatchInvisible_951()
     {
-        RepeatCountToFrame(Falling_801);
+        RepeatCountToFrame(frames[801]);
         ResetMovementFromStop(); CancelOpoints();
         pic = -9999; wait = 2f; next = CatchInvisible_951;
         BdyDefault();
@@ -2482,6 +2485,50 @@ public class NsGaaraBase : CharController
         BdyDefault();
     }
 
+    #endregion
+
+    #region ArmMonster Float
+    private void ArmMonsterFloat_1010()
+    {
+        state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES;
+        pic = 318; wait = 5f; next = ArmMonsterFloat_1011;
+        BdyDefault();
+        ItrDisable();
+    }
+    private void ArmMonsterFloat_1011()
+    {
+        pic = 319; wait = 2f; next = ArmMonsterFloat_1012;
+        BdyDefault();
+    }
+    private void ArmMonsterFloat_1012()
+    {
+        pic = 320; wait = 2f; next = ArmMonsterFloat_1013;
+        BdyDefault();
+    }
+    private void ArmMonsterFloat_1013()
+    {
+        pic = 321; wait = 2; next = ArmMonsterFloat_1014;
+        BdyDefault();
+        SpawnOpoint(64, Opoint(x: 0.2080002f, y: 0.3660002f, z: -0.058f, oid: 20, facingFront: true, quantity: 1, rotationZ: -45f));
+    }
+
+    private void ArmMonsterFloat_1014()
+    {
+        pic = 322; wait = 9f; next = ArmMonsterFloat_1015;
+        BdyDefault();
+    }
+
+    private void ArmMonsterFloat_1015()
+    {
+        pic = 323; wait = 2f; next = ArmMonsterFloat_1016;
+        BdyDefault();
+    }
+
+    private void ArmMonsterFloat_1016()
+    {
+        pic = 324; wait = 10f; next = SandFloatIdle_1160;
+        BdyDefault();
+    }
     #endregion
 
     #region Sand Shield
@@ -2611,8 +2658,8 @@ public class NsGaaraBase : CharController
         pic = 535; wait = 5f; next = SandFloatIdle_1161;
         BdyDefault();
         CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190);
-        Attack(SandFloatAttack_1180);
-        CanSimpleDash(SandFloatRunning_1175);
+        Attack(SandFloatAttack_1180); PowerUp(ArmMonsterFloat_1010); Power(FloatSandShield_1600); PowerSide(FloatSandSpear_1650);
+        CanSimpleDash(SandFloatRunning_1175); PowerDown(FloatErupcao_1700); SuperPower(FloatSandPrison_1750);
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
     
@@ -2620,9 +2667,9 @@ public class NsGaaraBase : CharController
     {
         pic = 534; wait = 5f; next = SandFloatIdle_1162;
         BdyDefault();
-        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190);
-        Attack(SandFloatAttack_1180);
-        CanSimpleDash(SandFloatRunning_1175);
+        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190); PowerSide(FloatSandSpear_1650);
+        Attack(SandFloatAttack_1180); PowerUp(ArmMonsterFloat_1010); Power(FloatSandShield_1600);
+        CanSimpleDash(SandFloatRunning_1175); PowerDown(FloatErupcao_1700); SuperPower(FloatSandPrison_1750);
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
     
@@ -2630,9 +2677,9 @@ public class NsGaaraBase : CharController
     {
         pic = 535; wait = 5f; next = SandFloatIdle_1163;
         BdyDefault();
-        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190);
-        Attack(SandFloatAttack_1180);
-        CanSimpleDash(SandFloatRunning_1175);
+        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190); PowerSide(FloatSandSpear_1650);
+        Attack(SandFloatAttack_1180); PowerUp(ArmMonsterFloat_1010); Power(FloatSandShield_1600);
+        CanSimpleDash(SandFloatRunning_1175); PowerDown(FloatErupcao_1700); SuperPower(FloatSandPrison_1750);
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
 
@@ -2640,9 +2687,9 @@ public class NsGaaraBase : CharController
     {
         pic = 534; wait = 5f; next = SandFloatIdle_1160;
         BdyDefault();
-        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190);
-        Attack(SandFloatAttack_1180);
-        CanSimpleDash(SandFloatRunning_1175);
+        CanWalking(SandFloatWalking_1170); Jump(SandFloatExit_1190); PowerSide(FloatSandSpear_1650);
+        Attack(SandFloatAttack_1180); PowerUp(ArmMonsterFloat_1010); Power(FloatSandShield_1600);
+        CanSimpleDash(SandFloatRunning_1175); PowerDown(FloatErupcao_1700); SuperPower(FloatSandPrison_1750);
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
     }
     
@@ -2653,10 +2700,9 @@ public class NsGaaraBase : CharController
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
         CanFlip();
-        CanStandingFromWalking(SandFloatIdle_1160);
-        Jump(SandFloatExit_1190); Taunt(Taunt_195);
-        Defense(Start_Defense_150); Attack(SandFloatAttack_1180); OnCeil(Standing_0);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        CanStandingFromWalking(SandFloatIdle_1160); Power(FloatSandShield_1600); PowerSide(FloatSandSpear_1650);
+        Jump(SandFloatExit_1190); Taunt(Taunt_195); PowerUp(ArmMonsterFloat_1010); SuperPower(FloatSandPrison_1750);
+        Defense(Start_Defense_150); Attack(SandFloatAttack_1180); OnCeil(Standing_0); PowerDown(FloatErupcao_1700);
         ApplyPhysicWalking();
         ManageWalking();
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
@@ -2668,10 +2714,9 @@ public class NsGaaraBase : CharController
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
         CanFlip();
-        CanStandingFromWalking(SandFloatIdle_1160);
-        Jump(SandFloatExit_1190); Taunt(Taunt_195);
-        Defense(Start_Defense_150); Attack(SandFloatAttack_1180); OnCeil(Standing_0);
-        PowerSide(soloTechSide); Power(soloTech); PowerDown(soloTechDown); PowerUp(soloTechUp); SuperPower(superTech);
+        CanStandingFromWalking(SandFloatIdle_1160); Power(FloatSandShield_1600); PowerSide(FloatSandSpear_1650);
+        Jump(SandFloatExit_1190); Taunt(Taunt_195); PowerUp(ArmMonsterFloat_1010); SuperPower(FloatSandPrison_1750);
+        Defense(Start_Defense_150); Attack(SandFloatAttack_1180); OnCeil(Standing_0); PowerDown(FloatErupcao_1700);
         ApplyPhysicWalking();
         ManageWalking();
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
@@ -2839,7 +2884,7 @@ public class NsGaaraBase : CharController
     private void Erupcao_1251()
     {
         pic = 532;
-        wait = 2;
+        wait = 10;
         next = Erupcao_1252;
         BdyDefault();
     }
@@ -2855,9 +2900,49 @@ public class NsGaaraBase : CharController
     private void Erupcao_1253()
     {
         pic = 534;
-        wait = 2;
+        wait = 0.5f;
+        next = Erupcao_1260;
+        BdyDefault();
+        if (onGround)
+        {
+            SpawnOpoint(58, Opoint(x: 0f, y: 0f, z: 0.8f, oid: 20, facingFront: true, quantity: 1));
+        }
+    }
+
+    private void Erupcao_1260()
+    {
+        pic = 534;
+        wait = 0.5f;
+        next = Erupcao_1261;
+        BdyDefault();
+        if (onGround)
+        {
+            SpawnOpoint(58, Opoint(x: 0f, y: 0f, z: -0.8f, oid: 20, facingFront: true, quantity: 1));
+        }
+    }
+
+    private void Erupcao_1261()
+    {
+        pic = 534;
+        wait = 0.5f;
+        next = Erupcao_1262;
+        BdyDefault();
+        if (onGround)
+        {
+            SpawnOpoint(58, Opoint(x: -0.8f, y: 0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
+        }
+    }
+
+    private void Erupcao_1262()
+    {
+        pic = 534;
+        wait = 0.5f;
         next = Erupcao_1254;
         BdyDefault();
+        if (onGround)
+        {
+            SpawnOpoint(58, Opoint(x: 0.8f, y: 0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
+        }
     }
 
     private void Erupcao_1254()
@@ -2878,64 +2963,153 @@ public class NsGaaraBase : CharController
     
     #endregion
 
-    #region Super Kamui
-    private void SuperKamui_1300()
+    #region Ult Sand Prision
+    private void SandPrison_1300()
     {
         state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES; ResetMovementFromStop();
-        pic = 764; wait = 2f; next = SuperKamui_1301;
+        pic = 521; wait = 2f; next = SandPrison_1301;
         BdyDefault();
         ItrDisable();
         SpawnOpoint(16, Opoint(x: 0f, y: 0.371f, z: -0.094f, oid: 0, facingFront: true, quantity: 1));
         StageFadeOut(0.05f);
     }
-    private void SuperKamui_1301()
+    private void SandPrison_1301()
     {
-        pic = 765; wait = 1f; next = SuperKamui_1302;
+        pic = 522;
+        wait = 1;
+        next = SandPrison_1315;
         BdyDefault();
-        SpawnOpoint(17, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(17, Opoint(x: 0f, y: 0f, z: 0f, oid: 1, facingFront: true, quantity: 1));
         StageFadeOut(0.05f);
     }
-    private void SuperKamui_1302()
+    private void SandPrison_1315()
     {
-        stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 0);
-        pic = 766; wait = 2f; next = SuperKamui_1303;
+        BlackoutStage();
+        pic = 522;
+        wait = 3;
+        next = SandPrison_1317;
         BdyDefault();
     }
-    private void SuperKamui_1303()
+    private void SandPrison_1317()
     {
-        pic = 767; wait = 1f; next = SuperKamui_1304;
-        BdyDefault();
-        SpawnOpoint(58, Opoint(x: 0.05f, y: 0.806f, z: 0f, oid: 0, facingFront: true, quantity: 1));
-        opointsControl = null;
-    }
-    private void SuperKamui_1304()
-    {
-        pic = 768; wait = 5f; next = SuperKamui_1305;
-        BdyDefault();
-        StageFadeIn(0.1f);
-        opointsControl = SpawnOpoint(59, Opoint(x: 0.03900003f, y: 0.3f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: true), opointsControl);
-    }
-    private void SuperKamui_1305()
-    {
-        pic = 769; wait = 1f; next = SuperKamui_1306;
+        pic = 522;
+        wait = 6;
+        next = SandPrison_1302;
         BdyDefault();
         StageFadeIn(0.1f);
     }
-    private void SuperKamui_1306()
+
+    private void SandPrison_1302()
     {
-        stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 1);
-        pic = 770; wait = 2f; next = SuperKamui_1306;
-        BdyDefault(); Attack(SuperKamui_1310_Attack);
-    }
-    private void SuperKamui_1310_Attack()
-    {
-        pic = 770; wait = 4f; next = SuperKamui_1311_Attack;
+        ResetStageColor();
+        pic = 523;
+        wait = 2;
+        next = SandPrison_1303;
         BdyDefault();
-        opointsControl[0].ChangeFrame(50);
     }
-    private void SuperKamui_1311_Attack()
+
+    private void SandPrison_1303()
     {
-        pic = 602; wait = 4f; next = Standing_0;
+        pic = 524;
+        wait = 2;
+        next = SandPrison_1304;
+        BdyDefault();
+    }
+
+    private void SandPrison_1304()
+    {
+        pic = 525;
+        wait = 2;
+        next = SandPrison_1305;
+        BdyDefault();
+        SpawnOpoint(63, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+    }
+
+    private void SandPrison_1305()
+    {
+        pic = 526;
+        wait = 2;
+        next = SandPrison_1306;
+        BdyDefault();
+    }
+
+    private void SandPrison_1306()
+    {
+        pic = 527;
+        wait = 2;
+        next = SandPrison_1307;
+        BdyDefault();
+    }
+
+    private void SandPrison_1307()
+    {
+        pic = 528;
+        wait = 2;
+        next = SandPrison_1308;
+        BdyDefault();
+    }
+
+    private void SandPrison_1308()
+    {
+        pic = 529;
+        wait = 2;
+        next = SandPrison_1309;
+        BdyDefault();
+    }
+
+    private void SandPrison_1309()
+    {
+        pic = 530;
+        wait = 10;
+        next = SandPrison_1310;
+        BdyDefault();
+    }
+
+    private void SandPrison_1310()
+    {
+        pic = 531;
+        wait = 4;
+        next = SandPrison_1311;
+        BdyDefault();
+    }
+
+    private void SandPrison_1311()
+    {
+        pic = 532;
+        wait = 4;
+        next = SandPrison_1312;
+        BdyDefault();
+    }
+
+    private void SandPrison_1312()
+    {
+        pic = 533;
+        wait = 2;
+        next = SandPrison_1313;
+        BdyDefault();
+    }
+
+    private void SandPrison_1313()
+    {
+        pic = 534;
+        wait = 5;
+        next = SandPrison_1314;
+        BdyDefault();
+    }
+
+    private void SandPrison_1314()
+    {
+        pic = 535;
+        wait = 15;
+        next = SandPrison_1316;
+        BdyDefault();
+    }
+
+    private void SandPrison_1316()
+    {
+        pic = 533;
+        wait = 2;
+        next = Standing_0;
         BdyDefault();
     }
     #endregion
@@ -2986,6 +3160,403 @@ public class NsGaaraBase : CharController
         pic = 700; wait = 1f; next = Standing_0;
         BdyDefault(); bdy.kind = BdyKindEnum.NORMAL;
         ItrDisable();
+    }
+    #endregion
+    
+    #region Float Sand Shield
+    private void FloatSandShield_1600()
+    {
+        pic = 201; wait = 1f; next = FloatSandShield_1601;
+        BdyDefault();
+    }
+    private void FloatSandShield_1601()
+    {
+        pic = 202; wait = 1f; next = FloatSandShield_1602;
+        BdyDefault();
+    }
+    private void FloatSandShield_1602()
+    {
+        pic = 203; wait = 1f; next = FloatSandShield_1603;
+        BdyDefault();
+        SpawnOpoint(60, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: false, quantity: 1, cancellable: false, attachToOwner: false));
+    }
+    private void FloatSandShield_1603()
+    {
+        pic = 204; wait = 2f; next = FloatSandShield_1604;
+        BdyDefault();
+        bdy.kind = BdyKindEnum.NORMAL;
+    }
+    private void FloatSandShield_1604()
+    {
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+        pic = -9999; wait = 40f; next = FloatSandShield_1609;
+        BdyDefault(); Attack(FloatSandShieldArmMonster_1620);
+    }
+    private void FloatSandShield_1609()
+    {
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+        pic = -9999; wait = 40f; next = FloatSandShield_1605;
+        BdyDefault(); Attack(FloatSandShieldArmMonster_1620);
+    }
+    private void FloatSandShield_1605()
+    {
+        bdy.kind = BdyKindEnum.NORMAL;
+        pic = 203; wait = 1f; next = FloatSandShield_1607;
+        BdyDefault();
+    }
+
+    private void FloatSandShield_1607()
+    {
+        pic = 202;
+        wait = 1f;
+        next = FloatSandShield_1608;
+        BdyDefault(); 
+    }
+
+    private void FloatSandShield_1608()
+    {
+        pic = 201;
+        wait = 1f;
+        next = SandFloatIdle_1160;
+        BdyDefault(); 
+    }
+    #endregion
+
+    #region Float SandShieldArmMonster
+    private void FloatSandShieldArmMonster_1620()
+    {
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        bdy.kind = BdyKindEnum.INVULNERABLE;
+        pic = -9999; wait = 40f; next = FloatSandShieldArmMonster_1621;
+        BdyDefault();
+        SpawnOpoint(64, Opoint(x: 0.2080002f, y: 0.3660002f, z: -0.058f, oid: 20, facingFront: true, quantity: 1, rotationZ: -45));
+    }
+    private void FloatSandShieldArmMonster_1621()
+    {
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        bdy.kind = BdyKindEnum.NORMAL;
+        pic = 203; wait = 1f; next = FloatSandShieldArmMonster_1621;
+        BdyDefault();
+    }
+
+    private void FloatSandShieldArmMonster_1622()
+    {
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        pic = 202;
+        wait = 1f;
+        next = FloatSandShieldArmMonster_1623;
+        BdyDefault(); 
+    }
+
+    private void FloatSandShieldArmMonster_1623()
+    {
+        rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        pic = 201;
+        wait = 1f;
+        next = SandFloatIdle_1160;
+        BdyDefault(); 
+    }
+    #endregion
+    
+    #region Float SandSpear
+    private void FloatSandSpear_1650()
+    {
+        pic = 201; wait = 1f; next = FloatSandSpear_1651;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1651()
+    {
+        pic = 202; wait = 8f; next = FloatSandSpear_1652;
+        BdyDefault();
+        SpawnOpoint(65, Opoint(x: 0f, y: 0f, z: -0.04116842f, oid: 20, facingFront: true, quantity: 1, rotationZ: -45));
+    }
+
+    private void FloatSandSpear_1652()
+    {
+        pic = 203; wait = 1f; next = FloatSandSpear_1653;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1653()
+    {
+        pic = 204; wait = 2f; next = FloatSandSpear_1654;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1654()
+    {
+        pic = 205; wait = 2f; next = FloatSandSpear_1655;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1655()
+    {
+        pic = 206; wait = 1f; next = FloatSandSpear_1656;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1656()
+    {
+        pic = 207; wait = 1f; next = FloatSandSpear_1657;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1657()
+    {
+        pic = 208; wait = 1f; next = FloatSandSpear_1658;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1658()
+    {
+        pic = 209; wait = 10f; next = FloatSandSpear_1659;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1659()
+    {
+        pic = 210; wait = 1f; next = FloatSandSpear_1660;
+        BdyDefault();
+    }
+
+    private void FloatSandSpear_1660()
+    {
+        pic = 211; wait = 8f; next = SandFloatIdle_1160;
+        BdyDefault();
+    }
+    #endregion
+    
+    #region Float Erupcao
+    private void FloatErupcao_1700()
+    {
+        state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES;
+        pic = 531; wait = 1f; next = FloatErupcao_1701;
+        BdyDefault();
+        ItrDisable();
+    }
+
+    private void FloatErupcao_1701()
+    {
+        pic = 532;
+        wait = 10;
+        next = FloatErupcao_1702;
+        BdyDefault();
+    }
+
+    private void FloatErupcao_1702()
+    {
+        pic = 533;
+        wait = 2;
+        next = FloatErupcao_1703;
+        BdyDefault();
+    }
+
+    private void FloatErupcao_1703()
+    {
+        pic = 534;
+        wait = 0.5f;
+        next = FloatErupcao_1710;
+        BdyDefault();
+        if (onGround)
+        {
+            SpawnOpoint(58, Opoint(x: 0f, y: 0f, z: 0.8f, oid: 20, facingFront: true, quantity: 1));
+        }
+    }
+
+    private void FloatErupcao_1710()
+    {
+        pic = 534;
+        wait = 0.5f;
+        next = FloatErupcao_1711;
+        BdyDefault();
+        if (onGround)
+        {
+            SpawnOpoint(58, Opoint(x: 0f, y: 0f, z: -0.8f, oid: 20, facingFront: true, quantity: 1));
+        }
+    }
+
+    private void FloatErupcao_1711()
+    {
+        pic = 534;
+        wait = 0.5f;
+        next = FloatErupcao_1712;
+        BdyDefault();
+        if (onGround)
+        {
+            SpawnOpoint(58, Opoint(x: -0.8f, y: 0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
+        }
+    }
+
+    private void FloatErupcao_1712()
+    {
+        pic = 534;
+        wait = 0.5f;
+        next = FloatErupcao_1704;
+        BdyDefault();
+        if (onGround)
+        {
+            SpawnOpoint(58, Opoint(x: 0.8f, y: 0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
+        }
+    }
+
+    private void FloatErupcao_1704()
+    {
+        pic = 535;
+        wait = 8;
+        next = SandFloatIdle_1160;
+        BdyDefault();
+    }
+    #endregion
+
+    #region Ult Float Sand Prision
+    private void FloatSandPrison_1750()
+    {
+        state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES;
+        pic = 521; wait = 2f; next = FloatSandPrison_1751;
+        BdyDefault();
+        ItrDisable();
+        SpawnOpoint(16, Opoint(x: 0f, y: 0.371f, z: -0.094f, oid: 0, facingFront: true, quantity: 1));
+        StageFadeOut(0.05f);
+    }
+    private void FloatSandPrison_1751()
+    {
+        pic = 522;
+        wait = 1;
+        next = FloatSandPrison_1715;
+        BdyDefault();
+        SpawnOpoint(17, Opoint(x: 0f, y: 0f, z: 0f, oid: 1, facingFront: true, quantity: 1));
+        StageFadeOut(0.05f);
+    }
+    private void FloatSandPrison_1715()
+    {
+        BlackoutStage();
+        pic = 522;
+        wait = 3;
+        next = FloatSandPrison_1717;
+        BdyDefault();
+    }
+    private void FloatSandPrison_1717()
+    {
+        pic = 522;
+        wait = 6;
+        next = FloatSandPrison_1752;
+        BdyDefault();
+        StageFadeIn(0.1f);
+    }
+
+    private void FloatSandPrison_1752()
+    {
+        ResetStageColor();
+        pic = 523;
+        wait = 2;
+        next = FloatSandPrison_1753;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1753()
+    {
+        pic = 524;
+        wait = 2;
+        next = FloatSandPrison_1754;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1754()
+    {
+        pic = 525;
+        wait = 2;
+        next = FloatSandPrison_1755;
+        BdyDefault();
+        SpawnOpoint(63, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+    }
+
+    private void FloatSandPrison_1755()
+    {
+        pic = 526;
+        wait = 2;
+        next = FloatSandPrison_1756;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1756()
+    {
+        pic = 527;
+        wait = 2;
+        next = FloatSandPrison_1757;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1757()
+    {
+        pic = 528;
+        wait = 2;
+        next = FloatSandPrison_1758;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1758()
+    {
+        pic = 529;
+        wait = 2;
+        next = FloatSandPrison_1759;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1759()
+    {
+        pic = 530;
+        wait = 10;
+        next = FloatSandPrison_1760;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1760()
+    {
+        pic = 531;
+        wait = 4;
+        next = FloatSandPrison_1761;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1761()
+    {
+        pic = 532;
+        wait = 4;
+        next = FloatSandPrison_1762;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1762()
+    {
+        pic = 533;
+        wait = 2;
+        next = FloatSandPrison_1763;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1763()
+    {
+        pic = 534;
+        wait = 5;
+        next = FloatSandPrison_1764;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1764()
+    {
+        pic = 535;
+        wait = 15;
+        next = FloatSandPrison_1766;
+        BdyDefault();
+    }
+
+    private void FloatSandPrison_1766()
+    {
+        pic = 535;
+        wait = 2;
+        next = SandFloatIdle_1160;
+        BdyDefault();
     }
     #endregion
 }

@@ -77,7 +77,7 @@ public class NsKakashiBase : CharController
         ResetMovementFromStop();
         pic = 108; state = StateFrameEnum.STANDING; wait = 2f; next = Standing_1;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -91,7 +91,7 @@ public class NsKakashiBase : CharController
     {
         pic = 111; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_2;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -104,7 +104,7 @@ public class NsKakashiBase : CharController
     {
         pic = 110; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_3;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -117,7 +117,7 @@ public class NsKakashiBase : CharController
     {
         pic = 113; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_4;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -130,7 +130,7 @@ public class NsKakashiBase : CharController
     {
         pic = 112; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_5;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -143,7 +143,7 @@ public class NsKakashiBase : CharController
     {
         pic = 115; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_6;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -156,7 +156,7 @@ public class NsKakashiBase : CharController
     {
         pic = 114; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_7;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -169,7 +169,7 @@ public class NsKakashiBase : CharController
     {
         pic = 118; state = StateFrameEnum.STANDING; wait = 1f; next = Standing_8;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -182,7 +182,7 @@ public class NsKakashiBase : CharController
     {
         pic = 117; state = StateFrameEnum.STANDING; wait = 3f; next = Standing_0;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanWalking(Walking_20);
         ApplyPhysicStanding();
@@ -198,7 +198,7 @@ public class NsKakashiBase : CharController
     {
         pic = 119; state = StateFrameEnum.WALKING; wait = 2f; dvx = 3f; dvz = 3f; next = Walking_21; CancelOpoints(); bdy.kind = BdyKindEnum.NORMAL;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -212,7 +212,7 @@ public class NsKakashiBase : CharController
     {
         pic = 120; state = StateFrameEnum.WALKING; wait = 0.5f; dvx = 3f; dvz = 3f; next = Walking_22;
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
-        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
+        bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.44f;
         Bdy();
         CanFlip();
         CanStandingFromWalking(Standing_0);
@@ -339,7 +339,7 @@ public class NsKakashiBase : CharController
     {
         pic = 119; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 450f; dvy = 0f; dvz = 0f;
         next = SimpleDash_41;
-        Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
+        Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
@@ -350,7 +350,7 @@ public class NsKakashiBase : CharController
     {
         pic = 131; state = StateFrameEnum.SIMPLE_DASH; wait = 1.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDash_42;
-        Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
+        Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         bdy.x = -0.0111f; bdy.y = 0.2417f; bdy.z = 0;
         bdy.w = 0.4120263f; bdy.h = 0.4834f; bdy.zwidth = 0.22f;
         Bdy();
@@ -361,7 +361,7 @@ public class NsKakashiBase : CharController
         CanHoldForwardAfter(Running_55);
         pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDash_43;
-        Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
+        Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         BdyDefault();
     }
 
@@ -371,7 +371,7 @@ public class NsKakashiBase : CharController
         CanHoldForwardAfter(Running_55);
         pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 0.5f; dvx = 0f; dvy = 0f; dvz = 0f;
         next = SimpleDashStopRunning_44;
-        Jump(DashJump_250); Defense(RunningDash_70); Attack(Attack1_350);
+        Jump(DashJump_250); Defense(RunningDash_70); Attack(RunningAttack_330);
         BdyDefault();
     }
 
@@ -381,7 +381,7 @@ public class NsKakashiBase : CharController
         CanHoldForwardAfter(Running_55);
         pic = 132; state = StateFrameEnum.SIMPLE_DASH; wait = 4f; dvx = 150f; dvy = 0; dvz = 0;
         next = StopRunning_62;
-        Attack(Attack1_350); Defense(RunningDash_70); Jump(DashJump_250);
+        Attack(RunningAttack_330); Defense(RunningDash_70); Jump(DashJump_250);
         BdyDefault();
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight);
     }
@@ -3172,6 +3172,7 @@ public class NsKakashiBase : CharController
     {
         state = StateFrameEnum.CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES; ResetMovementFromStop();
         pic = 764; wait = 2f; next = SuperKamui_1301;
+        bdy.kind = BdyKindEnum.INVULNERABLE;
         BdyDefault();
         ItrDisable();
         SpawnOpoint(16, Opoint(x: 0f, y: 0.371f, z: -0.094f, oid: 0, facingFront: true, quantity: 1));
@@ -3181,12 +3182,13 @@ public class NsKakashiBase : CharController
     {
         pic = 765; wait = 1f; next = SuperKamui_1302;
         BdyDefault();
+        bdy.kind = BdyKindEnum.INVULNERABLE;
         SpawnOpoint(17, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1));
         StageFadeOut(0.05f);
     }
     private void SuperKamui_1302()
     {
-        stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 0);
+        BlackoutStage();
         pic = 766; wait = 2f; next = SuperKamui_1303;
         BdyDefault();
     }
@@ -3206,14 +3208,22 @@ public class NsKakashiBase : CharController
     }
     private void SuperKamui_1305()
     {
-        pic = 769; wait = 1f; next = SuperKamui_1306;
+        pic = 769; wait = 1f; next = SuperKamui_1312;
         BdyDefault();
         StageFadeIn(0.1f);
+        repeatCount = 200;
+    }
+    private void SuperKamui_1312()
+    {
+        RepeatCountToFrame(SuperKamui_1310_Attack);
+        ResetStageColor();
+        pic = 770; wait = 1f; next = SuperKamui_1306;
+        BdyDefault(); Attack(SuperKamui_1310_Attack);
     }
     private void SuperKamui_1306()
     {
-        stageSpriteRenderer.color = new Color(stageSpriteRenderer.color.r, stageSpriteRenderer.color.g, stageSpriteRenderer.color.b, 1);
-        pic = 770; wait = 2f; next = SuperKamui_1306;
+        RepeatCountToFrame(SuperKamui_1310_Attack);
+        pic = 770; wait = 1f; next = SuperKamui_1306;
         BdyDefault(); Attack(SuperKamui_1310_Attack);
     }
     private void SuperKamui_1310_Attack()
