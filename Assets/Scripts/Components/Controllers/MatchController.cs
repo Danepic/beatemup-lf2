@@ -27,13 +27,13 @@ public class MatchController : MonoBehaviour
         if (MatchControllerStore.Instance != null)
         {
             var stageResourcePath = ExtractObjectName(MatchControllerStore.Instance.stageResourcePath);
-            var stageGameObj = Resources.Load<GameObject>(stageResourcePath);
+            var stageGameObj = UnityEngine.Resources.Load<GameObject>(stageResourcePath);
 
             var stage = Instantiate(stageGameObj, stageGameObj.transform.position, Quaternion.identity);
             var stageSpriteRenderer = stage.transform.GetComponentsInChildren<SpriteRenderer>();
 
             var resourcePathP1 = ExtractObjectName(MatchControllerStore.Instance.player1CharacterResourcePath);
-            var p1GameObj = Instantiate(Resources.Load<GameObject>(resourcePathP1), p1Spawn.position,
+            var p1GameObj = Instantiate(UnityEngine.Resources.Load<GameObject>(resourcePathP1), p1Spawn.position,
                 Quaternion.identity);
             p1GameObj.GetComponent<BaseEnemyAI>().enabled = false;
 
@@ -45,7 +45,7 @@ public class MatchController : MonoBehaviour
 
 
             var resourcePathP2 = ExtractObjectName(MatchControllerStore.Instance.player2CharacterResourcePath);
-            var p2GameObj = Instantiate(Resources.Load<GameObject>(resourcePathP2), p2Spawn.position,
+            var p2GameObj = Instantiate(UnityEngine.Resources.Load<GameObject>(resourcePathP2), p2Spawn.position,
                 Quaternion.identity);
             p2GameObj.GetComponent<BaseEnemyAI>().enabled = false; //mudar para true
 

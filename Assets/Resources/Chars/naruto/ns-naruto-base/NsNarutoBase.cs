@@ -14,6 +14,9 @@ using UnityEngine.InputSystem;
 
 public class NsNarutoBase : CharController
 {
+    public static string NSNARUTO_FUMA_SHURIKEN_OPOINT = "ns-naruto-fuma-shuriken";
+    public static string SMOKE1_OPOINT = "smoke_1";
+    public static string NSNARUTO_CLONE_ATTACK_OPOINT = "ns-naruto-clone-attack";
     void Awake()
     {
         palettes.Add("Chars/naruto/ns-naruto-base/sprites");
@@ -33,9 +36,9 @@ public class NsNarutoBase : CharController
             resistance = 8,
             stamina = 10,
         };
-        opoints.Add(50, EnrichOpoint(3, "Attacks/Weapons/ns-naruto-fuma-shuriken/ns-naruto-fuma-shuriken"));
-        opoints.Add(51, EnrichOpoint(3, "Effects/Smoke/smoke_1/smoke_1"));
-        opoints.Add(52, EnrichOpoint(3, "Attacks/Clones/ns-naruto-clone-attack/ns-naruto-clone-attack"));
+        opoints.Add(NSNARUTO_FUMA_SHURIKEN_OPOINT, EnrichOpoint(3, "Attacks/Weapons/ns-naruto-fuma-shuriken/ns-naruto-fuma-shuriken"));
+        opoints.Add(SMOKE1_OPOINT, EnrichOpoint(3, "Effects/Smoke/smoke_1/smoke_1"));
+        opoints.Add(NSNARUTO_CLONE_ATTACK_OPOINT, EnrichOpoint(3, "Attacks/Clones/ns-naruto-clone-attack/ns-naruto-clone-attack"));
         hitDefenseAction = HitDefense_160;
         jumpDefenseAction = HitJumpDefense_305;
         frames = PopulateFrames(this);
@@ -643,7 +646,7 @@ public class NsNarutoBase : CharController
         next = Charge_176; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
-        SpawnOpoint(0, Opoint(x: 0.187f, y: 0.389f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(CHAKRA_CHARGE_OPOINT, Opoint(x: 0.187f, y: 0.389f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Charge_176()
     {
@@ -651,7 +654,7 @@ public class NsNarutoBase : CharController
         next = Charge_177; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
-        SpawnOpoint(1, Opoint(x: 0.013f, y: 0.014f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(CHAKRA_CHARGE_AURA_OPOINT, Opoint(x: 0.013f, y: 0.014f, z: 0f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Charge_177()
     {
@@ -659,7 +662,7 @@ public class NsNarutoBase : CharController
         next = Charge_178; Attack(ChargeStop_190); Power(ChargeStop_190); Defense(ChargeStop_190);
         Jump(ChargeStop_190);
         BdyDefault();
-        SpawnOpoint(2, Opoint(x: 0.049f, y: 0.109f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(CHAKRA_CHARGE_SMOKE_OPOINT, Opoint(x: 0.049f, y: 0.109f, z: -0.102f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Charge_178()
     {
@@ -1074,7 +1077,7 @@ public class NsNarutoBase : CharController
     {
         pic = 232; wait = 3f; next = ThrowingWeapon_311;
         BdyDefault(); state = StateFrameEnum.ATTACK;
-        SpawnOpoint(51, Opoint(x: 0.065f, y: 0.51f, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(SMOKE1_OPOINT, Opoint(x: 0.065f, y: 0.51f, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
     }
     private void ThrowingWeapon_311()
     {
@@ -1090,7 +1093,7 @@ public class NsNarutoBase : CharController
     {
         pic = 234; wait = 0.5f; next = ThrowingWeapon_314;
         BdyDefault();
-        SpawnOpoint(50, Opoint(x: 0.13f, y: 0.2f, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(NSNARUTO_FUMA_SHURIKEN_OPOINT, Opoint(x: 0.13f, y: 0.2f, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
     }
     private void ThrowingWeapon_314()
     {
@@ -1521,7 +1524,7 @@ public class NsNarutoBase : CharController
         pic = 226; wait = 0.5f;
         next = FrontAttack_434;
         BdyDefault();
-        SpawnOpoint(52, Opoint(x: -0.450f, y: 0f, z: 0.094f, oid: 40, facingFront: true, quantity: 1));
+        SpawnOpoint(NSNARUTO_CLONE_ATTACK_OPOINT, Opoint(x: -0.450f, y: 0f, z: 0.094f, oid: 40, facingFront: true, quantity: 1));
     }
     private void FrontAttack_434()
     {
@@ -1550,7 +1553,7 @@ public class NsNarutoBase : CharController
     {
         pic = 226; wait = 0.5f; next = Uppercut_454;
         BdyDefault();
-        SpawnOpoint(52, Opoint(x: 0.450f, y: 0f, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(NSNARUTO_CLONE_ATTACK_OPOINT, Opoint(x: 0.450f, y: 0f, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Uppercut_454()
     {
@@ -1561,7 +1564,7 @@ public class NsNarutoBase : CharController
     {
         pic = 227; wait = 13f; next = Standing_0; Jump(JumpCombo_650); state = StateFrameEnum.UPPER_TO_JUMP_COMBO;
         BdyDefault();
-        SpawnOpoint(3, Opoint(x: 0.11f, y: 0.25f, z: -0.08f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(JUMPING_COMBO_OPOINT, Opoint(x: 0.11f, y: 0.25f, z: -0.08f, oid: 0, facingFront: true, quantity: 1));
     }
     #endregion
 
@@ -1585,7 +1588,7 @@ public class NsNarutoBase : CharController
     {
         pic = 226; wait = 0.5f; next = Downercut_474;
         BdyDefault();
-        SpawnOpoint(52, Opoint(x: -0.450f, y: 0, z: 0.094f, oid: 20, facingFront: true, quantity: 1));
+        SpawnOpoint(NSNARUTO_CLONE_ATTACK_OPOINT, Opoint(x: -0.450f, y: 0, z: 0.094f, oid: 20, facingFront: true, quantity: 1));
     }
     private void Downercut_474()
     {
@@ -1674,13 +1677,13 @@ public class NsNarutoBase : CharController
     {
         pic = 517; wait = 2f; next = JumpThrowingAttack_571; OnGround(Crouch_290);
         BdyDefault();
-        SpawnOpoint(51, Opoint(x: 0.065f, y: 0.51f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(SMOKE1_OPOINT, Opoint(x: 0.065f, y: 0.51f, z: 0f, oid: 0, facingFront: true, quantity: 1));
     }
     private void JumpThrowingAttack_571()
     {
         pic = 518; wait = 0.5f; next = JumpThrowingAttack_572; OnGround(Crouch_290);
         BdyDefault();
-        SpawnOpoint(50, Opoint(x: 0.065f, y: 0.0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
+        SpawnOpoint(NSNARUTO_FUMA_SHURIKEN_OPOINT, Opoint(x: 0.065f, y: 0.0f, z: 0f, oid: 20, facingFront: true, quantity: 1));
     }
     private void JumpThrowingAttack_572()
     {
@@ -2126,7 +2129,7 @@ public class NsNarutoBase : CharController
     {
         pic = 627; wait = 2f; next = FallingDownImpact_826;
         BdyDefault();
-        SpawnOpoint(8, Opoint(x: 0.13f, y: 0, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(IMPACT_DOWN_OPOINT, Opoint(x: 0.13f, y: 0, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
     }
     private void FallingDownImpact_826()
     {
@@ -2208,7 +2211,7 @@ public class NsNarutoBase : CharController
         pic = 212; wait = 2f; next = FallingUpImpact_851;
         BdyDefault();
         ApplyDefaultPhysic(dvx: 0, dvy: -320, dvz: 0, facingRight);
-        SpawnOpoint(7, Opoint(x: 0.13f, y: 0, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(IMPACT_UP_OPOINT, Opoint(x: 0.13f, y: 0, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
     }
     private void FallingUpImpact_851()
     {
@@ -2263,7 +2266,7 @@ public class NsNarutoBase : CharController
     {
         pic = 627; wait = 2f; next = FallingForwardImpact_871;
         BdyDefault();
-        SpawnOpoint(9, Opoint(x: -0.17f, y: 0, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(IMPACT_FORWARD_OPOINT, Opoint(x: -0.17f, y: 0, z: 0.094f, oid: 0, facingFront: true, quantity: 1));
     }
     private void FallingForwardImpact_871()
     {
@@ -2293,8 +2296,8 @@ public class NsNarutoBase : CharController
         if (canParry)
         {
             spriteRenderer.color = parryColor;
-            base.currentHp += lastDamage > 0 ? lastDamage : 0;
-            base.canParry = false;
+            currentHp += lastDamage > 0 ? lastDamage : 0;
+            canParry = false;
         }
         pic = 139; wait = 1f; next = CriticalDefense_881; Attack(Attack1_350);
         BdyDefault();
@@ -2303,7 +2306,7 @@ public class NsNarutoBase : CharController
     {
         pic = 140; wait = 1f; next = StopDefense_152; Attack(Attack1_350);
         BdyDefault();
-        SpawnOpoint(3, Opoint(x: 0f, y: 0.3f, z: -0.13f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(JUMPING_COMBO_OPOINT, Opoint(x: 0f, y: 0.3f, z: -0.13f, oid: 0, facingFront: true, quantity: 1));
     }
     #endregion
 
@@ -2323,7 +2326,7 @@ public class NsNarutoBase : CharController
     {
         pic = 142; wait = 1f; next = StopJumpDefense_302; Attack(JumpAttack1_590);
         BdyDefault();
-        SpawnOpoint(3, Opoint(x: 0.11f, y: 0.25f, z: -0.12f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(JUMPING_COMBO_OPOINT, Opoint(x: 0.11f, y: 0.25f, z: -0.12f, oid: 0, facingFront: true, quantity: 1));
     }
     #endregion
 
@@ -2389,7 +2392,7 @@ public class NsNarutoBase : CharController
         spriteRenderer.color = parryColor; CancelOpoints();
         pic = 134; wait = 1f; next = JumpRecover_931;
         BdyDefault();
-        SpawnOpoint(10, Opoint(x: 0.11f, y: 0.25f, z: 0.08f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(JUMP_RECOVER_OPOINT, Opoint(x: 0.11f, y: 0.25f, z: 0.08f, oid: 0, facingFront: true, quantity: 1));
     }
     private void JumpRecover_931()
     {

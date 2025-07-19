@@ -30,7 +30,7 @@ namespace Model
 
         public Sprite GetSprite()
         {
-            return Resources.Load<Sprite>(boosterMugshotResourcePath);
+            return UnityEngine.Resources.Load<Sprite>(boosterMugshotResourcePath);
         }
     }
 }

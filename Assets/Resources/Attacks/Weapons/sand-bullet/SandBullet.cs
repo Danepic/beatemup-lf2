@@ -5,11 +5,12 @@ public class SandBullet : AttackController
 {
     private ObjController invokedEffect;
     
+    public static string SAND_BULLET_EFFECT_OPOINT = "sand_bullet_effect";
     void Awake()
     {
         palettes.Add("Attacks/Weapons/sand-bullet/sprites");
         base.Awake();
-        opoints.Add(50, EnrichOpoint(2, "Effects/sand/bullet-effect/sand-bullet-effect"));
+        opoints.Add(SAND_BULLET_EFFECT_OPOINT, EnrichOpoint(2, "Effects/sand/bullet-effect/sand-bullet-effect"));
         headerName = "Sand Bullet";
         totalHp = 175;
         frames = PopulateFrames(this);
@@ -37,7 +38,7 @@ public class SandBullet : AttackController
         ItrDisable();
         rb.constraints = RigidbodyConstraints.FreezeAll;
         repeatCount = 100;
-        SpawnOpoint(50, Opoint(x: 0f, y: 0f, z: -0.03f, oid: 0, facingFront: true, quantity: 1, attachToOwner: true, cancellable: true));
+        SpawnOpoint(SAND_BULLET_EFFECT_OPOINT, Opoint(x: 0f, y: 0f, z: -0.03f, oid: 0, facingFront: true, quantity: 1, attachToOwner: true, cancellable: true));
     }
     private void InvokeImpulse_1()
     {
@@ -217,7 +218,7 @@ public class SandBullet : AttackController
         BdyDefault();
         ItrDisable();
         repeatCount = 100;
-        var childOpoints = SpawnOpoint(50, Opoint(x: 0f, y: 0f, z: -0.03f, oid: 0, facingFront: true, quantity: 1, attachToOwner: true, cancellable: true));
+        var childOpoints = SpawnOpoint(SAND_BULLET_EFFECT_OPOINT, Opoint(x: 0f, y: 0f, z: -0.03f, oid: 0, facingFront: true, quantity: 1, attachToOwner: true, cancellable: true));
         foreach (var opoint in childOpoints)
         {
             opoint.transform.localScale = new Vector3(1, 1, 1);

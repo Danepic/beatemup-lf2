@@ -61,7 +61,7 @@ public class Kunai : AttackController
         BdyDefault();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         ItrDefault();
         OnGround(Remove_300);
     }
@@ -74,7 +74,7 @@ public class Kunai : AttackController
         BdyDefault();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         ItrDefault();
         OnGround(Remove_300);
     }
@@ -87,7 +87,7 @@ public class Kunai : AttackController
         BdyDefault();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         ItrDefault();
         OnGround(Remove_300);
     }
@@ -123,7 +123,7 @@ public class Kunai : AttackController
         BdyDefault();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         ItrDefault(zwidth: 0.22f);
         OnGround(Remove_300);
     }
@@ -136,7 +136,7 @@ public class Kunai : AttackController
         BdyDefault();
         itr.dvx = 150; itr.dvy = 100; itr.dvz = 0; itr.action = 700;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1;
-        itr.injury = 150; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
+        itr.injury = 20; itr.effect = ItrEffectEnum.BLOOD; itr.rest = 7;
         ItrDefault(zwidth: 0.22f);
         OnGround(Remove_300);
     }

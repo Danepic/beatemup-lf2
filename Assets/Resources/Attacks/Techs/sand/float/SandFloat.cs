@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SandFloat : AttackController
 {
+    public static string SAND_ELEMENT_OPOINT = "sandElement";
     void Awake()
     {
         palettes.Add("Attacks/Techs/sand/float/sprites");
@@ -14,7 +15,7 @@ public class SandFloat : AttackController
         attackLevel2Frame = null;
         attackLevel3Frame = null;
         
-        opoints.Add(50, EnrichOpoint(50, "Attacks/Elements/sand/sandElement"));
+        opoints.Add(SAND_ELEMENT_OPOINT, EnrichOpoint(50, "Attacks/Elements/sand/sandElement"));
     }
 
     public void Start()
@@ -79,7 +80,7 @@ public class SandFloat : AttackController
     {
         pic = 100; wait = 15f;
         next = FloatSand_7;
-        SpawnOpoint(50, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        SpawnOpoint(SAND_ELEMENT_OPOINT, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
     }
 
     private void FloatSand_8()

@@ -12,6 +12,9 @@ using UnityEngine.InputSystem;
 
 public class KamuiTarget : AttackController
 {
+    public static string KAMUI_SUCTION_OPOINT = "kamui_suction";
+    public static string KAMUI_ATTACK_OPOINT = "kamui_attack";
+    
     private Transform enemyTarget;
     void Awake()
     {
@@ -20,8 +23,8 @@ public class KamuiTarget : AttackController
         headerName = "Kamui Target";
         totalHp = -1;
         frames = PopulateFrames(this);
-        opoints.Add(50, EnrichOpoint(1, "Attacks/Techs/sharingan/kamui/suction/kamui-suction"));
-        opoints.Add(51, EnrichOpoint(1, "Attacks/Techs/sharingan/kamui/attack/kamui-attack"));
+        opoints.Add(KAMUI_SUCTION_OPOINT, EnrichOpoint(1, "Attacks/Techs/sharingan/kamui/suction/kamui-suction"));
+        opoints.Add(KAMUI_ATTACK_OPOINT, EnrichOpoint(1, "Attacks/Techs/sharingan/kamui/attack/kamui-attack"));
     }
 
     public void Start()
@@ -44,7 +47,7 @@ public class KamuiTarget : AttackController
         BdyDefault();
         ItrDisable();
         repeatCount = 250;
-        SpawnOpoint(50, Opoint(x: 0f, y: 0.166f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
+        SpawnOpoint(KAMUI_SUCTION_OPOINT, Opoint(x: 0f, y: 0.166f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: true, attachToOwner: true));
     }
     private void Invoke_1()
     {
@@ -111,7 +114,7 @@ public class KamuiTarget : AttackController
         pic = -9999; wait = 1f; next = Remove_300;
         BdyDefault();
         ItrDisable();
-        SpawnOpoint(51, Opoint(x: 0f, y: 0.216f, z: 0f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(KAMUI_ATTACK_OPOINT, Opoint(x: 0f, y: 0.216f, z: 0f, oid: 0, facingFront: true, quantity: 1));
     }
     #endregion
 

@@ -196,14 +196,14 @@ public class CharacterSelectionView : MonoBehaviour
         if (p1TurnToSelect)
         {
             currentButton.transform.Find("1pSelect").gameObject.SetActive(true);
-            cardP1.GetComponent<Image>().sprite = Resources.Load<Sprite>(resourcePath + "/" + "cards/" + version); //Obter o objeto com o nome da pasta e caminho completo
+            cardP1.GetComponent<Image>().sprite = UnityEngine.Resources.Load<Sprite>(resourcePath + "/" + "cards/" + version); //Obter o objeto com o nome da pasta e caminho completo
             p1TurnToSelect = false;
             MatchControllerStore.Instance.player1CharacterResourcePath = resourcePath;
         }
         else
         {
             currentButton.transform.Find("2pSelect").gameObject.SetActive(true);
-            cardP2.GetComponent<Image>().sprite = Resources.Load<Sprite>(resourcePath + "/" + "cards/" + version); //Obter o objeto com o nome da pasta e caminho completo
+            cardP2.GetComponent<Image>().sprite = UnityEngine.Resources.Load<Sprite>(resourcePath + "/" + "cards/" + version); //Obter o objeto com o nome da pasta e caminho completo
             p1TurnToSelect = true;
             enableStageSelection = true;
             MatchControllerStore.Instance.player2CharacterResourcePath = resourcePath;
@@ -263,7 +263,7 @@ public class CharacterSelectionView : MonoBehaviour
             {
                 GameObject currentAvailableMugshots = Instantiate(baseAvailableMugshot.gameObject, baseAvailableMugshot.transform.parent);
                 currentAvailableMugshots.SetActive(true);
-                currentAvailableMugshots.GetComponent<Image>().sprite = Resources.Load<Sprite>(character.resourcePath + "/mugshot");
+                currentAvailableMugshots.GetComponent<Image>().sprite = UnityEngine.Resources.Load<Sprite>(character.resourcePath + "/mugshot");
                 currentAvailableMugshots.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * 125 + rectTransformAvailableMugshot.anchoredPosition.x, rectTransformAvailableMugshot.anchoredPosition.y);
 
                 var currentButton = currentAvailableMugshots.GetComponent<Button>();
@@ -294,7 +294,7 @@ public class CharacterSelectionView : MonoBehaviour
     private void UpdateSelectStage(int stageIndex)
     {
         var currentStage = userStages[stageIndex];
-        stageCard.GetComponent<Image>().sprite = Resources.Load<Sprite>(currentStage.resourcePath + "/card");
+        stageCard.GetComponent<Image>().sprite = UnityEngine.Resources.Load<Sprite>(currentStage.resourcePath + "/card");
         MatchControllerStore.Instance.stageResourcePath = currentStage.resourcePath;
     }
 }

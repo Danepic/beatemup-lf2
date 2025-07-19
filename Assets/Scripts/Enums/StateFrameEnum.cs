@@ -69,6 +69,7 @@ namespace Enums
         FALLING_DOWN = 43,
         ATTACK_RESET = 44,
         CANCEL_OPOINTS_IF_CHANGE_CONTEXT_FRAMES = 45,
+        NO_MANA = 46,
         EFFECT_IDLE = 1000,
 
         ATTACK_IDLE = 2000,

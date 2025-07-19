@@ -32,7 +32,6 @@ public class BarsController : MonoBehaviour
         
         float hpPercentage = Mathf.Clamp01((float)target.currentHp / target.totalHp);
         float mpPercentage = Mathf.Clamp01((float)target.currentMp / target.totalMp);
-        Debug.Log(hpImage.localScale.x + " - " + hpImage.localScale.x * hpPercentage);
 
         hpImage.localScale = new Vector3(_hpFillMaxLimit * hpPercentage, hpImage.localScale.y, hpImage.localScale.z);
         mpImage.localScale = new Vector3(_mpFillMaxLimit * mpPercentage, mpImage.localScale.y, mpImage.localScale.z);

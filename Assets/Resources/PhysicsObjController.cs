@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Domains;
 using Enums;
 using UnityEngine;
+using static CharController;
 using Random = UnityEngine.Random;
 
 public class PhysicsObjController : ObjController
 {
-    protected BdyEntity bdy = new();
-    protected ItrEntity itr = new();
+    public BdyEntity bdy = new();
+    public ItrEntity itr = new();
     protected Transform hurtbox;
     protected Rigidbody rb;
     protected Vector3 velocity = Vector3.zero;
@@ -36,8 +38,8 @@ public class PhysicsObjController : ObjController
     public int totalHp;
     public int currentMp;
     public int totalMp;
-    protected bool canParry;
-    protected int lastDamage;
+    public bool canParry;
+    public int lastDamage;
     protected bool isDeath;
     protected ItrEntity externItr;
     protected Vector3 externPosition;
@@ -59,9 +61,9 @@ public class PhysicsObjController : ObjController
     public ItrKindEnum externKind;
 
     protected bool defensable;
-    protected bool execHealthPointsOneTimeInFrame;
-    protected bool execManaPointsOneTimeInFrame;
-    protected int mp;
+    protected bool execHealthPointsOneTimeInFrame = true;
+    public bool execManaPointsOneTimeInFrame = true;
+    public int mp;
     protected int hp;
     public float damageRestTU;
     protected int? targetId;
@@ -74,7 +76,7 @@ public class PhysicsObjController : ObjController
     private int percentToHit = 0;
     private int hitDefenseActionId = 160;
     private int hitJumpDefenseActionId = 305;
-    protected List<ObjController> opointsControl = new();
+    public List<ObjController> opointsControl = new();
     protected int? attackLevel1Frame;
     protected int? attackLevel2Frame;
     protected int? attackLevel3Frame;
@@ -84,8 +86,8 @@ public class PhysicsObjController : ObjController
     {
         rb = GetComponent<Rigidbody>();
         selfBoxCollider = GetComponent<BoxCollider>();
-        hurtbox = transform.Find("Hurtbox"); ;
-        hitbox = transform.Find("Hitbox"); ;
+        hurtbox = transform.Find("Hurtbox");
+        hitbox = transform.Find("Hitbox");
         base.Awake();
     }
 
@@ -102,16 +104,17 @@ public class PhysicsObjController : ObjController
         base.Start();
     }
 
-    protected void BdyDefault(float zwidth = 0)
+    public void BdyDefault(float zwidth = 0)
     {
         hurtbox.localPosition = new Vector3(0f, spriteRenderer.sprite.bounds.size.y / 2, 0f);
-        hurtbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x / 2, spriteRenderer.sprite.bounds.size.y, zSizeDefault + zwidth);
+        hurtbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x / 2, spriteRenderer.sprite.bounds.size.y,
+            zSizeDefault + zwidth);
 
         selfBoxCollider.center = hurtbox.localPosition;
         selfBoxCollider.size = hurtbox.localScale;
     }
 
-    protected void Bdy()
+    public void Bdy()
     {
         hurtbox.localPosition = new Vector3(bdy.x, bdy.y, bdy.z);
         hurtbox.localScale = new Vector3(bdy.w, bdy.h, bdy.zwidth);
@@ -120,16 +123,17 @@ public class PhysicsObjController : ObjController
         selfBoxCollider.size = hurtbox.localScale;
     }
 
-    protected void ItrDefault(float zwidth = 0)
+    public void ItrDefault(float zwidth = 0)
     {
         hittableObjects = new List<PhysicsObjController>();
         itr.kind = ItrKindEnum.ENEMY;
         hitbox.gameObject.SetActive(true);
         hitbox.localPosition = new Vector3(0f, spriteRenderer.sprite.bounds.size.y / 2, 0f);
-        hitbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x, spriteRenderer.sprite.bounds.size.y, zSizeDefault + zwidth);
+        hitbox.localScale = new Vector3(spriteRenderer.sprite.bounds.size.x, spriteRenderer.sprite.bounds.size.y,
+            zSizeDefault + zwidth);
     }
 
-    protected void Itr()
+    public void Itr()
     {
         itr.kind = ItrKindEnum.ENEMY;
         hitbox.gameObject.SetActive(true);
@@ -153,18 +157,29 @@ public class PhysicsObjController : ObjController
         hitbox.localScale = new Vector3(itr.w, itr.h, itr.zwidth);
     }
 
-    protected void ItrDisable()
+    public void ItrDisable()
     {
         hitbox.gameObject.SetActive(false);
     }
 
     protected void ItrReset()
     {
-        itr.x = 0f; itr.y = 0f; itr.z = 0;
-        itr.w = 0f; itr.h = 0f; itr.zwidth = 0f;
-        itr.dvx = 0; itr.dvy = 0; itr.dvz = 0; itr.action = 0;
-        itr.applyInSingleEnemy = true; itr.defensable = true; itr.level = 0; itr.injury = 0;
-        itr.effect = ItrEffectEnum.NORMAL; itr.rest = 0;
+        itr.x = 0f;
+        itr.y = 0f;
+        itr.z = 0;
+        itr.w = 0f;
+        itr.h = 0f;
+        itr.zwidth = 0f;
+        itr.dvx = 0;
+        itr.dvy = 0;
+        itr.dvz = 0;
+        itr.action = 0;
+        itr.applyInSingleEnemy = true;
+        itr.defensable = true;
+        itr.level = 0;
+        itr.injury = 0;
+        itr.effect = ItrEffectEnum.NORMAL;
+        itr.rest = 0;
     }
 
     protected void ImpulseForce()
@@ -187,12 +202,14 @@ public class PhysicsObjController : ObjController
         }
     }
 
-    protected void ApplyDefaultPhysic(float? dvx, float? dvy, float? dvz, bool facingRight, ItrPhysicEnum physicType = ItrPhysicEnum.DEFAULT, bool ignoreFacing = false)
+    public void ApplyDefaultPhysic(float? dvx, float? dvy, float? dvz, bool facingRight,
+        ItrPhysicEnum physicType = ItrPhysicEnum.DEFAULT, bool ignoreFacing = false)
     {
         if (!execPhysicsOnceInFrame)
         {
             return;
         }
+
         if (dvx != null)
         {
             if (!ignoreFacing)
@@ -200,7 +217,6 @@ public class PhysicsObjController : ObjController
                 if (facingRight)
                 {
                     velocity.x = dvx.Value;
-
                 }
                 else
                 {
@@ -237,16 +253,17 @@ public class PhysicsObjController : ObjController
         execPhysicsOnceInFrame = false;
     }
 
-    protected void ApplyExternPhysic()
+    public void ApplyExternPhysic()
     {
-        if (!execPhysicsOnceInFrame && !isExternAction)
+        if (!execPhysicsOnceInFrame && !isExternAction || externItr == null)
         {
             return;
         }
+
         velocity.x = externFacingRight ? externItr.dvx : -externItr.dvx;
         velocity.y = externItr.dvy;
         velocity.z = externItr.dvz;
-        
+
         switch (externItr.physic)
         {
             case ItrPhysicEnum.FIXED:
@@ -257,6 +274,7 @@ public class PhysicsObjController : ObjController
                 execImpulseForce = true;
                 break;
         }
+
         isExternAction = false;
         execPhysicsOnceInFrame = false;
     }
@@ -290,11 +308,11 @@ public class PhysicsObjController : ObjController
                             scriptObject.itr.physic = ItrPhysicEnum.DEFAULT;
                             if (onGround)
                             {
-                                ApplyExternPhysicsBehavior(scriptObject, hitDefenseActionId);
+                                ApplyExternPhysicsBehavior(scriptObject, 160);
                             }
                             else
                             {
-                                ApplyExternPhysicsBehavior(scriptObject, hitJumpDefenseActionId);
+                                ApplyExternPhysicsBehavior(scriptObject, 305);
                             }
                         }
                         else
@@ -303,6 +321,7 @@ public class PhysicsObjController : ObjController
                             ApplyExternPhysicsBehavior(scriptObject, externAction);
                         }
                     }
+
                     break;
                 case ItrKindEnum.ALLY:
                     Debug.Log("ALLY");
@@ -310,6 +329,7 @@ public class PhysicsObjController : ObjController
                     {
                         ApplyExternPhysicsBehavior(scriptObject, externAction);
                     }
+
                     break;
                 case ItrKindEnum.CHILD:
                     Debug.Log("CHILD");
@@ -317,6 +337,7 @@ public class PhysicsObjController : ObjController
                     {
                         ApplyExternPhysicsBehavior(scriptObject, externAction);
                     }
+
                     break;
                 case ItrKindEnum.SELF:
                     Debug.Log("SELF");
@@ -324,12 +345,14 @@ public class PhysicsObjController : ObjController
                     {
                         ApplyExternPhysicsBehavior(scriptObject, externAction);
                     }
+
                     break;
                 case ItrKindEnum.ALL:
                     Debug.Log("ALL");
                     ApplyExternPhysicsBehavior(scriptObject, externAction);
                     break;
             }
+
             isExternAction = false;
         }
         else
@@ -366,8 +389,11 @@ public class PhysicsObjController : ObjController
             if (TryGetComponent<CharController>(out _))
             {
                 ChangeFrame(action);
-            } else {
-                switch(scriptObject.itr.level) {
+            }
+            else
+            {
+                switch (scriptObject.itr.level)
+                {
                     case 1:
                         ChangeFrame(attackLevel1Frame);
                         break;
@@ -380,6 +406,7 @@ public class PhysicsObjController : ObjController
                 }
             }
         }
+
         lockHittablePercent = false;
     }
 
@@ -400,7 +427,8 @@ public class PhysicsObjController : ObjController
         }
 
         Collider[] hitColliders = new Collider[5];
-        int numColliders = Physics.OverlapBoxNonAlloc(hurtbox.position, hurtbox.localScale / 2, hitColliders, Quaternion.identity, whatIsItr);
+        int numColliders = Physics.OverlapBoxNonAlloc(hurtbox.position, hurtbox.localScale / 2, hitColliders,
+            Quaternion.identity, whatIsItr);
 
         for (int i = 0; i < numColliders; i++)
         {
@@ -434,11 +462,15 @@ public class PhysicsObjController : ObjController
         switch (effect)
         {
             case ItrEffectEnum.NORMAL:
-                SpawnOpoint(4, Opoint(x: contactPoint.x, y: contactPoint.y, z: contactPoint.z, oid: 0, facingFront: true, quantity: 1));
+                SpawnOpoint(HIT_NORMAL_OPOINT,
+                    Opoint(x: contactPoint.x, y: contactPoint.y, z: contactPoint.z, oid: 0, facingFront: true,
+                        quantity: 1));
                 break;
 
             case ItrEffectEnum.BLOOD:
-                SpawnOpoint(5, Opoint(x: contactPoint.x, y: contactPoint.y, z: contactPoint.z, oid: 0, facingFront: true, quantity: 1));
+                SpawnOpoint(HIT_BLOOD_OPOINT,
+                    Opoint(x: contactPoint.x, y: contactPoint.y, z: contactPoint.z, oid: 0, facingFront: true,
+                        quantity: 1));
                 break;
 
             case ItrEffectEnum.SLOW:
@@ -505,6 +537,7 @@ public class PhysicsObjController : ObjController
                 Console.WriteLine("Efeito desconhecido");
                 break;
         }
+
         yield return null;
     }
 
@@ -515,12 +548,14 @@ public class PhysicsObjController : ObjController
         {
             restDamageWaitTime += Time.deltaTime % 60;
         }
+
         if (restDamageWaitTime >= damageRestTU / 30)
         {
             wasAttacked = false;
             restDamageWaitTime = 0f;
             damageRestTU = 0f;
         }
+
         base.Timers();
     }
 
@@ -538,12 +573,12 @@ public class PhysicsObjController : ObjController
                     currentHp = totalHp;
                 }
             }
-
         }
     }
 
-    protected void ManageManaPoints()
+    public void AddManaPoints(int mpValue)
     {
+        mp = mpValue;
         if (execManaPointsOneTimeInFrame)
         {
             execManaPointsOneTimeInFrame = false;
@@ -555,6 +590,24 @@ public class PhysicsObjController : ObjController
                 {
                     currentMp = totalMp;
                 }
+            }
+        }
+    }
+
+    public bool CheckIfHaveMana(int mpValue)
+    {
+        return mpValue <= currentMp;
+    }
+
+    public void UsageManaPoints(int mpValue)
+    {
+        if (execManaPointsOneTimeInFrame)
+        {
+            execManaPointsOneTimeInFrame = false;
+            currentMp -= mpValue;
+            if (currentMp < 0)
+            {
+                currentMp = 0;
             }
         }
     }
@@ -575,40 +628,66 @@ public class PhysicsObjController : ObjController
         actionTriggered = true;
         execMoveToPosition = false;
         execImpulseForce = false;
+        execManaPointsOneTimeInFrame = true;
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         base.ChangeFrame(nextFrame);
     }
 
-    protected void OnGround(Action action)
+    public void ChangeFrame(int? nextFrame)
+    {
+        ChangeFrame(frames[nextFrame.Value]);
+    }
+
+    public void OnGround(int frame)
+    {
+        OnGround(frames[frame]);
+    }
+
+    public void OnGround(Action frame)
     {
         if (onGround)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
-    
-    protected void InAir(Action action)
+
+    public void InAir(int frame)
+    {
+        InAir(frames[frame]);
+    }
+
+    public void InAir(Action frame)
     {
         if (!onGround)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
 
-    protected void OnCeil(Action action)
+    public void OnCeil(int frame)
+    {
+        ChangeFrame(frames[frame]);
+    }
+
+    public void OnCeil(Action frame)
     {
         if (onCeil)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
 
-    protected void OnWall(Action action)
+    public void OnWall(int frame)
+    {
+        ChangeFrame(frames[frame]);
+    }
+
+    public void OnWall(Action frame)
     {
         if (onWall)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
 
@@ -620,89 +699,89 @@ public class PhysicsObjController : ObjController
         }
     }
 
-    protected void StopMovement()
+    public void StopMovement()
     {
         rb.constraints = RigidbodyConstraints.FreezeAll;
         rb.linearVelocity = Vector3.zero;
     }
 
-    protected void ResetMovementFromStop()
+    public void ResetMovementFromStop()
     {
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    protected void SpawnGroundExtraLarge(OpointEntity opoint)
+    public void SpawnGroundExtraLarge(OpointEntity opoint)
     {
         switch (stage)
         {
             case GroundEnum.NONE:
                 break;
             case GroundEnum.NORMAL:
-                SpawnOpoint(11, opoint);
+                SpawnOpoint(GROUND_EXTRA_LARGE_OPOINT, opoint);
                 break;
             case GroundEnum.WATER:
                 break;
         }
     }
 
-    protected void SpawnGroundLarge(OpointEntity opoint)
+    public void SpawnGroundLarge(OpointEntity opoint)
     {
         switch (stage)
         {
             case GroundEnum.NONE:
                 break;
             case GroundEnum.NORMAL:
-                SpawnOpoint(14, opoint);
+                SpawnOpoint(GROUND_LARGE_OPOINT, opoint);
                 break;
             case GroundEnum.WATER:
                 break;
         }
     }
 
-    protected void SpawnGroundNormal(OpointEntity opoint)
+    public void SpawnGroundNormal(OpointEntity opoint)
     {
         switch (stage)
         {
             case GroundEnum.NONE:
                 break;
             case GroundEnum.NORMAL:
-                SpawnOpoint(13, opoint);
+                SpawnOpoint(GROUND_NORMAL_OPOINT, opoint);
                 break;
             case GroundEnum.WATER:
                 break;
         }
     }
 
-    protected void SpawnGroundExtraSmall(OpointEntity opoint)
+    public void SpawnGroundExtraSmall(OpointEntity opoint)
     {
         switch (stage)
         {
             case GroundEnum.NONE:
                 break;
             case GroundEnum.NORMAL:
-                SpawnOpoint(12, opoint);
+                SpawnOpoint(GROUND_EXTRA_SMALL_OPOINT, opoint);
                 break;
             case GroundEnum.WATER:
                 break;
         }
     }
 
-    protected void SpawnGroundSmall(OpointEntity opoint)
+    public void SpawnGroundSmall(OpointEntity opoint)
     {
         switch (stage)
         {
             case GroundEnum.NONE:
                 break;
             case GroundEnum.NORMAL:
-                SpawnOpoint(15, opoint);
+                SpawnOpoint(GROUND_SMALL_OPOINT, opoint);
                 break;
             case GroundEnum.WATER:
                 break;
         }
     }
 
-    protected void StageFadeIn(float fadeInValue)
+    public void StageFadeIn(float fadeInValue)
     {
         foreach (var picStage in stageSpriteRenderer)
         {
@@ -712,28 +791,29 @@ public class PhysicsObjController : ObjController
             }
             else
             {
-                picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, fadeInValue + picStage.color.a);
+                picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b,
+                    fadeInValue + picStage.color.a);
             }
         }
     }
 
-    protected void StageFadeOut(float fadeOutValue)
+    public void StageFadeOut(float fadeOutValue)
     {
         foreach (var picStage in stageSpriteRenderer)
-        {        
+        {
             if (picStage.color.a <= 0)
             {
                 picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, 0);
             }
             else
             {
-                picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b, fadeOutValue - picStage.color.a);
+                picStage.color = new Color(picStage.color.r, picStage.color.g, picStage.color.b,
+                    fadeOutValue - picStage.color.a);
             }
         }
-
     }
 
-    protected void BlackoutStage()
+    public void BlackoutStage()
     {
         foreach (var picStage in stageSpriteRenderer)
         {
@@ -741,7 +821,7 @@ public class PhysicsObjController : ObjController
         }
     }
 
-    protected void ResetStageColor()
+    public void ResetStageColor()
     {
         foreach (var picStage in stageSpriteRenderer)
         {
@@ -755,14 +835,20 @@ public class PhysicsObjController : ObjController
         {
             return;
         }
+
         var selfPosition = transform.position;
-        float dvx = 0; float dvy = 0; float dvz = 0; bool facingRight = true;
+        float dvx = 0;
+        float dvy = 0;
+        float dvz = 0;
+        bool facingRight = true;
         if (selfPosition.x < enemyPosition.position.x)
-        { //inimigo a frente
+        {
+            //inimigo a frente
             dvx = velocityX;
         }
         else if (selfPosition.x > enemyPosition.position.x)
-        { //inimigo a trás
+        {
+            //inimigo a trás
             dvx = -velocityX;
         }
         else
@@ -771,11 +857,13 @@ public class PhysicsObjController : ObjController
         }
 
         if (selfPosition.y < enemyPosition.position.y)
-        { //inimigo acima
+        {
+            //inimigo acima
             dvy = velocityY;
         }
         else if (selfPosition.y > enemyPosition.position.y)
-        { //inimigo abaixo
+        {
+            //inimigo abaixo
             dvy = -velocityY;
         }
         else
@@ -784,39 +872,47 @@ public class PhysicsObjController : ObjController
         }
 
         if (selfPosition.z < enemyPosition.position.z)
-        { //inimigo acima em z
+        {
+            //inimigo acima em z
             dvz = velocityZ;
         }
         else if (selfPosition.z > enemyPosition.position.z)
-        { //inimigo abaixo em z
+        {
+            //inimigo abaixo em z
             dvz = -velocityZ;
         }
         else
         {
             dvz = 0f;
         }
+
         ApplyDefaultPhysic(dvx, dvy, dvz, facingRight, ItrPhysicEnum.FIXED);
     }
-    
+
     private IEnumerator DetectWall()
     {
         var forwardCenterX = hurtbox.transform.position.x + (hurtbox.lossyScale.x / 2) + (0.005f / 2);
-        
+
         Collider[] hitWallFrontColliders = new Collider[3];
-        var hitWallFrontCollidersResult = Physics.OverlapBoxNonAlloc(new Vector3(forwardCenterX, hurtbox.transform.position.y, hurtbox.transform.position.z),
-            new Vector3(0.005f / 2, hurtbox.lossyScale.y / 2, zSizeDefault / 2), hitWallFrontColliders, Quaternion.identity, whatIsWall);
+        var hitWallFrontCollidersResult = Physics.OverlapBoxNonAlloc(
+            new Vector3(forwardCenterX, hurtbox.transform.position.y, hurtbox.transform.position.z),
+            new Vector3(0.005f / 2, hurtbox.lossyScale.y / 2, zSizeDefault / 2), hitWallFrontColliders,
+            Quaternion.identity, whatIsWall);
 
         var backCenterX = hurtbox.transform.position.x - (hurtbox.lossyScale.x / 2) - (0.005f / 2);
-        
+
         Collider[] hitWallBackColliders = new Collider[3];
-        var hitWallBackCollidersResult = Physics.OverlapBoxNonAlloc(new Vector3(backCenterX, hurtbox.transform.position.y, hurtbox.transform.position.z),
-            new Vector3(0.005f / 2, hurtbox.lossyScale.y / 2, zSizeDefault / 2), hitWallBackColliders, Quaternion.identity, whatIsWall);
+        var hitWallBackCollidersResult = Physics.OverlapBoxNonAlloc(
+            new Vector3(backCenterX, hurtbox.transform.position.y, hurtbox.transform.position.z),
+            new Vector3(0.005f / 2, hurtbox.lossyScale.y / 2, zSizeDefault / 2), hitWallBackColliders,
+            Quaternion.identity, whatIsWall);
 
         if (hitWallFrontCollidersResult > 0)
         {
             Debug.Log(gameObject.name + " | " + hitWallFrontColliders[0].gameObject.name);
             onWall = true;
-        } else if (hitWallBackCollidersResult > 0)
+        }
+        else if (hitWallBackCollidersResult > 0)
         {
             Debug.Log(gameObject.name + " | " + hitWallBackColliders[0].gameObject.name);
             onWall = true;
@@ -825,16 +921,21 @@ public class PhysicsObjController : ObjController
         {
             onWall = false;
         }
-        
+
         yield return null;
     }
 
     private IEnumerator DetectGround()
     {
         Collider[] hitColliders = new Collider[3];
-        int hitCollidersResult = Physics.OverlapBoxNonAlloc(new Vector3(hurtbox.transform.position.x, hurtbox.position.y - (hurtbox.transform.lossyScale.y / 2) - (maxDistanceToCheckCollision / 2), hurtbox.transform.position.z),
-            new Vector3(hurtbox.lossyScale.x / 2, maxDistanceToCheckCollision / 2, zSizeDefault / 2), hitColliders, Quaternion.identity, whatIsGround);
-        if (hitCollidersResult > 0 && hitColliders[0].bounds.max.y - 0.01f <= hurtbox.transform.position.y && gameObject.activeSelf)
+        int hitCollidersResult = Physics.OverlapBoxNonAlloc(
+            new Vector3(hurtbox.transform.position.x,
+                hurtbox.position.y - (hurtbox.transform.lossyScale.y / 2) - (maxDistanceToCheckCollision / 2),
+                hurtbox.transform.position.z),
+            new Vector3(hurtbox.lossyScale.x / 2, maxDistanceToCheckCollision / 2, zSizeDefault / 2), hitColliders,
+            Quaternion.identity, whatIsGround);
+        if (hitCollidersResult > 0 && hitColliders[0].bounds.max.y - 0.01f <= hurtbox.transform.position.y &&
+            gameObject.activeSelf)
         {
             StartCoroutine(DetectStage(hitColliders[0]));
             onGround = true;
@@ -844,12 +945,16 @@ public class PhysicsObjController : ObjController
         {
             onGround = false;
         }
-        
+
         if (!onGround)
         {
             Collider[] hitCeilColliders = new Collider[3];
-            int hitCeilCollidersResult = Physics.OverlapBoxNonAlloc(new Vector3(hurtbox.transform.position.x, hurtbox.position.y - (hurtbox.transform.lossyScale.y / 2) - (maxDistanceToCheckCollision / 2), hurtbox.transform.position.z),
-                new Vector3(hurtbox.lossyScale.x / 2, -maxDistanceToCheckCollision / 2, zSizeDefault / 2), hitCeilColliders, Quaternion.identity, whatIsCeil);
+            int hitCeilCollidersResult = Physics.OverlapBoxNonAlloc(
+                new Vector3(hurtbox.transform.position.x,
+                    hurtbox.position.y - (hurtbox.transform.lossyScale.y / 2) - (maxDistanceToCheckCollision / 2),
+                    hurtbox.transform.position.z),
+                new Vector3(hurtbox.lossyScale.x / 2, -maxDistanceToCheckCollision / 2, zSizeDefault / 2),
+                hitCeilColliders, Quaternion.identity, whatIsCeil);
 
             if (hitCeilCollidersResult > 0)
             {
@@ -861,7 +966,7 @@ public class PhysicsObjController : ObjController
                 onCeil = false;
             }
         }
-        
+
         yield return null;
     }
 
@@ -872,6 +977,7 @@ public class PhysicsObjController : ObjController
         {
             stage = groundEffectsController.type;
         }
+
         yield return null;
     }
 
@@ -885,7 +991,12 @@ public class PhysicsObjController : ObjController
         currentHp -= injuryDamage;
         lastDamage = injuryDamage;
     }
-    
+
+    public void EnableManaPoints()
+    {
+        execManaPointsOneTimeInFrame = true;
+    }
+
     private void OnDrawGizmos()
     {
         // if (hurtbox == null) return;
@@ -943,5 +1054,4 @@ public class PhysicsObjController : ObjController
         //     Gizmos.DrawWireCube(ceilCenter, ceilHalfExtents * 2);
         // }
     }
-
 }

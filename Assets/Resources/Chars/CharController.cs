@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using System.Linq;
+using System.Reflection;
 using Domains;
 using Chars;
 using UnityEngine.InputSystem;
@@ -17,7 +18,7 @@ public class CharController : PhysicsObjController
     protected StatsChar stats;
     protected float runningSpeed;
     protected bool hitJump;
-    protected bool releaseJumpButton;
+    public bool releaseJumpButton;
     public int additionalDamage;
     protected bool holdJump;
     public bool hitAttack;
@@ -64,30 +65,53 @@ public class CharController : PhysicsObjController
     public Action lyingTech;
     public Action superTech;
 
+    public int manaTechniqueValue = 0;
+    protected float speedValue = 0;
+    
+    public static string CHAKRA_CHARGE_OPOINT = "chakra_charge";
+    public static string CHAKRA_CHARGE_AURA_OPOINT = "chakra_charge_aura";
+    public static string CHAKRA_CHARGE_SMOKE_OPOINT = "chakra_charge_smoke";
+    public static string JUMPING_COMBO_OPOINT = "jumping_combo";
+    public static string HIT_NORMAL_OPOINT = "hit_normal";
+    public static string HIT_BLOOD_OPOINT = "hit_blood";
+    public static string DEFENSE_HIT_OPOINT = "defense_hit";
+    public static string IMPACT_UP_OPOINT = "impact_up";
+    public static string IMPACT_DOWN_OPOINT = "impact_down";
+    public static string IMPACT_FORWARD_OPOINT = "impact_forward";
+    public static string JUMP_RECOVER_OPOINT = "jump_recover";
+    public static string GROUND_EXTRA_LARGE_OPOINT = "ground-extra-large";
+    public static string GROUND_EXTRA_SMALL_OPOINT = "ground-extra-small";
+    public static string GROUND_NORMAL_OPOINT = "ground-normal";
+    public static string GROUND_LARGE_OPOINT = "ground-large";
+    public static string GROUND_SMALL_OPOINT = "ground-small";
+    public static string ULTIMATE_OPOINT = "ultimate";
+    public static string ULTIMATE_MUGSHOT_OPOINT = "ultimate_mugshot";
+    public static string KAWA_LOG_OPOINT = "kawa_log";
+
     protected void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         type = ObjTypeEnum.CHARACTER;
         base.Awake();
-        opoints.Add(0, EnrichOpoint(3, "Etc/chakra_charge/chakra_charge"));
-        opoints.Add(1, EnrichOpoint(3, "Etc/chakra_charge_aura/chakra_charge_aura"));
-        opoints.Add(2, EnrichOpoint(3, "Etc/chakra_charge_smoke/chakra_charge_smoke"));
-        opoints.Add(3, EnrichOpoint(1, "Etc/jumping_combo/jumping_combo"));
-        opoints.Add(4, EnrichOpoint(10, "Etc/hit_normal/hit_normal"));
-        opoints.Add(5, EnrichOpoint(10, "Etc/hit_blood/hit_blood"));
-        opoints.Add(6, EnrichOpoint(10, "Etc/defense_hit/defense_hit"));
-        opoints.Add(7, EnrichOpoint(2, "Etc/impact_up/impact_up"));
-        opoints.Add(8, EnrichOpoint(2, "Etc/impact_down/impact_down"));
-        opoints.Add(9, EnrichOpoint(2, "Etc/impact_forward/impact_forward"));
-        opoints.Add(10, EnrichOpoint(1, "Etc/jump_recover/jump_recover"));
-        opoints.Add(11, EnrichOpoint(1, "Effects/ground/normal/extra-large/ground-extra-large"));
-        opoints.Add(12, EnrichOpoint(1, "Effects/ground/normal/extra-small/ground-extra-small"));
-        opoints.Add(13, EnrichOpoint(1, "Effects/ground/normal/normal/ground-normal"));
-        opoints.Add(14, EnrichOpoint(1, "Effects/ground/normal/large/ground-large"));
-        opoints.Add(15, EnrichOpoint(1, "Effects/ground/normal/small/ground-small"));
-        opoints.Add(16, EnrichOpoint(1, "Etc/ultimate/ultimate"));
-        opoints.Add(17, EnrichOpoint(1, "Etc/ultimate_mugshot/ultimate_mugshot"));
-        opoints.Add(18, EnrichOpoint(6, "Attacks/Techs/kawa/log/kawa_log"));
+        opoints.Add(CHAKRA_CHARGE_OPOINT, EnrichOpoint(3, "Etc/chakra_charge/chakra_charge"));
+        opoints.Add(CHAKRA_CHARGE_AURA_OPOINT, EnrichOpoint(3, "Etc/chakra_charge_aura/chakra_charge_aura"));
+        opoints.Add(CHAKRA_CHARGE_SMOKE_OPOINT, EnrichOpoint(3, "Etc/chakra_charge_smoke/chakra_charge_smoke"));
+        opoints.Add(JUMPING_COMBO_OPOINT, EnrichOpoint(1, "Etc/jumping_combo/jumping_combo"));
+        opoints.Add(HIT_NORMAL_OPOINT, EnrichOpoint(10, "Etc/hit_normal/hit_normal"));
+        opoints.Add(HIT_BLOOD_OPOINT, EnrichOpoint(10, "Etc/hit_blood/hit_blood"));
+        opoints.Add(DEFENSE_HIT_OPOINT, EnrichOpoint(10, "Etc/defense_hit/defense_hit"));
+        opoints.Add(IMPACT_UP_OPOINT, EnrichOpoint(2, "Etc/impact_up/impact_up"));
+        opoints.Add(IMPACT_DOWN_OPOINT, EnrichOpoint(2, "Etc/impact_down/impact_down"));
+        opoints.Add(IMPACT_FORWARD_OPOINT, EnrichOpoint(2, "Etc/impact_forward/impact_forward"));
+        opoints.Add(JUMP_RECOVER_OPOINT, EnrichOpoint(1, "Etc/jump_recover/jump_recover"));
+        opoints.Add(GROUND_EXTRA_LARGE_OPOINT, EnrichOpoint(1, "Effects/ground/normal/extra-large/ground-extra-large"));
+        opoints.Add(GROUND_EXTRA_SMALL_OPOINT, EnrichOpoint(1, "Effects/ground/normal/extra-small/ground-extra-small"));
+        opoints.Add(GROUND_NORMAL_OPOINT, EnrichOpoint(1, "Effects/ground/normal/normal/ground-normal"));
+        opoints.Add(GROUND_LARGE_OPOINT, EnrichOpoint(1, "Effects/ground/normal/large/ground-large"));
+        opoints.Add(GROUND_SMALL_OPOINT, EnrichOpoint(1, "Effects/ground/normal/small/ground-small"));
+        opoints.Add(ULTIMATE_OPOINT, EnrichOpoint(1, "Etc/ultimate/ultimate"));
+        opoints.Add(ULTIMATE_MUGSHOT_OPOINT, EnrichOpoint(1, "Etc/ultimate_mugshot/ultimate_mugshot"));
+        opoints.Add(KAWA_LOG_OPOINT, EnrichOpoint(6, "Attacks/Techs/kawa/log/kawa_log"));
         switch (playerEnum)
         {
             case PlayerEnum.PLAYER_1:
@@ -104,11 +128,10 @@ public class CharController : PhysicsObjController
         runningSpeed = stats.speed / 5;
         originalLocalScale = transform.localScale;
         originalColor = spriteRenderer.color;
-        currentHp = header.startHp;
-        currentMp = header.startMp;
         totalHp = ResolveHealthPoint();
         totalMp = ResolveManaPoint();
-        additionalDamage = ResolveAdditionalDamagePoint();
+        currentHp = totalHp;
+        currentMp = totalMp;
         base.Start();
     }
     protected void Update()
@@ -370,21 +393,32 @@ public class CharController : PhysicsObjController
         }
     }
 
-    protected void CanWalking(Action walking)
+    public void CanWalking(int frame)
+    {
+        CanWalking(frames[frame]);
+    }
+
+    public void CanWalking(Action frame)
     {
         if ((hitLeft && hitRight) || (hitUp && hitDown))
         {
             return;
         }
-        else if (hitLeft || hitRight || hitUp || hitDown)
+
+        if (hitLeft || hitRight || hitUp || hitDown)
         {
-            ChangeFrame(walking);
+            ChangeFrame(frame);
             CanFlip();
             inMovement = true;
         }
     }
 
-    protected void CanStandingFromWalking(Action standing)
+    public void CanStandingFromWalking(int frame)
+    {
+        CanStandingFromWalking(frames[frame]);
+    }
+
+    public void CanStandingFromWalking(Action frame)
     {
         if (!hitLeft && !hitRight && !hitUp && !hitDown)
         {
@@ -414,17 +448,17 @@ public class CharController : PhysicsObjController
                 sideDashUpEnable = false;
             }
 
-            ChangeFrame(standing);
+            ChangeFrame(frame);
             inMovement = false;
         }
         else if ((hitLeft && hitRight) || (hitUp && hitDown))
         {
-            ChangeFrame(standing);
+            ChangeFrame(frame);
             inMovement = false;
         }
     }
 
-    protected void CountJumpDash()
+    public void CountJumpDash()
     {
         if (startedHitRight)
         {
@@ -455,56 +489,62 @@ public class CharController : PhysicsObjController
         }
     }
 
-    protected void CanJumpDash(Action action)
+    public void CanJumpDash(int frame)
+    {
+        CanJumpDash(frames[frame]);
+    }
+
+    public void CanJumpDash(Action frame)
     {
         if (hitRight && !hitLeft && simpleDashToRightWaitTime > 0)
         {
             simpleDashToLeftWaitTime = 0;
             simpleDashToRightWaitTime = 0;
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
         else if (hitLeft && !hitRight && simpleDashToLeftWaitTime > 0)
         {
             simpleDashToLeftWaitTime = 0;
             simpleDashToRightWaitTime = 0;
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
 
-    protected void CanSimpleDash(Action action)
+    public void CanSimpleDash(int frame)
+    {
+        CanSimpleDash(frames[frame]);
+    }
+
+    public void CanSimpleDash(Action frame)
     {
         if (runningRightEnable && hitRight)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
         else if (runningLeftEnable && hitLeft)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
 
-    protected void CanSideDash(Action action)
+    public void CanSideDash(int frame)
+    {
+        CanSideDash(frames[frame]);
+    }
+
+    public void CanSideDash(Action frame)
     {
         if (sideDashUpEnable && hitUp)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
         else if (sideDashDownEnable && hitDown)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
 
-    protected void CanCharge(Action action)
-    {
-        if (hitPower)
-        {
-            hitPower = false;
-            ChangeFrame(action);
-        }
-    }
-
-    protected void CanHoldDefenseAfter(Action action)
+    public void CanHoldDefenseAfter(Action action)
     {
         if (holdDefenseAfter)
         {
@@ -512,27 +552,37 @@ public class CharController : PhysicsObjController
         }
     }
 
-    protected void CanHoldForwardAfter(Action action)
+    public void CanHoldForwardAfter(int frame)
+    {
+        CanHoldForwardAfter(frames[frame]);
+    }
+
+    public void CanHoldForwardAfter(Action frame)
     {
         if (holdForwardAfter)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
 
-    protected void CanStopRunning(Action action)
+    public void CanStopRunning(int frame)
+    {
+        CanStopRunning(frames[frame]);
+    }
+
+    public void CanStopRunning(Action frame)
     {
         if (facingRight && hitLeft)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
         else if (!facingRight && hitRight)
         {
-            ChangeFrame(action);
+            ChangeFrame(frame);
         }
     }
 
-    protected void ManageWalking()
+    public void ManageWalking()
     {
         if (hitRight && !hitLeft)
         {
@@ -595,7 +645,7 @@ public class CharController : PhysicsObjController
         lock_z_direction = 0;
     }
 
-    protected void ApplyPhysicStanding()
+    public void ApplyPhysicStanding()
     {
         if (!execPhysicsOnceInFrame)
         {
@@ -606,7 +656,7 @@ public class CharController : PhysicsObjController
         execPhysicsOnceInFrame = false;
     }
 
-    protected void ApplyPhysicWalking()
+    public void ApplyPhysicWalking()
     {
         if (!execPhysicsOnceInFrame)
         {
@@ -642,7 +692,7 @@ public class CharController : PhysicsObjController
         execPhysicsOnceInFrame = false;
     }
 
-    protected void ApplySideDashPhysic()
+    public void ApplySideDashPhysic()
     {
         if (!execPhysicsOnceInFrame)
         {
@@ -664,7 +714,7 @@ public class CharController : PhysicsObjController
         execPhysicsOnceInFrame = false;
     }
 
-    protected void ApplyPhysicDash()
+    public void ApplyPhysicDash()
     {
         if (hitUp && !hitDown)
         {
@@ -681,7 +731,7 @@ public class CharController : PhysicsObjController
         ApplyDefaultPhysic(dvx, dvy, this.velocity.z, facingRight);
     }
 
-    protected void ApplyPhysicJumping()
+    public void ApplyPhysicJumping()
     {
         var dvxLocal = hitRight || hitLeft ? dvx : 0f;
         var dvzLocal = 0f;
@@ -697,7 +747,7 @@ public class CharController : PhysicsObjController
         ApplyDefaultPhysic(dvxLocal, dvy, dvzLocal, facingRight);
     }
 
-    protected void ApplyPhysicDashJumping()
+    public void ApplyPhysicDashJumping()
     {
         var dvzLocal = 0f;
 
@@ -754,7 +804,7 @@ public class CharController : PhysicsObjController
         Debug.Log(velocity);
     }
 
-    protected void ApplyPhysicRunning()
+    public void ApplyPhysicRunning()
     {
         if (!execPhysicsOnceInFrame)
         {
@@ -925,7 +975,7 @@ public class CharController : PhysicsObjController
         return hp;
     }
     
-    private int ResolveAdditionalDamagePoint()
+    public int ResolveAdditionalDamagePoint()
     {
         int additionalDamagePoints = 0;
         switch (stats.aggressive)
@@ -963,18 +1013,100 @@ public class CharController : PhysicsObjController
         }
         return additionalDamagePoints;
     }
+    
+    protected int ResolveAdditionalManaPoint()
+    {
+        int additionalManaPoints = 0;
+        switch (stats.technique)
+        {
+            case 1:
+                additionalManaPoints = 55;
+                break;
+            case 2:
+                additionalManaPoints = 60;
+                break;
+            case 3:
+                additionalManaPoints = 65;
+                break;
+            case 4:
+                additionalManaPoints = 70;
+                break;
+            case 5:
+                additionalManaPoints = 75;
+                break;
+            case 6:
+                additionalManaPoints = 80;
+                break;
+            case 7:
+                additionalManaPoints = 85;
+                break;
+            case 8:
+                additionalManaPoints = 90;
+                break;
+            case 9:
+                additionalManaPoints = 95;
+                break;
+            case 10:
+                additionalManaPoints = 100;
+                break;
+        }
+        return additionalManaPoints;
+    }
+    
+    protected float ResolveAdditionalSpeedPoint()
+    {
+        float additionalSpeedPoints = 0;
+        switch (stats.speed)
+        {
+            case 1:
+                additionalSpeedPoints = 1;
+                break;
+            case 2:
+                additionalSpeedPoints = 1.5f;
+                break;
+            case 3:
+                additionalSpeedPoints = 2;
+                break;
+            case 4:
+                additionalSpeedPoints = 2.5f;
+                break;
+            case 5:
+                additionalSpeedPoints = 3;
+                break;
+            case 6:
+                additionalSpeedPoints = 3.5f;
+                break;
+            case 7:
+                additionalSpeedPoints = 4;
+                break;
+            case 8:
+                additionalSpeedPoints = 4.5f;
+                break;
+            case 9:
+                additionalSpeedPoints = 5;
+                break;
+            case 10:
+                additionalSpeedPoints = 5.5f;
+                break;
+        }
+        return additionalSpeedPoints;
+    }
 
-    protected void Defense(Action action)
+    public void Defense(int frame)
+    {
+        Defense(frames[frame]);
+    }
+
+    public void Defense(Action action)
     {
         if (hitDefense)
         {
             releaseDefenseButton = false;
             ChangeFrame(action);
-            return;
         }
     }
 
-    protected void DoubleTapDefense(Action action)
+    public void DoubleTapDefense(Action action)
     {
         if (hitDefense && releaseDefenseButton)
         {
@@ -983,56 +1115,75 @@ public class CharController : PhysicsObjController
             return;
         }
     }
-    protected void Jump(Action action)
+    public void Jump(int frame)
+    {
+        Jump(frames[frame]);
+    }
+    public void Jump(Action frame)
     {
         if (hitJump)
         {
             releaseJumpButton = false;
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
 
     }
-    protected void DoubleTapJump(Action action)
+    
+    public void DoubleTapJump(int frame)
+    {
+        DoubleTapJump(frames[frame]);
+    }
+    
+    public void DoubleTapJump(Action frame)
     {
         if (hitJump && releaseJumpButton)
         {
             releaseJumpButton = false;
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
 
     }
-    protected void Attack(Action action)
+    public void Attack(int frame)
+    {
+        Attack(frames[frame]);
+    }
+    public void Attack(Action frame)
     {
         if (hitAttack)
         {
             releaseAttackButton = false;
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
 
-    protected void DoubleTapAttack(Action action)
+    public void DoubleTapAttack(int frame)
+    {
+        DoubleTapAttack(frames[frame]);
+    }
+
+    public void DoubleTapAttack(Action frame)
     {
         if (hitAttack && releaseAttackButton)
         {
             releaseAttackButton = false;
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
 
-    protected void Power(Action action)
+    public void Power(int frame)
+    {
+        Power(frames[frame]);
+    }
+
+    public void Power(Action frame)
     {
         if (hitPower && !hitLeft && !hitRight && !hitUp && !hitDown)
         {
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
 
-    protected void DoubleTapPower(Action action)
+    public void DoubleTapPower(Action action)
     {
         if (releasePowerButton && hitPower && !hitLeft && !hitRight && !hitUp && !hitDown)
         {
@@ -1042,18 +1193,20 @@ public class CharController : PhysicsObjController
         }
     }
 
-    protected void PowerSide(Action action)
+    public void PowerSide(int frame)
     {
-
-        if (hitPower && (hitRight || hitLeft))
-        {
-            ChangeFrame(action);
-            return;
-        }
-
+        PowerSide(frames[frame]);
     }
 
-    protected void DoubleTapPowerSide(Action action)
+    public void PowerSide(Action frame)
+    {
+        if (hitPower && (hitRight || hitLeft))
+        {
+            ChangeFrame(frame);
+        }
+    }
+
+    public void DoubleTapPowerSide(Action action)
     {
 
         if (releasePowerButton && hitPower && (hitRight || hitLeft))
@@ -1065,16 +1218,20 @@ public class CharController : PhysicsObjController
 
     }
 
-    protected void PowerUp(Action action)
+    public void PowerUp(int frame)
+    {
+        PowerUp(frames[frame]);
+    }
+
+    public void PowerUp(Action frame)
     {
         if (hitPower && hitUp)
         {
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
     
-    protected void DoubleTapPowerUp(Action action)
+    public void DoubleTapPowerUp(Action action)
     {
         if (hitPower && hitUp)
         {
@@ -1084,16 +1241,20 @@ public class CharController : PhysicsObjController
         }
     }
 
-    protected void PowerDown(Action action)
+    public void PowerDown(int frame)
+    {
+        PowerDown(frames[frame]);
+    }
+
+    public void PowerDown(Action action)
     {
         if (hitPower && hitDown)
         {
             ChangeFrame(action);
-            return;
         }
     }
 
-    protected void DoubleTapPowerDown(Action action)
+    public void DoubleTapPowerDown(Action action)
     {
         if (releasePowerButton && hitPower && hitDown)
         {
@@ -1103,51 +1264,68 @@ public class CharController : PhysicsObjController
         }
     }
 
-    protected void SuperPower(Action action)
+    public void SuperPower(int frame)
+    {
+        SuperPower(frames[frame]);
+    }
+
+    public void SuperPower(Action frame)
     {
         if (hitSuperPower)
         {
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
 
-    protected void Taunt(Action action)
+    public void Taunt(int frame)
     {
+        Taunt(frames[frame]);
+    }
 
+    public void Taunt(Action frame)
+    {
         if (hitTaunt)
         {
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
 
-    protected void Up(Action action)
+    public void Up(int frame)
     {
+        Up(frames[frame]);
+    }
 
+    public void Up(Action frame)
+    {
         if (hitUp)
         {
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
 
-    protected void Down(Action action)
+    public void Down(int frame)
     {
+        Down(frames[frame]);
+    }
 
+    public void Down(Action frame)
+    {
         if (hitDown)
         {
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
 
-    protected void Front(Action action)
+    public void Front(int frame)
+    {
+        Front(frames[frame]);
+    }
+
+    public void Front(Action frame)
     {
         if ((facingRight && hitRight) || (!facingRight && hitLeft))
         {
-            ChangeFrame(action);
-            return;
+            ChangeFrame(frame);
         }
     }
 
@@ -1169,7 +1347,7 @@ public class CharController : PhysicsObjController
         }
     }
 
-    protected void ResetParams()
+    public void ResetParams()
     {
         wasAttacked = false;
         lock_x_direction = 0;
@@ -1183,7 +1361,7 @@ public class CharController : PhysicsObjController
         ItrDisable();
     }
 
-    protected void PrepareJumpDash()
+    public void PrepareJumpDash()
     {
         jumpDashLeftEnable = false;
         jumpDashRightEnable = false;

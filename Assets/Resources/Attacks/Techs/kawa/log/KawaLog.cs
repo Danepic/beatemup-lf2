@@ -12,6 +12,7 @@ using UnityEngine.InputSystem;
 
 public class KawaLog : AttackController
 {
+    public static string SMOKE1_OPOINT = "smoke_1";
     void Awake()
     {
         palettes.Add("Attacks/Techs/kawa/log/sprites");
@@ -19,7 +20,7 @@ public class KawaLog : AttackController
         headerName = "Kawa Log";
         totalHp = -1;
         frames = PopulateFrames(this);
-        opoints.Add(50, EnrichOpoint(1, "Effects/smoke/smoke_1/smoke_1"));
+        opoints.Add(SMOKE1_OPOINT, EnrichOpoint(1, "Effects/smoke/smoke_1/smoke_1"));
     }
 
     public void Start()
@@ -40,7 +41,7 @@ public class KawaLog : AttackController
         pic = -9999; wait = 1f; next = Invoke_1;
         BdyDefault();
         ItrDisable();
-        SpawnOpoint(50, Opoint(x: 0, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
+        SpawnOpoint(SMOKE1_OPOINT, Opoint(x: 0, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, cancellable: false, attachToOwner: false));
     }
     private void Invoke_1()
     {

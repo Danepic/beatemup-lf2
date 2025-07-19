@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DemonArmSand : AttackController
 {
+    public static string SAND_ELEMENT_OPOINT = "sandElement";
     void Awake()
     {
         palettes.Add("Attacks/Techs/sand/demon-arm/sprites");
@@ -14,7 +15,7 @@ public class DemonArmSand : AttackController
         attackLevel2Frame = null;
         attackLevel3Frame = null;
         
-        opoints.Add(50, EnrichOpoint(100, "Attacks/Elements/sand/sandElement"));
+        opoints.Add(SAND_ELEMENT_OPOINT, EnrichOpoint(100, "Attacks/Elements/sand/sandElement"));
     }
 
     public void Start()
@@ -122,7 +123,7 @@ public class DemonArmSand : AttackController
         bdy.zwidth = 0.44f;
         Bdy();
         
-        SpawnOpoint(50, Opoint(x: 0.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        SpawnOpoint(SAND_ELEMENT_OPOINT, Opoint(x: 0.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
         
         itr.dvx = 350; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
@@ -144,7 +145,7 @@ public class DemonArmSand : AttackController
         wait = 5f;
         next = AttackFrontInvoke_7;
         
-        SpawnOpoint(50, Opoint(x: 1f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        SpawnOpoint(SAND_ELEMENT_OPOINT, Opoint(x: 1f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
 
         bdy.x = 0.9932f;
         bdy.y = 0.0455f;
@@ -161,7 +162,7 @@ public class DemonArmSand : AttackController
         wait = 0.5f;
         next = AttackFrontInvoke_8;
         
-        SpawnOpoint(50, Opoint(x: 1.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        SpawnOpoint(SAND_ELEMENT_OPOINT, Opoint(x: 1.5f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
 
         bdy.x = 0.9932f;
         bdy.y = 0.0455f;
@@ -357,7 +358,7 @@ public class DemonArmSand : AttackController
         bdy.zwidth = 0.44f;
         Bdy();
         
-        SpawnOpoint(50, Opoint(x: 0.195f, y: -0.039f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        SpawnOpoint(SAND_ELEMENT_OPOINT, Opoint(x: 0.195f, y: -0.039f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
         
         itr.dvx = 350; itr.dvy = 150; itr.dvz = 0; itr.action = 860;
         itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
@@ -379,7 +380,7 @@ public class DemonArmSand : AttackController
         wait = 5f;
         next = FloatAttackFrontInvoke_27;
         
-        SpawnOpoint(50, Opoint(x: 0.858f, y: -1f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        SpawnOpoint(SAND_ELEMENT_OPOINT, Opoint(x: 0.858f, y: -1f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
 
         bdy.x = 0.9932f;
         bdy.y = 0.0455f;
@@ -396,7 +397,7 @@ public class DemonArmSand : AttackController
         wait = 0.5f;
         next = AttackFrontInvoke_8;
         
-        SpawnOpoint(50, Opoint(x: 1.36f, y: -1.5f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        SpawnOpoint(SAND_ELEMENT_OPOINT, Opoint(x: 1.36f, y: -1.5f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
 
         bdy.x = 0.9932f;
         bdy.y = 0.0455f;

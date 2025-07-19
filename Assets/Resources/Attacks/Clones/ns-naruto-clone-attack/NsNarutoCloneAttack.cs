@@ -12,6 +12,7 @@ using UnityEngine.InputSystem;
 
 public class NsNarutoCloneAttack : AttackController
 {
+    public static string SMOKE1 = "smoke_1";
     void Awake()
     {
         palettes.Add("Attacks/Clones/ns-naruto-clone-attack/sprites");
@@ -19,7 +20,7 @@ public class NsNarutoCloneAttack : AttackController
         headerName = "NS Naruto Clone Attack";
         totalHp = 150;
         frames = PopulateFrames(this);
-        opoints.Add(0, EnrichOpoint(3, "Effects/Smoke/smoke_1/smoke_1"));
+        opoints.Add(SMOKE1, EnrichOpoint(3, "Effects/Smoke/smoke_1/smoke_1"));
     }
 
     public void Start()
@@ -37,7 +38,7 @@ public class NsNarutoCloneAttack : AttackController
         next = Uppercut_1;
         BdyDefault();
         ItrDisable();
-        SpawnOpoint(0, Opoint(x: 0, y: 0, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(SMOKE1, Opoint(x: 0, y: 0, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Uppercut_1()
     {
@@ -99,7 +100,7 @@ public class NsNarutoCloneAttack : AttackController
         next = Downercut_21;
         BdyDefault();
         ItrDisable();
-        SpawnOpoint(0, Opoint(x: 0, y: 0, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(SMOKE1, Opoint(x: 0, y: 0, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
     }
     private void Downercut_21()
     {
@@ -153,7 +154,7 @@ public class NsNarutoCloneAttack : AttackController
         next = FrontAttack_41;
         BdyDefault();
         ItrDisable();
-        SpawnOpoint(0, Opoint(x: 0, y: 0, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(SMOKE1, Opoint(x: 0, y: 0, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
     }
     private void FrontAttack_41()
     {
@@ -203,7 +204,7 @@ public class NsNarutoCloneAttack : AttackController
     private void Remove_300()
     {
         ItrDisable();
-        SpawnOpoint(0, Opoint(x: 0, y: 0, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
+        SpawnOpoint(SMOKE1, Opoint(x: 0, y: 0, z: 0.04f, oid: 0, facingFront: true, quantity: 1));
         Delete();
     }
 }

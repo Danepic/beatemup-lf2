@@ -18,15 +18,15 @@ public class ObjController : MonoBehaviour
     protected float waitFrame;
     protected Vector3 originalLocalScale;
     public Color originalColor;
-    protected SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public TeamEnum team;
     public bool facingRight = true;
     public int pic;
     public StateFrameEnum state;
-    protected float wait;
+    public float wait;
     public int repeatCount;
     public int currentRepeat;
-    protected Action next;
+    public Action next;
 
     protected List<string> palettes = new();
 
@@ -34,27 +34,26 @@ public class ObjController : MonoBehaviour
     public float zSizeDefault = 0.44f;
     public SerializedDictionary<int, Sprite> sprites = new();
     protected Sprite inv;
-    public MethodInfo currentFrame;
+    public Action currentFrame;
     public int currentFrameId;
 
-    protected float dvx;
+    public float dvx;
+    public float dvy;
+    public float dvz;
 
-    protected float dvy;
-
-    protected float dvz;
-    public MethodInfo summonAction;
+    public Action summonAction;
     public bool enableNextIfHit;
     protected ObjController lastTargetHit = null;
     protected Vector3 originLocalPosition;
     protected Quaternion originRotation;
-    protected Dictionary<int, Queue<ObjController>> opoints = new();
+    protected Dictionary<string, Queue<ObjController>> opoints = new();
     protected Queue<ObjController> originPool = new();
     public int hitNormalFrame;
     public int hitBloodFrame;
     public int defenseHitFrame;
     protected bool execOpointOnceInFrame = true;
     protected bool execPhysicsOnceInFrame = true;
-    public Dictionary<int, MethodInfo> frames = new();
+    public Dictionary<int, Action> frames = new();
     protected bool actionTriggered = false;
     public int startFrame = 0;
     private float shortestDistance = Mathf.Infinity;
@@ -70,42 +69,41 @@ public class ObjController : MonoBehaviour
         originalColor = spriteRenderer.color;
         originLocalPosition = transform.position;
         originRotation = transform.rotation;
-        inv = Resources.Load<Sprite>("Etc/inv");
+        inv = UnityEngine.Resources.Load<Sprite>("Etc/inv");
     }
 
     public void Start()
     {
         if (summonAction != null)
         {
-            this.ChangeFrame(summonAction);
+            ChangeFrame(summonAction);
         }
+
         waitFrame = 0f;
         Facing();
     }
 
     public void Update()
     {
-        currentFrame.Invoke(this, null);
+        currentFrame?.Invoke();
         spriteRenderer.sprite = sprites.GetValueOrDefault(pic, inv);
     }
 
-    protected void ChangeFrame(MethodInfo nextFrame)
+    protected void ChangeFrame(Action nextFrame)
     {
         if (actionTriggered)
         {
             actionTriggered = false;
         }
+
+        currentFrameId = frames.FirstOrDefault(x => x.Value == nextFrame).Key;
         currentFrame = nextFrame;
-        currentFrameId = frames.FirstOrDefault(x => x.Value == currentFrame).Key;
         execOpointOnceInFrame = true;
         execPhysicsOnceInFrame = true;
         waitFrame = 0f;
-        dvx = 0; dvy = 0; dvz = 0;
-    }
-
-    protected void ChangeFrame(Action nextFrame)
-    {
-        ChangeFrame(nextFrame.Method);
+        dvx = 0;
+        dvy = 0;
+        dvz = 0;
     }
 
     public void ChangeFrame(int? nextFrame)
@@ -125,12 +123,12 @@ public class ObjController : MonoBehaviour
         }
     }
 
-    protected void RepeatCountToFrame(Action action)
+    public void RepeatCountToFrame(int frame)
     {
-        RepeatCountToFrame(action.Method);
+        RepeatCountToFrame(frames[frame]);
     }
-    
-    protected void RepeatCountToFrame(MethodInfo action)
+
+    public void RepeatCountToFrame(Action action)
     {
         if (currentRepeat >= repeatCount)
         {
@@ -146,7 +144,7 @@ public class ObjController : MonoBehaviour
 
     protected void GetSprites()
     {
-        Sprite[] spritesLocal = Resources.LoadAll<Sprite>(palettes[paletteIndex].Trim());
+        Sprite[] spritesLocal = UnityEngine.Resources.LoadAll<Sprite>(palettes[paletteIndex].Trim());
         foreach (Sprite spriteLocal in spritesLocal)
         {
             string[] nameValues = spriteLocal.name.Split("_");
@@ -160,25 +158,33 @@ public class ObjController : MonoBehaviour
     {
         if (!facingRight)
         {
-            transform.localScale = new Vector3(-MathF.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-MathF.Abs(transform.localScale.x), transform.localScale.y,
+                transform.localScale.z);
             facingRight = false;
         }
         else
         {
-            transform.localScale = new Vector3(MathF.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(MathF.Abs(transform.localScale.x), transform.localScale.y,
+                transform.localScale.z);
             facingRight = true;
         }
     }
 
-    protected void IfHit(Action action)
+    public void IfHit(int frame)
+    {
+        IfHit(frames[frame]);
+    }
+
+    public void IfHit(Action frame)
     {
         if (enableNextIfHit)
         {
-            this.ChangeFrame(action);
+            this.ChangeFrame(frame);
         }
     }
 
-    protected OpointEntity Opoint(float x, float y, float z, int oid, bool facingFront, int quantity, bool useSamePalette = false, bool cancellable = false, bool attachToOwner = false,
+    public OpointEntity Opoint(float x, float y, float z, int oid, bool facingFront, int quantity,
+        bool useSamePalette = false, bool cancellable = false, bool attachToOwner = false,
         bool useParentOwner = false, float rotationZ = 0f)
     {
         return new()
@@ -197,17 +203,18 @@ public class ObjController : MonoBehaviour
         };
     }
 
-    protected List<ObjController> SpawnOpoint(int index, OpointEntity opoint, List<ObjController> opointsControl = null)
+    public List<ObjController> SpawnOpoint(string key, OpointEntity opoint, List<ObjController> opointsControl = null)
     {
-        if (opointsControl != null && opointsControl.Count > 0) {
+        if (opointsControl != null && opointsControl.Count > 0)
+        {
             return opointsControl;
         }
-        
+
         List<ObjController> result = new();
-        if (execOpointOnceInFrame && opoints[index].Count > 0)
+        if (execOpointOnceInFrame && opoints[key].Count > 0)
         {
             execOpointOnceInFrame = false;
-            ObjController opointScript = opoints[index].Dequeue();
+            ObjController opointScript = opoints[key].Dequeue();
             opointScript.team = team;
 
             opointScript.facingRight = facingRight && opoint.facingFront;
@@ -230,7 +237,7 @@ public class ObjController : MonoBehaviour
                 xPos = transform.position.x - opoint.x;
             }
 
-            
+
             if (opoint.rotationZ != 0)
             {
                 opointScript.usedRotationZ = opoint.rotationZ;
@@ -245,7 +252,8 @@ public class ObjController : MonoBehaviour
             if (opoint.attachToOwner)
             {
                 opointScript.transform.parent = transform;
-                opointScript.facingRight = true; //Quando é um child quem determina o lado é o Owner, e o facingRight true sempre mantém pro lado do owner
+                opointScript.facingRight =
+                    true; //Quando é um child quem determina o lado é o Owner, e o facingRight true sempre mantém pro lado do owner
                 opointScript.attachToOwner = opoint.attachToOwner;
             }
             else
@@ -262,6 +270,7 @@ public class ObjController : MonoBehaviour
                 {
                     childGameObj.SetActive(true);
                 }
+
                 var hitbox = opointScript.gameObject.transform.Find("Hitbox");
                 if (hitbox != null)
                 {
@@ -296,38 +305,6 @@ public class ObjController : MonoBehaviour
         }
     }
 
-    public void SpawnHitOpoint(Vector3 opointPosition, ItrEffectEnum effect)
-    {
-        switch (effect)
-        {
-            case ItrEffectEnum.NORMAL:
-                SpawnHit(opoints[100].Dequeue(), opointPosition);
-                break;
-            case ItrEffectEnum.BLOOD:
-                SpawnHit(opoints[101].Dequeue(), opointPosition);
-                break;
-            case ItrEffectEnum.DEFENSE:
-                SpawnHit(opoints[102].Dequeue(), opointPosition);
-                break;
-            case ItrEffectEnum.SLOW:
-            case ItrEffectEnum.STUN:
-            case ItrEffectEnum.IGNITE:
-            case ItrEffectEnum.POISON:
-            case ItrEffectEnum.ROOT:
-            case ItrEffectEnum.CHARM:
-            case ItrEffectEnum.FEAR:
-            case ItrEffectEnum.TAUNT:
-            case ItrEffectEnum.BLIND:
-            case ItrEffectEnum.PARALYSIS:
-            case ItrEffectEnum.FREEZE:
-            case ItrEffectEnum.CONFUSE:
-            case ItrEffectEnum.SILENCE:
-            case ItrEffectEnum.NO_EFFECT:
-            default:
-                break;
-        }
-    }
-
     private void SpawnHit(ObjController gameObj, Vector3 opointPosition)
     {
         gameObj.transform.position = opointPosition + new Vector3(0, 0f, -0.09f);
@@ -336,6 +313,7 @@ public class ObjController : MonoBehaviour
         {
             gameObj.transform.GetChild(i).gameObject.SetActive(true);
         }
+
         gameObj.Start();
     }
 
@@ -345,6 +323,7 @@ public class ObjController : MonoBehaviour
         {
             opoint.Delete();
         }
+
         cancellableOpoints.Clear();
     }
 
@@ -365,8 +344,9 @@ public class ObjController : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
-            transform.GetChild(i).transform.Rotate(0f,0f,0f);
+            transform.GetChild(i).transform.Rotate(0f, 0f, 0f);
         }
+
         if (ownerId == null)
         {
             originPool.Enqueue(this);
@@ -383,14 +363,14 @@ public class ObjController : MonoBehaviour
     public Queue<ObjController> EnrichOpoint(int poolObjectsQuantity, string objPath)
     {
         Queue<ObjController> framePoolObjects = new();
-        GameObject gameObjectToPool = Resources.Load<GameObject>(objPath);
+        GameObject gameObjectToPool = UnityEngine.Resources.Load<GameObject>(objPath);
 
         for (int currentPool = 0; currentPool < poolObjectsQuantity; currentPool++)
         {
             GameObject gameObjectToPoolInstantiate;
             try
             {
-                gameObjectToPoolInstantiate = GameObject.Instantiate<GameObject>(gameObjectToPool);
+                gameObjectToPoolInstantiate = Instantiate(gameObjectToPool);
             }
             catch (Exception e)
             {
@@ -416,26 +396,39 @@ public class ObjController : MonoBehaviour
         return framePoolObjects;
     }
 
-    protected Dictionary<int, MethodInfo> PopulateFrames(object target)
+    protected Dictionary<int, Action> PopulateFrames(object target)
     {
-        var result = new Dictionary<int, MethodInfo>();
-        var methods = target.GetType().GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Where(method => method.Name.Split("_").Length == 2 && Int32.TryParse(method.Name.Split("_")[1], out _)).ToList();
+        var result = new Dictionary<int, Action>();
+
+        var methods = target
+            .GetType()
+            .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+            .Where(method =>
+            {
+                var parts = method.Name.Split("_");
+                return parts.Length == 2 && int.TryParse(parts[1], out _);
+            });
+
         foreach (var method in methods)
         {
-            var frameNameAndNumber = method.Name.Split("_");
-            result.Add(Int32.Parse(frameNameAndNumber[1]), method);
+            int frameNumber = int.Parse(method.Name.Split("_")[1]);
+            var action = (Action)Delegate.CreateDelegate(typeof(Action), target, method);
+            result[frameNumber] = action;
         }
+
         return result;
     }
 
     protected void Fadeout(float fadeout)
     {
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a - fadeout);
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b,
+            spriteRenderer.color.a - fadeout);
     }
 
     protected void Fadein(float fadeout)
     {
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a + fadeout);
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b,
+            spriteRenderer.color.a + fadeout);
     }
 
     protected void ScaleDown(float propScalex, float propScaley)
@@ -475,11 +468,17 @@ public class ObjController : MonoBehaviour
 
     protected List<CharController> FindEnemies()
     {
-        return GameObject.FindGameObjectsWithTag("Character").Select(chara => chara.GetComponent<CharController>()).ToList().Where(charController => charController.team != team).ToList();
+        return GameObject.FindGameObjectsWithTag("Character").Select(chara => chara.GetComponent<CharController>())
+            .ToList().Where(charController => charController.team != team).ToList();
     }
 
     protected CharController FindNearestEnemy()
     {
         return FindNearestObject(FindEnemies());
+    }
+
+    public Action ToAction(MethodInfo methodInfo)
+    {
+        return (Action)Delegate.CreateDelegate(typeof(Action), methodInfo);
     }
 }

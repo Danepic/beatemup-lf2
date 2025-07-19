@@ -47,7 +47,7 @@ public class KamuiAttack : AttackController
         itr.x = 0; itr.y = 0.715f; itr.z = 0;
         itr.w = 1.25f; itr.h = 1.43f; itr.zwidth = 0.44f;
         itr.dvx = 10; itr.dvy = 10; itr.dvz = 0; itr.action = 950;
-        itr.applyInSingleEnemy = false; itr.defensable = false; itr.level = 1; itr.injury = 50;
+        itr.applyInSingleEnemy = false; itr.defensable = false; itr.level = 1; itr.injury = 550;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 20; itr.physic = ItrPhysicEnum.DEFAULT;
         Itr();
     }

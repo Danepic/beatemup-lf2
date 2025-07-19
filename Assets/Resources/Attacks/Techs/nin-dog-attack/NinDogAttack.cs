@@ -12,6 +12,7 @@ using UnityEngine.InputSystem;
 
 public class NinDogAttack : AttackController
 {
+    public static string SMOKE1_OPOINT = "smoke_1";
     void Awake()
     {
         palettes.Add("Attacks/Techs/nin-dog-attack/sprites");
@@ -19,7 +20,7 @@ public class NinDogAttack : AttackController
         headerName = "Ninja Dog Attack";
         totalHp = 150;
         frames = PopulateFrames(this);
-        opoints.Add(0, EnrichOpoint(3, "Effects/Smoke/smoke_1/smoke_1"));
+        opoints.Add(SMOKE1_OPOINT, EnrichOpoint(3, "Effects/Smoke/smoke_1/smoke_1"));
     }
 
     public void Start()
@@ -36,7 +37,7 @@ public class NinDogAttack : AttackController
         next = Downercut_21;
         BdyDefault();
         ItrDisable();
-        SpawnOpoint(0, Opoint(x: 0, y: 0, z: 0.04f, oid: 40, facingFront: true, quantity: 1));
+        SpawnOpoint(SMOKE1_OPOINT, Opoint(x: 0, y: 0, z: 0.04f, oid: 40, facingFront: true, quantity: 1));
     }
     private void Downercut_21()
     {
@@ -64,7 +65,7 @@ public class NinDogAttack : AttackController
         pic = 102; wait = 1; next = Downercut_26;
         BdyDefault();
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 80;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault(zwidth: 0.44f);
     }
@@ -75,7 +76,7 @@ public class NinDogAttack : AttackController
         itr.x = 0.1273f; itr.y = 0.3239f; itr.z = 0;
         itr.w = 0.2994343f; itr.h = 0.6465725f; itr.zwidth = 0.44f;
         itr.dvx = 50; itr.dvy = 0; itr.dvz = 0; itr.action = 800;
-        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 150;
+        itr.applyInSingleEnemy = false; itr.defensable = true; itr.level = 1; itr.injury = 80;
         itr.effect = ItrEffectEnum.BLOOD; itr.rest = 15; itr.physic = ItrPhysicEnum.DEFAULT;
         ItrDefault(zwidth: 0.44f);
     }
@@ -83,7 +84,7 @@ public class NinDogAttack : AttackController
     private void Remove_300()
     {
         ItrDisable();
-        SpawnOpoint(0, Opoint(x: 0, y: 0, z: 0.04f, oid: 40, facingFront: true, quantity: 1));
+        SpawnOpoint(SMOKE1_OPOINT, Opoint(x: 0, y: 0, z: 0.04f, oid: 40, facingFront: true, quantity: 1));
         Delete();
     }
 }

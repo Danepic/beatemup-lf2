@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class ShieldSand2 : AttackController
 {
+    public static string DEFENSE_HIT1_OPOINT = "defense_hit";
+    public static string DEFENSE_HIT2_OPOINT = "defense_hit2";
+    public static string DEFENSE_HIT3_OPOINT = "defense_hit3";
     void Awake()
     {
         palettes.Add("Attacks/Techs/sand/shield-2/sprites");
@@ -10,9 +13,9 @@ public class ShieldSand2 : AttackController
         headerName = "ShieldSand2";
         totalHp = 500;
         frames = PopulateFrames(this);
-        opoints.Add(4, EnrichOpoint(10, "Etc/defense_hit/defense_hit"));
-        opoints.Add(5, EnrichOpoint(10, "Etc/defense_hit/defense_hit"));
-        opoints.Add(6, EnrichOpoint(10, "Etc/defense_hit/defense_hit"));
+        opoints.Add(DEFENSE_HIT1_OPOINT, EnrichOpoint(10, "Etc/defense_hit/defense_hit"));
+        opoints.Add(DEFENSE_HIT2_OPOINT, EnrichOpoint(10, "Etc/defense_hit/defense_hit"));
+        opoints.Add(DEFENSE_HIT3_OPOINT, EnrichOpoint(10, "Etc/defense_hit/defense_hit"));
         attackLevel1Frame = null;
         attackLevel2Frame = null;
         attackLevel3Frame = null;

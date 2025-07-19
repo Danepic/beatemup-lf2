@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SandSpear : AttackController
 {
+    public static string SAND_ELEMENT_OPOINT = "sandElement";
     void Awake()
     {
         palettes.Add("Attacks/Techs/sand/spear/sprites");
@@ -14,7 +15,7 @@ public class SandSpear : AttackController
         attackLevel2Frame = null;
         attackLevel3Frame = null;
         
-        opoints.Add(50, EnrichOpoint(100, "Attacks/Elements/sand/sandElement"));
+        opoints.Add(SAND_ELEMENT_OPOINT, EnrichOpoint(100, "Attacks/Elements/sand/sandElement"));
 
     }
 
@@ -394,7 +395,7 @@ public class SandSpear : AttackController
         bdy.w = 0.9048313f; bdy.h = 0.3922809f; bdy.zwidth = 0.55f;
         Bdy();
         
-        SpawnOpoint(50, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
+        SpawnOpoint(SAND_ELEMENT_OPOINT, Opoint(x: 0f, y: 0f, z: 0f, oid: 0, facingFront: true, quantity: 1, useParentOwner: true));
     }
     
     private void FloatSpearSandGround_43()
