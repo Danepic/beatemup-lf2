@@ -181,7 +181,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.65
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -225,11 +225,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  minX: 3.4028235e+38
-  maxX: -3.4028235e+38
-  minY: 3.4028235e+38
-  maxY: -3.4028235e+38
-  adjustForY: 2.5
+  useLimits: 0
+  minLimitX: -50
+  maxLimitX: 50
+  minLimitY: 0
+  maxLimitY: 20
+  minLimitZ: -20
+  maxLimitZ: 20
+  smoothSpeed: 5
+  minZoomDistance: 10
+  maxZoomDistance: 30
+  zoomFactorZ: 0.2
+  zoomFactorY: 0.1
 --- !u!1 &1314804765
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p1Spawn: {fileID: 1314804766}
   p2Spawn: {fileID: 2013609314}
-  canvas: {fileID: 2061201961}
+  cameraController: {fileID: 702895575}
 --- !u!4 &1357528085
 Transform:
   m_ObjectHideFlags: 0

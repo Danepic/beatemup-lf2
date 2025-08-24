@@ -82,12 +82,18 @@ public class PhysicsObjController : ObjController
     protected int? attackLevel3Frame;
     protected List<PhysicsObjController> hittableObjects = new List<PhysicsObjController>();
 
+    private DamageCounterController damageCounterController;
+    private bool showDamageValue;
+
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
         selfBoxCollider = GetComponent<BoxCollider>();
         hurtbox = transform.Find("Hurtbox");
         hitbox = transform.Find("Hitbox");
+        var damageCounterObj = hurtbox.Find("DamageCounter");
+        showDamageValue = damageCounterObj && damageCounterObj.TryGetComponent(out damageCounterController);
+        
         base.Awake();
     }
 
@@ -383,7 +389,12 @@ public class PhysicsObjController : ObjController
             wasAttacked = true;
             if (gameObject.activeInHierarchy)
             {
-                StartCoroutine(ItrEffectSpawn(scriptObject.itr.effect, new Vector3(0f, 0.3f, -0.1f)));
+                var contactPoint = new Vector3(0f, 0.3f, -0.1f);
+                if (damageCounterController)
+                {
+                    damageCounterController.Spawn(scriptObject.itr.injury, transform.position, contactPoint, facingRight);
+                }
+                StartCoroutine(ItrEffectSpawn(scriptObject.itr.effect, contactPoint));
             }
 
             if (TryGetComponent<CharController>(out _))
@@ -443,7 +454,7 @@ public class PhysicsObjController : ObjController
 
             if (scriptObject.targetId == null && scriptObject.damageInSingleTarget)
             {
-                scriptObject.targetId = ownerId != null ? ownerId : id;
+                scriptObject.targetId = ownerId ?? id;
             }
             else
             {
@@ -909,12 +920,10 @@ public class PhysicsObjController : ObjController
 
         if (hitWallFrontCollidersResult > 0)
         {
-            Debug.Log(gameObject.name + " | " + hitWallFrontColliders[0].gameObject.name);
             onWall = true;
         }
         else if (hitWallBackCollidersResult > 0)
         {
-            Debug.Log(gameObject.name + " | " + hitWallBackColliders[0].gameObject.name);
             onWall = true;
         }
         else

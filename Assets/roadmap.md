@@ -3,7 +3,7 @@ Entrega da demo - até o final de 2025
 - [x] Kakashi D
 - [x] Gaara SS
 - [x] Barras de vida e mana e balanceamento
-- [ ] Adicionar game obj do valor de dano aparecer quando realiza um golpe
+- [x] Adicionar game obj do valor de dano aparecer quando realiza um golpe
 - [ ] Arrumar limites XY das cameras
 - [ ] Largura bdy/itr, frame wait entre hits precavendo infinitas, precaver hits quando o oponente tiver no chao
 - [ ] Poder lançar poderes no eixo Z

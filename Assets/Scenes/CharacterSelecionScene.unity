@@ -885,7 +885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8597339867962251513, guid: 812b447ffbb2e2e4089361500d4fca15, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.20279
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 8597339867962251513, guid: 812b447ffbb2e2e4089361500d4fca15, type: 3}
       propertyPath: m_LocalPosition.z
@@ -922,7 +922,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7021282813945594610, guid: 812b447ffbb2e2e4089361500d4fca15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 812b447ffbb2e2e4089361500d4fca15, type: 3}
 --- !u!1 &344478564
 GameObject:
@@ -4689,10 +4692,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ns-gaara-base
       objectReference: {fileID: 0}
-    - target: {fileID: 6121911019449722295, guid: bb68965f0a9133f42aea61e4ce797b56, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8597339867962251513, guid: bb68965f0a9133f42aea61e4ce797b56, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.879
@@ -4736,7 +4735,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2155307388261316279, guid: bb68965f0a9133f42aea61e4ce797b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: bb68965f0a9133f42aea61e4ce797b56, type: 3}
 --- !u!1001 &8223540404973854818
 PrefabInstance:

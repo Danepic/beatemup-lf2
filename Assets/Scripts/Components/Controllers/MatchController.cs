@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Enums;
 using Model;
+using Resources.Backgrounds;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,8 @@ public class MatchController : MonoBehaviour
     public Transform p2Spawn;
 
     private string barsPath = "UI/Battle/Bars";
+
+    public CameraController cameraController;
 
     void Awake()
     {
@@ -31,6 +34,18 @@ public class MatchController : MonoBehaviour
 
             var stage = Instantiate(stageGameObj, stageGameObj.transform.position, Quaternion.identity);
             var stageSpriteRenderer = stage.transform.GetComponentsInChildren<SpriteRenderer>();
+
+            var stageLimits = stage.GetComponentInChildren<StageLimitsComponent>();
+            if (stageLimits != null)
+            {
+                cameraController.useLimits = stageLimits.useLimits;
+                cameraController.minLimitX = stageLimits.minLimitX;
+                cameraController.maxLimitX = stageLimits.maxLimitX;
+                cameraController.minLimitY = stageLimits.minLimitY;
+                cameraController.maxLimitY = stageLimits.maxLimitY;
+                cameraController.minLimitZ = stageLimits.minLimitZ;
+                cameraController.maxLimitZ = stageLimits.maxLimitZ;
+            }
 
             var resourcePathP1 = ExtractObjectName(MatchControllerStore.Instance.player1CharacterResourcePath);
             var p1GameObj = Instantiate(UnityEngine.Resources.Load<GameObject>(resourcePathP1), p1Spawn.position,
